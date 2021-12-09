@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    <a href="index.html"><img src="/assets/images/logo-kompasdata.png" alt=""></a>
+                    <a href="/"><img src="/assets/images/logo-kompasdata.png" alt=""></a>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="row">

@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 py-3">
                     <div class="nb-inner">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="/">
                             <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas">
                         </a>
                         <div class="med-box d-none d-md-block">
@@ -16,7 +16,7 @@
                                 <option value="3">Data</option>
                             </select>
                                     <input type="text" class="form-control" placeholder="Masukkan teks" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <a href="hasil-cari.html" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
+                                    <a href="/hasil-cari" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                                 </div>
                             </div>
 
@@ -26,8 +26,8 @@
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block"></span>
-                            <a href="login.html" class="btn btn-line">LOGIN</a>
-                            <a href="daftar.html" class="btn btn-second">DAFTAR</a>
+                            <a href="/login" class="btn btn-line">LOGIN</a>
+                            <a href="/daftar" class="btn btn-second">DAFTAR</a>
                         </div>
                     </div>
                 </div>

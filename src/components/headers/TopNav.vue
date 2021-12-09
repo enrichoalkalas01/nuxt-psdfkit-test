@@ -1,10 +1,10 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-dark komp-navbar">
         <div class="container pt-md-0">
-            <a class="navbar-brand d-block d-md-none me-auto" href="index.html">
+            <a class="navbar-brand d-block d-md-none me-auto" href="/">
                 <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas Test">
             </a>
-            <a href="cart.html" class="icon-cart mx-3 d-block d-md-none">
+            <a href="/cart" class="icon-cart mx-3 d-block d-md-none">
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
                     <option value="3">Data</option>
                 </select>
                         <input type="text" class="form-control" placeholder="Masukkan teks" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <a href="hasil-cari.html" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
+                        <a href="/hasil-cari" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                     </div>
                 </div>
                 <ul class="navbar-nav">
@@ -29,10 +29,10 @@
                         Arsip
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="ArsipDropdown">
-                            <li><a class="dropdown-item" href="arsip.html#AllTabs01">Semua </a></li>
-                            <li><a class="dropdown-item" href="arsip.html#AllTabs02">Artikel</a></li>
-                            <li><a class="dropdown-item" href="arsip.html#AllTabs03">Foto</a></li>
-                            <li><a class="dropdown-item" href="arsip.html#AllTabs04">Infografik</a></li>
+                            <li><a class="dropdown-item" href="/arsip#AllTabs01">Semua </a></li>
+                            <li><a class="dropdown-item" href="/arsip#AllTabs02">Artikel</a></li>
+                            <li><a class="dropdown-item" href="/arsip#AllTabs03">Foto</a></li>
+                            <li><a class="dropdown-item" href="/arsip#AllTabs04">Infografik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -40,11 +40,11 @@
                         Buku
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs01">Semua </a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs02">Katalog pbk</a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs03">Perpustakaan</a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs04">Ebook Online</a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs05">White Paper</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs01">Semua </a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs02">Katalog pbk</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs03">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs04">Ebook Online</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs05">White Paper</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -52,10 +52,10 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="data.html#dataTabs01">Semua</a></li>
-                            <li><a class="dropdown-item" href="data.html#dataTabs02">Polling</a></li>
-                            <li><a class="dropdown-item" href="data.html#dataTabs03">Survey</a></li>
-                            <li><a class="dropdown-item" href="data.html#dataTabs04">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs01">Semua</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs02">Polling</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs03">Survey</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs04">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -63,10 +63,10 @@
                         Layanan
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="layananDropdown">
-                            <li><a class="dropdown-item" href="layanan.html">Semua</a></li>
-                            <li><a class="dropdown-item" href="layanan.html#riset">Riset</a></li>
-                            <li><a class="dropdown-item" href="layanan.html#informasi">Paket Informasi</a></li>
-                            <li><a class="dropdown-item" href="layanan.html#penerbit">Penerbitan Buku</a></li>
+                            <li><a class="dropdown-item" href="/layanan">Semua</a></li>
+                            <li><a class="dropdown-item" href="/layanan#riset">Riset</a></li>
+                            <li><a class="dropdown-item" href="/layanan#informasi">Paket Informasi</a></li>
+                            <li><a class="dropdown-item" href="/layanan#penerbit">Penerbitan Buku</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ms-auto">
@@ -74,16 +74,16 @@
                         Bantuan
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="bantuanDropdown">
-                            <li><a class="dropdown-item" href="bantuan.html#tentang">Tentang</a></li>
-                            <li><a class="dropdown-item" href="bantuan.html#langganan">Cara Berlangganan</a></li>
-                            <li><a class="dropdown-item" href="bantuan.html#harga">Harga</a></li>
+                            <li><a class="dropdown-item" href="/bantuan#tentang">Tentang</a></li>
+                            <li><a class="dropdown-item" href="/bantuan#langganan">Cara Berlangganan</a></li>
+                            <li><a class="dropdown-item" href="/bantuan#harga">Harga</a></li>
                         </ul>
                     </li>
 
                 </ul>
                 <div class="d-block d-md-none p-3">
-                    <a href="login.html" class="btn btn-line">LOGIN</a>
-                    <a href="daftar.html" class="btn btn-second">DAFTAR</a>
+                    <a href="/login" class="btn btn-line">LOGIN</a>
+                    <a href="/daftar" class="btn btn-second">DAFTAR</a>
                 </div>
             </div>
 
