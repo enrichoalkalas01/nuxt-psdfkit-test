@@ -1,9 +1,10 @@
 <template>
     <section class="sec-slide" id="slide">
         <div class="banner-slide">
+            
             <div class="item">
                 <a href="artikel-detail.html" class="headline">
-                    <img src="resources/images/slide01.jpg" alt="">
+                    <img src="/assets/images/slide01.jpg" alt="">
                 </a>
                 <div class="caption py-5 text-center">
                     <div class="badge">
@@ -21,7 +22,7 @@
             </div>
             <div class="item">
                 <a href="artikel-detail.html" class="headline">
-                    <img src="resources/images/slide02.jpg" alt="">
+                    <img src="/assets/images/slide02.jpg" alt="">
                 </a>
                 <div class="caption py-5 text-center">
                     <div class="badge">
@@ -39,7 +40,7 @@
             </div>
             <div class="item">
                 <a href="artikel-detail.html" class="headline">
-                    <img src="resources/images/slide03.jpg" alt="">
+                    <img src="/assets/images/slide03.jpg" alt="">
                 </a>
                 <div class="caption py-5 text-center">
                     <div class="badge">
@@ -52,16 +53,33 @@
                         <a href="artikel-detail.html">
                         Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN</a>
                     </h1>
-
                 </div>
+            </div>
+            <div class="carousel-wrapper">
+                <Carousel :per-page="1" :navigate-to="someLocalProperty" :mouse-drag="false">
+                    <Slide>
+                    Slide 1 Content
+                    </Slide>
+                    <Slide>
+                    Slide 2 Content
+                    </Slide>
+                </Carousel>
             </div>
         </div>
     </section>
 </template>
 
 <script>
+    import { Carousel, Slide } from 'vue-carousel';
+    
     export default {
         name: 'Tester',
+        components: { Carousel, Slide },
+        data() {
+            return {
+                Test:true
+            }
+        }
     }
 </script>
 
