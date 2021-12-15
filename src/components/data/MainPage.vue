@@ -44,32 +44,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="  col-md-3">
-                        <div class="banner my-3">
-                            <img src="/assets/images/ads2.png" class="w-100 rounding" alt="">
-                        </div>
-                        <div class="content borderless mb-2 line-bot2">
+                    <div class="col-md-3">
+                        <Banner />
+                        <div class="title-content">
                             <p>Suggestion</p>
-                            <img src="/assets/images/hasil3.png" class="rounding w-100" alt="">
-                            <h3 class="subtitle my-2"> <a href="#">Banjarmasin Berhias Teratai</a></h3>
-                            <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                            <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
                         </div>
-                        <div class="content borderless mb-2 line-bot2">
-                            <h3 class="subtitle"> <a href="#">Pesisir yang Terendam dan Prediksi Dunia Tahun 2040</a></h3>
-                            <p>Kenaikan suhu hingga 1,5 derajat celsius diprediksi tak terhindarkan.</p>
-                            <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                        </div>
-                        <div class="content borderless mb-2 line-bot2">
-                            <h3 class="subtitle"> <a href="#">Pengembangan Wastra Butuh Partisipasi Publik</a></h3>
-                            <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                            <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                        </div>
-                        <div class="content borderless mb-2">
-                            <h3 class="subtitle"> <a href="#">Pengembangan Wastra Butuh Partisipasi Publik</a></h3>
-                            <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                            <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                        </div>
+                        <Suggestion />
+                        <Suggestion />
+                        <Suggestion />
                     </div>
                 </div>
             </div>
@@ -83,6 +65,8 @@ import Polling from './Polling.vue'
 import Survey from './Survey.vue'
 import Statistik from './Statistik.vue'
 import Pencarian from './Pencarian.vue'
+import Banner from './Banner.vue'
+import Suggestion from './Suggestion.vue'
 
 export default {
     name: 'MainPage',
@@ -92,6 +76,8 @@ export default {
         Survey,
         Statistik,
         Pencarian,
+        Banner,
+        Suggestion,
     }
 }
 </script>

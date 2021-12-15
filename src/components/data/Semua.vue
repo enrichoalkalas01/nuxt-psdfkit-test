@@ -6,16 +6,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 27.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -23,16 +23,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 28.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -40,16 +40,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 29.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -64,16 +64,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 27.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -81,16 +81,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 28.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -98,16 +98,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 29.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -121,16 +121,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 27.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -138,16 +138,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 28.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -155,16 +155,16 @@
                 <div class="content my-3">
                     <div class="row">
                         <div class="col-sm-6 my-3">
-                            <a href="data-detail.html">
+                            <a href="data-detail">
                                 <img src="/assets/images/image 29.png" alt="" class="w-100">
                             </a>
                         </div>
                         <div class="col-sm-6 my-3">
                             <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail.html">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
                                 <p class="short-text three">
                                     Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail.html" class="more">Selengkapnya</a>
+                                <a href="data-detail" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
