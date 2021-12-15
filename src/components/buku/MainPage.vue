@@ -6,19 +6,19 @@
                     <MiniMenu />
                     <div class="tab-content komp-tab-content">
                         <div class="tab-pane fade show active" id="bukuTabs01" role="tabpanel" aria-labelledby="buku-Tabs01">
-                            <BukuOne v-bind:dataProducts="products" />
+                            <TopikHangat v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
-                            <BukuOne v-bind:dataProducts="products" />
+                            <KatalogPBK v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs03" role="tabpanel" aria-labelledby="buku-Tabs03">
-                            <BukuOne v-bind:dataProducts="products" />
+                            <Perpustakaan v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs04" role="tabpanel" aria-labelledby="buku-Tabs04">
-                            <BukuOne v-bind:dataProducts="products" />
+                            <EbookGratis v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs05" role="tabpanel" aria-labelledby="buku-Tabs05">
-                            <BukuOne v-bind:dataProducts="products" />
+                            <WhitePaper v-bind:dataProducts="products" />
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,11 @@
 
 <script>
     import MiniMenu from './MiniMenu.vue'
-    import BukuOne from './BukuOne.vue'
+    import TopikHangat from './TopikHangat.vue'
+    import WhitePaper from './WhitePaper.vue'
+    import KatalogPBK from './KatalogPBK.vue'
+    import Perpustakaan from './Perpustakaan.vue'
+    import EbookGratis from './EbookGratis.vue'
 
     let dataProducts = [
         { id: 1, images: '/assets/images/buku/image 22.png', title: 'Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia' },
@@ -48,7 +52,7 @@
 
     export default {
         name: 'Buku',
-        components: { MiniMenu, BukuOne },
+        components: { MiniMenu, TopikHangat, WhitePaper, EbookGratis, KatalogPBK, Perpustakaan },
         data () {
             return {
                 products: dataProducts

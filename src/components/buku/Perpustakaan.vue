@@ -2,11 +2,11 @@
     <div>
         <div class="buku-card">
             <CardBuku
-                v-for="product in products" :key="product._id"
+                v-for="product in products" :key="product.id"
                 v-bind:data="product"
                 v-bind:dataImage="product.images"
-                v-bind:dataId="product._id"
-                v-bind:dataTitle="product.title + product._id"
+                v-bind:dataId="product.id"
+                v-bind:dataTitle="product.title + product.id"
             />
         </div>
         <div class=" my-3 text-center">
@@ -24,7 +24,7 @@
 <script>
     import CardBuku from './CardBuku.vue'
     export default {
-        name: 'BukuOne',
+        name: 'Perpustakaan',
         components: { CardBuku },
         props: ['dataProducts'],
 
