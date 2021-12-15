@@ -1,13 +1,23 @@
 <template>
-    <section>
-        <!-- Tentang -->
-        <Tentang />
+    <section class="sec-artikel">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="title line-bot full">Pusat Bantuan</h2>
+                </div>
+                <div class="col-12">
+                    <!-- Tentang -->
+                    <Tentang />
 
-        <!-- Langganan -->
-        <Langganan />
+                    <!-- Langganan -->
+                    <Langganan />
 
-        <!-- Harga -->
-        <Harga />
+                    <!-- Harga -->
+                    <Harga />
+                </div>
+            </div>
+        </div>
+
     </section>
 </template>
 
