@@ -41,4 +41,30 @@
         name: 'MainPage',
         components: { Articles, Infographics, Foto, Buku, DataStatistik, LayananKami, BeritaTerkini, InformasiTerkini },
     }
+
+    // $(document).ready(function() {
+    //     /*slide*/
+    //     $(".banner-slide").slick({
+    //         dots: true,
+    //         autoplay: true,
+    //         infinite: true,
+    //         arrows: true,
+    //         speed: 300,
+
+    //     }); /*slide*/
+    //     $(".infografik-slide").slick({
+    //         // dots: true,
+    //         autoplay: true,
+    //         infinite: true,
+    //         arrows: true,
+    //         slidesToShow: 3,
+    //         slidesToScroll: 1,
+
+    //         centerMode: true,
+    //         centerPadding: '60px',
+    //         variableWidth: true,
+    //         speed: 300,
+
+    //     });
+    // });
 </script>

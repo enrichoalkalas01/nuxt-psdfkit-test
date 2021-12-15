@@ -27,7 +27,7 @@ const routes = [
 
     // Buku
     { path: '/buku', name: 'buku', component: Buku },
-    { path: '/buku-detail', name: 'buku-detail', component: BukuDetail }
+    { path: '/buku-detail/:id', name: 'buku-detail', component: BukuDetail }
 ]
 
 const router = createRouter({
