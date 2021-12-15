@@ -1,5 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router"
 import MainPage from '../components/homepages/MainPage.vue'
+import Data from '../components/data/MainPage.vue'
+import DataDetail from '../components/data/MainDetail.vue'
 import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
 import Login from '../components/login/Login.vue'
@@ -16,6 +18,10 @@ const routes = [
     // Homepages
     { path: '/', name: 'homepages', component: MainPage },
     
+    // Layanan
+    { path: '/data', name: 'data', component: Data },
+    { path: '/data-detail', name: 'data-detail', component: DataDetail },
+
     // Layanan
     { path: '/layanan', name: 'layanan', component: Layanan },
 
