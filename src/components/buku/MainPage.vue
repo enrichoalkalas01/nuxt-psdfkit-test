@@ -23,55 +23,54 @@
                     <div class="tab-content komp-tab-content">
                         <div class="tab-pane fade show active" id="bukuTabs01" role="tabpanel" aria-labelledby="buku-Tabs01">
                             <div class="buku-card">
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
-
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
@@ -88,55 +87,55 @@
                         </div>
                         <div class="tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
                             <div class="buku-card">
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
@@ -283,55 +282,55 @@
                         </div>
                         <div class="tab-pane fade" id="bukuTabs05" role="tabpanel" aria-labelledby="buku-Tabs05">
                             <div class="buku-card">
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 22 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 24 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26.png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (1).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
 
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (2).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>
-                                <a href="buku-detail.html" class="bc-inner">
+                                <a href="/buku-detail" class="bc-inner">
                                     <img src="/assets/images/buku/image 26 (3).png" alt="" class="bc-img">
                                     <h3 class="subtitle short-text three">Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia </h3>
                                 </a>

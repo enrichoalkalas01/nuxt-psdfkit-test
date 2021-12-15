@@ -6,6 +6,7 @@ import Login from '../components/login/Login.vue'
 import Register from '../components/login/Register.vue'
 import Arsip from '../components/arsip/MainPage.vue'
 import Buku from '../components/buku/MainPage.vue'
+import BukuDetail from '../components/buku/MainDetail.vue'
 
 const routes = [
     // Login & Register
@@ -25,7 +26,8 @@ const routes = [
     { path: '/arsip', name: 'arsip', component: Arsip },
 
     // Buku
-    { path: '/buku', name: 'buku', component: Buku }
+    { path: '/buku', name: 'buku', component: Buku },
+    { path: '/buku-detail', name: 'buku-detail', component: BukuDetail }
 ]
 
 const router = createRouter({

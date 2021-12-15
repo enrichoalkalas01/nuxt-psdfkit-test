@@ -122,18 +122,18 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-12 col-md-6 my-3">
-                                    <a href="infografik-detail.html" class="koran-big"><img src="/assets/images/koran1.png" class="w-100 rounding" alt="">
+                                    <a href="/infografik-detail" class="koran-big"><img src="/assets/images/koran1.png" class="w-100 rounding" alt="">
                                         <h2 class="title">100 Tahun Bung Karno</h2>
                                     </a>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <a href="infografik-detail.html" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
+                                    <a href="/infografik-detail" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
                                         <h2 class="subtitle">Candi Arjuna Dieng</h2>
                                     </a>
-                                    <a href="infografik-detail.html" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
+                                    <a href="/infografik-detail" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
                                         <h2 class="subtitle">Air Mineral Kemasan</h2>
                                     </a>
-                                    <a href="infografik-detail.html" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
+                                    <a href="/infografik-detail" class="koran-small my-3"><img src="/assets/images/koran1.png" class=" rounding" alt="">
                                         <h2 class="subtitle">Candi Jawa Timur</h2>
                                     </a>
                                 </div>
@@ -374,13 +374,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/image 10.png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">100 Tahun Bung Karno</a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">100 Tahun Bung Karno</a></h3>
                                                     <p class="short-text three">
                                                         Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.
                                                     </p>
@@ -391,13 +391,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/image 10 (1).png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">Krakatau</a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">Krakatau</a></h3>
                                                     <p class="short-text three">
                                                         Proses kolonisasi jenis tumbuhan dan satwa di Pulau Rakata, Panjang, dan Sertung sudah berjalan cukup lama, yaitu setelah letusan 1883 hingga sekarang. Sementara di Pulau Anak Krakatau yang muncul pada tahun 1927-1929, kolonisasi berjalan baru dalam beberapa
                                                         tahun(sekitar 75 tahun).
@@ -410,13 +410,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/image 10 (2).png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">Candi Jawa Timur</a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">Candi Jawa Timur</a></h3>
                                                     <p class="short-text three">
                                                         Menelusuri JawaTimur yang sarat peninggalan bersejarah menggiring imajinasi menuju kejayaan masa lalu. Pada abad ke-12 - 14 diyakini ada tiga kerajaan besar berpusat di Jawa Timur, yaitu Kediri, Singosari, dan Majapahit. Ketiganya memiliki masa keemasan
                                                         berbeda ditinjau dari luasnya kekuasaan serta pengaruhnya saat itu.
@@ -428,13 +428,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/borobudur.png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">Borobudur</a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">Borobudur</a></h3>
                                                     <p class="short-text three">
                                                         Ribuan umat Buddha akan merayakan Waisak dan melakukan prosesi dari Candi Mendut, melalui Candi Pawon untuk menuju Candi Agung Borobudur, Jumat (1/6). Peringatan Tri Suci Waisak Nasional 2551/2007 ini akan diikuti umat Buddha dalam dan luar negeri.
 
@@ -446,13 +446,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/image 10 (3).png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">Lumpur Lapindo</a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">Lumpur Lapindo</a></h3>
                                                     <p class="short-text three">
                                                         Hampir setahun berlangsung, semburan lumpur di Sidoarjo belum mampu ditangani. Semburan lumpur dari eksplorasi sumur Banjarpanji-1 di Kecamatan Porong, Kabupaten Sidoarjo awalnya dianggap sebagai kejadian yang biasa. Saat itu pemerintah pusat masih belum
                                                         proaktif.
@@ -465,13 +465,13 @@
                                     <div class="content borderless">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
-                                                <a href="infografik-detail.html">
+                                                <a href="/infografik-detail">
                                                     <img src="/assets/images/infografik/image 10 (4).png" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 my-3">
                                                 <div class="desc">
-                                                    <h3 class="subtitle"><a href="infografik-detail.html">Kota Lama Semarang dan Gereja Blenduk </a></h3>
+                                                    <h3 class="subtitle"><a href="/infografik-detail">Kota Lama Semarang dan Gereja Blenduk </a></h3>
                                                     <p class="short-text three">
                                                         Hampir setahun berlangsung, semburan lumpur di Sidoarjo belum mampu ditangani. Semburan lumpur dari eksplorasi sumur Banjarpanji-1 di Kecamatan Porong, Kabupaten Sidoarjo awalnya dianggap sebagai kejadian yang biasa. Saat itu pemerintah pusat masih belum
                                                         proaktif.
