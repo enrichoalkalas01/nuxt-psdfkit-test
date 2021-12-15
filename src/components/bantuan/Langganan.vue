@@ -15,7 +15,7 @@
                         </div>
                         <div class="desc text-center">
                             <div class="icon">
-                                <img src="resources/images/icon-doc.svg" alt="">
+                                <img src="/assets/images/icon-doc.svg" alt="">
                             </div>
                             <b>Daftar</b>
                             <ol class="list-num text-start">
@@ -30,7 +30,7 @@
                             Step<span>02</span>
                         </div>
                         <div class="desc text-center">
-                            <div class="icon"><img src="resources/images/icon-wallet.svg" alt=""></div>
+                            <div class="icon"><img src="/assets/images/icon-wallet.svg" alt=""></div>
 
                             <b>Pilih Metode Pembayaran</b>
                             <ol class="list-num text-start">
@@ -45,7 +45,7 @@
                         </div>
                         <div class="desc text-center">
                             <div class="icon">
-                                <img src="resources/images/icon-cari-doc.svg" alt="">
+                                <img src="/assets/images/icon-cari-doc.svg" alt="">
                             </div>
                             <b>Temukan Data</b>
                             <p class="text-start">Gunakan fasilitas mesin pencari yang mampu memberikan hasil pencarian sesuai harapan Anda.</p>
