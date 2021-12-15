@@ -14,7 +14,7 @@
         props: ['data', 'dataImage', 'dataId', 'dataTitle'],
 
         mounted() {
-        
+            
         },
 
         data() {
