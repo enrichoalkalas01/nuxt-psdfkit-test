@@ -3,7 +3,6 @@
         <section class="fixed-top">
             <TopNav />
             <MainNav />
-            <h1>Tester here</h1>
         </section>
         <section id="content-box" style="padding-top: 12.5%;">
             <router-view />
