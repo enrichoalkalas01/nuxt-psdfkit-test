@@ -9,6 +9,7 @@ import Register from '../components/login/Register.vue'
 import Arsip from '../components/arsip/MainPage.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
+import Test from '../components/test/TestPlugin.vue'
 
 const routes = [
     // Login & Register
@@ -33,7 +34,10 @@ const routes = [
 
     // Buku
     { path: '/buku', name: 'buku', component: Buku },
-    { path: '/buku-detail/:id', name: 'buku-detail', component: BukuDetail }
+    { path: '/buku-detail/:id', name: 'buku-detail', component: BukuDetail },
+
+    // Tester
+    { path: '/test', name: 'test', component: Test },
 ]
 
 const router = createRouter({
