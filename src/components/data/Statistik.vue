@@ -1,69 +1,37 @@
 <template>
-    <section>
-        <div class="row">
-            <div class="col-12 mb-3">
-                <h2 class="subtitle font-robo my-3">Data Statistik</h2>
-                <div class="content my-3">
-                    <div class="row">
-                        <div class="col-sm-6 my-3">
-                            <a href="data-detail">
-                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 my-3">
-                            <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                <p class="short-text three">
-                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail" class="more">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content my-3">
-                    <div class="row">
-                        <div class="col-sm-6 my-3">
-                            <a href="data-detail">
-                                <img src="/assets/images/image 28.png" alt="" class="w-100">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 my-3">
-                            <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                <p class="short-text three">
-                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail" class="more">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content my-3">
-                    <div class="row">
-                        <div class="col-sm-6 my-3">
-                            <a href="data-detail">
-                                <img src="/assets/images/image 29.png" alt="" class="w-100">
-                            </a>
-                        </div>
-                        <div class="col-sm-6 my-3">
-                            <div class="desc">
-                                <h3 class="subtitle"><a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                <p class="short-text three">
-                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                <a href="data-detail" class="more">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="my-3 text-center">
-                    <a href="#" class="btn btn-line">Lihat Lainnya</a>
-                </div>
+    <div class="row">
+        <div class="col-12 mb-3">
+            <h2 class="subtitle font-robo my-3">Data Statistik</h2>
+            <CardData
+                v-for="product in products" :key="product.id"
+                v-bind:data="product"
+                v-bind:dataImage="product.images"
+                v-bind:dataId="product.id"
+                v-bind:dataTitle="product.title + product.id"
+                v-bind:dataMiniDesc="product.miniDesc"
+            />
+            <div class="my-3 text-center">
+                <a href="#" class="btn btn-line">Lihat Lainnya</a>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
-export default {
-    name: 'Statistik'
-}
+    import CardData from './CardData.vue'
+
+    export default {
+        name: 'Statistik',
+        components: {
+            CardData
+        },
+        props: [
+            'dataProducts',
+        ],
+        data() {
+            return{
+                products: this.dataProducts
+            }
+        }
+    }
 </script>
