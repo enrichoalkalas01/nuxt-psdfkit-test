@@ -3,9 +3,8 @@
         <section class="fixed-top">
             <TopNav />
             <MainNav />
-            <h1>Tester here</h1>
         </section>
-        <section id="content-box" style="padding-top: 12.5%;">
+        <section id="content-box">
             <router-view />
         </section>
         <section id="footer-box">
@@ -26,4 +25,8 @@
 
 <style>
     @import '/assets/css/main.css';
+
+    #content-box {
+        padding-top: 10%;
+    }
 </style>

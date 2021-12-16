@@ -1,4 +1,6 @@
+// import Vue from 'vue'
 import { createWebHistory, createRouter } from "vue-router"
+// import Store from '../vuex/Store'
 import MainPage from '../components/homepages/MainPage.vue'
 import Data from '../components/data/MainPage.vue'
 import DataDetail from '../components/data/MainDetail.vue'
@@ -10,6 +12,7 @@ import Arsip from '../components/arsip/MainPage.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
 import Test from '../components/test/TestPlugin.vue'
+
 
 const routes = [
     // Login & Register
@@ -41,8 +44,9 @@ const routes = [
 ]
 
 const router = createRouter({
+    // Store,
     history: createWebHistory(),
-    routes
+    routes,
 })
 
 export default router

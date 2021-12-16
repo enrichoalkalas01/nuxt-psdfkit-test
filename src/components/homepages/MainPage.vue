@@ -1,5 +1,8 @@
 <template>
     <section>
+        <!-- Banner -->
+        <Banner />
+        
         <!-- Articles -->
         <Articles />
 
@@ -36,10 +39,16 @@
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
     import InformasiTerkini from './InformasiTerkini'
+    import Banner from './Banner.vue'
 
     export default {
         name: 'MainPage',
-        components: { Articles, Infographics, Foto, Buku, DataStatistik, LayananKami, BeritaTerkini, InformasiTerkini },
+        components: { 
+            Articles, Infographics,
+            Foto, Buku, DataStatistik,
+            LayananKami, BeritaTerkini,
+            InformasiTerkini, Banner
+        },
     }
 
     // $(document).ready(function() {
