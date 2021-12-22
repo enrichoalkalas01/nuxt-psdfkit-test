@@ -157,9 +157,9 @@
         color: inherit;
     }
 
-    .button-slider {
-        /* position: relative; */
-    }
+    /* .button-slider {
+        position: relative;
+    } */
 
     .button-slider .btn-slider {
         width: 35px;
