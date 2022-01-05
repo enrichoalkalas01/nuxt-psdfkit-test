@@ -19,14 +19,14 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username/Email</label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Username/Email" class="form-control">
+                                            <input type="text" v-model="username" placeholder="Username/Email" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password </label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Password" class="form-control">
+                                            <input type="text" v-model="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
@@ -46,7 +46,7 @@
 
                                     <div class="form-group row py-1">
                                         <div class="my-2">
-                                            <a href="dasboard.html" class="btn btn-main">Masuk</a>
+                                            <a v-on:click="login" class="btn btn-main">Masuk</a>
                                         </div>
 
                                     </div>
@@ -76,7 +76,38 @@
 </template>
 
 <script>
-export default {
-    name: 'Login'
-}
+    import Axios from 'axios'
+
+    export default {
+        name: 'Login',
+        
+        data(){
+            return {
+                username: '',
+                password: '',
+            }
+        },
+
+        methods: {
+            login(){
+                Axios({
+                    method: 'post',
+                    url: 'https://dev-be.kompasdata.id/api/Account',
+                    data: JSON.stringify({
+                        'userName' : this.username,
+                        'password' : this.password
+                    }),
+                    headers: { 'Content-Type': 'application/json' },
+                }).then(function (response) {
+                    //handle success
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    //handle error
+                    console.log("ERROR");
+                    console.log(error);
+                });
+            }
+        }
+    }
 </script>
