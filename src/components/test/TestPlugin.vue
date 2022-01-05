@@ -77,6 +77,7 @@
 
         mounted() {
             this.GetData()
+            console.log(this.$store.state.LoginStatus)
         },
 
         methods: {
