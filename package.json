@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@egjs/vue3-flicking": "^4.4.3",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-carousel": "^0.18.0",

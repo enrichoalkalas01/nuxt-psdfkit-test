@@ -45,6 +45,7 @@
     import Flicking from "@egjs/vue3-flicking";
     import "@egjs/vue3-flicking/dist/flicking.css";
     import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    import Axios from 'axios'
 
     // import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
     // import 'swiper/css/swiper.css'
@@ -74,9 +75,21 @@
             }
         },
 
+        mounted() {
+            this.GetData()
+        },
+
         methods: {
             nextClick() {
                 this.$refs.flicking.next()
+            },
+
+            GetData() {
+                Axios('https://my-json-server.typicode.com/typicode/demo/db').then(response => {
+                    console.log(response)
+                }).catch(err => {
+                    console.log(err.message)
+                })
             }
         }
     }
