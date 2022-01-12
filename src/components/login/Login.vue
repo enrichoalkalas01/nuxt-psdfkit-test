@@ -19,14 +19,14 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username/Email</label>
                                         <div class="my-2">
-                                            <input type="text" v-model="username" placeholder="Username/Email" class="form-control">
+                                            <input id="username" type="text" v-model="username" placeholder="Username/Email" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password </label>
                                         <div class="my-2">
-                                            <input type="text" v-model="password" placeholder="Password" class="form-control">
+                                            <input id="password" type="text" v-model="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
@@ -90,14 +90,19 @@
 
         methods: {
             login(){
+                var username = document.querySelector("#username").value
+                var password = document.querySelector("#password").value
+
                 Axios({
                     method: 'post',
                     url: 'https://dev-be.kompasdata.id/api/Account',
                     data: JSON.stringify({
-                        'userName' : this.username,
-                        'password' : this.password
+                        'username' : username,
+                        'password' : password
                     }),
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    },
                 }).then(function (response) {
                     //handle success
                     console.log(response);
