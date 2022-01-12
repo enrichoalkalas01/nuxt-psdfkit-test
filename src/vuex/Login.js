@@ -35,8 +35,8 @@ const Login = {
     },
 
     mutations: {
-        setLoginStatus(state) {
-            state.LoginStatus = true
+        setLoginStatus(state, value) {
+            state.LoginStatus = value
         },
 
         setLoginCookies(state, value = { name: false, data: false, days: 0}) {
