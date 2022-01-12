@@ -3,7 +3,7 @@ import Login from './Login'
 
 const Store = createStore({
     modules: {
-        Login: Login
+        Login: Login,
     }
 })
 
