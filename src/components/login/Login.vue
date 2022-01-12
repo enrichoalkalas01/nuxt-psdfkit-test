@@ -88,10 +88,18 @@
             }
         },
 
+        mounted() {
+            // console.log(this.$store.commit('LoginState', true))
+            // this.$store.commit('setLoginCookies', { name: '_km_dtl_s', data: 'ini data', days: 7 })
+            console.log(this.$store.state.Login)
+        },
+
         methods: {
             login(){
                 var username = document.querySelector("#username").value
                 var password = document.querySelector("#password").value
+                
+                // this.$store.commit('LoginState', true)
 
                 Axios({
                     method: 'post',

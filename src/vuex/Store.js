@@ -1,11 +1,9 @@
 import { createStore } from 'vuex'
+import Login from './Login'
 
 const Store = createStore({
-    state () {
-        // State Here
-        return {
-            LoginStatus: false
-        }
+    modules: {
+        Login: Login
     }
 })
 
