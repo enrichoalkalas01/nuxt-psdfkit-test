@@ -71,18 +71,28 @@
     let dataBanner = [
         {
             id: 1,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide01.jpg',
+            title: 'Rimbunnya Anggur di Kota Tangsel',
+            images: '/assets/static/banner/banner1.jpg',
         },
         {
             id: 2,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide02.jpg',
+            title: 'Terpikat Raja Ampat',
+            images: '/assets/static/banner/banner2.jpg',
         },
         {
             id: 3,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide03.jpg',
+            title: 'Kompetensi, Wajah Kemerdekaan Pers',
+            images: '/assets/static/banner/banner3.jpg',
+        },
+        {
+            id: 4,
+            title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
+            images: '/assets/static/banner/banner4.jpg',
+        },
+        {
+            id: 5,
+            title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
+            images: '/assets/static/banner/banner5.jpg',
         },
     ]
 
