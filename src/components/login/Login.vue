@@ -19,14 +19,14 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username/Email</label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Username/Email" class="form-control">
+                                            <input id="username" type="text" v-model="username" placeholder="Username/Email" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password </label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Password" class="form-control">
+                                            <input id="password" type="text" v-model="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
@@ -46,7 +46,7 @@
 
                                     <div class="form-group row py-1">
                                         <div class="my-2">
-                                            <a href="dasboard.html" class="btn btn-main">Masuk</a>
+                                            <a v-on:click="login" class="btn btn-main">Masuk</a>
                                         </div>
 
                                     </div>
@@ -76,7 +76,65 @@
 </template>
 
 <script>
-export default {
-    name: 'Login'
-}
+    import Axios from 'axios'
+
+    export default {
+        name: 'Login',
+        
+        data(){
+            return {
+                username: '',
+                password: '',
+            }
+        },
+
+        mounted() {
+            // this.$store.commit('setLoginStatus', true)
+            // console.log(this.$store.commit('LoginState', true))
+            // this.$store.commit('setLoginCookies', { name: '_km_dtl_s', data: 'ini data', days: 7 })
+            console.log(this.$store.state.Login)
+
+            if (this.$store.state.Login.LoginStatus) {
+                window.location.href = '/'
+            }
+        },
+
+        methods: {
+            async login(){
+                var username = document.querySelector("#username").value
+                var password = document.querySelector("#password").value
+
+                let getData = await Axios({
+                    method: 'post',
+                    url: 'https://dev-be.kompasdata.id/api/Account',
+                    data: JSON.stringify({
+                        'username' : username,
+                        'password' : password
+                    }),
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    },
+                }).then( Response => Response ).catch( Error => Error );
+
+                console.log(getData)
+
+                if (!getData) {
+                    alert("Something wrong")
+                } else {
+                    this.$store.commit('setLoginCookies', {
+                        'name' : '_km_dtl_d',
+                        'data': JSON.stringify(getData.data),
+                        'days' : 1
+                    });
+                    
+                    this.$store.commit('setLoginCookies', {
+                        'name' : '_km_dtl_s',
+                        'data': true,
+                        'days' : 1
+                    });
+                }
+            }
+        }
+    }
+
 </script>

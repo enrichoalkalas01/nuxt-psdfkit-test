@@ -9,13 +9,14 @@
   },
   "dependencies": {
     "@egjs/vue3-flicking": "^4.4.3",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-carousel": "^0.18.0",
     "vue-router": "^4.0.12",
     "vue-slick-carousel": "^1.0.6",
     "vue-slider-component": "^4.0.0-beta.4",
-    "vuex": "^3.6.2"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

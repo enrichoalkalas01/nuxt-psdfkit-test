@@ -1,8 +1,9 @@
-import createStore from "vuex" 
+import { createStore } from 'vuex'
+import Login from './Login'
 
 const Store = createStore({
-    state:{
-        name: "Vue global state"
+    modules: {
+        Login: Login,
     }
 })
 
