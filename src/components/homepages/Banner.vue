@@ -13,43 +13,46 @@
                                 ARSIP ARTIKEL
                             </div>
                             <div class="my-3">
-                                JULI 10, 2021
+                                {{ banner.date }}
                             </div>
                             <h1 class="heading">
                                 <a href="/artikel-detail">
-                                Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN</a>
+                                    {{ banner.title }}
+                                </a>
                             </h1>
                         </div>
                     </div>
                 </div>
-                <div class="panel" style="background-image: url('/assets/images/slide02.jpg')">
+                <div class="panel" style="background-image: url('/assets/static/banner/banner4.jpg')">
                     <div class="wrapper">
                         <div class="caption py-5 text-center">
                             <div class="badge">
                                 ARSIP ARTIKEL
                             </div>
                             <div class="  my-3">
-                                JULI 10, 2021
+                                JANUARI 15, 2022
                             </div>
                             <h1 class="heading">
                                 <a href="/artikel-detail">
-                                Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN</a>
+                                    Obat Covid-19 Siap Diproduksi di Dalam Negeri
+                                </a>
                             </h1>
                         </div>
                     </div>
                 </div>
-                <div class="panel" style="background-image: url('/assets/images/slide03.jpg')">
+                <div class="panel" style="background-image: url('/assets/static/banner/banner5.jpg')">
                     <div class="wrapper">
                         <div class="caption py-5 text-center">
                             <div class="badge">
                                 ARSIP ARTIKEL
                             </div>
                             <div class="  my-3">
-                                JULI 10, 2021
+                                JANUARI 17, 2022
                             </div>
                             <h1 class="heading">
                                 <a href="/artikel-detail">
-                                Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN</a>
+                                    Sesajen Semeru dan Beda Pemaknaan Manusia
+                                </a>
                             </h1>
                         </div>
                     </div>
@@ -71,19 +74,34 @@
     let dataBanner = [
         {
             id: 1,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide01.jpg',
+            title: 'Rimbunnya Anggur di Kota Tangsel',
+            date: 'JANUARI 14, 2022',
+            images: '/assets/static/banner/banner1.jpg',
         },
         {
             id: 2,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide02.jpg',
+            title: 'Terpikat Raja Ampat',
+            date: 'JANUARI 15, 2022',
+            images: '/assets/static/banner/banner2.jpg',
         },
         {
             id: 3,
-            title: 'Situs Pendaftaran CPNS 2021 Sempat Down, Ini Penjelasan BKN',
-            images: '/assets/images/slide03.jpg',
+            title: 'Kompetensi, Wajah Kemerdekaan Pers',
+            date: 'JANUARI 17, 2022',
+            images: '/assets/static/banner/banner3.jpg',
         },
+            // {
+            //     id: 4,
+            //     title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
+            //     date: 'JANUARI 15, 2022',
+            //     images: '/assets/static/banner/banner4.jpg',
+            // },
+            // {
+            //     id: 5,
+            //     title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
+            //     date: 'JANUARI 15, 2022', 
+            //     images: '/assets/static/banner/banner5.jpg',
+            // },
     ]
 
     export default {
