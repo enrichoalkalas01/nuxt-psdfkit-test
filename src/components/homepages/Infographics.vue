@@ -19,7 +19,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/ig-slide01.jpg" alt="">
+                            <img src="/assets/static/infografik/info1.jpg" alt="">
                             <div class="caption">
 
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
@@ -32,7 +32,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/ig-slide02.jpg" alt="">
+                            <img src="/assets/static/infografik/info2.jpg" alt="">
                             <div class="caption">
 
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
@@ -45,7 +45,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/ig-slide03.jpg" alt="">
+                            <img src="/assets/static/infografik/info3.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
                                 <p>Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai
@@ -57,7 +57,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/slide01.jpg" alt="">
+                            <img src="/assets/static/infografik/info4.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
                                 <p>Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai
@@ -69,7 +69,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/slide02.jpg" alt="">
+                            <img src="/assets/static/infografik/info5.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
                                 <p>Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai
@@ -81,7 +81,7 @@
                 <div class="item">
                     <div class="item-inner">
                         <a href="infografik-detail.html">
-                            <img src="/assets/images/slide03.jpg" alt="">
+                            <img src="/assets/static/infografik/info6.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">100 Tahun Bung Karno</h3>
                                 <p>Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai
