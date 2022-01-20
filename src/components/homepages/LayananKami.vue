@@ -11,15 +11,17 @@
                         <div class="col-12- col-md-4 my-2">
                             <a href="layanan.html#riset" class="layanan-card">
                                 <img src="/assets/images/Search.png" class="icon" alt="">
-                                <h3 class="subtitle">Layanan Riset</h3>
+                                <h3 class="subtitle">Jasa Riset</h3>
                                 <p>KompasData menawarkan berbagai layanan riset untuk Anda, termasuk analisis mendalam dan komprehensif, dilengkapi dengan hasil grafik visual yang mudah dipahami.</p>
                             </a>
                         </div>
                         <div class="col-12- col-md-4 my-2">
                             <a href="layanan.html#informasi" class="layanan-card">
                                 <img src="/assets/images/Chart.png" class="icon" alt="">
-                                <h3 class="subtitle">Paket Informasi</h3>
-                                <p>KompasData menawarkan pengumpulan informasi data dan analisis data dari data primer dan/atau sekunder dan memproses data untuk memberikan informasi yang mendalam.</p>
+                                <h3 class="subtitle">Konten Kreatif</h3>
+                                <p>Dengan pengalaman bekerja dengan data, fakta, dan analisis, Litbang Kompas memiliki
+                                    keunggulan menyajikan kembali informasi dalam bentuk yang lebih mudah dipahami
+                                    berupa teks, visual grafis, audio maupun video sesuai kebutuhan.</p>
                             </a>
                         </div>
                         <div class="col-12- col-md-4 my-2">
@@ -31,10 +33,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 mt-3 d-flex justify-content-center">
-                    <a href="layanan.html" class="btn btn-main">Kami Akan Membantu Anda  <i class="fas fa-caret-square-right ms-2"></i></a>
+                <div class="col-12 mt-4 text-center text-md-end">
+                    <a href="layanan.html" class="more-link">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                 </div>
-
             </div>
         </div>
     </section>

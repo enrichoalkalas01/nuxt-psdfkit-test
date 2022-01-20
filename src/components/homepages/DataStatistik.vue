@@ -4,22 +4,19 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-12  mb-3">
                     <h2 class="tag">Data</h2>
-                    <h2 class="headtitle py-2"> Koleksi perpustakaan dengan keunggulan pada sosial, politik, ekonomi, komunikasi, dan referensi statistik Indonesia. </h2>
+                    <h2 class="headtitle py-2">Koleksi data survei dan jajak pendapat Kompas serta olahan data statistik</h2>
                 </div>
                 <div class="col-12">
                     <ul class="nav nav-tabs komp-tabs" id="myTab2" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="data-Tabs01" data-bs-toggle="tab" href="#dataTabs01" aria-controls="dataTabs01" aria-selected="true">Statistik</a>
+                            <a class="nav-link active" id="data-Tabs01" data-bs-toggle="tab" href="#dataTabs01"
+                                aria-controls="dataTabs01" aria-selected="true">Survei Kompas</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="data-Tabs02" data-bs-toggle="tab" href="#dataTabs02" aria-controls="dataTabs02" aria-selected="false">Survey</a>
+                            <a class="nav-link" id="data-Tabs02" data-bs-toggle="tab" href="#dataTabs02"
+                                aria-controls="dataTabs02" aria-selected="false">Statistik</a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="data-Tabs03" data-bs-toggle="tab" href="#dataTabs03" aria-controls="dataTabs03" aria-selected="false">Polling</a>
-                        </li>
-
                     </ul>
-
                 </div>
                 <div class="row py-3">
                     <div class="col-md-8">

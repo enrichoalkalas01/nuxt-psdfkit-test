@@ -4,7 +4,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-12  mb-3">
                     <h2 class="tag">Buku</h2>
-                    <h2 class="headtitle py-2"> Koleksi perpustakaan dengan keunggulan pada sosial, politik, ekonomi, komunikasi, dan referensi statistik Indonesia. </h2>
+                    <h2 class="headtitle py-2">Referensi perpustakaan dan publikasi terbitan Kompas</h2>
                 </div>
                 <div class="col-12">
                     <ul class="nav nav-tabs komp-tabs" id="myTab" role="tablist">
