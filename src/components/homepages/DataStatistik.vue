@@ -19,241 +19,124 @@
                     </ul>
                 </div>
                 <div class="row py-3">
-                    <div class="col-md-8">
-                        <div class="tab-content komp-tab-content">
-                            <div class="tab-pane fade show active" id="dataTabs01" role="tabpanel" aria-labelledby="data-Tabs01">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-12  my-2">
-                                                <div class="content">
-                                                    <div class="row">
-                                                        <div class="col-sm-6 my-3">
-                                                            <a href="data-detail">
-                                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm-6 my-3">
-                                                            <div class="desc">
-                                                                <h3 class="subtitle"><a href="#">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                                                <p class="short-text three">
-                                                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                                                <a href="data-detail" class="more">Selengkapnya</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="dataTabs01" role="tabpanel"
+                            aria-labelledby="data-Tabs01">
+
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-6 my-2">
+                                    <div class="content borderless">
+                                        <a href="data-detail.html">
+                                            <img src="assets/images/image 27.png" alt="" class="foto-img"></a>
+                                        <h3 class="title my-3"><a href="data-detail.html">Terdampak Pandemi Angka
+                                                Kemiskinan Naik Lagi</a></h3>
+                                        <span class="date-time"> <i class="fas fa-clock"></i> Survei, April
+                                            2003</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-12  pt-2  pb-3">
+                                            <div class="content full-height borderless kolom2  bot-line mb-3">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 28.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Polling, April
+                                                        2003</span>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-sm-6  my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 28.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                                    </div>
+                                        </div>
+                                        <div class="col-12   pt-2  pb-3">
+                                            <div class="content full-height borderless kolom2  bot-line mb-3">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 29.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Polling, April
+                                                        2003</span>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-sm-6 my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 29.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                                    </div>
+                                        </div>
+                                        <div class="col-12 py-2">
+                                            <div class="content full-height borderless kolom2">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 27.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Survei, April
+                                                        2003</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="dataTabs02" role="tabpanel" aria-labelledby="data-Tabs02">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-12  my-2">
-                                                <div class="content">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <a href="data-detail">
-                                                                <img src="/assets/images/image 28.png" alt="" class="w-100">
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="desc">
-                                                                <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                                                <p class="short-text three">
-                                                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                                                <a href="data-detail" class="more">Selengkapnya</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6  my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 28.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 28.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="dataTabs03" role="tabpanel" aria-labelledby="data-Tabs03">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-12  my-2">
-                                                <div class="content">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <a href="data-detail">
-                                                                <img src="/assets/images/image 29.png" alt="" class="w-100">
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="desc">
-                                                                <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-                                                                <p class="short-text three">
-                                                                    Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September</p>
-                                                                <a href="data-detail" class="more">Selengkapnya</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6  my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 29.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 my-2">
-                                                <div class="content">
-                                                    <a href="data-detail">
-                                                        <img src="/assets/images/image 29.png" alt="" class="w-100">
-                                                    </a>
-                                                    <div class="desc">
-                                                        <h3 class="subtitle"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-12 my-2">
-                                <div class="content">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-sm-4">
-                                            <a href="#">
-                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="desc">
-                                                <h3 class="subtitle short-text two"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                            </div>
-                                        </div>
+                        <div class="tab-pane fade" id="dataTabs02" role="tabpanel" aria-labelledby="data-Tabs02">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-lg-6 my-2">
+                                    <div class="content borderless">
+                                        <a href="data-detail.html">
+                                            <img src="assets/images/image 27.png" alt="" class="foto-img"></a>
+                                        <h3 class="title my-3"><a href="data-detail.html">Terdampak Pandemi Angka
+                                                Kemiskinan Naik Lagi</a></h3>
+                                        <span class="date-time"> <i class="fas fa-clock"></i> BPS,
+                                            2003</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 my-2">
-                                <div class="content">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-sm-4">
-                                            <a href="#">
-                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="desc">
-                                                <h3 class="subtitle short-text two"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-12  pt-2  pb-3">
+                                            <div class="content full-height borderless kolom2  bot-line mb-3">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 28.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Lembaga Sumber
+                                                        Data, 2003</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 my-2">
-                                <div class="content">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-sm-4">
-                                            <a href="#">
-                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="desc">
-                                                <h3 class="subtitle short-text two"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
+                                        <div class="col-12   pt-2  pb-3">
+                                            <div class="content full-height borderless kolom2  bot-line mb-3">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 29.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Lembaga Sumber
+                                                        Data, 2003</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 my-2">
-                                <div class="content">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-sm-4">
-                                            <a href="#">
-                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="desc">
-                                                <h3 class="subtitle short-text two"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 my-2">
-                                <div class="content">
-                                    <div class="row d-flex align-items-center">
-                                        <div class="col-sm-4">
-                                            <a href="#">
-                                                <img src="/assets/images/image 27.png" alt="" class="w-100">
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="desc">
-                                                <h3 class="subtitle short-text two"> <a href="data-detail">Terdampak Pandemi Angka Kemiskinan Naik Lagi</a></h3>
+                                        <div class="col-12 py-2">
+                                            <div class="content full-height borderless kolom2">
+                                                <a href="data-detail.html">
+                                                    <img src="assets/images/image 27.png" alt="" class="foto-img">
+                                                </a>
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="data-detail.html">Mau Jalan-jalan ke
+                                                            Ruang Angkasa? Cukup
+                                                            Bayar Rp 6,5 Miliar</a></h3>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Lembaga Sumber
+                                                        Data, 2003</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
