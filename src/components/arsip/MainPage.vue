@@ -5,7 +5,6 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs komp-tabs" id="myTabAll" role="tablist">
                         <li class="nav-item" role="presentation">
-
                             <a class="nav-link active" id="All-Tabs01" data-bs-toggle="tab" href="#AllTabs01" aria-controls="AllTabs01" aria-selected="true"><i class="fas fa-search"></i> Semua</a>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -147,18 +146,40 @@
                             <div class="row pt-3">
                                 <div class="col-12 col-md-9">
                                     <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Catatan Iptek: Masyarakat Adat dan Covid-19</a></h2>
-                                        <p class="short-text three">
-                                            Kedutaan Besar Bangladesh untuk Indonesia, Sabtu (7/8/ 2021), menyerahkan obat-obatan darurat Covid-19 kepada Pemerintah Indonesia sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh
-                                            sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh untuk Indonesia, obat-obatan Covid-19 dari Bangladesh itu... (SAM)</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/static/banner/banner1.jpg" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Rimbunnya Anggur di Kota Tangsel</a></h3>
+                                                    <p class="short-text three">
+                                                        Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 14 Jan 2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Penanganan Covid-19: Jabar Dapat Diskresi Atur Distribusi Vaksin</a></h2>
-                                        <p class="short-text three">
-                                            Kedutaan Besar Bangladesh untuk Indonesia, Sabtu (7/8/ 2021), menyerahkan obat-obatan darurat Covid-19 kepada Pemerintah Indonesia sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh
-                                            sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh untuk Indonesia, obat-obatan Covid-19 dari Bangladesh itu... (SAM)</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/static/banner/banner2.jpg" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Terpikat Raja Ampat</a></h3>
+                                                    <p class="short-text three">
+                                                        Cantiknya gugusan pulau karang, lembut pasir putih, sungai jernih berair biru, dan bentangan Galaksi Bima Sakti di langit malam hampir selalu tersaji di Raja Ampat.
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 15 Jan 2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3">
@@ -172,6 +193,60 @@
                             <div class="row">
                                 <div class="col-12 col-md-9">
                                     <div class="content borderless">
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/static/banner/banner3.jpg" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Kompetensi, Wajah Kemerdekaan Pers</a></h3>
+                                                    <p class="short-text three">
+                                                        (2) Wartawan Indonesia menempuh cara-cara yang profesional dalam melaksanakan tugas jurnalistik. (3) Wartawan Indonesia selalu menguji informasi, memberitakan secara berimbang, tidak mencampurkan fakta dan opini yang menghakimi, serta menerapkan asas praduga tak bersalah. (Pasal 2 dan 3 Kode Etik Jurnalistik, 2006)
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 17 Jan 2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content borderless my-3">
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/static/banner/banner4.jpg" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Obat Covid-19 Siap Diproduksi di Dalam Negeri</a></h3>
+                                                    <p class="short-text three">
+                                                        Selain mengembangkan vaksin Covid-19 sendiri, Indonesia bersiap memproduksi sendiri obat Covid-19. Harapannya, Indonesia tidak terlalu bergantung pada impor.
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 15 Jan 2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content borderless my-3">
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/static/banner/banner5.jpg" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Sesajen Semeru dan Beda Pemaknaan Manusia</a></h3>
+                                                    <p class="short-text three">
+                                                        Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 17 Jan 2022</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content borderless my-3">
                                         <div class="row">
                                             <div class="col-sm-4 my-3">
                                                 <a href="artikel-detail-foto.html">
@@ -191,31 +266,23 @@
                                         </div>
                                     </div>
                                     <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Penanganan Covid-19: Jabar Dapat Diskresi Atur Distribusi Vaksin</a></h2>
-                                        <p class="short-text three">
-                                            Pemerintah Provinsi Jawa Barat mendapatkan diskresi dalam pendistribusian vaksin Covid-19 sesuai kebutuhan kabupaten/kota dan pertimbangan epidemiologi. Langkah ini diharapkan dapat mempercepat pencapaian target vaksinasi di Jabar.</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                                    </div>
-                                    <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Tahun Baru Hijriah: Perkuat Ikhtiar Hadapi Pandemi Covid-19</a></h2>
-                                        <p class="short-text three">
-                                            Hijrah Nabi Muhammad SAW, yang menjadi penanda awal tahun Hijriah, dilakukan atas kesadaran untuk membangun tatanan kehidupan dan peradaban baru yang lebih baik. sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam
-                                            pernyataan tertulis Kedubes Bangladesh Pada masa pandemi, spirit hijrah itu dapat diwujudkan dengan melipatgandakan ikhtiar..</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                                    </div>
-                                    <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Pandemi Covid-19: Menjaga Imunitas Tubuh Selama Isolasi Mandiri</a></h2>
-                                        <p class="short-text three">
-                                            Sembuh menjadi target utama yang ingin diraih ketika seseorang menjalani perawatan Covid-19, tidak terkecuali pasien yang menjalani isolasi mandiri. sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis
-                                            Kedubes Bangladesh Apa pun yang diyakini bisa menyembuhkan dan meningkatkan imunitas tubuh cenderung dikonsumsi.</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                                    </div>
-                                    <div class="content borderless my-3">
-                                        <h2 class="title"><a href="artikel-detail.html" class="txt-main">Kilas Luar Negeri: Bangladesh Serahkan Obat Covid-19 pada RI</a></h2>
-                                        <p class="short-text three">
-                                            Kedutaan Besar Bangladesh untuk Indonesia, Sabtu (7/8/ 2021), menyerahkan obat-obatan darurat Covid-19 kepada Pemerintah Indonesia sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh
-                                            sebagai bentuk solidaritas dalam upaya memerangi pandemi Covid-19. Seperti dirilis dalam pernyataan tertulis Kedubes Bangladesh untuk Indonesia, obat-obatan Covid-19 dari Bangladesh itu... (SAM)</p>
-                                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
+                                        <div class="row">
+                                            <div class="col-sm-4 my-3">
+                                                <a href="artikel-detail-foto.html">
+                                                    <img src="/assets/images/artikel.png" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-8 my-3">
+                                                <div class="desc">
+                                                    <h3 class="title"><a href="artikel-detail-foto.html" class="txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</a></h3>
+                                                    <p class="short-text three">
+                                                        Gubernur Sumatera Barat Mahyeldi meminta maaf atas polemik yang muncul dari pembelian mobil dinas baru senilai total Rp 2 miliar untuk gubernur dan wakil gubernur di tengah krisis pandemi Covid-19.
+
+                                                    </p>
+                                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 my-3">

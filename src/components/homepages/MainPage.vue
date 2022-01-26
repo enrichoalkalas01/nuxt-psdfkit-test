@@ -2,6 +2,9 @@
     <section>
         <!-- Banner -->
         <Banner />
+
+        <!-- Sekilas Info -->
+        <SekilasInfo />
         
         <!-- Articles -->
         <Articles />
@@ -24,9 +27,6 @@
         <!-- Berita Terkini -->
         <BeritaTerkini />
 
-        <!-- Informasi Terkini -->
-        <InformasiTerkini />
-
     </section>
 </template>
 
@@ -38,8 +38,8 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
-    import InformasiTerkini from './InformasiTerkini'
     import Banner from './Banner.vue'
+    import SekilasInfo from './SekilasInfo.vue'
 
     export default {
         name: 'MainPage',
@@ -47,7 +47,7 @@
             Articles, Infographics,
             Foto, Buku, DataStatistik,
             LayananKami, BeritaTerkini,
-            InformasiTerkini, Banner
+            Banner, SekilasInfo
         },
     }
 
