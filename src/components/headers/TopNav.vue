@@ -29,7 +29,6 @@
                         Arsip
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="ArsipDropdown">
-                            <li><a class="dropdown-item" href="/arsip#AllTabs01">Semua </a></li>
                             <li><a class="dropdown-item" href="/arsip#AllTabs02">Artikel</a></li>
                             <li><a class="dropdown-item" href="/arsip#AllTabs03">Foto</a></li>
                             <li><a class="dropdown-item" href="/arsip#AllTabs04">Infografik</a></li>
@@ -40,11 +39,10 @@
                         Buku
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="/buku#bukuTabs01">Semua </a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs02">Katalog pbk</a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs03">Perpustakaan</a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs04">Ebook Online</a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs05">White Paper</a></li>
+                            <li><a class="dropdown-item" href="buku.html#bukuTabs02">Penerbit Buku Kompas</a></li>
+                            <li><a class="dropdown-item" href="buku.html#bukuTabs03">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="buku.html#bukuTabs04">Buku Elektronik</a></li>
+                            <li><a class="dropdown-item" href="#">Laporan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -52,10 +50,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="/data#dataTabs01">Semua</a></li>
-                            <li><a class="dropdown-item" href="/data#dataTabs02">Polling</a></li>
-                            <li><a class="dropdown-item" href="/data#dataTabs03">Survey</a></li>
-                            <li><a class="dropdown-item" href="/data#dataTabs04">Statistik</a></li>
+                            <li><a class="dropdown-item" href="data.html#dataTabs03">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="data.html#dataTabs04">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -63,10 +59,9 @@
                         Layanan
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="layananDropdown">
-                            <li><a class="dropdown-item" href="/layanan">Semua</a></li>
-                            <li><a class="dropdown-item" href="/layanan#riset">Riset</a></li>
-                            <li><a class="dropdown-item" href="/layanan#informasi">Paket Informasi</a></li>
-                            <li><a class="dropdown-item" href="/layanan#penerbit">Penerbitan Buku</a></li>
+                            <li><a class="dropdown-item" href="layanan.html#riset">Jasa Riset</a></li>
+                            <li><a class="dropdown-item" href="layanan.html#informasi">Konten Kreatif</a></li>
+                            <li><a class="dropdown-item" href="layanan.html#penerbit">Penerbitan Buku</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ms-auto">
