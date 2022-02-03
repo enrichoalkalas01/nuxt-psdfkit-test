@@ -9,6 +9,7 @@ import Bantuan from '../components/bantuan/MainPage.vue'
 import Login from '../components/login/Login.vue'
 import Register from '../components/login/Register.vue'
 import Arsip from '../components/arsip/MainPage.vue'
+import ArtikelDetail from '../components/artikel/MainDetail.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
 import Test from '../components/test/TestPlugin.vue'
@@ -24,7 +25,7 @@ const routes = [
     
     // Layanan
     { path: '/data', name: 'data', component: Data },
-    { path: '/data-detail', name: 'data-detail', component: DataDetail },
+    { path: '/data-detail/:id', name: 'data-detail', component: DataDetail },
 
     // Layanan
     { path: '/layanan', name: 'layanan', component: Layanan },
@@ -34,6 +35,9 @@ const routes = [
 
     // Arsip
     { path: '/arsip', name: 'arsip', component: Arsip },
+
+    // Artikel
+    { path: '/artikel/:id', name: 'artikel-detail', component: ArtikelDetail },
 
     // Buku
     { path: '/buku', name: 'buku', component: Buku },
