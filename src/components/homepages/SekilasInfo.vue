@@ -54,7 +54,7 @@
               <div class="row my-3">
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img
@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img
@@ -99,7 +99,7 @@
               <div class="row my-3">
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img
@@ -114,7 +114,7 @@
                 </div>
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img
@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-12 col-md-4 my-3 text-center">
                   <a
-                    href="artikel-detail.html"
+                    href="#"
                     class="content borderless info-ctn"
                   >
                     <img

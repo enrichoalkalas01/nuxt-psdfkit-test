@@ -32,7 +32,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="d-block my-3">
                         <h2 class="title txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
@@ -42,8 +41,6 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Cara Penggunaan</a>
                             </li>
-
-
                         </ul>
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
@@ -68,11 +65,9 @@
                                     <li>Penggunaan artikel tokoh/sosok/properti untuk kepentingan komersial wajib mendapat persetujuan secara tertulis dari yang bersangkutan.</li>
                                     <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan foto tanpa persetujuan dari Kompas.</li>
                                     <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
-
                                 </ol>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -100,8 +95,6 @@
                         <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>

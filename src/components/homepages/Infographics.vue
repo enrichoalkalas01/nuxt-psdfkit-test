@@ -18,7 +18,7 @@
             >
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/1">
                             <img src="/assets/static/infografik/info1.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Prestasi Indonesia Di Ajang Olimpiade</h3>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/2">
                             <img src="/assets/static/infografik/info2.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Pemain Terbaik Liga Indonesia</h3>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/3">
                             <img src="/assets/static/infografik/info3.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Suaka Margasatwa Terkecil Berada di Jakarta</h3>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/4">
                             <img src="/assets/static/infografik/info4.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia</h3>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/5">
                             <img src="/assets/static/infografik/info5.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023</h3>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="item">
                     <div class="item-inner">
-                        <a href="infografik-detail.html">
+                        <a href="infografik-detail/6">
                             <img src="/assets/static/infografik/info6.jpg" alt="">
                             <div class="caption">
                                 <h3 class="subtitle">Komposisi Konsumsi BBM di Indonesia</h3>
