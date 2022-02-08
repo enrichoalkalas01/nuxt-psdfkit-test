@@ -39,9 +39,9 @@
                         Buku
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs02">Penerbit Buku Kompas</a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs03">Perpustakaan</a></li>
-                            <li><a class="dropdown-item" href="buku.html#bukuTabs04">Buku Elektronik</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs02">Penerbit Buku Kompas</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs03">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li>
                             <li><a class="dropdown-item" href="#">Laporan</a></li>
                         </ul>
                     </li>
@@ -50,8 +50,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="data.html#dataTabs03">Survei Kompas</a></li>
-                            <li><a class="dropdown-item" href="data.html#dataTabs04">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs03">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="/data#dataTabs04">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -59,9 +59,9 @@
                         Layanan
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="layananDropdown">
-                            <li><a class="dropdown-item" href="layanan.html#riset">Jasa Riset</a></li>
-                            <li><a class="dropdown-item" href="layanan.html#informasi">Konten Kreatif</a></li>
-                            <li><a class="dropdown-item" href="layanan.html#penerbit">Penerbitan Buku</a></li>
+                            <li><a class="dropdown-item" href="/layanan#riset">Jasa Riset</a></li>
+                            <li><a class="dropdown-item" href="/layanan#informasi">Konten Kreatif</a></li>
+                            <li><a class="dropdown-item" href="/layanan#penerbit">Penerbitan Buku</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ms-auto">

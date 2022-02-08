@@ -16,7 +16,7 @@
                                 {{ banner.date }}
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel/1">
+                                <a href="/artikel-detail/1">
                                     {{ banner.title }}
                                 </a>
                             </h1>
@@ -33,7 +33,7 @@
                                 JANUARI 15, 2022
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel/1">
+                                <a href="/artikel-detail/1">
                                     Obat Covid-19 Siap Diproduksi di Dalam Negeri
                                 </a>
                             </h1>
@@ -50,7 +50,7 @@
                                 JANUARI 17, 2022
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel-detail">
+                                <a href="/artikel-detail/1">
                                     Sesajen Semeru dan Beda Pemaknaan Manusia
                                 </a>
                             </h1>

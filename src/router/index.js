@@ -9,6 +9,9 @@ import Bantuan from '../components/bantuan/MainPage.vue'
 import Login from '../components/login/Login.vue'
 import Register from '../components/login/Register.vue'
 import Arsip from '../components/arsip/MainPage.vue'
+import ArtikelDetail from '../components/artikel/MainDetail.vue'
+import FotoDetail from '../components/foto/MainDetail.vue'
+import InfografikDetail from '../components/infografik/MainDetail.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
 import Test from '../components/test/TestPlugin.vue'
@@ -21,23 +24,32 @@ const routes = [
 
     // Homepages
     { path: '/', name: 'homepages', component: MainPage },
+
+    // Arsip
+    { path: '/arsip', name: 'arsip', component: Arsip },
+
+    // Artikel
+    { path: '/artikel-detail/:id', name: 'artikel-detail', component: ArtikelDetail },
+
+    // Foto
+    { path: '/foto-detail/:id', name: 'foto-detail', component: FotoDetail },
+
+    // Infografik
+    { path: '/infografik-detail/:id', name: 'infografik-detail', component: InfografikDetail },
     
-    // Layanan
+    // Buku
+    { path: '/buku', name: 'buku', component: Buku },
+    { path: '/buku-detail/:id', name: 'buku-detail', component: BukuDetail },
+
+    // Data
     { path: '/data', name: 'data', component: Data },
-    { path: '/data-detail', name: 'data-detail', component: DataDetail },
+    { path: '/data-detail/:id', name: 'data-detail', component: DataDetail },
 
     // Layanan
     { path: '/layanan', name: 'layanan', component: Layanan },
 
     // About or Bantuan
     { path: '/bantuan', name: 'bantuan', component: Bantuan },
-
-    // Arsip
-    { path: '/arsip', name: 'arsip', component: Arsip },
-
-    // Buku
-    { path: '/buku', name: 'buku', component: Buku },
-    { path: '/buku-detail/:id', name: 'buku-detail', component: BukuDetail },
 
     // Tester
     { path: '/test', name: 'test', component: Test },

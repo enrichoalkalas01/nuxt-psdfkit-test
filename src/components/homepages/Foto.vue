@@ -9,28 +9,28 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/1" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto1.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Sekolah Bersiasat Gelar Pembelajaran</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas, 29 Desember 2021</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/2" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto2.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas Epaper, 04 Januari 2022</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/3" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto3.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Lava Pijar Gunung Semeru</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas Epaper, 08 Desember 2021</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/4" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto4.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Tes Antigen Cepat Pengendara Sepeda Motor</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas, 08 Juni 2021</span>
@@ -39,28 +39,28 @@
                 </div>
                 <div class="row my-3">
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/5" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto5.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Geliat di Pelabuhan Sunda Kelapa di tahun 2022</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas Epaper, 03 Januari 2022</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/6" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto6.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Lanskap Tol Solo-Ngawi</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas, 20 Desember 2021</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/7" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto7.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Banjir di Jalan Thamrin, Jakarta</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompas, 05 Maret 1976</span>
                         </a>
                     </div>
                     <div class="col-12 col-md-3 my-3 text-center">
-                        <a href="artikel-detail.html" class=" content borderless info-ctn">
+                        <a href="foto-detail/8" class=" content borderless info-ctn">
                             <img src="assets/static/foto/foto8.JPG" alt="" class="ctn-img">
                             <h2 class="subtitle name">Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala</h2>
                             <span class="date-time"> <i class="fas fa-clock"></i>Kompaspedia, 28 April 2021</span>
@@ -126,7 +126,7 @@
                 </div> -->
 
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="arsip.html#AllTabs03" class="more-link">Foto Lainnya <i class="fas fa-chevron-right"></i></a>
+                    <a href="arsip#AllTabs03" class="more-link">Foto Lainnya <i class="fas fa-chevron-right"></i></a>
                 </div>
 
             </div>
