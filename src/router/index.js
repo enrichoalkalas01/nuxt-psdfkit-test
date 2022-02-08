@@ -1,19 +1,20 @@
 // import Vue from 'vue'
 import { createWebHistory, createRouter } from "vue-router"
 // import Store from '../vuex/Store'
-import MainPage from '../components/homepages/MainPage.vue'
-import Data from '../components/data/MainPage.vue'
-import DataDetail from '../components/data/MainDetail.vue'
-import Layanan from '../components/layanan/MainPage.vue'
-import Bantuan from '../components/bantuan/MainPage.vue'
 import Login from '../components/login/Login.vue'
 import Register from '../components/login/Register.vue'
+import MainPage from '../components/homepages/MainPage.vue'
 import Arsip from '../components/arsip/MainPage.vue'
 import ArtikelDetail from '../components/artikel/MainDetail.vue'
 import FotoDetail from '../components/foto/MainDetail.vue'
 import InfografikDetail from '../components/infografik/MainDetail.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
+import Data from '../components/data/MainPage.vue'
+import DataDetail from '../components/data/MainDetail.vue'
+import Layanan from '../components/layanan/MainPage.vue'
+import Bantuan from '../components/bantuan/MainPage.vue'
+import Pencarian from '../components/pencarian/MainPage.vue'
 import Test from '../components/test/TestPlugin.vue'
 
 
@@ -50,6 +51,9 @@ const routes = [
 
     // About or Bantuan
     { path: '/bantuan', name: 'bantuan', component: Bantuan },
+
+    // Pencarian
+    { path: '/hasil-cari', name: 'hasil-cari', component: Pencarian },
 
     // Tester
     { path: '/test', name: 'test', component: Test },
