@@ -83,6 +83,8 @@
                                     <p class="text-center my-2">Atau</p>
                                     <button type="submit" class="btn btn-line w-100">
                                          <i class="fab fa-facebook-f"></i> Daftar Dengan facebook</button>
+                                    <button type="submit" class="btn btn-line w-100">
+                                        <i class="fab fa-google"></i> Daftar dengan Google</button>
                                 </div>
 
                             </fieldset>

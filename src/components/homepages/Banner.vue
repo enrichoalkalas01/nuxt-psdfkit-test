@@ -16,7 +16,7 @@
                                 {{ banner.date }}
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel-detail">
+                                <a href="/artikel-detail/1">
                                     {{ banner.title }}
                                 </a>
                             </h1>
@@ -33,7 +33,7 @@
                                 JANUARI 15, 2022
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel-detail">
+                                <a href="/artikel-detail/1">
                                     Obat Covid-19 Siap Diproduksi di Dalam Negeri
                                 </a>
                             </h1>
@@ -50,7 +50,7 @@
                                 JANUARI 17, 2022
                             </div>
                             <h1 class="heading">
-                                <a href="/artikel-detail">
+                                <a href="/artikel-detail/1">
                                     Sesajen Semeru dan Beda Pemaknaan Manusia
                                 </a>
                             </h1>
@@ -61,6 +61,13 @@
             <div class="button-slider">
                 <div v-on:click="prevClick" class="btn-slider left"></div>
                 <div v-on:click="nextClick" class="btn-slider right"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email
+                kompasdata@kompas.id
             </div>
         </div>
     </section>
@@ -130,7 +137,7 @@
     #slide {
         position: relative;
         margin-bottom: 2.5%;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); */
     }
 
     #slide .banner-slide {

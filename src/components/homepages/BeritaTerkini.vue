@@ -16,14 +16,14 @@
 
                                     <div class="col-sm-6">
                                         <div class="desc pt-3">
-                                            <h3 class="subtitle"><a href="artikel-detail.html">Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan</a></h3>
-                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail.html" class="more-btn">Baca Sekarang</a>
+                                            <h3 class="subtitle"><a href="artikel-detail/1">Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan</a></h3>
+                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail/1" class="more-btn">Baca Sekarang</a>
 
 
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="artikel-detail.html">
+                                        <a href="artikel-detail/1">
                                             <img src="/assets/images/image 34.png" alt="" class="w-100">
                                         </a>
                                     </div>
@@ -43,14 +43,14 @@
 
                                     <div class="col-sm-6">
                                         <div class="desc pt-3">
-                                            <h3 class="subtitle"><a href="artikel-detail.html">Ikhtiar Melindungi Generasi Penerus dari Pandemi</a></h3>
-                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail.html" class="more-btn">Baca Sekarang</a>
+                                            <h3 class="subtitle"><a href="artikel-detail/1">Ikhtiar Melindungi Generasi Penerus dari Pandemi</a></h3>
+                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail/1" class="more-btn">Baca Sekarang</a>
 
 
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <a href="artikel-detail.html">
+                                        <a href="artikel-detail/1">
                                             <img src="/assets/images/image 37.png" alt="" class="w-100">
                                         </a>
                                     </div>
