@@ -10,6 +10,7 @@
             v-bind:dataImage="suggestion.images"
             v-bind:dataTitle="suggestion.title"
             v-bind:dataDesc="suggestion.desc"
+            v-bind:dataSource="suggestion.source"
         />
     </section>
 </template>

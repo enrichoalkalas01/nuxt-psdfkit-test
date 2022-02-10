@@ -71,11 +71,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
+                    <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
                             <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
                         </a>
                     </div>
+
+                    <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />
                 </div>
             </div>

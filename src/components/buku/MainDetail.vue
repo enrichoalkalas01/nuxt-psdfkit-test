@@ -104,29 +104,15 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
+                    <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
                             <img src="/assets/images/ads2.png" class="w-100 rounding" alt="">
                         </a>
                     </div>
-                    <div class="content borderless mb-2 line-bot2">
-                        <p>Suggestion</p>
-                        <a href="artikel-detail.html">
-                            <img src="/assets/images/hasil3.png" class="rounding w-100" alt=""></a>
-                        <h3 class="subtitle my-2"> <a href="artikel-detail.html">Banjarmasin Berhias Teratai</a></h3>
-                        <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
-                    <div class="content borderless mb-2 line-bot2">
-                        <h3 class="subtitle"> <a href="artikel-detail.html">Pesisir yang Terendam dan Prediksi Dunia Tahun 2040</a></h3>
-                        <p>Kenaikan suhu hingga 1,5 derajat celsius diprediksi tak terhindarkan.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
-                    <div class="content borderless mb-2">
-                        <h3 class="subtitle"> <a href="artikel-detail.html">Pengembangan Wastra Butuh Partisipasi Publik</a></h3>
-                        <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
+                    
+                    <!-- Suggestion -->
+                    <Suggestion v-bind:dataSuggestions="suggestions" />                  
                 </div>
             </div>
         </div>
@@ -134,7 +120,23 @@
 </template>
 
 <script>
+    import Suggestion from '../suggestion/Main.vue'
+
+    let dataSuggestions = [
+        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+    ]
+
     export default {
-        name: 'BukuDetail'
+        name: 'BukuDetail',
+        components: {
+            Suggestion
+        },
+        data () {
+            return {
+                suggestions: dataSuggestions
+            }
+        }
     }
 </script>

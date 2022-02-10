@@ -24,13 +24,11 @@
                         </div>
                     </div>
                     <div class="col-md-3">
+                        <!-- Banner -->
                         <Banner />
-                        <div class="title-content">
-                            <p>Suggestion</p>
-                        </div>
-                        <Suggestion />
-                        <Suggestion />
-                        <Suggestion />
+                        
+                        <!-- Suggestion -->
+                        <Suggestion v-bind:dataSuggestions="suggestions" />
                     </div>
                 </div>
             </div>
@@ -46,12 +44,18 @@
     import Statistik from './Statistik.vue'
     import Pencarian from './Pencarian.vue'
     import Banner from './Banner.vue'
-    import Suggestion from './Suggestion.vue'
+    import Suggestion from '../suggestion/Main.vue'
 
     let dataProducts = [
         { id: 1, images: '/assets/images/image 27.png', title: 'Terdampak Pandemi Angka Kemiskinan Naik Lagi', miniDesc: 'Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September'},
         { id: 2, images: '/assets/images/image 28.png', title: 'Terdampak Pandemi Angka Kemiskinan Naik Lagi', miniDesc: 'Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September'},
         { id: 3, images: '/assets/images/image 29.png', title: 'Terdampak Pandemi Angka Kemiskinan Naik Lagi', miniDesc: 'Industri pariwisata ruang angkasa terus bergerak. Virgin Galactic, salah satu pemain di bisnis ini, akan melakukan penerbangan pada September'},
+    ]
+
+    let dataSuggestions = [
+        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
     ]
 
     export default {
@@ -68,7 +72,8 @@
         },
         data () {
             return {
-                products: dataProducts
+                products: dataProducts,
+                suggestions: dataSuggestions
             }
         }
     }

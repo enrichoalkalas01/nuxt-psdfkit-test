@@ -33,13 +33,11 @@
 
                 </div>
                 <div class="col-12 col-md-3">
+                    <!-- Banner -->
                     <Banner />
-                    <div class="title-content">
-                        <p>Suggestion</p>
-                    </div>
-                    <Suggestion />
-                    <Suggestion />
-                    <Suggestion />
+
+                    <!-- Suggestion -->
+                    <Suggestion v-bind:dataSuggestions="suggestions" />
                 </div>
             </div>
         </div>
@@ -47,14 +45,25 @@
 </template>
 
 <script>
-import Banner from './Banner.vue'
-import Suggestion from './Suggestion.vue'
+    import Banner from './Banner.vue'
+    import Suggestion from '../suggestion/Main.vue'
 
-export default {
-    name: 'MainDetail',
-    components: {
-        Banner,
-        Suggestion,
+    let dataSuggestions = [
+        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+    ]
+
+    export default {
+        name: 'MainDetail',
+        components: {
+            Banner,
+            Suggestion,
+        },
+        data () {
+            return {
+                suggestions: dataSuggestions
+            }
+        }
     }
-}
 </script>
