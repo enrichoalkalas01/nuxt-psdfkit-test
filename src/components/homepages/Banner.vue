@@ -1,10 +1,13 @@
 <template>
     <section class="sec-slide" id="slide">
         <div class="banner-slide">
-            <Flicking 
+            <!-- <Flicking 
                 ref="flicking"
                 :options="{ align: 'prev', circular: true }"
                 @move-end="onMoveEnd"
+            > -->
+            <Flicking 
+                ref="flicking"
             >
                 <div v-for="banner in Banners" :key="banner.id" class="panel" :style="'background-image: url('+ banner.images +')'">
                     <div class="wrapper">
