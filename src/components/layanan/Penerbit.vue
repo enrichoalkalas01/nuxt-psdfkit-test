@@ -9,8 +9,11 @@
                 </div>
                 <div class="col-sm-8 col-md-9 my-3">
 
-                    <p>Research Center awalnya merupakan unit bisnis yang dikembangkan untuk mendukung keperluan internal Kompas, seperti riset tren industri media, pengembangan produk media, riset pembaca dan iklan. Namun seiring berjalannya waktu,
-                        dengan semakin meningkatnya kompetensi dan pengalaman SDM dalam menjalankan berbagai proses riset, sejak 2005 Research Center menawarkan jasa layanan riset kepada pihak luar. </p>
+                    <p>
+                        Jasa penerbitan buku dibentuk oleh Harian Kompas pada tahun 1999 untuk mendukung cita-cita pendiri Kompas dalam menerbitkan karya-karya penulis internal dan ekternal Kompas tentang keindonesiaan. 
+                        Tema-tema buku yang diterbikan antara lain sejarah, biografi, budaya, hukum, filsafat, psikologi, kesehatan dan ltema lainnya. Jasa penerbitan buku juga menerbitkan hasil penelitian dari Litbang Kompas dalam bidang politik, pendidikan, sejarah, dan lainnya. 
+                        Jasa penerbitan buku dapat melayani jasa penulisan, jasa desain, jasa editing, jasa cetak, dan jasa-jasa lainnya.
+                    </p>
                     <div class="content">
                         <h6>Portfolio</h6>
                         <br>
