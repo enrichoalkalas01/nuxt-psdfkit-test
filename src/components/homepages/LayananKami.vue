@@ -4,7 +4,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-12  mb-3 text-center">
                     <h2 class="tag">LAYANAN KAMI</h2>
-                    <h2 class="headtitle py-2"> Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik Anda. </h2>
+                    <h2 class="headtitle py-2"> Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik anda</h2>
                 </div>
                 <div class="col-12">
                     <div class="row d-flex justify-content-center">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="layanan.html" class="more-link">Selengkapnya <i class="fas fa-chevron-right"></i></a>
+                    <a href="layanan" class="more-link">Selengkapnya <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>

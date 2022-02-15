@@ -31,6 +31,10 @@
 </template>
 
 <script>
+    // Library
+    import Axios from 'axios'
+
+    // Components
     import Articles from './Articles.vue'
     import Infographics from './Infographics.vue'
     import Foto from './Foto.vue'
@@ -49,31 +53,29 @@
             LayananKami, BeritaTerkini,
             Banner, SekilasInfo
         },
+
+        data() {
+            return {
+                MainPageData: null
+            }
+        },
+
+        mounted() {
+            let ConfigApi = {
+                method: 'get',
+                url: 'https://dev-be.kompasdata.id/api/Configs',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            Axios(ConfigApi).then(response => {
+                console.log(response)
+            }).catch(err => {
+                console.log(err)
+            })
+        }
     }
 
-    // $(document).ready(function() {
-    //     /*slide*/
-    //     $(".banner-slide").slick({
-    //         dots: true,
-    //         autoplay: true,
-    //         infinite: true,
-    //         arrows: true,
-    //         speed: 300,
-
-    //     }); /*slide*/
-    //     $(".infografik-slide").slick({
-    //         // dots: true,
-    //         autoplay: true,
-    //         infinite: true,
-    //         arrows: true,
-    //         slidesToShow: 3,
-    //         slidesToScroll: 1,
-
-    //         centerMode: true,
-    //         centerPadding: '60px',
-    //         variableWidth: true,
-    //         speed: 300,
-
-    //     });
-    // });
+    
 </script>

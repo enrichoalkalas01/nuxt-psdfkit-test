@@ -9,9 +9,9 @@
                     <div class="row">
                         <div class="col-12 col-md-6 my-3">
                             <div class="content">
-                                <div class="float-tag">
+                                <!-- <div class="float-tag">
                                     BEBAS AKSES
-                                </div>
+                                </div> -->
                                 <div class="row">
 
                                     <div class="col-sm-6">
@@ -36,9 +36,9 @@
                         </div>
                         <div class="col-12 col-md-6 my-3">
                             <div class="content">
-                                <div class="float-tag">
+                                <!-- <div class="float-tag">
                                     BEBAS AKSES
-                                </div>
+                                </div> -->
                                 <div class="row">
 
                                     <div class="col-sm-6">

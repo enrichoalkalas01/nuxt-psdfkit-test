@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h2 class="tag">INFOGRAFIK</h2>
-                    <h2 class="headtitle py-2"> Koleksi data Kompas dalam bentuk visual grafis. </h2>
+                    <h2 class="headtitle py-2"> Koleksi data Kompas dalam bentuk visual grafis</h2>
                 </div>
 
             </div>

@@ -1,9 +1,8 @@
 <template>
-  <section class="sec-artikel   my-5">
+  <section class="sec-artikel">
         <div class="container">
             <div class="row d-flex justify-content-center">
-
-                <div class="col-12 ">
+                <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
@@ -15,11 +14,11 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            <div class="col-sm-4 my-3">
-                                <img src="/assets/static/banner/banner1.jpg" alt="" class="db-img">
+                            <div class="col-sm-2 my-3">
+                                <img src="/assets/static/artikel/artikel-detail.png" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h3>
+                                <!-- <h3 class="subtitle txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h3> -->
                                 <div class="d-block">
                                     <p class="fw-bold">FASILITAS KEPALA DAERAH</p>
                                     <p>KOMPAS edisi Jumat 20 Agustus 2021</p>
@@ -32,6 +31,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Photo Slider -->
+                    
+
                     <div class="d-block my-3">
                         <h2 class="title txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
@@ -39,7 +42,7 @@
                                 <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Cara Penggunaan</a>
+                                <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Ketentuan Penggunaan</a>
                             </li>
                         </ul>
                         <div class="tab-content komp-tab-content">
@@ -71,29 +74,15 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
+                    <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
                             <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
                         </a>
                     </div>
-                    <div class="content borderless mb-2 line-bot2">
-                        <p>Suggestion</p>
-                        <a href="artikel-detail.html">
-                            <img src="resources/images/hasil3.png" class="rounding w-100" alt=""></a>
-                        <h3 class="subtitle my-2"> <a href="artikel-detail.html">Banjarmasin Berhias Teratai</a></h3>
-                        <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
-                    <div class="content borderless mb-2 line-bot2">
-                        <h3 class="subtitle"> <a href="artikel-detail.html">Pesisir yang Terendam dan Prediksi Dunia Tahun 2040</a></h3>
-                        <p>Kenaikan suhu hingga 1,5 derajat celsius diprediksi tak terhindarkan.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
-                    <div class="content borderless mb-2">
-                        <h3 class="subtitle"> <a href="artikel-detail.html">Pengembangan Wastra Butuh Partisipasi Publik</a></h3>
-                        <p>Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.</p>
-                        <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 13 April 2003</span>
-                    </div>
+
+                    <!-- Suggestion -->
+                    <Suggestion v-bind:dataSuggestions="suggestions" />
                 </div>
             </div>
         </div>
@@ -101,7 +90,25 @@
 </template>
 
 <script>
+    // import Flicking from "@egjs/vue3-flicking";
+    import Suggestion from '../suggestion/Main.vue'
+
+    let dataSuggestions = [
+        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+    ]
+
     export default {
-        name: 'Artikel'
+        name: 'Artikel',
+        components: {
+            // Flicking,
+            Suggestion
+        },
+        data () {
+            return {
+                suggestions: dataSuggestions
+            }
+        }
     }
 </script>
