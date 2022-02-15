@@ -1,9 +1,8 @@
 <template>
-  <section class="sec-artikel   my-5">
+  <section class="sec-artikel">
         <div class="container">
             <div class="row d-flex justify-content-center">
-
-                <div class="col-12 ">
+                <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
@@ -32,6 +31,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Photo Slider -->
+                    
+
                     <div class="d-block my-3">
                         <h2 class="title txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
@@ -87,6 +90,7 @@
 </template>
 
 <script>
+    // import Flicking from "@egjs/vue3-flicking";
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -98,6 +102,7 @@
     export default {
         name: 'Artikel',
         components: {
+            // Flicking,
             Suggestion
         },
         data () {

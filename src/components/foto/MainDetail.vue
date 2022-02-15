@@ -19,12 +19,16 @@
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">Sekolah Bersiasat Gelar Pembelajaran</h3>
+                                <div class="db-price rounded mt-3">
+                                    <span class="price-tag">mulai dari Rp. 300.000</span>
+                                    <a href="pesan-foto.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
+                                </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
+                                        <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Data</a>
+                                        <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Ketentuan Penggunaan</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content komp-tab-content">
@@ -33,12 +37,10 @@
                                             ke depan.
                                         </p>
                                         <p><b>KOMPAS/ABDULLAH FIKRI ASHRI (IKI)</b></p>
-                                    </div>
-                                    <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                         <table class="table db-table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">No. Panggil </th>
+                                                    <th scope="row">No. Id </th>
                                                     <td>w 929:321.15(=581)(594) AZI b</td>
                                                 </tr>
                                                 <tr>
@@ -84,25 +86,24 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
+                                        <div class="d-block my-3">
+                                            <!-- <h2 class="tag"><em> CARA PENGGUNAAN FOTO</em></h2> -->
+                                            <ol>
+                                                <li>Penggunaan foto harus mengajukan izin kepada Kompas.</li>
+                                                <li>Penggunaan foto wajib mencantumkan kredit atas nama fotografer dengan format: ‘Kompas/Fotografer’.</li>
+                                                <li>Foto tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ pornoaksi/ diskriminasi.</li>
+                                                <li>Penggunaan foto untuk kepentingan komersial silahkan hubungi kami</li>
+                                                <li>Penggunaan foto tokoh/sosok/properti untuk kepentingan komersial wajib mendapat persetujuan secara tertulis dari yang bersangkutan.</li>
+                                                <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan foto tanpa persetujuan dari Kompas.</li>
+                                                <li>Untuk pembelian foto tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
+                                            </ol>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. 300.000</span>
-                                    <a href="pesan-foto.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
-                                </div>
+                                
                             </div>
                         </div>
-                    </div>
-                    <div class="d-block my-3">
-                        <h2 class="tag"><em> CARA PENGGUNAAN FOTO</em></h2>
-                        <ol>
-                            <li>Penggunaan foto harus mengajukan izin kepada Kompas.</li>
-                            <li>Penggunaan foto wajib mencantumkan kredit atas nama fotografer dengan format: ‘Kompas/Fotografer’.</li>
-                            <li>Foto tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ pornoaksi/ diskriminasi.</li>
-                            <li>Penggunaan foto untuk kepentingan komersial silahkan hubungi kami</li>
-                            <li>Penggunaan foto tokoh/sosok/properti untuk kepentingan komersial wajib mendapat persetujuan secara tertulis dari yang bersangkutan.</li>
-                            <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan foto tanpa persetujuan dari Kompas.</li>
-                            <li>Untuk pembelian foto tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
-                        </ol>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
