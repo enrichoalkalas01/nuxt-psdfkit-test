@@ -22,7 +22,7 @@
             <swiper-slide>Slide 5</swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper> -->
-        <Flicking 
+        <!-- <Flicking 
             ref="flicking"
             :options="{ align: 'prev', circular: true }"
             @move-end="onMoveEnd"
@@ -36,15 +36,15 @@
             <div class="panel">
                 <img style="width: 100%" src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" />
             </div>
-        </Flicking>
-        <button v-on:click="nextClick">Test Next</button>
+        </Flicking> -->
+        <!-- <button v-on:click="nextClick">Test Next</button> -->
     </div>
 </template>
 
 <script>
-    import Flicking from "@egjs/vue3-flicking";
-    import "@egjs/vue3-flicking/dist/flicking.css";
-    import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    // import Flicking from "@egjs/vue3-flicking";
+    // import "@egjs/vue3-flicking/dist/flicking.css";
+    // import "@egjs/vue3-flicking/dist/flicking-inline.css";
     import Axios from 'axios'
 
     // import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
@@ -52,7 +52,7 @@
 
     export default {
         name: 'TestPlugin',
-        components: { Flicking },
+        // components: { Flicking },
         // components: {
         //     Swiper,
         //     SwiperSlide
@@ -118,9 +118,9 @@
         },
 
         methods: {
-            nextClick() {
-                this.$refs.flicking.next()
-            },
+            // nextClick() {
+            //     this.$refs.flicking.next()
+            // },
 
             GetData() {
                 Axios('https://my-json-server.typicode.com/typicode/demo/db').then(response => {
