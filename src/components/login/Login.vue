@@ -63,9 +63,6 @@
                                 <a href="#" class="btn btn-main d-block"><i class="fab fa-facebook-f"></i> Masuk dengan Facebook</a>
                             </div>
                             <div class="py-2">
-                                <a href="#" class="btn btn-main d-block"><i class="fab fa-google"></i> Masuk dengan Google</a>
-                            </div>
-                            <div class="py-2">
                                 <a href="#" class="btn btn-main d-block">Masuk dengan Kompas.com / Kompasprint</a>
                             </div>
 
@@ -80,12 +77,9 @@
 
 <script>
     import Axios from 'axios'
-    // import VueRecaptcha from 'vue-recaptcha';
 
     export default {
         name: 'Login',
-
-        // components: { VueRecaptcha },
         
         data(){
             return {
