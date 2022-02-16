@@ -1,7 +1,7 @@
 <template>
     <section>
         <!-- Banner -->
-        <Banner />
+        <!-- <Banner /> -->
 
         <!-- Sekilas Info -->
         <SekilasInfo />
@@ -42,7 +42,7 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
-    import Banner from './Banner.vue'
+    // import Banner from './Banner.vue'
     import SekilasInfo from './SekilasInfo.vue'
 
     export default {
@@ -51,7 +51,8 @@
             Articles, Infographics,
             Foto, Buku, DataStatistik,
             LayananKami, BeritaTerkini,
-            Banner, SekilasInfo
+            // Banner, 
+            SekilasInfo
         },
 
         data() {
