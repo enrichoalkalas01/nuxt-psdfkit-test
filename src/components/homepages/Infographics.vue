@@ -11,7 +11,7 @@
         </div>
         
         <div class="infografik-slide">
-            <Flicking 
+            <!-- <Flicking 
                 ref="flicking"
                 :options="{ circular: true }"
                 @move-end="onMoveEnd"
@@ -86,32 +86,32 @@
             <div class="button-slider">
                 <div v-on:click="prevClick" class="btn-slider left"></div>
                 <div v-on:click="nextClick" class="btn-slider right"></div>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
 
 <script>
-    import Flicking from "@egjs/vue3-flicking";
-    import "@egjs/vue3-flicking/dist/flicking.css";
-    import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    // import Flicking from "@egjs/vue3-flicking";
+    // import "@egjs/vue3-flicking/dist/flicking.css";
+    // import "@egjs/vue3-flicking/dist/flicking-inline.css";
     export default {
         name: 'Infographics',
-        components: { Flicking },
+        // components: { Flicking },
         data() {
             return {
                 data: 0
             }
         },
-        methods: {
-            prevClick() {
-                this.$refs.flicking.prev()
-            },
+        // methods: {
+        //     prevClick() {
+        //         this.$refs.flicking.prev()
+        //     },
 
-            nextClick() {
-                this.$refs.flicking.next()
-            }
-        }
+        //     nextClick() {
+        //         this.$refs.flicking.next()
+        //     }
+        // }
         
     }
 </script>
