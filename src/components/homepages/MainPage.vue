@@ -1,7 +1,7 @@
 <template>
     <section>
         <!-- Banner -->
-        <!-- <Banner /> -->
+        <Banner />
 
         <!-- Sekilas Info -->
         <SekilasInfo />
@@ -35,6 +35,8 @@
     import Axios from 'axios'
 
     // Components
+    import Banner from './Banner.vue'
+    import SekilasInfo from './SekilasInfo.vue'
     import Articles from './Articles.vue'
     import Infographics from './Infographics.vue'
     import Foto from './Foto.vue'
@@ -42,17 +44,19 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
-    // import Banner from './Banner.vue'
-    import SekilasInfo from './SekilasInfo.vue'
 
     export default {
         name: 'MainPage',
-        components: { 
-            Articles, Infographics,
-            Foto, Buku, DataStatistik,
-            LayananKami, BeritaTerkini,
-            // Banner, 
-            SekilasInfo
+        components: {
+            Banner,
+            SekilasInfo,
+            Articles,
+            Infographics,
+            Foto,
+            Buku,
+            DataStatistik,
+            LayananKami,
+            BeritaTerkini,
         },
 
         data() {
