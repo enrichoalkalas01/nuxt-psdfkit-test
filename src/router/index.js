@@ -14,6 +14,8 @@ import Data from '../components/data/MainPage.vue'
 import DataDetail from '../components/data/MainDetail.vue'
 import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
+import Pencarian from '../components/pencarian/MainPage.vue'
+import PencarianLanjut from '../components/pencarian/MainDetail.vue'
 import Test from '../components/test/TestPlugin.vue'
 
 const routes = [
@@ -49,6 +51,10 @@ const routes = [
 
     // About or Bantuan
     { path: '/bantuan', name: 'bantuan', component: Bantuan },
+
+    // Pencarian
+    { path: '/pencarian', name: 'pencarian', component: Pencarian },
+    { path: '/pencarian-lanjut', name: 'pencarian-lanjut', component: PencarianLanjut },
 
     // Tester
     { path: '/test', name: 'test', component: Test },
