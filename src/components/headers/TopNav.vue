@@ -20,7 +20,7 @@
                     <option value="3">Data</option>
                 </select>
                         <input type="text" class="form-control" placeholder="Masukkan teks" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <a href="/hasil-cari" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
+                        <a href="/pencarian" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                     </div>
                 </div>
                 <ul class="navbar-nav">
