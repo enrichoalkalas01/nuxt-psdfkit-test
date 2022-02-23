@@ -23,11 +23,13 @@
 
 <script>
     import CardBuku from './CardBuku.vue'
-    export default {
-        name: 'EbookGratis',
-        components: { CardBuku },
-        props: ['dataProducts'],
 
+    export default {
+        name: 'Laporan',
+        components: { 
+            CardBuku 
+        },
+        props: ['dataProducts'],
         data() {
             return{
                 products: this.dataProducts

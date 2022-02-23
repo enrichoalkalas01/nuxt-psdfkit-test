@@ -82,7 +82,7 @@
 </template>
 
 <script>
-    import Banner from './Banner.vue'
+    import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [

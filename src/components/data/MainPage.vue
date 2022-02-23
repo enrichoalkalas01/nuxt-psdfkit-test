@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-artikel">
+    <section class="sec-artikel my-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <MiniMenu />
@@ -9,17 +9,11 @@
                             <div class="tab-pane fade show active" id="dataTabs01" role="tabpanel" aria-labelledby="data-Tabs01">
                                 <Semua v-bind:dataProducts="products" />
                             </div>
-                            <div class="tab-pane fade" id="dataTabs02" role="tabpanel" aria-labelledby="data-Tabs02">
-                                <Polling v-bind:dataProducts="products" />
-                            </div>
                             <div class="tab-pane fade" id="dataTabs03" role="tabpanel" aria-labelledby="data-Tabs03">
-                                <Survey v-bind:dataProducts="products" />
+                                <SurveiKompas v-bind:dataProducts="products" />
                             </div>
                             <div class="tab-pane fade" id="dataTabs04" role="tabpanel" aria-labelledby="data-Tabs04">
                                 <Statistik v-bind:dataProducts="products" />
-                            </div>
-                            <div class="tab-pane fade" id="dataTabs05" role="tabpanel" aria-labelledby="data-Tabs05">
-                                <Pencarian v-bind:dataProducts="products" />
                             </div>
                         </div>
                     </div>
@@ -39,11 +33,9 @@
 <script>
     import MiniMenu from './MiniMenu.vue'
     import Semua from './Semua.vue'
-    import Polling from './Polling.vue'
-    import Survey from './Survey.vue'
+    import SurveiKompas from './SurveiKompas.vue'
     import Statistik from './Statistik.vue'
-    import Pencarian from './Pencarian.vue'
-    import Banner from './Banner.vue'
+    import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataProducts = [
@@ -63,10 +55,8 @@
         components: {
             MiniMenu,
             Semua,
-            Polling,
-            Survey,
+            SurveiKompas,
             Statistik,
-            Pencarian,
             Banner,
             Suggestion,
         },

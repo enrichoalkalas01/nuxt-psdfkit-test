@@ -9,16 +9,16 @@
                             <TopikHangat v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
-                            <KatalogPBK v-bind:dataProducts="products" />
+                            <PenerbitBukuKompas v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs03" role="tabpanel" aria-labelledby="buku-Tabs03">
                             <Perpustakaan v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs04" role="tabpanel" aria-labelledby="buku-Tabs04">
-                            <EbookGratis v-bind:dataProducts="products" />
+                            <BukuElektronik v-bind:dataProducts="products" />
                         </div>
                         <div class="tab-pane fade" id="bukuTabs05" role="tabpanel" aria-labelledby="buku-Tabs05">
-                            <WhitePaper v-bind:dataProducts="products" />
+                            <Laporan v-bind:dataProducts="products" />
                         </div>
                     </div>
                 </div>
@@ -30,10 +30,10 @@
 <script>
     import MiniMenu from './MiniMenu.vue'
     import TopikHangat from './TopikHangat.vue'
-    import WhitePaper from './WhitePaper.vue'
-    import KatalogPBK from './KatalogPBK.vue'
+    import PenerbitBukuKompas from './PenerbitBukuKompas.vue'
     import Perpustakaan from './Perpustakaan.vue'
-    import EbookGratis from './EbookGratis.vue'
+    import BukuElektronik from './BukuElektronik.vue'
+    import Laporan from './Laporan.vue'
 
     let dataProducts = [
         { id: 1, images: '/assets/images/buku/image 22.png', title: 'Kajian kebijakan alutsista pertahanan dan keamanan Republik Indonesia' },
@@ -52,7 +52,14 @@
 
     export default {
         name: 'Buku',
-        components: { MiniMenu, TopikHangat, WhitePaper, EbookGratis, KatalogPBK, Perpustakaan },
+        components: { 
+            MiniMenu, 
+            TopikHangat, 
+            PenerbitBukuKompas, 
+            Perpustakaan, 
+            BukuElektronik, 
+            Laporan, 
+        },
         data () {
             return {
                 products: dataProducts
