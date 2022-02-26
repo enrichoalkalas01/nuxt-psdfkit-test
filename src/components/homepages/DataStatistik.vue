@@ -81,7 +81,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="tab-pane fade" id="dataTabs02" role="tabpanel" aria-labelledby="data-Tabs02">
                             <div class="row d-flex justify-content-center">
