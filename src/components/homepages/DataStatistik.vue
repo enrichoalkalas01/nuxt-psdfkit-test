@@ -20,9 +20,7 @@
                 </div>
                 <div class="row py-3">
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="dataTabs01" role="tabpanel"
-                            aria-labelledby="data-Tabs01">
-
+                        <div class="tab-pane fade show active" id="dataTabs01" role="tabpanel" aria-labelledby="data-Tabs01">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-lg-6 my-2">
                                     <div class="content borderless">

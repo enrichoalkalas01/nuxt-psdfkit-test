@@ -3,81 +3,12 @@
         <div class="row py-3">
             <div class="col-12 col-md-9 text-center">
                 <div class="row">
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/hasil0.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/hasil1.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/hasil2.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto01.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto02.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto03.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto04.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto05.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto06.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto07.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto08.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto09.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto10.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto11.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
-                    <div class="col-12 col-sm-4 my-3">
-                        <a href="foto-detail/1">
-                            <img src="/assets/images/foto/hasil-foto12.png" class="img-square32 rounding" alt="">
-                        </a>
-                    </div>
+                    <FotoCard 
+                        v-for="foto in fotos" :key="foto.id"
+                        v-bind:data="foto"
+                        v-bind:dataId="foto.id"
+                        v-bind:dataImage="foto.images"
+                    />
                 </div>
             </div>
             <div class="col-12 col-md-3 my-3">
@@ -103,6 +34,7 @@
 </template>
 
 <script>
+    import FotoCard from './FotoCard.vue'
     import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
@@ -115,11 +47,16 @@
     export default {
         name: 'Foto',
         components: {
+            FotoCard,
             Banner,
             Suggestion,
         },
+        props: [
+            'dataFotos'
+        ],
         data () {
             return {
+                fotos: this.dataFotos,
                 suggestions: dataSuggestions,
             }
         }
