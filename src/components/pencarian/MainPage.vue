@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="sec-artikel pt-5">
         <div class="container">
             <div class="row d-flex justify-content-center pb-5">
                 <div class="col-12 col-md-10 mb-3">
@@ -17,7 +17,7 @@
                     <div class="tab-content komp-tab-content">
                         <!-- Semua -->
                         <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
-                            <Semua v-bind:dataArtikels="artikels" :dataFotos="fotos" :dataInfografiks="infografiks"/>
+                            <Semua v-bind:dataArtikels="artikels" :dataFotos="fotos" :dataInfografiks="infografiks" />
                         </div>
 
                         <!-- Artikel -->

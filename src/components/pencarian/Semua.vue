@@ -4,10 +4,10 @@
             <!-- Foto -->
 
             <!-- Artikel -->
-            <!-- <Artikel v-bind:dataArtikels="artikels" /> -->
+            <Artikel v-bind:dataArtikels="artikels" />
 
             <!-- Infografik -->
-            <!-- <Infografik v-bind:dataInfografiks="infografiks" /> -->
+            <Infografik v-bind:dataInfografiks="infografiks" />
 
             <!-- Buku -->
             
@@ -25,8 +25,8 @@
 </template>
 
 <script>
-    // import Artikel from './Artikel.vue'
-    // import Infografik from './Infografik.vue'
+    import Artikel from './Artikel.vue'
+    import Infografik from './Infografik.vue'
     import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
@@ -39,8 +39,8 @@
     export default {
         name: 'Semua',
         components: {
-            // Artikel,
-            // Infografik,
+            Artikel,
+            Infografik,
             Banner,
             Suggestion,
         },
