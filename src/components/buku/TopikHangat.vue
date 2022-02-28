@@ -23,11 +23,13 @@
 
 <script>
     import CardBuku from './CardBuku.vue'
+
     export default {
         name: 'BukuOne',
-        components: { CardBuku },
+        components: { 
+            CardBuku 
+        },
         props: ['dataProducts'],
-
         data() {
             return{
                 products: this.dataProducts

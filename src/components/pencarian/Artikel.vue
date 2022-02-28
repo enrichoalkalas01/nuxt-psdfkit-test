@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <div class="buku-card">
-            <CardBuku
-                v-for="product in products" :key="product.id"
-                v-bind:data="product"
-                v-bind:dataImage="product.images"
-                v-bind:dataId="product.id"
-                v-bind:dataTitle="product.title + product.id"
-            />
+    <div class="row line-bot full">
+        <div class="col-12">
+            <div v-for="artikel in artikels" :key="artikel.id" class="content borderless my-3">
+                <h2 class="title"><a :href="'/artikel-detail/' + artikel.id" class="txt-main">{{ artikel.title }}</a></h2>
+                <span class="date-time"> <i class="fas fa-clock"></i> {{ artikel.source }}</span>
+                <p class="short-text three">{{ artikel.desc }}</p>
+            </div>
         </div>
-        <div class=" my-3 text-center">
+        <div class="col-12 my-3 text-center">
             <ul class="pagination cst-pagin d-flex justify-content-center">
                 <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -22,16 +20,15 @@
 </template>
 
 <script>
-    import CardBuku from './CardBuku.vue'
     export default {
-        name: 'EbookGratis',
-        components: { CardBuku },
-        props: ['dataProducts'],
-
-        data() {
+        name: 'Artikel',
+        props: [
+            'dataArtikels',
+        ],
+        data (){
             return{
-                products: this.dataProducts
+                artikels: this.dataArtikels,
             }
-        },
+        }
     }
 </script>

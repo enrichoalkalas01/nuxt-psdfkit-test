@@ -8,6 +8,11 @@
 
             <!-- Infografik -->
             <Infografik v-bind:dataInfografiks="infografiks" />
+
+            <!-- Buku -->
+            
+            <!-- Data -->
+            
         </div>
         <div class="col-12 col-md-3 my-3">
             <!-- Banner -->

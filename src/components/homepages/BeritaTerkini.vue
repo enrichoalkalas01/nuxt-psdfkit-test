@@ -7,60 +7,14 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-12 col-md-6 my-3">
-                            <div class="content">
-                                <!-- <div class="float-tag">
-                                    BEBAS AKSES
-                                </div> -->
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="desc pt-3">
-                                            <h3 class="subtitle"><a href="artikel-detail/1">Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan</a></h3>
-                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail/1" class="more-btn">Baca Sekarang</a>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <a href="artikel-detail/1">
-                                            <img src="/assets/images/image 34.png" alt="" class="w-100">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <p class="short-text three">
-                                            Pemberlakuan Pembatasan Kegiatan Masyarakat Darurat telah berjalan hampir dua minggu tapi kasus Covid-19 masih tinggi. Seberapa besar korban dan dampak sosial ekonomi ke depan sangat tergantung langkah kita saat ini.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 my-3">
-                            <div class="content">
-                                <!-- <div class="float-tag">
-                                    BEBAS AKSES
-                                </div> -->
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="desc pt-3">
-                                            <h3 class="subtitle"><a href="artikel-detail/1">Ikhtiar Melindungi Generasi Penerus dari Pandemi</a></h3>
-                                            <p>Berita Terupdate hari ini</p> <a href="artikel-detail/1" class="more-btn">Baca Sekarang</a>
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <a href="artikel-detail/1">
-                                            <img src="/assets/images/image 37.png" alt="" class="w-100">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <p class="short-text three">
-                                            Di tengah kondisi Sumatera Selatan yang kian kritis, anak menjadi kelompok yang cukup rentan tertular atau menulari virus Covid-19. Terbukti, jumlah anak yang terkonfirmasi positif di Sumsel melonjak cukup signifikan.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <BeritaTerkiniCard 
+                            v-for="berita in beritas" :key="berita.id"
+                            v-bind:data="berita"
+                            v-bind:dataId="berita.id"
+                            v-bind:dataImage="berita.images"
+                            v-bind:dataTitle="berita.title"
+                            v-bind:dataDesc="berita.desc"
+                        />
                     </div>
                 </div>
             </div>
@@ -69,7 +23,20 @@
 </template>
 
 <script>
-export default {
-    name: 'BeritaTerkini'
-}
+    import BeritaTerkiniCard from './BeritaTerkiniCard.vue'
+
+    export default {
+        name: 'BeritaTerkini',
+        components: {
+            BeritaTerkiniCard
+        },
+        props: [
+            'dataBeritas',
+        ],
+        data () {
+            return {
+                beritas: this.dataBeritas
+            }
+        }
+    }
 </script>

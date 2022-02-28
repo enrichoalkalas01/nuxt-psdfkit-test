@@ -102,11 +102,7 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <!-- Banner -->
-                    <div class="banner my-3">
-                        <a href="#">
-                            <img src="/assets/images/ads2.png" class="w-100 rounding" alt="">
-                        </a>
-                    </div>
+                    <Banner />
                     
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />                  
@@ -117,6 +113,7 @@
 </template>
 
 <script>
+    import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -128,6 +125,7 @@
     export default {
         name: 'BukuDetail',
         components: {
+            Banner,
             Suggestion
         },
         data () {

@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-12 mb-3">
-            <h2 class="subtitle font-robo my-3">Data Survey</h2>
+            <h2 class="subtitle font-robo my-3">Data Survei Kompas</h2>
             <CardData
                 v-for="product in products" :key="product.id"
                 v-bind:data="product"
@@ -21,7 +21,7 @@
     import CardData from './CardData.vue'
 
     export default {
-        name: 'Survey',
+        name: 'Survei',
         components: {
             CardData
         },
