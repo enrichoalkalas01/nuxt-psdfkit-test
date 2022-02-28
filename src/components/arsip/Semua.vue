@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
+    <section>
         <div class="row py-3 line-bot full">
             <div class="col-12 col-md-9 text-center">
                 <div class=" row">
@@ -117,7 +117,7 @@
                 <a href="#" onclick="$('#All-Tabs02').trigger('click')" class="btn btn-line">Lihat Lainnya</a>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

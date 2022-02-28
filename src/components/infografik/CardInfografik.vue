@@ -10,6 +10,9 @@
                 <div class="desc">
                     <h3 class="subtitle"><a :href="idInfografik">{{ title }}</a></h3>
                     <p class="short-text three">{{ desc }}</p>
+                    <span class="date-time">
+                        <i class="fas fa-clock"></i> {{ source }}
+                    </span>
                 </div>
             </div>
         </div>
@@ -18,13 +21,14 @@
 
 <script>
     export default {
-        name: 'InfografikCard',
+        name: 'CardInfografik',
         props: [
             'data',
             'dataId',
             'dataImage',
             'dataTitle',
             'dataDesc',
+            'dataSource'
         ],
         data () {
             return {
@@ -32,6 +36,7 @@
                 image: this.dataImage,
                 title: this.dataTitle,
                 desc: this.dataDesc,
+                source: this.dataSource,
             }
         }
     }

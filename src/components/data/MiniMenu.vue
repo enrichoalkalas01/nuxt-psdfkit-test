@@ -10,9 +10,6 @@
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="data-Tabs04" data-bs-toggle="tab" href="#dataTabs04" aria-controls="dataTabs04" aria-selected="false">Statistik</a>
             </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="data-Tabs05" data-bs-toggle="tab" href="#dataTabs05" aria-controls="dataTabs05" aria-selected="false">Pencarian Lanjut</a>
-            </li>
         </ul>
     </div>
 </template>

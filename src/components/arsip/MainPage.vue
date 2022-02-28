@@ -8,16 +8,24 @@
 
                     <div class="tab-content komp-tab-content">
                         <!-- Semua -->
-                        <Semua />
+                        <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
+                            <Semua />
+                        </div>
 
                         <!-- Artikel -->
-                        <Artikel v-bind:dataArtikels="artikels" />
+                       <div class="tab-pane fade" id="AllTabs02" role="tabpanel" aria-labelledby="All-Tabs02">
+                            <Artikel v-bind:dataArtikels="artikels" />
+                        </div>
 
                         <!-- Foto -->
-                        <Foto v-bind:dataFotos="fotos" />
+                        <div class="tab-pane fade" id="AllTabs03" role="tabpanel" aria-labelledby="All-Tabs03">
+                            <Foto v-bind:dataFotos="fotos" />
+                        </div>
 
                         <!-- Infografik -->
-                        <Infografik v-bind:dataInfografiks="infografiks"/>
+                        <div class="tab-pane fade" id="AllTabs04" role="tabpanel" aria-labelledby="All-Tabs04">
+                            <Infografik v-bind:dataInfografiks="infografiks"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,9 +36,9 @@
 <script>
     import MiniMenu from './MiniMenu.vue'
     import Semua from './Semua.vue'
-    import Artikel from './Artikel.vue'
-    import Foto from './Foto.vue'
-    import Infografik from './Infografik.vue'
+    import Artikel from '../artikel/MainPage.vue'
+    import Foto from '../foto/MainPage.vue'
+    import Infografik from '../infografik/MainPage.vue'
 
     let dataArtikels = [
         { id: 1, images: '/assets/static/banner/banner1.jpg', title: 'Rimbunnya Anggur di Kota Tangsel', desc: 'Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.', source: 'Kompas, 14 Jan 2022'},
