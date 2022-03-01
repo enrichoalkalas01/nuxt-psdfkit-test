@@ -11,87 +11,40 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs komp-tabs center" id="myTab3" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a
-                                class="nav-link"
-                                id="info-Tabs01"
-                                data-bs-toggle="tab"
-                                href="#infoTabs01"
-                                aria-controls="infoTabs01"
-                                aria-selected="true"
-                            >Agenda</a>
+                            <a class="nav-link active" id="info-Tabs01" data-bs-toggle="tab" href="#infoTabs01" aria-controls="infoTabs01" aria-selected="true">Agenda</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a
-                                class="nav-link"
-                                id="info-Tabs02"
-                                data-bs-toggle="tab"
-                                href="#infoTabs02"
-                                aria-controls="infoTabs02"
-                                aria-selected="false"
-                            >Ulang Tahun</a>
+                            <a class="nav-link" id="info-Tabs02" data-bs-toggle="tab" href="#infoTabs02" aria-controls="infoTabs02" aria-selected="false">Ulang Tahun</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a
-                                class="nav-link active"
-                                id="info-Tabs03"
-                                data-bs-toggle="tab"
-                                href="#infoTabs03"
-                                aria-controls="infoTabs03"
-                                aria-selected="false"
-                            >Tanggal Penting</a>
+                            <a class="nav-link" id="info-Tabs03" data-bs-toggle="tab" href="#infoTabs03" aria-controls="infoTabs03" aria-selected="false">Tanggal Penting</a>
                         </li>
                     </ul>
                     <div class="tab-content komp-tab-content">
-                        <div
-                            class="tab-pane fade"
-                            id="infoTabs01"
-                            role="tabpanel"
-                            aria-labelledby="info-Tabs01"
-                        >
+                        <div class="tab-pane fade show active" id="infoTabs01" role="tabpanel" aria-labelledby="info-Tabs01">
                             <div class="row my-3">
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info1.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info1.png" alt="" class="ctn-img"/>
                                     </a>
                                 </div>
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info2.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
                                     </a>
                                 </div>
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info2.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="tab-pane fade"
-                            id="infoTabs02"
-                            role="tabpanel"
-                            aria-labelledby="info-Tabs02"
-                        >
+                        <div class="tab-pane fade" id="infoTabs02" role="tabpanel" aria-labelledby="info-Tabs02">
                             <div class="row my-3">
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info1.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info1.png" alt="" class="ctn-img"/>
                                         <h2 class="subtitle name">JOKO WIDODO</h2>
                                         <h2 class="subtitle title">PRESIDEN INDONESIA</h2>
                                         <p class="periode">Jakarta, 21 Juni 1961</p>
@@ -99,11 +52,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info2.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
                                         <h2 class="subtitle name">BJ HABIBIE</h2>
                                         <h2 class="subtitle title">PRESIDEN INDONESIA KETIGA</h2>
                                         <p class="periode">Bandung, 25 Juni 1936</p>
@@ -111,11 +60,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 my-3 text-center">
                                     <a href="#" class="content borderless info-ctn">
-                                        <img
-                                            src="/assets/static/sekilasinfo/info2.png"
-                                            alt=""
-                                            class="ctn-img"
-                                        />
+                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
                                         <h2 class="subtitle name">BJ HABIBIE</h2>
                                         <h2 class="subtitle title">PRESIDEN INDONESIA KETIGA</h2>
                                         <p class="periode">Semarang, 25 Juni 1936</p>
@@ -123,12 +68,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="tab-pane fade show active"
-                            id="infoTabs03"
-                            role="tabpanel"
-                            aria-labelledby="info-Tabs03"
-                        >
+                        <div class="tab-pane fade" id="infoTabs03" role="tabpanel" aria-labelledby="info-Tabs03">
                             <div class="row my-3" id="tgl-penting">
                                 <div class="col-12 col-lg-12 title-month">
                                     <h4>Januari</h4>
