@@ -1,5 +1,26 @@
 <template>
-    <div style="width: 100%;">
+    <div style="width: 100%; paddint-top: 10%;">
+        <h1>Test</h1>
+        <!-- <slick
+            ref="slick"
+            :options="slickOptions"
+            @afterChange="handleAfterChange"
+            @beforeChange="handleBeforeChange"
+            @breakpoint="handleBreakpoint"
+            @destroy="handleDestroy"
+            @edge="handleEdge"
+            @init="handleInit"
+            @reInit="handleReInit"
+            @setPosition="handleSetPosition"
+            @swipe="handleSwipe"
+            @lazyLoaded="handleLazyLoaded"
+            @lazyLoadError="handleLazeLoadError">
+            <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+            <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+            <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+            <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+            <a href="http://placehold.it/2000x1000"><img src="http://placehold.it/2000x1000" alt=""></a>
+        </slick> -->
         <!-- <swiper class="swiper" :options="swiperOption">
             <swiper-slide>Slide 1</swiper-slide>
             <swiper-slide>Slide 2</swiper-slide>
@@ -22,7 +43,7 @@
             <swiper-slide>Slide 5</swiper-slide>
             <div class="swiper-pagination" slot="pagination"></div>
         </swiper> -->
-        <!-- <Flicking 
+        <FlickingOne 
             ref="flicking"
             :options="{ align: 'prev', circular: true }"
             @move-end="onMoveEnd"
@@ -36,27 +57,45 @@
             <div class="panel">
                 <img style="width: 100%" src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" />
             </div>
-        </Flicking> -->
+        </FlickingOne>
+        <FlickingTwo 
+            ref="flicking"
+            :options="{ align: 'prev', circular: true }"
+            @move-end="onMoveEnd"
+        >
+            <div class="panel">
+                <img style="width: 100%" src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" />
+            </div>
+            <div class="panel">
+                <img style="width: 100%" src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" />
+            </div>
+            <div class="panel">
+                <img style="width: 100%" src="https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80" />
+            </div>
+        </FlickingTwo>
         <!-- <button v-on:click="nextClick">Test Next</button> -->
     </div>
 </template>
 
 <script>
-    // import Flicking from "@egjs/vue3-flicking";
-    // import "@egjs/vue3-flicking/dist/flicking.css";
-    // import "@egjs/vue3-flicking/dist/flicking-inline.css";
-    import Axios from 'axios'
+    import FlickingOne from "@egjs/vue3-flicking";
+    import FlickingTwo from "@egjs/vue3-flicking";
+    import "@egjs/vue3-flicking/dist/flicking.css";
+    import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    // import Axios from 'axios'
 
     // import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
     // import 'swiper/css/swiper.css'
+    // import Slick from 'vue-slick';
 
     export default {
         name: 'TestPlugin',
-        // components: { Flicking },
+        components: { FlickingOne, FlickingTwo },
         // components: {
         //     Swiper,
         //     SwiperSlide
         // },
+        // components: { Slick },
 
         data () {
             return {
@@ -72,12 +111,16 @@
                 //         el: '.swiper-pagination'
                 //     },
                 // }
+                // slickOptions: {
+                    // slidesToShow: 3,
+                // },
             }
         },
 
         mounted() {
+            // console.log(VueSlick)
             // this.GetData()
-            console.log(this.$store.state.LoginStatus)
+            // console.log(this.$store.state.LoginStatus)
             // let data = {
             //     "userName": "nurkartiko",
             //     "password": "P@ssw0rd"
@@ -100,21 +143,21 @@
             //     },
             // }
 
-            let configKgContent = {
-                url: "https://kgcontent-api.kgmedia.id/api/auth/login",
-                method: "post",
-                headers: { "Content-Type": "application/json" },
-                data: JSON.stringify({
-                    username: "arjuna@kompas.com",
-                    password: "kompas@labs"
-                })
-            }
+            // let configKgContent = {
+            //     url: "https://kgcontent-api.kgmedia.id/api/auth/login",
+            //     method: "post",
+            //     headers: { "Content-Type": "application/json" },
+            //     data: JSON.stringify({
+            //         username: "arjuna@kompas.com",
+            //         password: "kompas@labs"
+            //     })
+            // }
 
-            Axios(configKgContent).then(response => {
-                console.log(response)
-            }).catch(err => {
-                console.log(err)
-            })
+            // Axios(configKgContent).then(response => {
+            //     console.log(response)
+            // }).catch(err => {
+            //     console.log(err)
+            // })
         },
 
         methods: {
@@ -122,13 +165,13 @@
             //     this.$refs.flicking.next()
             // },
 
-            GetData() {
-                Axios('https://my-json-server.typicode.com/typicode/demo/db').then(response => {
-                    console.log(response)
-                }).catch(err => {
-                    console.log(err.message)
-                })
-            }
+            // GetData() {
+            //     Axios('https://my-json-server.typicode.com/typicode/demo/db').then(response => {
+            //         console.log(response)
+            //     }).catch(err => {
+            //         console.log(err.message)
+            //     })
+            // }
         }
     }
 </script>
