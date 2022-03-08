@@ -6,7 +6,7 @@
                 :options="{ align: 'prev', circular: true }"
                 @move-end="onMoveEnd"
             > -->
-            <!-- <Flicking 
+            <Flicking 
                 ref="flicking"
                 :options="{ align: 'prev', circular: true }"
             >
@@ -65,9 +65,9 @@
             <div class="button-slider">
                 <div v-on:click="prevClick" class="btn-slider left"></div>
                 <div v-on:click="nextClick" class="btn-slider right"></div>
-            </div> -->
+            </div>
         </div>
-
+        
         <div class="container">
             <div class="row">
                 Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email
@@ -78,9 +78,9 @@
 </template>
 
 <script>
-    // import Flicking from "@egjs/vue3-flicking";
-    // import "@egjs/vue3-flicking/dist/flicking.css";
-    // import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    import Flicking from "@egjs/vue3-flicking";
+    import "@egjs/vue3-flicking/dist/flicking.css";
+    import "@egjs/vue3-flicking/dist/flicking-inline.css";
     
     let dataBanner = [
         {
@@ -117,7 +117,7 @@
 
     export default {
         name: 'Banner',
-        // components: { Flicking },
+        components: { Flicking },
         data() {
             return {
                 value: 0,
@@ -126,13 +126,13 @@
         },
 
         methods: {
-            // prevClick() {
-            //     this.$refs.flicking.prev()
-            // },
+            prevClick() {
+                this.$refs.flicking.prev()
+            },
 
-            // nextClick() {
-            //     this.$refs.flicking.next()
-            // }
+            nextClick() {
+                this.$refs.flicking.next()
+            }
         }
     }
 </script>
