@@ -12,8 +12,8 @@ RUN apk add --no-cache \
     make \
     nasm
 # RUN npm install -g pm2
-RUN yarn install
+RUN npm install
 COPY . .
-RUN yarn build
+RUN npm run build
 EXPOSE 8080/tcp
-CMD [ "yarn", "serve" ]
+CMD [ "npm", "run", "serve" ]
