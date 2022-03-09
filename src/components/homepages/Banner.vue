@@ -6,7 +6,7 @@
                 :options="{ align: 'prev', circular: true }"
                 @move-end="onMoveEnd"
             > -->
-            <Flicking 
+            <!-- <Flicking 
                 ref="flicking"
                 :options="{ align: 'prev', circular: true }"
             >
@@ -65,7 +65,39 @@
             <div class="button-slider">
                 <div v-on:click="prevClick" class="btn-slider left"></div>
                 <div v-on:click="nextClick" class="btn-slider right"></div>
-            </div>
+            </div> -->
+        </div>
+
+        <div class="banner-slide">
+            <carousel
+                @next="next"
+                @prev="prev"
+            >
+                <carousel-slide v-for="(banner, index) in Banners" 
+                    :key="banner.id" 
+                    :index="index"
+                    :visibleSlide="visibleSlide"
+                    :direction="direction"
+                >
+                    <div class="panel" :style="'background-image: url('+ banner.images +')'">
+                        <div class="wrapper">
+                            <div class="caption py-5 text-center">
+                                <div class="badge">
+                                    ARSIP ARTIKEL
+                                </div>
+                                <div class="  my-3">
+                                    {{ banner.date }}
+                                </div>
+                                <h1 class="heading">
+                                    <a :href="'/artikel-detail/' + banner.id">
+                                        {{ banner.title }}
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </carousel-slide>
+            </carousel>
         </div>
         
         <div class="container">
@@ -78,9 +110,11 @@
 </template>
 
 <script>
-    import Flicking from "@egjs/vue3-flicking";
-    import "@egjs/vue3-flicking/dist/flicking.css";
-    import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    // import Flicking from "@egjs/vue3-flicking";
+    // import "@egjs/vue3-flicking/dist/flicking.css";
+    // import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    import Carousel from '../carousel/Carousel.vue'
+    import CarouselSlide from '../carousel/CarouselSlide.vue'
     
     let dataBanner = [
         {
@@ -101,39 +135,68 @@
             date: 'JANUARI 17, 2022',
             images: '/assets/static/banner/banner3.jpg',
         },
-            // {
-            //     id: 4,
-            //     title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
-            //     date: 'JANUARI 15, 2022',
-            //     images: '/assets/static/banner/banner4.jpg',
-            // },
-            // {
-            //     id: 5,
-            //     title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
-            //     date: 'JANUARI 15, 2022', 
-            //     images: '/assets/static/banner/banner5.jpg',
-            // },
+            {
+                id: 4,
+                title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
+                date: 'JANUARI 15, 2022',
+                images: '/assets/static/banner/banner4.jpg',
+            },
+            {
+                id: 5,
+                title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
+                date: 'JANUARI 15, 2022', 
+                images: '/assets/static/banner/banner5.jpg',
+            },
     ]
 
     export default {
         name: 'Banner',
-        components: { Flicking },
+        components: { 
+            // Flicking,
+            Carousel,
+            CarouselSlide,
+        },
         data() {
             return {
                 value: 0,
-                Banners: dataBanner
+                Banners: dataBanner,
+                visibleSlide: 0,
+                direction: 'left',
             }
         },
-
-        methods: {
-            prevClick() {
-                this.$refs.flicking.prev()
-            },
-
-            nextClick() {
-                this.$refs.flicking.next()
+        computed: {
+            slideLen() {
+                return this.Banners.length;
             }
+        },
+        methods: {
+            next() {
+                if (this.visibleSlide >= this.slideLen-1) {
+                    this.visibleSlide = 0;
+                } else {
+                    this.visibleSlide++;
+                }
+                this.direction = "left"
+            },
+            prev() {
+                if (this.visibleSlide <= 0) {
+                    this.visibleSlide = this.slideLen-1;
+                } else {
+                    this.visibleSlide--;
+                }
+                this.direction = "right"
+            },
         }
+
+        // methods: {
+        //     prevClick() {
+        //         this.$refs.flicking.prev()
+        //     },
+
+        //     nextClick() {
+        //         this.$refs.flicking.next()
+        //     }
+        // }
     }
 </script>
 
