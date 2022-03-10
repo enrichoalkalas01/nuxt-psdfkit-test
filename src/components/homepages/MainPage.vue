@@ -1,7 +1,10 @@
 <template>
     <section>
         <!-- Banner -->
-        <Banner />
+        <Banner v-bind:dataBanners="banners" />
+
+        <!-- Pengumuman -->
+        <Pengumuman v-bind:dataPengumuman="pengumuman" />
 
         <!-- Sekilas Info -->
         <SekilasInfo />
@@ -10,7 +13,7 @@
         <Articles v-bind:dataArtikels="artikels" />
 
         <!-- Slider Infographics -->
-        <Infographics />
+        <Infographics v-bind:dataInfografiks="infografiks" />
 
         <!-- Foto -->
         <Foto v-bind:dataFotos="fotos" />
@@ -36,6 +39,7 @@
 
     // Components
     import Banner from './Banner.vue'
+    import Pengumuman from './Pengumuman.vue'
     import SekilasInfo from './SekilasInfo.vue'
     import Articles from './Articles.vue'
     import Infographics from './Infographics.vue'
@@ -44,6 +48,51 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
+
+    let dataBanners = [
+        {
+            id: 1,
+            title: 'Rimbunnya Anggur di Kota Tangsel',
+            date: 'JANUARI 14, 2022',
+            images: '/assets/static/banner/banner1.jpg',
+        },
+        {
+            id: 2,
+            title: 'Terpikat Raja Ampat',
+            date: 'JANUARI 15, 2022',
+            images: '/assets/static/banner/banner2.jpg',
+        },
+        {
+            id: 3,
+            title: 'Kompetensi, Wajah Kemerdekaan Pers',
+            date: 'JANUARI 17, 2022',
+            images: '/assets/static/banner/banner3.jpg',
+        },
+        {
+            id: 4,
+            title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
+            date: 'JANUARI 15, 2022',
+            images: '/assets/static/banner/banner4.jpg',
+        },
+        {
+            id: 5,
+            title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
+            date: 'JANUARI 15, 2022', 
+            images: '/assets/static/banner/banner5.jpg',
+        },
+    ]
+
+    let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+    
+
+    let dataInfografiks = [
+        { id: 1, images: '/assets/static/infografik/info1.jpg', title: 'Prestasi Indonesia Di Ajang Olimpiade', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 10 Juli 2021'},
+        { id: 2, images: '/assets/static/infografik/info2.jpg', title: 'Pemain Terbaik Liga Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 4 November 2021'},
+        { id: 3, images: '/assets/static/infografik/info3.jpg', title: 'Suaka Margasatwa Terkecil Berada di Jakarta', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 16 November 2021'},
+        { id: 4, images: '/assets/static/infografik/info4.jpg', title: 'Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas Epaper, 18 November 2021'},
+        { id: 5, images: '/assets/static/infografik/info5.jpg', title: 'Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas Epaper, 18 November 2021'},
+        { id: 6, images: '/assets/static/infografik/info6.jpg', title: 'Komposisi Konsumsi BBM di Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 26 November 2021'},
+    ]
 
     let dataArtikels = [
         { id: 1, images: '/assets/static/banner/banner1.jpg', title: 'Rimbunnya Anggur di Kota Tangsel', desc: 'Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.', source: 'Kompas, 14 Jan 2022'},
@@ -86,6 +135,7 @@
         name: 'MainPage',
         components: {
             Banner,
+            Pengumuman,
             SekilasInfo,
             Articles,
             Infographics,
@@ -99,7 +149,10 @@
         data() {
             return {
                 MainPageData: null,
+                banners: dataBanners,
+                pengumuman: dataPengumuman,
                 artikels: dataArtikels,
+                infografiks: dataInfografiks,
                 fotos: dataFotos,
                 bukus: dataBukus,
                 statistiks: dataStatistiks,

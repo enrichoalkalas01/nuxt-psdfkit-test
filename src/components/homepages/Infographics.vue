@@ -87,6 +87,28 @@
                 <div v-on:click="prevClick" class="btn-slider left"></div>
                 <div v-on:click="nextClick" class="btn-slider right"></div>
             </div> -->
+            
+            <carousel
+                @next="next"
+                @prev="prev"
+            >
+                <slide
+                    :visibleSlide="visibleSlide"
+                    :direction="direction"
+                >
+                    <div class="item">
+                        <div class="item-inner">
+                            <a href="infografik-detail/1">
+                                <img src="/assets/static/infografik/info1.jpg" alt="">
+                                <div class="caption">
+                                    <h3 class="subtitle">Prestasi Indonesia Di Ajang Olimpiade</h3>
+                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 10 Juli 2021</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </slide>
+            </carousel>
         </div>
     </section>
 </template>
@@ -95,9 +117,16 @@
     // import Flicking from "@egjs/vue3-flicking";
     // import "@egjs/vue3-flicking/dist/flicking.css";
     // import "@egjs/vue3-flicking/dist/flicking-inline.css";
+    import Carousel from '../carousel/Carousel.vue'
+    import Slide from '../carousel/Slide.vue'
+
     export default {
         name: 'Infographics',
-        // components: { Flicking },
+        components: { 
+            // Flicking,
+            Carousel,
+            Slide,
+        },
         data() {
             return {
                 data: 0

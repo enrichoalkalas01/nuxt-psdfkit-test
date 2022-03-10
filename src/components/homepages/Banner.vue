@@ -99,13 +99,6 @@
                 </slide>
             </carousel>
         </div>
-        
-        <div class="container">
-            <div class="row">
-                Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email
-                kompasdata@kompas.id
-            </div>
-        </div>
     </section>
 </template>
 
@@ -115,39 +108,6 @@
     // import "@egjs/vue3-flicking/dist/flicking-inline.css";
     import Carousel from '../carousel/Carousel.vue'
     import Slide from '../carousel/Slide.vue'
-    
-    let dataBanner = [
-        {
-            id: 1,
-            title: 'Rimbunnya Anggur di Kota Tangsel',
-            date: 'JANUARI 14, 2022',
-            images: '/assets/static/banner/banner1.jpg',
-        },
-        {
-            id: 2,
-            title: 'Terpikat Raja Ampat',
-            date: 'JANUARI 15, 2022',
-            images: '/assets/static/banner/banner2.jpg',
-        },
-        {
-            id: 3,
-            title: 'Kompetensi, Wajah Kemerdekaan Pers',
-            date: 'JANUARI 17, 2022',
-            images: '/assets/static/banner/banner3.jpg',
-        },
-        {
-            id: 4,
-            title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
-            date: 'JANUARI 15, 2022',
-            images: '/assets/static/banner/banner4.jpg',
-        },
-        {
-            id: 5,
-            title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
-            date: 'JANUARI 15, 2022', 
-            images: '/assets/static/banner/banner5.jpg',
-        },
-    ]
 
     export default {
         name: 'Banner',
@@ -156,10 +116,13 @@
             Carousel,
             Slide,
         },
+        props: [
+            'dataBanners'
+        ],
         data() {
             return {
                 value: 0,
-                Banners: dataBanner,
+                Banners: this.dataBanners,
                 visibleSlide: 0,
                 direction: 'left',
             }
