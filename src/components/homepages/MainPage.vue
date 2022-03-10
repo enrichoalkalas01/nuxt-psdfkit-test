@@ -7,7 +7,7 @@
         <SekilasInfo />
         
         <!-- Articles -->
-        <Articles />
+        <Articles v-bind:dataArtikels="artikels" />
 
         <!-- Slider Infographics -->
         <Infographics />
@@ -44,6 +44,14 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
+
+    let dataArtikels = [
+        { id: 1, images: '/assets/static/banner/banner1.jpg', title: 'Rimbunnya Anggur di Kota Tangsel', desc: 'Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.', source: 'Kompas, 14 Jan 2022'},
+        { id: 2, images: '/assets/static/banner/banner2.jpg', title: 'Terpikat Raja Ampat', desc: 'Cantiknya gugusan pulau karang, lembut pasir putih, sungai jernih berair biru, dan bentangan Galaksi Bima Sakti di langit malam hampir selalu tersaji di Raja Ampat.', source: 'Kompas, 15 Jan 2022'},
+        { id: 3, images: '/assets/static/banner/banner3.jpg', title: 'Kompetensi, Wajah Kemerdekaan Pers', desc: '(2) Wartawan Indonesia menempuh cara-cara yang profesional dalam melaksanakan tugas jurnalistik. (3) Wartawan Indonesia selalu menguji informasi, memberitakan secara berimbang, tidak mencampurkan fakta dan opini yang menghakimi, serta menerapkan asas praduga tak bersalah. (Pasal 2 dan 3 Kode Etik Jurnalistik, 2006)', source: 'Kompas, 17 Jan 2022'},
+        { id: 4, images: '/assets/static/banner/banner4.jpg', title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri', desc: 'Selain mengembangkan vaksin Covid-19 sendiri, Indonesia bersiap memproduksi sendiri obat Covid-19. Harapannya, Indonesia tidak terlalu bergantung pada impor.', source: 'Kompas, 15 Jan 2022'},
+        { id: 5, images: '/assets/static/banner/banner5.jpg', title: 'Sesajen Semeru dan Beda Pemaknaan Manusia', desc: 'Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.', source: 'Kompas, 17 Jan 2022'},
+    ]
 
     let dataFotos = [
         { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
@@ -91,6 +99,7 @@
         data() {
             return {
                 MainPageData: null,
+                artikels: dataArtikels,
                 fotos: dataFotos,
                 bukus: dataBukus,
                 statistiks: dataStatistiks,

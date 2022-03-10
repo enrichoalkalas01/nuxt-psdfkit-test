@@ -18,13 +18,13 @@
 </script>
 
 <style>
-    .carousel-slide {
+    /* .carousel-slide {
         position: relative;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-    }
+    } */
 
     .left-enter-active {
         animation: leftInAnimation 0.4s ease-in-out;

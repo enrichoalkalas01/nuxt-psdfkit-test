@@ -15,7 +15,7 @@ import DataDetail from '../components/data/MainDetail.vue'
 import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
-// import Test from '../components/test/TestPlugin.vue'
+import Test from '../components/test/TestCarousel.vue'
 
 const routes = [
     // Login & Register
@@ -55,7 +55,7 @@ const routes = [
     { path: '/pencarian', name: 'pencarian', component: Pencarian },
 
     // Tester
-    // { path: '/test', name: 'test', component: Test },
+    { path: '/test', name: 'test', component: Test },
 ]
 
 const router = createRouter({

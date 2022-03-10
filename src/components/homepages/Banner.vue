@@ -73,7 +73,7 @@
                 @next="next"
                 @prev="prev"
             >
-                <carousel-slide v-for="(banner, index) in Banners" 
+                <slide v-for="(banner, index) in Banners" 
                     :key="banner.id" 
                     :index="index"
                     :visibleSlide="visibleSlide"
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                </carousel-slide>
+                </slide>
             </carousel>
         </div>
         
@@ -114,7 +114,7 @@
     // import "@egjs/vue3-flicking/dist/flicking.css";
     // import "@egjs/vue3-flicking/dist/flicking-inline.css";
     import Carousel from '../carousel/Carousel.vue'
-    import CarouselSlide from '../carousel/CarouselSlide.vue'
+    import Slide from '../carousel/Slide.vue'
     
     let dataBanner = [
         {
@@ -135,18 +135,18 @@
             date: 'JANUARI 17, 2022',
             images: '/assets/static/banner/banner3.jpg',
         },
-            {
-                id: 4,
-                title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
-                date: 'JANUARI 15, 2022',
-                images: '/assets/static/banner/banner4.jpg',
-            },
-            {
-                id: 5,
-                title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
-                date: 'JANUARI 15, 2022', 
-                images: '/assets/static/banner/banner5.jpg',
-            },
+        {
+            id: 4,
+            title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
+            date: 'JANUARI 15, 2022',
+            images: '/assets/static/banner/banner4.jpg',
+        },
+        {
+            id: 5,
+            title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
+            date: 'JANUARI 15, 2022', 
+            images: '/assets/static/banner/banner5.jpg',
+        },
     ]
 
     export default {
@@ -154,7 +154,7 @@
         components: { 
             // Flicking,
             Carousel,
-            CarouselSlide,
+            Slide,
         },
         data() {
             return {
@@ -201,6 +201,14 @@
 </script>
 
 <style>
+    .carousel {
+        position:relative;
+        overflow: hidden;
+        width:100%;
+        height:500px;
+        z-index:10;
+    }
+
     #slide {
         position: relative;
         margin-bottom: 2.5%;
