@@ -12,79 +12,14 @@
         
         <div class="infografik-slide">
             <Splide :options="SliderConfig">
-                <SplideSlide>
+                <SplideSlide v-for="infografik in infografiks" :key="infografik.id">
                     <div class="item">
                         <div class="item-inner">
-                            <a href="infografik-detail/1">
-                                <img src="/assets/static/infografik/info1.jpg" alt="">
+                            <a :href="'infografik-detail/' + infografik.id">
+                                <img :src="infografik.images" alt="">
                                 <div class="caption">
-                                    <h3 class="subtitle">Prestasi Indonesia Di Ajang Olimpiade</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 10 Juli 2021</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </SplideSlide>
-                <SplideSlide>
-                    <div class="item">
-                        <div class="item-inner">
-                            <a href="infografik-detail/2">
-                                <img src="/assets/static/infografik/info2.jpg" alt="">
-                                <div class="caption">
-                                    <h3 class="subtitle">Pemain Terbaik Liga Indonesia</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 4 November 2021</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </SplideSlide>
-                <SplideSlide>
-                    <div class="item">
-                        <div class="item-inner">
-                            <a href="infografik-detail/3">
-                                <img src="/assets/static/infografik/info3.jpg" alt="">
-                                <div class="caption">
-                                    <h3 class="subtitle">Suaka Margasatwa Terkecil Berada di Jakarta</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 16 November 2021</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </SplideSlide>
-                <SplideSlide>
-                    <div class="item">
-                        <div class="item-inner">
-                            <a href="infografik-detail/4">
-                                <img src="/assets/static/infografik/info4.jpg" alt="">
-                                <div class="caption">
-                                    <h3 class="subtitle">Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas Epaper, 18 November 2021</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </SplideSlide>
-                <SplideSlide>
-                    <div class="item">
-                        <div class="item-inner">
-                            <a href="infografik-detail/5">
-                                <img src="/assets/static/infografik/info5.jpg" alt="">
-                                <div class="caption">
-                                    <h3 class="subtitle">Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas Epaper, 18 November 2021</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </SplideSlide>
-                <SplideSlide>
-                    <div class="item">
-                        <div class="item-inner">
-                            <a href="infografik-detail/6">
-                                <img src="/assets/static/infografik/info6.jpg" alt="">
-                                <div class="caption">
-                                    <h3 class="subtitle">Komposisi Konsumsi BBM di Indonesia</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> Kompas, 26 November 2021</span>
+                                    <h3 class="subtitle">{{ infografik.title }}</h3>
+                                    <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.source }}</span>
                                 </div>
                             </a>
                         </div>
@@ -102,8 +37,12 @@
     export default {
         name: 'Infographics',
         components: {
-            Splide, SplideSlide
+            Splide,
+            SplideSlide,
         },
+        props: [
+            'dataInfografiks'
+        ],
         data() {
             return {
                 SliderConfig: {
@@ -114,6 +53,7 @@
                     // perPage: 3
                 },
                 data: 0,
+                infografiks: this.dataInfografiks,
             }
         },
         
