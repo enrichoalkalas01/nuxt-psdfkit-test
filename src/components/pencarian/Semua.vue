@@ -2,7 +2,8 @@
     <div class="row">
         <div class="col-12 col-md-9">
             <!-- Foto -->
-
+            <Foto v-bind:dataFotos="fotos" />
+            
             <!-- Artikel -->
             <Artikel v-bind:dataArtikels="artikels" />
 
@@ -25,6 +26,7 @@
 </template>
 
 <script>
+    import Foto from './Foto.vue'
     import Artikel from './Artikel.vue'
     import Infografik from './Infografik.vue'
     import Banner from '../banner/Main.vue'
@@ -39,17 +41,20 @@
     export default {
         name: 'Semua',
         components: {
+            Foto,
             Artikel,
             Infografik,
             Banner,
             Suggestion,
         },
         props: [
+            'dataFotos',
             'dataArtikels',
             'dataInfografiks',
         ],
         data () {
             return {
+                fotos: this.dataFotos,
                 artikels: this.dataArtikels,
                 infografiks: this.dataInfografiks,
                 suggestions: dataSuggestions,

@@ -149,6 +149,7 @@
         data() {
             return {
                 MainPageData: null,
+                FromApi: null,
                 banners: dataBanners,
                 pengumuman: dataPengumuman,
                 artikels: dataArtikels,
@@ -160,20 +161,17 @@
             }
         },
 
-        mounted() {
+        async mounted() {
             let ConfigApi = {
+                url: 'https://dev-be.kompasdata.id/api/Configs/mainpage',
                 method: 'get',
-                url: 'https://dev-be.kompasdata.id/api/Configs',
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }
 
-            Axios(ConfigApi).then(response => {
-                console.log(response)
-            }).catch(err => {
-                console.log(err)
-            })
+            let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
+            console.log(JSON.parse(Data.value))
         }
     }
 
