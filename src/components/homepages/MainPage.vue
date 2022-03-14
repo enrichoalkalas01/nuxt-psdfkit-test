@@ -82,8 +82,7 @@
         },
     ]
 
-    let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
-    
+    // let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
 
     let dataInfografiks = [
         { id: 1, images: '/assets/static/infografik/info1.jpg', title: 'Prestasi Indonesia Di Ajang Olimpiade', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 10 Juli 2021'},
@@ -113,11 +112,11 @@
         { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
     ]
 
-    let dataBukus = [
-        { id: 1, images: '/assets/static/buku/topikhangat/buku1.jpeg', title: 'How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan', desc: 'Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan'},
-        { id: 2, images: '/assets/static/buku/topikhangat/buku2.jpeg', title: 'Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan', desc: 'Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku'},
-        { id: 3, images: '/assets/static/buku/topikhangat/buku3.jpeg', title: 'This Changes Everything: Capitalism Vs The Climate', desc: 'Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.'},
-    ]
+    // let dataBukus = [
+    //     { id: 1, images: '/assets/static/buku/topikhangat/buku1.jpeg', title: 'How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan', desc: 'Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan'},
+    //     { id: 2, images: '/assets/static/buku/topikhangat/buku2.jpeg', title: 'Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan', desc: 'Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku'},
+    //     { id: 3, images: '/assets/static/buku/topikhangat/buku3.jpeg', title: 'This Changes Everything: Capitalism Vs The Climate', desc: 'Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.'},
+    // ]
 
     let dataStatistiks = [
         { id: 1, images: 'assets/images/image 27.png', title: 'Terdampak Pandemi Angka Kemiskinan Naik Lagi', source:'Survei, April 2003'},
@@ -149,13 +148,12 @@
         data() {
             return {
                 MainPageData: null,
-                FromApi: null,
                 banners: dataBanners,
-                pengumuman: dataPengumuman,
+                pengumuman: null,
                 artikels: dataArtikels,
                 infografiks: dataInfografiks,
                 fotos: dataFotos,
-                bukus: dataBukus,
+                bukus: null,
                 statistiks: dataStatistiks,
                 beritas: dataBeritas,
             }
@@ -172,6 +170,9 @@
 
             let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
             console.log(JSON.parse(Data.value))
+            this.MainPageData = JSON.parse(Data.value)
+            this.pengumuman = this.MainPageData.mainpage.info
+            this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
         }
     }
 

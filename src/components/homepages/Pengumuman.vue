@@ -16,13 +16,27 @@
 <script>
     export default {
         name: 'Pengumuman',
+        
+        // Component Props
         props: [
             'dataPengumuman',
         ],
+
+        // Component State
         data() {
             return {
-                pengumuman: this.dataPengumuman
+                pengumuman: null
             }
-        }
+        },
+
+        // Component Did Mount
+        mounted() {
+            this.pengumuman = this.dataPengumuman
+        },
+
+        // Component Did Update
+        updated() {
+            this.pengumuman = this.dataPengumuman
+        },
     }
 </script>
