@@ -19,7 +19,7 @@
                                 <img :src="infografik.images" alt="">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.source }}</span>
+                                    <span class="date-time"> <i class="fas fa-clock"></i>{{ infografik.source }}</span>
                                 </div>
                             </a>
                         </div>

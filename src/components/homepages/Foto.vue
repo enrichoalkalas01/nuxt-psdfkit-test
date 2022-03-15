@@ -38,8 +38,14 @@
         ],
         data () {
             return {
-                fotos: this.dataFotos
+                fotos: null
             }
-        }
+        },
+        mounted() {
+            this.fotos = this.dataFotos
+        },
+        updated() {
+            this.fotos = this.dataFotos
+        },
     }
 </script>

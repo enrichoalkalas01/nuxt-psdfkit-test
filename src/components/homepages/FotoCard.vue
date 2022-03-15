@@ -2,8 +2,14 @@
     <div class="col-12 col-md-3 my-3 text-center">
         <a :href="idFoto" class=" content borderless info-ctn">
             <img :src="image" alt="" class="ctn-img">
-            <h2 class="subtitle name">{{ title }}</h2>
-            <span class="date-time"><i class="fas fa-clock"></i> {{ source }} </span>
+            <h2 class="subtitle name pb-2">
+                <div v-html="title"></div>
+                <!-- {{ title }} -->
+            </h2>
+            <span class="date-time">
+                <i class="fas fa-clock"></i>
+                <!-- {{ source }} -->
+            </span>
         </a>
     </div>
 </template>
@@ -20,12 +26,24 @@
         ],
         data () {
             return {
-                idFoto: '/foto-detail/' + this.dataId,
-                image: this.dataImage,
-                title: this.dataTitle,
-                source: this.dataSource
+                idFoto: null,
+                image: null,
+                title: null,
+                source: null,
             }
-        }
+        },
+        mounted() {
+            this.idFoto = '/foto-detail/' + this.dataId
+            this.image = this.dataImage
+            this.title = this.dataTitle
+            this.source = this.dataSource
+        },
+        updated() {
+            this.idFoto = '/foto-detail/' + this.dataId
+            this.image = this.dataImage
+            this.title = this.dataTitle
+            this.source = this.dataSource
+        },
     }
 </script>
 

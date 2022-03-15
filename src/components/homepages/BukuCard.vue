@@ -21,11 +21,25 @@
         ],
         data () {
             return {
-                idBuku: '/foto-detail/' + this.dataId,
-                image: this.dataImage,
-                title: this.dataTitle,
-                desc: this.dataDesc
+                idBuku: `/foto-detail/${ null }`,
+                image: null,
+                title: null,
+                desc: null,
             }
-        }
+        },
+
+        mounted() {
+            this.idBuku = `/foto-detail/${ this.dataId }`,
+            this.image = this.dataImage
+            this.title = this.dataTitle
+            this.desc = this.dataDesc
+        },
+
+        updated() {
+            this.idBuku = `/foto-detail/${ this.dataId }`,
+            this.image = this.dataImage
+            this.title = this.dataTitle
+            this.desc = this.dataDesc
+        },
     }
 </script>

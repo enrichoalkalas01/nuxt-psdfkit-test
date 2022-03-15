@@ -10,18 +10,17 @@
                     <ul class="nav nav-tabs komp-tabs" id="myTab" role="tablist">
                         <li v-for="(dataBuku, i) in bukus" :key="dataBuku.id" class="nav-item" role="presentation">
                             <a
-                                
                                 :class="i == 0 ? 'nav-link active' : 'nav-link'"
                                 :id="`buku-Tabs0${ i + 1 }`" data-bs-toggle="tab"
                                 :href="`#bukuTabs0${ i + 1 }`"
                                 :aria-controls="`bukuTabs0${ i }`"
                                 :aria-selected="i == 0 ? 'true' : 'false'"
+                                v-on:click="ClickedTab"
                             >{{ dataBuku.title }}</a>
                         </li>
                     </ul>
-                    <div class="tab-content komp-tab-content">
+                    <div class="tab-content komp-tab-content" id="komp-tab-content">
                         <div 
-                            
                             v-for="(dataBuku, i) in bukus" :key="dataBuku.id"
                             :class="i == 0 ? 'tab-pane fade show active' : 'tab-pane fade'"
                             :id="`buku-Tabs0${ i + 1 }`"
@@ -29,15 +28,14 @@
                             :aria-labelledby="`buku-Tabs0${ i + 1 }`"
                         >
                             <div class="buku-card">
-                                <p>{{ dataBuku.title }}</p>
-                                <!-- <BukuCard 
-                                    v-for="buku in bukus" :key="buku.id"
-                                    v-bind:data="buku"
-                                    v-bind:dataId="buku.id"
-                                    v-bind:dataImage="buku.images"
+                                <BukuCard 
+                                    v-for="buku in dataBuku.books.book" :key="buku.id"
+                                    v-bind:data="dataBuku"
+                                    v-bind:dataId="buku.perpustakaanid"
+                                    v-bind:dataImage="buku.src"
                                     v-bind:dataTitle="buku.title"
-                                    v-bind:dataDesc="buku.desc"
-                                /> -->
+                                    v-bind:dataDesc="buku.lead"
+                                />
                             </div>
                         </div>
                     </div>
@@ -53,20 +51,16 @@
 </template>
 
 <script>
-    // import BukuCard from './BukuCard.vue'
+    import BukuCard from './BukuCard.vue'
 
     export default {
         name: 'Buku',
 
         // Components
-        components: {
-            // BukuCard
-        },
+        components: { BukuCard },
 
         // Component Props
-        props: [
-            'dataBukus',
-        ],
+        props: [ 'dataBukus', ],
 
         // Component State
         data () {
@@ -76,26 +70,19 @@
         },
 
         // Component Did Mounted
-        mounted() {
-           this.bukus = this.dataBukus
-        },
+        mounted() { this.bukus = this.dataBukus },
 
         // Component Did Update
-        updated() {
-            this.bukus = this.dataBukus
+        updated() { this.bukus = this.dataBukus },
+
+        methods: {
+            // Changes Tab Data
+            ClickedTab(e) {
+                let ElementTabs = document.querySelector(`#komp-tab-content #${ e.target.getAttribute("id") }`)
+                let TabPane = document.querySelector("#komp-tab-content .tab-pane.show.active")
+                TabPane.classList.remove("show"); TabPane.classList.remove("active")
+                ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
+            }
         },
     }
-
-    /*
-
-    <li class="nav-item" role="presentation">
-        <a
-            class="nav-link"
-            id="buku-Tabs05"
-            data-bs-toggle="tab"
-            href="#bukuTabs05"
-            aria-controls="bukuTabs05" aria-selected="false">Laporan</a>
-    </li>
-
-    */
 </script>

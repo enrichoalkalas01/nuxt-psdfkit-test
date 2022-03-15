@@ -101,16 +101,16 @@
         { id: 5, images: '/assets/static/banner/banner5.jpg', title: 'Sesajen Semeru dan Beda Pemaknaan Manusia', desc: 'Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.', source: 'Kompas, 17 Jan 2022'},
     ]
 
-    let dataFotos = [
-        { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
-        { id: 2, images: 'assets/static/foto/foto2.JPG', title: 'Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama', source: 'Kompas Epaper, 04 Januari 2022'},
-        { id: 3, images: 'assets/static/foto/foto3.JPG', title: 'Lava Pijar Gunung Semeru', source: 'Kompas Epaper, 08 Desember 2021'},
-        { id: 4, images: 'assets/static/foto/foto4.JPG', title: 'Tes Antigen Cepat Pengendara Sepeda Motor', source: 'Kompas, 08 Juni 2021'},
-        { id: 5, images: 'assets/static/foto/foto5.JPG', title: 'Geliat di Pelabuhan Sunda Kelapa di tahun 2022', source: 'Kompas Epaper, 03 Januari 2022'},
-        { id: 6, images: 'assets/static/foto/foto6.JPG', title: 'Lanskap Tol Solo-Ngawi', source: 'Kompas, 20 Desember 2021'},
-        { id: 7, images: 'assets/static/foto/foto7.JPG', title: 'Banjir di Jalan Thamrin, Jakarta', source: 'Kompas, 05 Maret 1976'},
-        { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
-    ]
+    // let dataFotos = [
+    //     { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
+    //     { id: 2, images: 'assets/static/foto/foto2.JPG', title: 'Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama', source: 'Kompas Epaper, 04 Januari 2022'},
+    //     { id: 3, images: 'assets/static/foto/foto3.JPG', title: 'Lava Pijar Gunung Semeru', source: 'Kompas Epaper, 08 Desember 2021'},
+    //     { id: 4, images: 'assets/static/foto/foto4.JPG', title: 'Tes Antigen Cepat Pengendara Sepeda Motor', source: 'Kompas, 08 Juni 2021'},
+    //     { id: 5, images: 'assets/static/foto/foto5.JPG', title: 'Geliat di Pelabuhan Sunda Kelapa di tahun 2022', source: 'Kompas Epaper, 03 Januari 2022'},
+    //     { id: 6, images: 'assets/static/foto/foto6.JPG', title: 'Lanskap Tol Solo-Ngawi', source: 'Kompas, 20 Desember 2021'},
+    //     { id: 7, images: 'assets/static/foto/foto7.JPG', title: 'Banjir di Jalan Thamrin, Jakarta', source: 'Kompas, 05 Maret 1976'},
+    //     { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
+    // ]
 
     // let dataBukus = [
     //     { id: 1, images: '/assets/static/buku/topikhangat/buku1.jpeg', title: 'How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan', desc: 'Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan'},
@@ -152,7 +152,7 @@
                 pengumuman: null,
                 artikels: dataArtikels,
                 infografiks: dataInfografiks,
-                fotos: dataFotos,
+                fotos: null,
                 bukus: null,
                 statistiks: dataStatistiks,
                 beritas: dataBeritas,
@@ -168,13 +168,40 @@
                 }
             }
 
-            let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
-            console.log(JSON.parse(Data.value))
-            this.MainPageData = JSON.parse(Data.value)
-            this.pengumuman = this.MainPageData.mainpage.info
-            this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
+            try {
+                let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
+                console.log(JSON.parse(Data.value).mainpage)
+                this.MainPageData = JSON.parse(Data.value)
+                this.pengumuman = this.MainPageData.mainpage.info
+                this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
+                this.fotos = this.MainPageData.mainpage.photos.photo
+            } catch (error) {
+                console.log('Failed to get data..')
+            }
         }
     }
 
+    /*
     
+    From API :
+    1. adslink = ?
+    2. costumers = ?
+    3. images = ?
+    4. info = pengumuman homepages
+    5. librarycollections = buku homepages
+    6. photos = foto homepages
+    7. stories = ?
+
+    Section Homepages :
+    1. Banner Images
+    2. Pengumuman
+    3. Sekilas Info ( Agenda, Ulang Tahun, Tanggal Penting )
+    4. Artikel
+    5. Infografik
+    6. Foto
+    7. Buku
+    8. Data
+    9. Berita Terkini
+    
+    */    
 </script>
