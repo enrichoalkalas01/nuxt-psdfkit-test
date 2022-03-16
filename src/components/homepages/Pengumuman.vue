@@ -19,7 +19,7 @@
         
         // Component Props
         props: [
-            'dataPengumuman',
+            'dataSet',
         ],
 
         // Component State
@@ -31,12 +31,12 @@
 
         // Component Did Mount
         mounted() {
-            this.pengumuman = this.dataPengumuman
+            this.pengumuman = this.dataSet
         },
 
         // Component Did Update
         updated() {
-            this.pengumuman = this.dataPengumuman
+            this.pengumuman = this.dataSet
         },
     }
 </script>

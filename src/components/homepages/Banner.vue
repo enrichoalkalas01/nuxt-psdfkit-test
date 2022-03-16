@@ -2,12 +2,12 @@
     <section class="sec-slide" id="slide">
         <div class="banner-slide">
             <Splide :options="SliderConfig">
-                <SplideSlide v-for="banner in Banners" :key="banner.id">
-                    <div class="panel" :style="'background-image: url('+ banner.images +')'">
+                <SplideSlide v-for="banner in BannersData" :key="banner.id">
+                    <div class="panel" :style="`background-image: url('${ banner.image_source }')`">
                         <div class="wrapper">
                             <div class="caption py-5 text-center">
                                 <div class="badge">
-                                    ARSIP ARTIKEL
+                                    {{ banner.type_banner }}
                                 </div>
                                 <div class="  my-3">
                                     {{ banner.date }}
@@ -37,17 +37,21 @@
             SplideSlide,
         },
         props: [
-            'dataBanners'
+            'dataSet'
         ],
-        data() {
+        data() {    
             return {
-                SliderConfig: {
-                    type: 'loop',
-                    updateOnMove: true,
-                    focus: 'center',
-                },
-                Banners: this.dataBanners,
+                SliderConfig: { type: 'loop', updateOnMove: true, focus: 'center' },
+                BannersData: null,
             }
+        },
+
+        mounted() {
+            this.BannersData = this.dataSet
+        },
+
+        updated() {
+            this.BannersData = this.dataSet
         },
     }
 </script>
@@ -56,7 +60,7 @@
     #slide {
         position: relative;
         margin-bottom: 2.5%;
-        /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
     }
 
     #slide .banner-slide {

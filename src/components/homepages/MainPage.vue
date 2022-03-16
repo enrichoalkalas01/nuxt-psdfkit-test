@@ -6,8 +6,11 @@
             :key="i"
         >
             <component 
-                :is="setComponent(mainpage.name_component)"
-                v-bind:dataPengumuman="mainpage.name_component"
+                :is="setDynamicComponent(mainpage.name_component)"
+                v-bind:dataSet="setDynamicData({
+                    name: mainpage.name_component,
+                    data: mainpage.data
+                })"
             />
         </div>
         <!-- Banner -->
@@ -175,10 +178,15 @@
         },
 
         methods: {
-            setComponent(value) {
+            setDynamicComponent(value) {
                 if (value === 'banner') return 'Banner'
                 if (value === 'pengumuman') return 'Pengumuman'
-                
+                // if (value === 'sekilas_info') return 'SekilasInfo'
+            },
+
+            setDynamicData(value) {
+                if (value.name === 'banner') return value.data
+                if (value.name === 'pengumuman') return value.data
             }
         },
     }  

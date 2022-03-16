@@ -2,7 +2,7 @@
     "mainpage": [
         {
             "name_component": "banner",
-            "banner_data": [
+            "data": [
                 {
                     "id": 1,
                     "title": "Rimbunnya Anggur di Kota Tangsel",
@@ -10,43 +10,44 @@
                     "image_source": "/assets/static/banner/banner1.jpg",
                     "type_banner": "Arsip Artikel"
                 },
+                
                 {
                     "id": 2,
                     "title": "Terpikat Raja Ampat",
                     "date": "JANUARI 15, 2022",
-                    "images": "/assets/static/banner/banner2.jpg",
+                    "image_source": "/assets/static/banner/banner2.jpg",
                     "type_banner": "Arsip Artikel"
                 },
                 {
                     "id": 3,
                     "title": "Kompetensi, Wajah Kemerdekaan Pers",
                     "date": "JANUARI 17, 2022",
-                    "images": "/assets/static/banner/banner3.jpg",
+                    "image_source": "/assets/static/banner/banner3.jpg",
                     "type_banner": "Arsip Artikel"
                 },
                 {
                     "id": 4,
                     "title": "Obat Covid-19 Siap Diproduksi di Dalam Negeri",
                     "date": "JANUARI 15, 2022",
-                    "images": "/assets/static/banner/banner4.jpg",
+                    "image_source": "/assets/static/banner/banner4.jpg",
                     "type_banner": "Arsip Artikel"
                 },
                 {
                     "id": 5,
                     "title": "Sesajen Semeru dan Beda Pemaknaan Manusia",
                     "date": "JANUARI 15, 2022", 
-                    "images": "/assets/static/banner/banner5.jpg",
+                    "image_source": "/assets/static/banner/banner5.jpg",
                     "type_banner": "Arsip Artikel"
                 }
             ]
         },
         {
             "name_component": "pengumuman",
-            "pengumuman_data": "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+            "data": "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
         },
         {
             "name_component": "sekilas_info",
-            "sekilas_info": {
+            "data": {
                 "title_section": "Informasi seputar tanggal penting, ulang tahun dan agenda Kompas",    
                 "data": [
                     {
@@ -182,7 +183,7 @@
         },
         {
             "name_component": "artikel",
-            "artikel_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -198,7 +199,7 @@
         },
         {
             "name_component": "infografik",
-            "info_grafik_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -213,7 +214,7 @@
         },
         {
             "name_component": "foto",
-            "foto_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -229,7 +230,7 @@
         },
         {
             "name_component": "buku",
-            "buku_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -249,7 +250,7 @@
         },
         {
             "name_component": "survey",
-            "survey_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -269,7 +270,7 @@
         },
         {
             "name_component": "layanan",
-            "layanan_data": {
+            "data": {
                 "title_section": "string",
                 "data": [
                     {
@@ -283,7 +284,7 @@
         },
         {
             "name_component": "berita terkini",
-            "berita_terkini_data": [
+            "data": [
                 {
                     "id": "integer",
                     "title": "string",
