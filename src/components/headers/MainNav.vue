@@ -28,9 +28,9 @@
                             <a href="#" class="cart d-none d-md-block">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
-                            <span class="divider mr-2  d-none d-md-block"></span>
-                            <a href="/login" class="btn btn-line">LOGIN</a>
-                            <a href="/daftar" class="btn btn-second">DAFTAR</a>
+                            <span class="divider mr-2  d-none d-md-block" id="line"></span>
+                            <a href="/login" class="btn btn-line" id="login">LOGIN</a>
+                            <a href="/daftar" class="btn btn-second" id="register">DAFTAR</a>
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,20 @@
 <script>
     export default {
         name: 'MainNav',
+        mounted() {
+            var line = document.getElementById("line")
+            var login = document.getElementById("login")
+            var register = document.getElementById("register")
+
+            if (this.$store.state.Login.LoginStatus) {
+                line.style.visibility = "hidden";
+                login.style.display = "none";
+                register.style.display = "none";
+            } else{
+                line.style.display = "block";
+                login.style.display = "block";
+                register.style.display = "block";
+            }
+        }
     }
 </script>
-
-<style>
-
-</style>

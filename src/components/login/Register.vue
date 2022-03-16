@@ -5,7 +5,7 @@
             <div class="row  g-0 d-flex align-items-center">
                 <div class="col-12 col-md-6">
 
-                    <a href="index.html" class="logo-big">
+                    <a href="/" class="logo-big">
                         <img src="assets/images/logo-kompasdata-big.png" alt="">
                     </a>
                     <div class="box-title p-3 p-md-4 my-3">
@@ -96,7 +96,12 @@
 </template>
 
 <script>
-export default {
-    name: 'Register'
-}
+    export default {
+        name: 'Register',
+        mounted() {
+            if (this.$store.state.Login.LoginStatus) {
+                window.location.href = '/'
+            }
+        },
+    }
 </script>

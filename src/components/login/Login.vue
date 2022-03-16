@@ -5,7 +5,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 text-center">
 
-                    <a href="index.html" class="logo-big">
+                    <a href="/" class="logo-big">
                         <img src="assets/images/logo-kompasdata-big.png" alt="">
                     </a>
                     <div class="content shadow my-3">
@@ -77,6 +77,7 @@
 
 <script>
     import Axios from 'axios'
+    import 'vue-router'
 
     export default {
         name: 'Login',
@@ -106,7 +107,7 @@
 
                 let getData = await Axios({
                     method: 'post',
-                    url: 'https://dev-be.kompasdata.id/api/Account',
+                    url: 'https://dev-be.kompasdata.id/api/Login',
                     data: JSON.stringify({
                         'username' : username,
                         'password' : password
@@ -118,7 +119,7 @@
 
                 console.log(getData)
 
-                if (!getData) {
+                if (!getData.data) {
                     alert("Something wrong")
                 } else {
                     this.$store.commit('setLoginCookies', {
@@ -132,6 +133,8 @@
                         'data': true,
                         'days' : 1
                     });
+
+                    window.location.href = '/'
                 }
             }
         }
