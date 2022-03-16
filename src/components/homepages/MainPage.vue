@@ -35,7 +35,7 @@
 
 <script>
     // Library
-    import Axios from 'axios'
+    // import Axios from 'axios'
 
     // Components
     import Banner from './Banner.vue'
@@ -82,7 +82,7 @@
         },
     ]
 
-    // let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+    let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
 
     let dataInfografiks = [
         { id: 1, images: '/assets/static/infografik/info1.jpg', title: 'Prestasi Indonesia Di Ajang Olimpiade', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 10 Juli 2021'},
@@ -101,22 +101,22 @@
         { id: 5, images: '/assets/static/banner/banner5.jpg', title: 'Sesajen Semeru dan Beda Pemaknaan Manusia', desc: 'Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.', source: 'Kompas, 17 Jan 2022'},
     ]
 
-    // let dataFotos = [
-    //     { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
-    //     { id: 2, images: 'assets/static/foto/foto2.JPG', title: 'Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama', source: 'Kompas Epaper, 04 Januari 2022'},
-    //     { id: 3, images: 'assets/static/foto/foto3.JPG', title: 'Lava Pijar Gunung Semeru', source: 'Kompas Epaper, 08 Desember 2021'},
-    //     { id: 4, images: 'assets/static/foto/foto4.JPG', title: 'Tes Antigen Cepat Pengendara Sepeda Motor', source: 'Kompas, 08 Juni 2021'},
-    //     { id: 5, images: 'assets/static/foto/foto5.JPG', title: 'Geliat di Pelabuhan Sunda Kelapa di tahun 2022', source: 'Kompas Epaper, 03 Januari 2022'},
-    //     { id: 6, images: 'assets/static/foto/foto6.JPG', title: 'Lanskap Tol Solo-Ngawi', source: 'Kompas, 20 Desember 2021'},
-    //     { id: 7, images: 'assets/static/foto/foto7.JPG', title: 'Banjir di Jalan Thamrin, Jakarta', source: 'Kompas, 05 Maret 1976'},
-    //     { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
-    // ]
+    let dataFotos = [
+        { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
+        { id: 2, images: 'assets/static/foto/foto2.JPG', title: 'Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama', source: 'Kompas Epaper, 04 Januari 2022'},
+        { id: 3, images: 'assets/static/foto/foto3.JPG', title: 'Lava Pijar Gunung Semeru', source: 'Kompas Epaper, 08 Desember 2021'},
+        { id: 4, images: 'assets/static/foto/foto4.JPG', title: 'Tes Antigen Cepat Pengendara Sepeda Motor', source: 'Kompas, 08 Juni 2021'},
+        { id: 5, images: 'assets/static/foto/foto5.JPG', title: 'Geliat di Pelabuhan Sunda Kelapa di tahun 2022', source: 'Kompas Epaper, 03 Januari 2022'},
+        { id: 6, images: 'assets/static/foto/foto6.JPG', title: 'Lanskap Tol Solo-Ngawi', source: 'Kompas, 20 Desember 2021'},
+        { id: 7, images: 'assets/static/foto/foto7.JPG', title: 'Banjir di Jalan Thamrin, Jakarta', source: 'Kompas, 05 Maret 1976'},
+        { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
+    ]
 
-    // let dataBukus = [
-    //     { id: 1, images: '/assets/static/buku/topikhangat/buku1.jpeg', title: 'How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan', desc: 'Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan'},
-    //     { id: 2, images: '/assets/static/buku/topikhangat/buku2.jpeg', title: 'Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan', desc: 'Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku'},
-    //     { id: 3, images: '/assets/static/buku/topikhangat/buku3.jpeg', title: 'This Changes Everything: Capitalism Vs The Climate', desc: 'Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.'},
-    // ]
+    let dataBukus = [
+        { id: 1, images: '/assets/static/buku/topikhangat/buku1.jpeg', title: 'How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan', desc: 'Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan'},
+        { id: 2, images: '/assets/static/buku/topikhangat/buku2.jpeg', title: 'Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan', desc: 'Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku'},
+        { id: 3, images: '/assets/static/buku/topikhangat/buku3.jpeg', title: 'This Changes Everything: Capitalism Vs The Climate', desc: 'Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.'},
+    ]
 
     let dataStatistiks = [
         { id: 1, images: 'assets/images/image 27.png', title: 'Terdampak Pandemi Angka Kemiskinan Naik Lagi', source:'Survei, April 2003'},
@@ -149,35 +149,35 @@
             return {
                 MainPageData: null,
                 banners: dataBanners,
-                pengumuman: null,
+                pengumuman: dataPengumuman,
                 artikels: dataArtikels,
                 infografiks: dataInfografiks,
-                fotos: null,
-                bukus: null,
+                fotos: dataFotos,
+                bukus: dataBukus,
                 statistiks: dataStatistiks,
                 beritas: dataBeritas,
             }
         },
 
         async mounted() {
-            let ConfigApi = {
-                url: 'https://dev-be.kompasdata.id/api/Configs/mainpage',
-                method: 'get',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
+            // let ConfigApi = {
+            //     url: 'https://dev-be.kompasdata.id/api/Configs/mainpage',
+            //     method: 'get',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // }
 
-            try {
-                let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
-                console.log(JSON.parse(Data.value).mainpage)
-                this.MainPageData = JSON.parse(Data.value)
-                this.pengumuman = this.MainPageData.mainpage.info
-                this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
-                this.fotos = this.MainPageData.mainpage.photos.photo
-            } catch (error) {
-                console.log('Failed to get data..')
-            }
+            // try {
+            //     let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
+            //     console.log(JSON.parse(Data.value).mainpage)
+            //     this.MainPageData = JSON.parse(Data.value)
+            //     this.pengumuman = this.MainPageData.mainpage.info
+            //     this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
+            //     this.fotos = this.MainPageData.mainpage.photos.photo
+            // } catch (error) {
+            //     console.log('Failed to get data..')
+            // }
         }
     }
 

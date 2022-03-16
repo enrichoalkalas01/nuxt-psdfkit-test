@@ -46,6 +46,9 @@
         },
         updated() {
             this.fotos = this.dataFotos
+            this.fotos.map(data => {
+                console.log(data)
+            })
         },
     }
 </script>

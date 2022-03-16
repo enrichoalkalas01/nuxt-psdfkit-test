@@ -8,7 +8,7 @@
             </h2>
             <span class="date-time">
                 <i class="fas fa-clock"></i>
-                <!-- {{ source }} -->
+                {{ source }}
             </span>
         </a>
     </div>
