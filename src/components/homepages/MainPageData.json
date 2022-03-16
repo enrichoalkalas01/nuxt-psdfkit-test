@@ -1,0 +1,298 @@
+{
+    "mainpage": [
+        {
+            "name_component": "banner",
+            "banner_data": [
+                {
+                    "id": 1,
+                    "title": "Rimbunnya Anggur di Kota Tangsel",
+                    "date": "JANUARI 14, 2022",
+                    "image_source": "/assets/static/banner/banner1.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 2,
+                    "title": "Terpikat Raja Ampat",
+                    "date": "JANUARI 15, 2022",
+                    "images": "/assets/static/banner/banner2.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 3,
+                    "title": "Kompetensi, Wajah Kemerdekaan Pers",
+                    "date": "JANUARI 17, 2022",
+                    "images": "/assets/static/banner/banner3.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 4,
+                    "title": "Obat Covid-19 Siap Diproduksi di Dalam Negeri",
+                    "date": "JANUARI 15, 2022",
+                    "images": "/assets/static/banner/banner4.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 5,
+                    "title": "Sesajen Semeru dan Beda Pemaknaan Manusia",
+                    "date": "JANUARI 15, 2022", 
+                    "images": "/assets/static/banner/banner5.jpg",
+                    "type_banner": "Arsip Artikel"
+                }
+            ]
+        },
+        {
+            "name_component": "pengumuman",
+            "pengumuman_data": "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+        },
+        {
+            "name_component": "sekilas_info",
+            "sekilas_info": {
+                "title_section": "Informasi seputar tanggal penting, ulang tahun dan agenda Kompas",    
+                "data": [
+                    {
+                        "type_tab": "Agenda",
+                        "data": [
+                            {
+                                "id": 1,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "21 Juni 1961",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            },
+                            {
+                                "id": 2,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info2.png"
+                            },
+                            {
+                                "id": 3,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info3.png"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Ulang Tahun",
+                        "data": [
+                            {
+                                "id": 1,
+                                "title": "Joko Widodo",
+                                "excerpt": "",
+                                "date": "21 Juni 1961",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            },
+                            {
+                                "id": 2,
+                                "title": "BJ Habibie",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info2.png"
+                            },
+                            {
+                                "id": 3,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info3.png"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Tanggal Penting",
+                        "data": [
+                            {
+                                "month": "Januari",
+                                "data_tanggal": [
+                                    {
+                                        "id": 1,
+                                        "title": "1 Januari",
+                                        "detail": "Tahun Baru Nasional",
+                                        "date": "1 Januari 2022"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "title": "3 Januari",
+                                        "detail": "Hari Departemen Agama Republik Indonesia",
+                                        "date": "3 Januari 2022"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "title": "5 Januari",
+                                        "detail": "Hari Korps Wanita Angkatan Laut",
+                                        "date": "5 Januari 2022"
+                                    },
+                                    {
+                                        "id": 4,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Gerakan Satu Juta Pohon",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 5,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Tritura",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 6,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Lingkungan Hidup Indonesia",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 7,
+                                        "title": "15 Januari",
+                                        "detail": "Hari Peristiwa Laut dan Samudera atau Hari Dharma Samudera",
+                                        "date": "15 Januari 2022"
+                                    },
+                                    {
+                                        "id": 8,
+                                        "title": "25 Januari",
+                                        "detail": "Hari Gizi Nasional",
+                                        "date": "25 Januari 2022"
+                                    },
+                                    {
+                                        "id": 9,
+                                        "title": "25 Januari",
+                                        "detail": "Hari Kusta Internasional",
+                                        "date": "25 Januari 2022"
+                                    },
+                                    {
+                                        "id": 10,
+                                        "title": "26 Januari",
+                                        "detail": "Hari Kepabeanan Internasional",
+                                        "date": "25 Januari 2022"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "artikel",
+            "artikel_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "excerpt": "string",
+                        "created_date": "date",
+                        "source_created": "string",
+                        "image_source": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "infografik",
+            "info_grafik_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "created_date": "date",
+                        "source_created": "string",
+                        "image_source": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "foto",
+            "foto_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "string",
+                        "title": "string",
+                        "excerpt": "string",
+                        "image_source": "string",
+                        "created_date": "date",
+                        "source_created": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "buku",
+            "buku_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "type_book": "string",
+                        "data": [
+                            {
+                                "id": "integer",
+                                "title": "string",
+                                "excerpt": "string",
+                                "date": "date",
+                                "image_source": "string"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "survey",
+            "survey_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "type_survey": "string",
+                        "data": [
+                            {
+                                "id": "integer",
+                                "title": "string",
+                                "image_source": "string",
+                                "source_created": "string",
+                                "date": "date"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "layanan",
+            "layanan_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "icon": "string",
+                        "text": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "berita terkini",
+            "berita_terkini_data": [
+                {
+                    "id": "integer",
+                    "title": "string",
+                    "text_update": "string",
+                    "excerpt": "string",
+                    "image_source": "string",
+                    "date": "date"
+                }
+            ]
+        }
+    ]
+}

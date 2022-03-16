@@ -1,0 +1,163 @@
+{
+    "mainpage": [
+        {
+            "banner_data": [
+                { 
+                    "id": "integer",
+                    "image_source": "string",
+                    "title": "string",
+                    "date": "date",
+                    "type_banner": "string arsip artikel"
+                }
+            ]
+        },
+        {
+            "pengumuman_data": "string"
+        },
+        {
+            "sekilas_info": {
+                "title_section": "string",    
+                "agenda": [
+                    {
+                        "id": "integer",
+                        "images": "string",
+                        "title": "string",
+                        "excerpt": "string",
+                        "date": "place & date",
+                        "image_source": "string"
+                    }
+                ],
+                "ulang_tahun": [
+                    {
+                        "id": "integer",
+                        "images": "string",
+                        "title": "string",
+                        "excerpt": "string",
+                        "date": "place & date",
+                        "image_source": "string"
+                    }
+                ],
+                "tanggal_penting": [
+                    {
+                        "month": "string",
+                        "data_tanggal": [
+                            {
+                                "id": "integer",
+                                "title": "string",
+                                "detail": "string",
+                                "date": "date"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "artikel_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "excerpt": "string",
+                        "created_date": "date",
+                        "source_created": "string",
+                        "image_source": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "info_grafik_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "created_date": "date",
+                        "source_created": "string",
+                        "image_source": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "foto_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "string",
+                        "title": "string",
+                        "excerpt": "string",
+                        "image_source": "string",
+                        "created_date": "date",
+                        "source_created": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "buku_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "type_book": "string",
+                        "data": [
+                            {
+                                "id": "integer",
+                                "title": "string",
+                                "excerpt": "string",
+                                "date": "date",
+                                "image_source": "string"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "survey_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "type_survey": "string",
+                        "data": [
+                            {
+                                "id": "integer",
+                                "title": "string",
+                                "image_source": "string",
+                                "source_created": "string",
+                                "date": "date"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "layanan_data": {
+                "title_section": "string",
+                "data": [
+                    {
+                        "id": "integer",
+                        "title": "string",
+                        "icon": "string",
+                        "text": "string"
+                    }
+                ]
+            }
+        },
+        {
+            "berita_terkini_data": [
+                {
+                    "id": "integer",
+                    "title": "string",
+                    "text_update": "string",
+                    "excerpt": "string",
+                    "image_source": "string",
+                    "date": "date"
+                }
+            ]
+        }
+    ]
+}

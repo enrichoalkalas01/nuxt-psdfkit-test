@@ -1,40 +1,51 @@
 <template>
     <section>
+        <div
+            class="wrapper-main-page"
+            v-for="(mainpage, i) in MainPageData.mainpage"
+            :key="i"
+        >
+            <component 
+                :is="setComponent(mainpage.name_component)"
+                v-bind:dataPengumuman="mainpage.name_component"
+            />
+        </div>
         <!-- Banner -->
-        <Banner v-bind:dataBanners="banners" />
-
+        <!-- <Banner v-bind:dataBanners="banners" /> -->
+        
         <!-- Pengumuman -->
-        <Pengumuman v-bind:dataPengumuman="pengumuman" />
+        <!-- <Pengumuman v-bind:dataPengumuman="pengumuman" /> -->
 
         <!-- Sekilas Info -->
-        <SekilasInfo />
+        <!-- <SekilasInfo /> -->
         
         <!-- Articles -->
-        <Articles v-bind:dataArtikels="artikels" />
+        <!-- <Articles v-bind:dataArtikels="artikels" /> -->
 
         <!-- Slider Infographics -->
-        <Infographics v-bind:dataInfografiks="infografiks" />
+        <!-- <Infographics v-bind:dataInfografiks="infografiks" /> -->
 
         <!-- Foto -->
-        <Foto v-bind:dataFotos="fotos" />
+        <!-- <Foto v-bind:dataFotos="fotos" /> -->
 
         <!-- Buku -->
-        <Buku v-bind:dataBukus="bukus" />
+        <!-- <Buku v-bind:dataBukus="bukus" /> -->
 
         <!-- Data Statistik -->
-        <DataStatistik v-bind:dataStatistiks="statistiks" />
+        <!-- <DataStatistik v-bind:dataStatistiks="statistiks" /> -->
 
         <!-- Layanan Kami -->
-        <LayananKami />
+        <!-- <LayananKami /> -->
 
         <!-- Berita Terkini -->
-        <BeritaTerkini v-bind:dataBeritas="beritas" />
+        <!-- <BeritaTerkini v-bind:dataBeritas="beritas" /> -->
 
     </section>
 </template>
 
 <script>
     // Library
+    import MainpageJson from './MainPageData.json'
     // import Axios from 'axios'
 
     // Components
@@ -147,7 +158,7 @@
 
         data() {
             return {
-                MainPageData: null,
+                MainPageData: MainpageJson,
                 banners: dataBanners,
                 pengumuman: dataPengumuman,
                 artikels: dataArtikels,
@@ -160,48 +171,15 @@
         },
 
         async mounted() {
-            // let ConfigApi = {
-            //     url: 'https://dev-be.kompasdata.id/api/Configs/mainpage',
-            //     method: 'get',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // }
+            console.log(JSON.parse(JSON.stringify(this.MainPageData)))
+        },
 
-            // try {
-            //     let Data = await Axios(ConfigApi).then(response => response.data).catch(err => err)
-            //     console.log(JSON.parse(Data.value).mainpage)
-            //     this.MainPageData = JSON.parse(Data.value)
-            //     this.pengumuman = this.MainPageData.mainpage.info
-            //     this.bukus = this.MainPageData.mainpage.librarycollections.categories.category
-            //     this.fotos = this.MainPageData.mainpage.photos.photo
-            // } catch (error) {
-            //     console.log('Failed to get data..')
-            // }
-        }
-    }
-
-    /*
-    
-    From API :
-    1. adslink = ?
-    2. costumers = ?
-    3. images = ?
-    4. info = pengumuman homepages
-    5. librarycollections = buku homepages
-    6. photos = foto homepages
-    7. stories = ?
-
-    Section Homepages :
-    1. Banner Images
-    2. Pengumuman
-    3. Sekilas Info ( Agenda, Ulang Tahun, Tanggal Penting )
-    4. Artikel
-    5. Infografik
-    6. Foto
-    7. Buku
-    8. Data
-    9. Berita Terkini
-    
-    */    
+        methods: {
+            setComponent(value) {
+                if (value === 'banner') return 'Banner'
+                if (value === 'pengumuman') return 'Pengumuman'
+                
+            }
+        },
+    }  
 </script>

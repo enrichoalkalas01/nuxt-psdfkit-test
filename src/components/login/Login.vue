@@ -93,7 +93,7 @@
             // this.$store.commit('setLoginStatus', true)
             // console.log(this.$store.commit('LoginState', true))
             // this.$store.commit('setLoginCookies', { name: '_km_dtl_s', data: 'ini data', days: 7 })
-            console.log(this.$store.state.Login)
+            // console.log(this.$store.state.Login)
 
             if (this.$store.state.Login.LoginStatus) {
                 window.location.href = '/'
