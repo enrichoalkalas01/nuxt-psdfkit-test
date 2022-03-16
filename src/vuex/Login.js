@@ -23,6 +23,16 @@ const setCookie = (name, value, days) => {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
+const encrypData = (value = {}) => {
+    let results = Buffer.from(value).toString('base64')
+    return results
+}
+
+const decryptData = (value = '') => {
+    let results = Buffer.from(value, 'base64').toString('ascii')
+    return results
+}
+
 console.log(GetCookies('_km_dtl_s'))
 
 const Login = {
@@ -48,6 +58,16 @@ const Login = {
             deleteCookies('_km_dtl_s')
             deleteCookies('_km_dtl_d')
             state.LoginStatus = false
+        },
+
+        setEncrypt(value) {
+            let results = encrypData(value)
+            return results
+        },
+
+        getEncrypt(value) {
+            let results = decryptData(value)
+            return results
         }
     }
 }
