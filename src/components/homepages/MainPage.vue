@@ -63,41 +63,6 @@
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
 
-    let dataBanners = [
-        {
-            id: 1,
-            title: 'Rimbunnya Anggur di Kota Tangsel',
-            date: 'JANUARI 14, 2022',
-            images: '/assets/static/banner/banner1.jpg',
-        },
-        {
-            id: 2,
-            title: 'Terpikat Raja Ampat',
-            date: 'JANUARI 15, 2022',
-            images: '/assets/static/banner/banner2.jpg',
-        },
-        {
-            id: 3,
-            title: 'Kompetensi, Wajah Kemerdekaan Pers',
-            date: 'JANUARI 17, 2022',
-            images: '/assets/static/banner/banner3.jpg',
-        },
-        {
-            id: 4,
-            title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri',
-            date: 'JANUARI 15, 2022',
-            images: '/assets/static/banner/banner4.jpg',
-        },
-        {
-            id: 5,
-            title: 'Sesajen Semeru dan Beda Pemaknaan Manusia',
-            date: 'JANUARI 15, 2022', 
-            images: '/assets/static/banner/banner5.jpg',
-        },
-    ]
-
-    let dataPengumuman = "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
-
     let dataInfografiks = [
         { id: 1, images: '/assets/static/infografik/info1.jpg', title: 'Prestasi Indonesia Di Ajang Olimpiade', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 10 Juli 2021'},
         { id: 2, images: '/assets/static/infografik/info2.jpg', title: 'Pemain Terbaik Liga Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 4 November 2021'},
@@ -162,8 +127,6 @@
         data() {
             return {
                 MainPageData: MainpageJson,
-                banners: dataBanners,
-                pengumuman: dataPengumuman,
                 artikels: dataArtikels,
                 infografiks: dataInfografiks,
                 fotos: dataFotos,
@@ -181,12 +144,15 @@
             setDynamicComponent(value) {
                 if (value === 'banner') return 'Banner'
                 if (value === 'pengumuman') return 'Pengumuman'
-                // if (value === 'sekilas_info') return 'SekilasInfo'
+                if (value === 'sekilas_info') return 'SekilasInfo'
+                if (value === 'artikel') return 'Articles'
             },
 
             setDynamicData(value) {
                 if (value.name === 'banner') return value.data
                 if (value.name === 'pengumuman') return value.data
+                if (value.name === 'sekilas_info') return value.data
+                if (value.name === 'artikel') return value.data
             }
         },
     }  
