@@ -77,7 +77,6 @@
 
 <script>
     import Axios from 'axios'
-    import 'vue-router'
 
     export default {
         name: 'Login',
@@ -122,9 +121,12 @@
                 if (!getData.data) {
                     alert("Something wrong")
                 } else {
+                    this.$store.commit('setEncrypt', JSON.stringify(getData.data))
+                    const data = this.$store.state.Login.LoginData
+
                     this.$store.commit('setLoginCookies', {
                         'name' : '_km_dtl_d',
-                        'data': JSON.stringify(getData.data),
+                        'data': data,
                         'days' : 1
                     });
                     

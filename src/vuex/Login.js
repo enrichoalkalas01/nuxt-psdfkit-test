@@ -40,7 +40,8 @@ const Login = {
         return {
             LoginStatus: GetCookies('_km_dtl_s') !== null ? true : false,
             UserData: GetCookies('_km_dtl_d') !== null ? GetCookies('_km_dtl_d') : false,
-            MutationUsed: 0
+            MutationUsed: 0,
+            LoginData: null
         }
     },
 
@@ -60,9 +61,8 @@ const Login = {
             state.LoginStatus = false
         },
 
-        setEncrypt(value) {
-            let results = encrypData(value)
-            return results
+        setEncrypt(state, value) {
+            state.LoginData = encrypData(value)
         },
 
         getEncrypt(value) {
