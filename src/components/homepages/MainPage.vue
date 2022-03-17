@@ -13,43 +13,13 @@
                 })"
             />
         </div>
-        <!-- Banner -->
-        <!-- <Banner v-bind:dataBanners="banners" /> -->
-        
-        <!-- Pengumuman -->
-        <!-- <Pengumuman v-bind:dataPengumuman="pengumuman" /> -->
-
-        <!-- Sekilas Info -->
-        <!-- <SekilasInfo /> -->
-        
-        <!-- Articles -->
-        <!-- <Articles v-bind:dataArtikels="artikels" /> -->
-
-        <!-- Slider Infographics -->
-        <!-- <Infographics v-bind:dataInfografiks="infografiks" /> -->
-
-        <!-- Foto -->
-        <!-- <Foto v-bind:dataFotos="fotos" /> -->
-
-        <!-- Buku -->
-        <!-- <Buku v-bind:dataBukus="bukus" /> -->
-
-        <!-- Data Statistik -->
-        <!-- <DataStatistik v-bind:dataStatistiks="statistiks" /> -->
-
-        <!-- Layanan Kami -->
-        <!-- <LayananKami /> -->
-
-        <!-- Berita Terkini -->
-        <!-- <BeritaTerkini v-bind:dataBeritas="beritas" /> -->
-
     </section>
 </template>
 
 <script>
     // Library
-    import MainpageJson from './MainPageData.json'
-    // import Axios from 'axios'
+    import DefaultDataJSON from './DefaultData.json'
+    import Axios from 'axios'
 
     // Components
     import Banner from './Banner.vue'
@@ -80,12 +50,24 @@
 
         data() {
             return {
-                MainPageData: MainpageJson,
+                MainPageData: DefaultDataJSON,
+                ConfigApiMainPage: {
+                    url: 'https://dev-be.kompasdata.id/api/Configs/mainpage'
+                }
+            }
+        },
+
+        async beforeMount() {
+            try {
+                let Data = await Axios(this.ConfigApiMainPage)
+                this.MainPageData = JSON.parse(Data.data.value)
+            } catch (error) {
+                console.log(error.message)
             }
         },
 
         async mounted() {
-            console.log(JSON.parse(JSON.stringify(this.MainPageData)))
+            
         },
 
         methods: {

@@ -38,11 +38,11 @@
                                     class="col-12 col-lg-6 my-2"
                                 >
                                     <div class="content borderless">
-                                        <a :href="`data-detail/${ statistik.data[n - 1].id }`">
+                                        <a :href="`/data-detail/${ statistik ? statistik.data[n - 1].id : '' }`">
                                             <img :src="statistik.data[n - 1].image_source" alt="" class="foto-img">
                                         </a>
                                         <h3 class="title my-3">
-                                            <a :href="`data-detail/${ statistik.data[n - 1].id }`">
+                                            <a :href="`/data-detail/${ statistik ? statistik.data[n - 1].id : '' }`">
                                                 {{ statistik.data[n - 1].title }}
                                             </a>
                                         </h3>
@@ -59,12 +59,12 @@
                                             class="col-12 pt-2 pb-3"
                                         >
                                             <div class="content full-height borderless kolom2 bot-line mb-3">
-                                                <a :href="`data-detail/${ statistik.data[n].id }`">
+                                                <a :href="`/data-detail/${ statistik.data[n].id }`">
                                                     <img :src="statistik.data[n].image_source" alt="" class="foto-img">
                                                 </a>
                                                 <div class="desc">
                                                     <h3 class="title">
-                                                        <a href="data-detail/1">{{ statistik.data[n].title }}</a>
+                                                        <a :href="`/data-detail/${statistik.data[n].id}`">{{ statistik.data[n].title }}</a>
                                                     </h3>
                                                     <span class="date-time">
                                                         <i class="fas fa-clock"></i>
@@ -89,22 +89,33 @@
 </template>
 
 <script>
-export default {
-    name: 'DataStatistik',
-    props: [ 'dataSet' ],
-    data() {
-        return {
-            statistiks: null
-        }
-    },
-    beforeMount() {
-        this.statistiks = this.dataSet
-    },
-    mounted() {
-        this.statistiks = this.dataSet
-    },
-    updated() {
-        this.statistiks = this.dataSet
-    },
-}
+    export default {
+        name: 'DataStatistik',
+
+        components: {
+
+        },
+
+        props: [ 'dataSet' ],
+
+        data() {
+            return {
+                statistiks: null,
+            }
+        },
+
+        beforeMount() {
+            this.statistiks = this.dataSet
+        },
+
+        // Component Did Mounted
+        mounted() {
+            this.statistiks = this.dataSet
+        },
+
+        // Component Did Update
+        updated() {
+            this.statistiks = this.dataSet
+        },
+    }
 </script>

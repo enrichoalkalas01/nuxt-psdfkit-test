@@ -66,19 +66,17 @@
         },
 
         // Component Props
-        props: [ 'dataSet', ],
+        props: [ 'dataSet' ],
 
         // Component State
         data () {
             return {
                 bukus: null,
-                tabBukus: [1,2,3,4,5],
             }
         },
 
         beforeMount() {
             this.bukus = this.dataSet
-            console.log(JSON.parse(JSON.stringify(this.dataSet)))
         },
 
         // Component Did Mounted
