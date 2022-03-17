@@ -243,14 +243,55 @@
         {
             "name_component": "infografik",
             "data": {
-                "title_section": "string",
+                "title_section": "",
                 "data": [
                     {
-                        "id": "integer",
-                        "title": "string",
-                        "created_date": "date",
-                        "source_created": "string",
-                        "image_source": "string"
+                        "id": 1,
+                        "image_source": "/assets/static/infografik/info1.jpg",
+                        "title": "Prestasi Indonesia Di Ajang Olimpiade",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "10 Juli 2021"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/static/infografik/info2.jpg",
+                        "title": "Pemain Terbaik Liga Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "4 November 2021"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "/assets/static/infografik/info3.jpg",
+                        "title": "Suaka Margasatwa Terkecil Berada di Jakarta",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "16 November 2021"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "/assets/static/infografik/info4.jpg",
+                        "title": "Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "18 November 2021"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "/assets/static/infografik/info5.jpg",
+                        "title": "Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "18 November 2021"
+                    },
+                    {
+                        "id": 6,
+                        "image_source": "/assets/static/infografik/info6.jpg",
+                        "title": "Komposisi Konsumsi BBM di Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "26 November 2021"
                     }
                 ]
             }

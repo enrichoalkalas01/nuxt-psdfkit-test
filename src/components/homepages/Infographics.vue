@@ -12,14 +12,14 @@
         
         <div class="infografik-slide">
             <Splide :options="SliderConfig">
-                <SplideSlide v-for="infografik in infografiks" :key="infografik.id">
+                <SplideSlide v-for="infografik in infografiks.data" :key="infografik.id">
                     <div class="item">
                         <div class="item-inner">
                             <a :href="'infografik-detail/' + infografik.id">
-                                <img :src="infografik.images" alt="">
+                                <img :src="infografik.image_source" alt="">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i>{{ infografik.source }}</span>
+                                    <span class="date-time"> <i class="fas fa-clock"></i>{{ infografik.created_source }}, {{ infografik.created_date }}</span>
                                 </div>
                             </a>
                         </div>
@@ -41,7 +41,7 @@
             SplideSlide,
         },
         props: [
-            'dataInfografiks'
+            'dataSet'
         ],
         data() {
             return {
@@ -53,11 +53,18 @@
                     // perPage: 3
                 },
                 data: 0,
-                infografiks: this.dataInfografiks,
+                infografiks: null,
             }
         },
         beforeMount() {
-            // console.log(JSON.parse(JSON.stringify(this.dataSet)))
+            this.infografiks = this.dataSet
+            console.log(JSON.parse(JSON.stringify(this.dataSet)))
+        },
+        mounted() {
+            this.infografiks = this.dataSet
+        },
+        updated() {
+            this.infografiks = this.dataSet
         },
     }
 </script>
@@ -73,14 +80,18 @@
     }
 
     .infografik-slide .splide__slide.is-active .item .item-inner {
-        width: 90%;
+        width: 100%;
     }
 
     .infografik-slide .splide__slide.is-next .item {
         justify-content: flex-start;
+        width: 80%;
+        margin-left: 0;
     }
 
     .infografik-slide .splide__slide.is-prev .item {
         justify-content: flex-end;
+        width: 80%;
+        margin-right: 0;
     }
 </style>
