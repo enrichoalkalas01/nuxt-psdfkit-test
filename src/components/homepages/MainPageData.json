@@ -75,7 +75,7 @@
                                 "excerpt": "",
                                 "date": "25 Juni 1936",
                                 "source_created": "Bandung",
-                                "image_source": "/assets/static/sekilasinfo/info3.png"
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
                             }
                         ]
                     },
@@ -104,7 +104,7 @@
                                 "excerpt": "",
                                 "date": "25 Juni 1936",
                                 "source_created": "Bandung",
-                                "image_source": "/assets/static/sekilasinfo/info3.png"
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
                             }
                         ]
                     },
@@ -175,6 +175,17 @@
                                         "date": "25 Januari 2022"
                                     }
                                 ]
+                            },
+                            {
+                                "month": "Februari",
+                                "data_tanggal": [
+                                    {
+                                        "id": 1,
+                                        "title": "14 Februari",
+                                        "detail": "Hari Valentine",
+                                        "date": "1 Februari 2022"
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -184,15 +195,47 @@
         {
             "name_component": "artikel",
             "data": {
-                "title_section": "string",
+                "title_section": "Kumpulan berita dan artikel Kompas sejak tahun 1965",
                 "data": [
                     {
-                        "id": "integer",
-                        "title": "string",
-                        "excerpt": "string",
-                        "created_date": "date",
-                        "source_created": "string",
-                        "image_source": "string"
+                        "id": 1,
+                        "image_source": "/assets/static/banner/banner1.jpg",
+                        "title": "Rimbunnya Anggur di Kota Tangsel",
+                        "excerpt": "Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.",
+                        "created_source": "Kompas",
+                        "created_date": "14 Jan 2022"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/static/banner/banner2.jpg",
+                        "title": "Terpikat Raja Ampat",
+                        "excerpt": "Cantiknya gugusan pulau karang, lembut pasir putih, sungai jernih berair biru, dan bentangan Galaksi Bima Sakti di langit malam hampir selalu tersaji di Raja Ampat.",
+                        "created_source": "Kompas",
+                        "created_date": "15 Jan 2022"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "/assets/static/banner/banner3.jpg",
+                        "title": "Kompetensi, Wajah Kemerdekaan Pers",
+                        "excerpt": "(2) Wartawan Indonesia menempuh cara-cara yang profesional dalam melaksanakan tugas jurnalistik. (3) Wartawan Indonesia selalu menguji informasi, memberitakan secara berimbang, tidak mencampurkan fakta dan opini yang menghakimi, serta menerapkan asas praduga tak bersalah. (Pasal 2 dan 3 Kode Etik Jurnalistik, 2006)",
+                        "created_source": "Kompas",
+                        "created_date": "17 Jan 2022"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "/assets/static/banner/banner4.jpg",
+                        "title": "Obat Covid-19 Siap Diproduksi di Dalam Negeri",
+                        "excerpt": "Selain mengembangkan vaksin Covid-19 sendiri, Indonesia bersiap memproduksi sendiri obat Covid-19. Harapannya, Indonesia tidak terlalu bergantung pada impor.",
+                        "created_source": "Kompas",
+                        "created_date": "15 Jan 2022"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "/assets/static/banner/banner5.jpg",
+                        "title": "Sesajen Semeru dan Beda Pemaknaan Manusia",
+                        "excerpt": "Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.",
+                        "created_source": "Kompas",
+                        "created_date": "17 Jan 2022"
                     }
                 ]
             }

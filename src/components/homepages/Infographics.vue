@@ -56,7 +56,9 @@
                 infografiks: this.dataInfografiks,
             }
         },
-        
+        beforeMount() {
+            // console.log(JSON.parse(JSON.stringify(this.dataSet)))
+        },
     }
 </script>
 
