@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-md-3 my-3 text-center">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center">
         <a :href="idFoto" class=" content borderless info-ctn">
             <img :src="image" alt="" class="ctn-img">
             <h2 class="subtitle name pb-2">
@@ -8,7 +8,7 @@
             </h2>
             <span class="date-time">
                 <i class="fas fa-clock"></i>
-                {{ source }}
+                {{ created_source }}, {{ created_date }}
             </span>
         </a>
     </div>
@@ -23,26 +23,37 @@
             'dataImage',
             'dataTitle',
             'dataSource',
+            'dataDate',
         ],
         data () {
             return {
                 idFoto: null,
                 image: null,
                 title: null,
-                source: null,
+                created_source: null,
+                created_date: null,
             }
+        },
+        beforeMount() {
+            this.idFoto = '/foto-detail/' + this.dataId
+            this.image = this.dataImage
+            this.title = this.dataTitle
+            this.created_source = this.dataSource
+            this.created_date = this.dataDate
         },
         mounted() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
             this.title = this.dataTitle
-            this.source = this.dataSource
+            this.created_source = this.dataSource
+            this.created_date = this.dataDate
         },
         updated() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
             this.title = this.dataTitle
-            this.source = this.dataSource
+            this.created_source = this.dataSource
+            this.created_date = this.dataDate
         },
     }
 </script>

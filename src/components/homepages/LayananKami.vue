@@ -4,31 +4,18 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-12  mb-3 text-center">
                     <h2 class="tag">LAYANAN KAMI</h2>
-                    <h2 class="headtitle py-2"> Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik anda</h2>
+                    <h2 class="headtitle py-2">{{ layanans.title_section }}</h2>
                 </div>
                 <div class="col-12">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-12- col-md-4 my-2">
-                            <a href="layanan#riset" class="layanan-card">
-                                <img src="/assets/images/Search.png" class="icon" alt="">
-                                <h3 class="subtitle">Jasa Riset</h3>
-                                <p>KompasData menawarkan berbagai layanan riset untuk Anda, termasuk analisis mendalam dan komprehensif, dilengkapi dengan hasil grafik visual yang mudah dipahami.</p>
-                            </a>
-                        </div>
-                        <div class="col-12- col-md-4 my-2">
-                            <a href="layanan#informasi" class="layanan-card">
-                                <img src="/assets/images/Chart.png" class="icon" alt="">
-                                <h3 class="subtitle">Konten Kreatif</h3>
-                                <p>Dengan pengalaman bekerja dengan data, fakta, dan analisis, Litbang Kompas memiliki
-                                    keunggulan menyajikan kembali informasi dalam bentuk yang lebih mudah dipahami
-                                    berupa teks, visual grafis, audio maupun video sesuai kebutuhan.</p>
-                            </a>
-                        </div>
-                        <div class="col-12- col-md-4 my-2">
-                            <a href="layanan#penerbit" class="layanan-card">
-                                <img src="/assets/images/Paper.png" class="icon" alt="">
-                                <h3 class="subtitle">Penerbitan Buku</h3>
-                                <p>KompasData menawarkan layanan untuk menerbitkan buku Anda. Yang akan memudahkan Anda untuk menerbikan tulisan-tulisan Anda dalam bentuk buku.</p>
+                        <div
+                            v-for="(layanan, i) in layanans.data" :key="i"
+                            class="col-12 col-md-12 col-lg-4 my-2"
+                        >
+                            <a :href="`/layanan${ layanan.hashtag_url }`" class="layanan-card">
+                                <img :src="layanan.icon" class="icon" alt="">
+                                <h3 class="subtitle">{{ layanan.title }}</h3>
+                                <p>{{ layanan.text }}</p>
                             </a>
                         </div>
                     </div>
@@ -43,6 +30,21 @@
 
 <script>
 export default {
-    name: 'LayananKami'
+    name: 'LayananKami',
+    props: [ 'dataSet' ],
+    data() {
+        return {
+            layanans: null,
+        }
+    },
+    beforeMount() {
+        this.layanans = this.dataSet
+    },
+    mounted() {
+        this.layanans = this.dataSet
+    },
+    updated() {
+        this.layanans = this.dataSet
+    },
 }
 </script>

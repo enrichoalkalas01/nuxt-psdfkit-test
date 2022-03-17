@@ -243,7 +243,7 @@
         {
             "name_component": "infografik",
             "data": {
-                "title_section": "",
+                "title_section": "Koleksi data Kompas dalam bentuk visual grafis",
                 "data": [
                     {
                         "id": 1,
@@ -299,55 +299,87 @@
         {
             "name_component": "foto",
             "data": {
-                "title_section": "string",
+                "title_section": "Foto wartawan dan pewarta foto Kompas",
                 "data": [
                     {
-                        "id": "string",
-                        "title": "string",
-                        "excerpt": "string",
-                        "image_source": "string",
-                        "created_date": "date",
-                        "source_created": "string"
+                        "id": 1,
+                        "image_source": "assets/static/foto/foto1.JPG",
+                        "title": "Sekolah Bersiasat Gelar Pembelajaran",
+                        "created_source": "Kompas",
+                        "created_date": "29 Desember 2021"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "assets/static/foto/foto2.JPG",
+                        "title": "Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "04 Januari 2022"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "assets/static/foto/foto3.JPG",
+                        "title": "Lava Pijar Gunung Semeru",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "08 Desember 2021"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "assets/static/foto/foto4.JPG",
+                        "title": "Tes Antigen Cepat Pengendara Sepeda Motor",
+                        "created_source": "Kompas",
+                        "created_date": "08 Juni 2021"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "assets/static/foto/foto5.JPG",
+                        "title": "Geliat di Pelabuhan Sunda Kelapa di tahun 2022",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "03 Januari 2022"
+                    },
+                    {
+                        "id": 6,
+                        "image_source": "assets/static/foto/foto6.JPG",
+                        "title": "Lanskap Tol Solo-Ngawi",
+                        "created_source": "Kompas",
+                        "created_date": "20 Desember 2021"
+                    },
+                    {
+                        "id": 7,
+                        "image_source": "assets/static/foto/foto7.JPG",
+                        "title": "Banjir di Jalan Thamrin, Jakarta",
+                        "created_source": "Kompas",
+                        "created_date": "05 Maret 1976"
+                    },
+                    {
+                        "id": 8,
+                        "image_source": "assets/static/foto/foto8.JPG",
+                        "title": "Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala",
+                        "created_source": "Kompaspedia",
+                        "created_date": "28 April 2021"
                     }
                 ]
             }
         },
         {
-            "name_component": "buku",
+            "name_component": "berita_terkini",
             "data": {
-                "title_section": "string",
+                "title_section": "",
                 "data": [
                     {
-                        "type_book": "string",
-                        "data": [
-                            {
-                                "id": "integer",
-                                "title": "string",
-                                "excerpt": "string",
-                                "date": "date",
-                                "image_source": "string"
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "name_component": "survey",
-            "data": {
-                "title_section": "string",
-                "data": [
+                        "id": 1,
+                        "image_source": "/assets/images/image 34.png",
+                        "title": "Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan",
+                        "excerpt": "Pemberlakuan Pembatasan Kegiatan Masyarakat Darurat telah berjalan hampir dua minggu tapi kasus Covid-19 masih tinggi. Seberapa besar korban dan dampak sosial ekonomi ke depan sangat tergantung langkah kita saat ini.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
+                    },
                     {
-                        "type_survey": "string",
-                        "data": [
-                            {
-                                "id": "integer",
-                                "title": "string",
-                                "image_source": "string",
-                                "source_created": "string",
-                                "date": "date"
-                            }
-                        ]
+                        "id": 2,
+                        "image_source": "/assets/images/image 37.png",
+                        "title": "Ikhtiar Melindungi Generasi Penerus dari Pandemi",
+                        "excerpt": "Di tengah kondisi Sumatera Selatan yang kian kritis, anak menjadi kelompok yang cukup rentan tertular atau menulari virus Covid-19. Terbukti, jumlah anak yang terkonfirmasi positif di Sumsel melonjak cukup signifikan.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
                     }
                 ]
             }
@@ -355,29 +387,258 @@
         {
             "name_component": "layanan",
             "data": {
-                "title_section": "string",
+                "title_section": "Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik anda",
                 "data": [
                     {
-                        "id": "integer",
-                        "title": "string",
-                        "icon": "string",
-                        "text": "string"
+                        "id": 1,
+                        "hashtag_url": "#riset",
+                        "title": "Jasa Riset",
+                        "icon": "/assets/images/Search.png",
+                        "text": "KompasData menawarkan berbagai layanan riset untuk Anda, termasuk analisis mendalam dan komprehensif, dilengkapi dengan hasil grafik visual yang mudah dipahami."
+                    },
+                    {
+                        "id": 2,
+                        "hashtag_url": "#informasi",
+                        "title": "Konten Kreatif",
+                        "icon": "/assets/images/Chart.png",
+                        "text": "Dengan pengalaman bekerja dengan data, fakta, dan analisis, Litbang Kompas memiliki keunggulan menyajikan kembali informasi dalam bentuk yang lebih mudah dipahami berupa teks, visual grafis, audio maupun video sesuai kebutuhan.."
+                    },
+                    {
+                        "id": 3,
+                        "hashtag_url": "#penerbit",
+                        "title": "Penerbitan Buku",
+                        "icon": "/assets/images/Paper.png",
+                        "text": "KompasData menawarkan layanan untuk menerbitkan buku Anda. Yang akan memudahkan Anda untuk menerbikan tulisan-tulisan Anda dalam bentuk buku."
                     }
                 ]
             }
         },
         {
-            "name_component": "berita terkini",
-            "data": [
-                {
-                    "id": "integer",
-                    "title": "string",
-                    "text_update": "string",
-                    "excerpt": "string",
-                    "image_source": "string",
-                    "date": "date"
-                }
-            ]
+            "name_component": "buku",
+            "data": {
+                "title_section": "Referensi perpustakaan dan publikasi terbitan Kompas",
+                "data": [
+                    {
+                        "type_tab": "Topik Hangat",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Penerbit Buku Kompas",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Perpustakaan",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Buku Elektronik",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Laporan",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "data_statistik",
+            "data": {
+                "title_section": "Koleksi data survei dan jajak pendapat Kompas serta olahan data statistik",
+                "data": [
+                    {
+                        "type_tab": "Survei Kompas",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "assets/images/image 28.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "assets/images/image 29.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 4,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Statistik",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "assets/images/image 28.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "assets/images/image 29.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 4,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     ]
 }
