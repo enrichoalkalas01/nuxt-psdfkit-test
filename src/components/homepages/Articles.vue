@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12 text-center mb-3">
                     <h2 class="tag">artikel</h2>
-                    <h2 class="theadtile py-2">{{ artikels.title_section }}</h2>
+                    <h2 class="headtitle py-2">{{ artikels.title_section }}</h2>
                 </div>
 
                 <div
