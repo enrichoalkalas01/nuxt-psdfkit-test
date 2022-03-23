@@ -32,50 +32,7 @@
                             role="tabpanel"
                             :aria-labelledby="`data-Tabs0${ i + 1 }`"
                         >
-                            <div class="row d-flex justify-content-center">
-                                <div
-                                    v-for="(n, j) in (statistik.data.length - (statistik.data.length - 1))" :key="j"
-                                    class="col-12 col-lg-6 my-2"
-                                >
-                                    <div class="content borderless">
-                                        <a :href="`/data-detail/${ statistik ? statistik.data[n - 1].id : '' }`">
-                                            <img :src="statistik.data[n - 1].image_source" alt="" class="foto-img">
-                                        </a>
-                                        <h3 class="title my-3">
-                                            <a :href="`/data-detail/${ statistik ? statistik.data[n - 1].id : '' }`">
-                                                {{ statistik.data[n - 1].title }}
-                                            </a>
-                                        </h3>
-                                        <span class="date-time">
-                                            <i class="fas fa-clock"></i>
-                                            {{ statistik.data[n - 1].created_source }}, {{ statistik.data[n - 1].created_date }}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div
-                                            v-for="(n, j) in statistik.data.length - 1" :key="j"
-                                            class="col-12 pt-2 pb-3"
-                                        >
-                                            <div class="content full-height borderless kolom2 bot-line mb-3">
-                                                <a :href="`/data-detail/${ statistik.data[n].id }`">
-                                                    <img :src="statistik.data[n].image_source" alt="" class="foto-img">
-                                                </a>
-                                                <div class="desc">
-                                                    <h3 class="title">
-                                                        <a :href="`/data-detail/${statistik.data[n].id}`">{{ statistik.data[n].title }}</a>
-                                                    </h3>
-                                                    <span class="date-time">
-                                                        <i class="fas fa-clock"></i>
-                                                        {{ statistik.data[n].created_source }}, {{ statistik.data[n].created_date }}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <DataStatistikCard v-bind:dataStatistik="statistik.data" />
                         </div>
                     </div>
                 </div>
@@ -89,11 +46,13 @@
 </template>
 
 <script>
+    import DataStatistikCard from './DataStatistikCard.vue'
+
     export default {
         name: 'DataStatistik',
 
         components: {
-
+            DataStatistikCard
         },
 
         props: [ 'dataSet' ],
@@ -106,16 +65,19 @@
 
         beforeMount() {
             this.statistiks = this.dataSet
+            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Mounted
         mounted() {
             this.statistiks = this.dataSet
+            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Update
         updated() {
             this.statistiks = this.dataSet
+            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
     }
 </script>
