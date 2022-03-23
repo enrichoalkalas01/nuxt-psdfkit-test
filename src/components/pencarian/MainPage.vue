@@ -105,7 +105,10 @@
                 fotos: dataFotos,
                 infografiks: dataInfografiks,
             }
-        }
+        },
+        mounted() {
+            
+        },
 
     }
 </script>

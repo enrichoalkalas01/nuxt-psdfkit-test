@@ -9,4 +9,3 @@ app.use(router)
 app.use(VueX)
 app.use(StoreData)
 app.mount('#app')
-

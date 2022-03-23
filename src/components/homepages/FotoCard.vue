@@ -37,21 +37,21 @@
         beforeMount() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.dataTitle
+            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
         mounted() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.dataTitle
+            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
         updated() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.dataTitle
+            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
