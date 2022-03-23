@@ -2,8 +2,8 @@
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center">
         <a :href="idFoto" class=" content borderless info-ctn">
             <img :src="image" alt="" class="ctn-img">
-            <h2 class="subtitle name pb-2">
-                <div v-html="title"></div>
+            <h2 class="subtitle name pb-2 w-100">
+                <div class="truncate" v-html="title"></div>
                 <!-- {{ title }} -->
             </h2>
             <span class="date-time">
@@ -37,21 +37,24 @@
         beforeMount() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
         mounted() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
         updated() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
+            this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate
         },
@@ -69,4 +72,11 @@
         -webkit-line-clamp: 2;
         max-height: 2.4em;
     } */
+
+    .truncate {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>
