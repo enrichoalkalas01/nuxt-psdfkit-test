@@ -29,6 +29,6 @@
             return{
                 artikels: this.dataArtikels,
             }
-        }
+        },
     }
 </script>

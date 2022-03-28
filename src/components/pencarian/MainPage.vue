@@ -4,7 +4,7 @@
             <div class="row d-flex justify-content-center pb-5">
                 <div class="col-12 col-md-10 mb-3">
                     <h2 class="subtitle py-2"> Hasil Pencarian</h2>
-                    <p>Kata kunci : <span class="text-bold">Covid 19</span></p>
+                    <p>Kata kunci : <span class="text-bold">{{ keySearch }}</span></p>
                 </div>
                 <div class="col col-md-2">
                     <!-- <p class="text-md-right">Pencarian Lanjut</p> -->
@@ -99,14 +99,36 @@
             dataFotos,
             dataInfografiks,
         },
-        data () {
+        
+        data() {
             return {
                 artikels: dataArtikels,
                 fotos: dataFotos,
                 infografiks: dataInfografiks,
+                keySearch: this.$store.state.Search.SearchKey,
             }
         },
+
+        watch: {
+            '$store.state.Search.SearchKey': function() {
+                console.log(this.$store.state.Search)
+                this.keySearch !== this.$store.state.Search.SearchKey ?
+                this.keySearch = this.$store.state.Search.SearchKey : this.keySearch
+            }
+        },
+
         mounted() {
+            
+            // try {
+            //     let Articles = await this.$store.state.Search.ArticlesData()
+            //     console.log(Articles)
+            // } catch (error) {
+            //     console.log(error)
+            // }
+        },
+
+        
+        updated() {
             
         },
 
