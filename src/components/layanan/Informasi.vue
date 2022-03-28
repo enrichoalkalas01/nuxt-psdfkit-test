@@ -9,13 +9,26 @@
                 </div>
                 <div class="col-sm-8 col-md-9 my-3">
 
-                    <p>Research Center awalnya merupakan unit bisnis yang dikembangkan untuk mendukung keperluan internal Kompas, seperti riset tren industri media, pengembangan produk media, riset pembaca dan iklan. Namun seiring berjalannya waktu,
-                        dengan semakin meningkatnya kompetensi dan pengalaman SDM dalam menjalankan berbagai proses riset, sejak 2005 Research Center menawarkan jasa layanan riset kepada pihak luar. </p>
-                    <div class="content">
+                    <p>
+                        Unit Pengembangan Data dan Informasi menyediakan jasa konten kreatif berbasis riset dan kekayaan arsip Kompas berupa company profile, video profile, infografis, tutur visual, arsip tematis, buku digital, dan customize product. 
+                        Didukung oleh tenaga kreatif dan peneliti berpengalaman di Harian Kompas, Jasa Paket Informasi Kompas menjadi solusi efektif bagi individu maupun lembaga dalam mewujudkan tujuan komunikasinya di tengah banjir informasi.
+                    </p>
+                    <p>Sejumlah Kerjasama :</p>
+                    <ul>
+                        <li>PT Kereta Commuter Indonesia</li>
+                        <li>PT MRT Jakarta</li>
+                        <li>Kementerian PUPR</li>
+                        <li>Kementerian Pariwisata</li>
+                        <li>Perpusnas</li>
+                        <li>Accenture</li>
+                        <li>Partai-partai politik</li>
+                        <li>Tokoh-tokoh</li>
+                    </ul>
+                    <!-- <div class="content">
                         <h6>Portfolio</h6>
                         <br>
                         <br>
-                    </div>
+                    </div> -->
                 </div>
             </div>
     </section>

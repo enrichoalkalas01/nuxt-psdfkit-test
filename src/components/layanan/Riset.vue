@@ -45,11 +45,11 @@
                         <li>Blibli</li>
                         <li>Dan lain lain</li>
                     </ul>
-                    <div class="content">
+                    <!-- <div class="content">
                         <h6>Portfolio</h6>
                         <br>
                         <br>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
