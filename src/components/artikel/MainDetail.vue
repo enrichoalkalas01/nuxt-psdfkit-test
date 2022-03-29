@@ -20,10 +20,10 @@
                             <div class="col-sm-8 my-3">
                                 <!-- <h3 class="subtitle txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h3> -->
                                 <div class="d-block">
-                                    <p class="fw-bold">FASILITAS KEPALA DAERAH</p>
-                                    <p>KOMPAS edisi Jumat 20 Agustus 2021</p>
-                                    <p>Halaman: 11</p>
-                                    <p>Penulis: JOL</p>
+                                    <p class="fw-bold">{{ artikelDetail.rubrics }}</p>
+                                    <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ artikelDetail.published_pages[0].date }}</p>
+                                    <p>Halaman: {{ artikelDetail.published_pages[0].number }}</p>
+                                    <p>Penulis: {{ artikelDetail.authors }}</p>
                                     <div class="db-price rounded">
                                         <a href="pesan-pdf.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan PDF</a>
                                     </div>
@@ -36,7 +36,7 @@
                     
 
                     <div class="d-block my-3">
-                        <h2 class="title txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h2>
+                        <h2 class="title txt-main">{{ artikelDetail.title }}</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
@@ -48,16 +48,8 @@
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
                                 <p>
-                                    <b>PADANG, KOMPAS</b> — Gubernur Sumatera Barat Mahyeldi meminta maaf atas polemik yang muncul dari pembelian mobil dinas baru senilai total Rp 2 miliar untuk gubernur dan wakil gubernur di tengah krisis pandemi Covid-19.
-                                    Mahyeldi menyerahkan mobil dinasnya ke Satuan Tugas Covid-19 Sumbar untuk operasional, yang juga diikuti oleh Wakil Gubernur Sumbar Audy Joinaldy.
+                                    <b>PADANG, {{ artikelDetail.published_pages[0].publication }}</b> — {{ artikelDetail.summary }}
                                 </p>
-                                <p>
-
-                                    Mahyeldi menyampaikan itu di Istana Gubernur Sumbar, Padang, Kamis (19/8/2021) siang. ”Atas nama pribadi dan pemerintah terlebih dahulu menyampaikan permohonan maaf kepada kita semua karena telah menimbulkan keresahan dan jadi pembicaraan publik,” ujarnya.
-                                </p>
-                                <p>
-                                    Mahyeldi kemudian menyerahkan mobil dinas baru kepada Sekretaris Badan Penanggulangan Bencana Daerah (BPBD) Sumbar Mulyadi di halaman Istana Gubernur Sumbar. Mobil tersebut menjadi kendaraan operasional penanganan Covid-19. Adapun mobil dinas lama Gubernur
-                                    Sumbar, Toyota Fortuner, juga segera dilelang sehingga uangnya bisa dialokasikan untuk penanggulangan Covid-19. </p>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
@@ -91,6 +83,7 @@
 
 <script>
     // import Flicking from "@egjs/vue3-flicking";
+    import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -107,7 +100,30 @@
         },
         data () {
             return {
-                suggestions: dataSuggestions
+                suggestions: dataSuggestions,
+                artikelDetail: [],
+                token: '',
+                ConfigApi: {
+                    headers: {
+                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                    },
+                    url: `https://dev-be.kompasdata.id/api/Search/articles/` + this.$route.params.id,
+                }
+            }
+        },
+        async beforeMount() {
+            try {
+                // let encryptDataToken = this.$store.state.Login.LoginData
+                // let dataToken = this.$store.commit('getEncrypt', encryptDataToken)
+
+                // console.log(encryptDataToken);
+
+                let dataArtikel = await Axios(this.ConfigApi)
+                this.artikelDetail = dataArtikel.data
+
+                // console.log(this.artikelDetail);
+            } catch (error) {
+                console.log(error.message)
             }
         }
     }
