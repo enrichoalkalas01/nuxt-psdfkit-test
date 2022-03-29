@@ -50,6 +50,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import MiniMenu from './MiniMenu.vue'
     import Semua from './Semua.vue'
     import Artikel from '../artikel/MainPage.vue'
@@ -117,8 +118,32 @@
             }
         },
 
-        mounted() {
-            
+        async mounted() {
+            let configPhotos = {
+                url: "https://dev-be.kompasdata.id/api/Search/photos",
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                
+                data: JSON.stringify({
+                    "search": "",
+                    "authors": "",
+                    "publication": "",
+                    "publishedFrom": "",
+                    "publishedTo": "",
+                    "from": 0,
+                    "size": 5
+                })
+            }
+
+            try {
+                let DataPhotos = await Axios(configPhotos)
+                console.log(DataPhotos)
+            } catch (error) {
+                console.log(error.message)
+            }
+
             // try {
             //     let Articles = await this.$store.state.Search.ArticlesData()
             //     console.log(Articles)

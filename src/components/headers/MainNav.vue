@@ -71,9 +71,7 @@
         },
 
         beforeMount() {
-            let urlDetection = window.location.pathname
-            console.log(urlDetection)
-
+            this.setHookSearch()
         },
 
         mounted() {
@@ -92,6 +90,8 @@
             }
         },
 
+        
+
         methods: {
             searchBar: function() {
                 let urlDetection = window.location.pathname
@@ -107,11 +107,26 @@
                 }
             },
 
+            urlDetector: function() {
+                return window.location.pathname
+            },
+
             queryStringDetector: function() {
                 const urlSearchParams = new URLSearchParams(window.location.search)
                 const params = Object.fromEntries(urlSearchParams.entries())
                 return params
-            }
+            },
+
+            setHookSearch: function() {
+                if ( this.urlDetector() === '/pencarian' ) {
+                    console.log(this.queryStringDetector()['query'])
+                    for( let data in this.queryStringDetector() ) {
+                        if ( data === 'query' ) this.$store.commit("setSearchKey", this.queryStringDetector().data)
+                    }
+                }
+            },
+
+            
         },
     }
 </script>
