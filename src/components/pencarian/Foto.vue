@@ -1,28 +1,19 @@
 <template>
-    <div class="row py-3 line-bot full">
+    <div class="row pt-3 line-bot full">
         <Splide :options="SliderConfig">
-            <SplideSlide>
+            <SplideSlide
+                v-for="(foto, i) in fotos" :key="i"
+            >
                 <div class="col-12 col-md-9 text-center">
-                    <div class=" row">
-                        <div class="col-12 col-sm-4 my-3">
-                            <a href="#">
-                                <img src="assets/static/foto/foto1.JPG" class="img-square32 rounding" alt="">
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-4 my-3">
-                            <a href="#">
-                                <img src="assets/static/foto/foto2.JPG" class="img-square32 rounding" alt="">
-                            </a>
-                        </div>
-                        <div class="col-12 col-sm-4 my-3">
-                            <a href="#">
-                                <img src="assets/static/foto/foto3.JPG" class="img-square32 rounding" alt="">
-                            </a>
-                        </div>
-                    </div>
+                    <a :href="`/foto-detail/${ foto.document_id }`">
+                        <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.preview }`" class="img-square32 rounding" alt="">
+                    </a>
                 </div>
             </SplideSlide>
         </Splide>
+        <p class="f14 mt-4">
+            Total Search : <span class="f14">{{ total_search }} data</span>
+        </p>
     </div>
 </template>
 
@@ -37,17 +28,30 @@
             SplideSlide,
         },
         props: [
-            'dataFotos',
+            'dataFotos', 'totalSearch'
         ],
         data() {
             return {
                 SliderConfig: {
                     updateOnMove: true,
+                    type: 'loop',
                     focus: 'center',
-                    // perPage    : 3,
+                    perPage: 2,
+                    pagination: false
                 },
-                fotos: this.dataFotos,
+                fotos: null,
+                total_search: 0
             }
-        }
+        },
+
+        async mounted() {
+            this.fotos = this.dataFotos
+            this.total_search = this.totalSearch
+        },
+
+        async updated() {
+            this.fotos = this.dataFotos
+            this.total_search = this.totalSearch
+        },
     }
 </script>

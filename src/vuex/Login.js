@@ -33,13 +33,17 @@ const decryptData = (value = '') => {
     return results
 }
 
-console.log(GetCookies('_km_dtl_s'))
+const GetLoginStatusData = () => {
+    let DataUser = ( GetCookies('_km_dtl_d') !== undefined || GetCookies('_km_dtl_d') !== null ) ? GetCookies('_km_dtl_d') : null
+    if ( !DataUser ) return false
+    else return JSON.parse(decryptData(DataUser))
+}
 
 const Login = {
     state () {
         return {
             LoginStatus: GetCookies('_km_dtl_s') !== null ? true : false,
-            UserData: GetCookies('_km_dtl_d') !== null ? GetCookies('_km_dtl_d') : false,
+            UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
             MutationUsed: 0,
             LoginData: null
         }
@@ -72,4 +76,5 @@ const Login = {
     }
 }
 
+export { GetCookies, decryptData, GetLoginStatusData }
 export default Login

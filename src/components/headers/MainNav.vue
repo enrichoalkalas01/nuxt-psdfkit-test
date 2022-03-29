@@ -104,6 +104,8 @@
                 console.log(urlDetection)
                 if ( urlDetection !== '/pencarian' ) {
                     window.location.href = `/pencarian?query=${ SearchInput }`
+                } else {
+                    window.location.href = `/pencarian?query=${ SearchInput }`
                 }
             },
 
@@ -119,10 +121,7 @@
 
             setHookSearch: function() {
                 if ( this.urlDetector() === '/pencarian' ) {
-                    console.log(this.queryStringDetector()['query'])
-                    for( let data in this.queryStringDetector() ) {
-                        if ( data === 'query' ) this.$store.commit("setSearchKey", this.queryStringDetector().data)
-                    }
+                    this.$store.commit("setSearchKey", this.queryStringDetector())
                 }
             },
 
