@@ -12,12 +12,12 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="All-Tabs04" data-bs-toggle="tab" href="#AllTabs04" aria-controls="AllTabs04" aria-selected="false">Infografik</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
             <a class="nav-link" id="All-Tabs05" data-bs-toggle="tab" href="#AllTabs05" aria-controls="AllTabs05" aria-selected="false">Buku</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="All-Tabs06" data-bs-toggle="tab" href="#AllTabs06" aria-controls="AllTabs06" aria-selected="false">Data</a>
-        </li>
+        </li> -->
     </ul>
 </template>
 
