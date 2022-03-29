@@ -15,6 +15,7 @@ import DataDetail from '../components/data/MainDetail.vue'
 import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
+import PencarianLanjut from '../components/pencarian/MainDetail.vue'
 import Test from '../components/test/TestCarousel.vue'
 
 const routes = [
@@ -53,6 +54,7 @@ const routes = [
 
     // Pencarian
     { path: '/pencarian', name: 'pencarian', component: Pencarian },
+    { path: '/pencarian-lanjut', name: 'pencarian-lanjut', component: PencarianLanjut },
 
     // Tester
     { path: '/test', name: 'test', component: Test },
