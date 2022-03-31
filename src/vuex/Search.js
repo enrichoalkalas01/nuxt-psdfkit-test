@@ -8,6 +8,12 @@ const Search = {
             SearchKey: null,
             TypeSearch: 0,
             TotalSearch: 0,
+            TotalArtikel: 0,
+            TotalFoto: 0,
+            TotalInfografik: 0,
+            TotalBuku: 0,
+            TotalData: 0,
+            ChangeStatus: 0,
             SearchConfigPhotos: {
                 url: "https://dev-be.kompasdata.id/api/Search/photos",
                 headers: { "Content-Type": "application/json", },
@@ -49,9 +55,23 @@ const Search = {
                 // if ( i === 'type-search' ) state.value[i] = value.value[i] ? value.value[i] : 0
             }
         },
+        
+        setTotalSearchDetail(state, value = {}) {
+            for ( let i in value ) {
+                if ( value.type === 'artikel' ) state.TotalArtikel = value[i]
+                if ( value.type === 'foto' ) state.TotalFoto = value[i]
+                if ( value.type === 'infografik' ) state.TotalInfografik = value[i]
+                if ( value.type === 'buku' ) state.TotalBuku = value[i]
+                if ( value.type === 'data' ) state.TotalData = value[i]
+            }
+        },
 
         setTotalSearch(state, value) {
             state.TotalSearch = value
+        },
+
+        setSearchStatus(state) {
+            state.ChangeStatus += state.ChangeStatus
         },
 
         configSearchPhotos(state, value = {}) {

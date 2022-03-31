@@ -45,6 +45,7 @@
         },
 
         async mounted() {
+            console.log(this.dataArtikels)
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
         },

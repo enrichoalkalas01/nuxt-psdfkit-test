@@ -91,7 +91,6 @@
             this.total_search_foto = this.dataFotos ? this.dataFotos.total : 0
             this.total_search_artikel = this.dataArtikels ? this.dataArtikels.total : 0
             this.total_search_infografik = this.dataInfografiks ? this.dataInfografiks.total : 0
-            console.log(this.total_search_infografik)
         },
 
         async updated() {
@@ -102,7 +101,6 @@
             this.total_search_foto = this.dataFotos ? this.dataFotos.total : 0
             this.total_search_artikel = this.dataArtikels ? this.dataArtikels.total : 0
             this.total_search_infografik = this.dataInfografiks ? this.dataInfografiks.total : 0
-            console.log(this.total_search_infografik)
         },
     }
 </script>

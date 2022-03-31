@@ -1,0 +1,64 @@
+<template>
+    <div>
+        <Infografik
+            v-bind:dataInfografiks="infografiks ? infografiks.documents : null"
+            v-bind:totalSearch="total_search"
+        />
+    </div>
+</template>
+
+<script>
+    import Axios from 'axios'
+    import Infografik from './Infografik.vue'
+
+    export default {
+        name: 'MainInfografik',
+        components: {
+            Infografik,
+        },
+        data() {
+            return {
+                infografiks: null,
+                total_search: 0,
+                configInfografiksData: {
+                    search: this.$store.state.Search.SearchKey,
+                    authors: "",
+                    publication: "",
+                    publishedFrom: "",
+                    publishedTo: "",
+                    from: 0,
+                    size: 10
+                },
+            }
+        },
+        async mounted() {
+            this.$store.commit('SearchConfigInfografiks', {
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                data: this.configInfografiksData
+            })
+
+            this.getData()
+        },
+        async updated() {
+            
+        },
+        methods: {
+            async getData() {
+                try {
+                    // Get Data From API
+                    let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
+
+                    // Set Data From API
+                    this.infografiks = DataInfografiks.data
+                    this.total_search = DataInfografiks.data.total
+
+                    // Set Total Data
+                    this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: this.infografiks.total })
+                    
+                } catch (error) {
+                    console.log(error.message)
+                }
+            }
+        },
+    }
+</script>

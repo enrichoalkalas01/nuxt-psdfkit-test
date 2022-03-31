@@ -19,6 +19,9 @@
                     </div>
                 </div>
             </div>
+            <p class="f14 mt-4">
+                Total Search : <span class="f14">{{ total_search }} data</span>
+            </p>
         </div>
         <!-- <div class="col-12 mt-3 text-center">
             <a href="#AllTabs04" class="btn btn-line">Lihat Lainnya</a>
@@ -30,20 +33,23 @@
     export default {
         name: 'Infografik',
         props: [
-            'dataInfografiks'
+            'dataInfografiks', 'totalSearch'
         ],
         data (){
             return{
                 infografiks: this.dataInfografiks,
+                total_search: 0,
             }
         },
         
         async mounted() {
             this.infografiks = this.dataInfografiks
+            this.total_search = this.totalSearch
         },
 
         async updated() {
             this.infografiks = this.dataInfografiks
+            this.total_search = this.totalSearch
         },
     }
 </script>
