@@ -44,7 +44,11 @@
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
                                     <a :href="Data.id" class="content borderless info-ctn">
-                                        <img :src="Data.image_source" alt="" class="ctn-img"/>
+                                        <!-- <div class="card"> -->
+                                            <img :src="Data.image_source" alt="" class="ctn-img mb-3"/>
+                                            <h2 class="subtitle">{{ Data.title }}</h2>
+                                            <p class="periode">{{ Data.source_created }}, {{ Data.date }}</p>
+                                        <!-- </div> -->
                                     </a>
                                 </div>
                             </div>
@@ -113,6 +117,10 @@
 </script>
 
 <style>
+    .info-ctn .ctn-img {
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25) !important;
+    }
+
     #tgl-penting {
         height: 300px;
         overflow-x: hidden;
