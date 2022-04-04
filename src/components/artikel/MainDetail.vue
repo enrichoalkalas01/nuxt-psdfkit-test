@@ -33,7 +33,19 @@
                     </div>
 
                     <!-- Photo Slider -->
-                    
+                    <div class="row py-3">
+                        <Splide :options="SliderConfig">
+                            <SplideSlide
+                                v-for="(foto, i) in artikelDetail.images" :key="i"
+                            >
+                                <div class="col-12 col-md-9 text-center">
+                                    <a href="">
+                                        <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
+                                    </a>
+                                </div>
+                            </SplideSlide>
+                        </Splide>
+                    </div>
 
                     <div class="d-block my-3">
                         <h2 class="title txt-main">{{ artikelDetail.title }}</h2>
@@ -86,6 +98,9 @@
 <script>
     // import Flicking from "@egjs/vue3-flicking";
     import Axios from 'axios'
+    import { Splide, SplideSlide } from '@splidejs/vue-splide'
+    import '@splidejs/splide/dist/css/themes/splide-default.min.css'
+
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -98,11 +113,20 @@
         name: 'Artikel',
         components: {
             // Flicking,
+            Splide,
+            SplideSlide,
             Suggestion
         },
         data () {
             return {
                 suggestions: dataSuggestions,
+                SliderConfig: {
+                    updateOnMove: true,
+                    type: 'loop',
+                    focus: 'center',
+                    perPage: 2,
+                    pagination: false
+                },
                 artikelDetail: [],
                 token: '',
                 ConfigApi: {
