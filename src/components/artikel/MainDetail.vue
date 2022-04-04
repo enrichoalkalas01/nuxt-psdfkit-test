@@ -33,7 +33,7 @@
                     </div>
 
                     <!-- Photo Slider -->
-                    <div class="row py-3">
+                    <div v-if="artikelDetail.images.length > 0" class="row py-3">
                         <Splide :options="SliderConfig">
                             <SplideSlide
                                 v-for="(foto, i) in artikelDetail.images" :key="i"
