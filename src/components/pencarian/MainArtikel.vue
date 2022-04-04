@@ -22,16 +22,17 @@
                 total_search: 0,
                 configArticlesData: {
                     search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 10
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: this.$store.state.Search.SizeKey,
                 },
             }
         },
         async mounted() {
+            console.log(this.$store.state.Search.DateFromKey)
             this.$store.commit('configSearchArticles', {
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 data: this.configArticlesData
@@ -47,7 +48,7 @@
                 try {
                     // Get Data From API
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
-
+                    console.log(DataArticles)
                     // Set Data From API
                     this.artikels = DataArticles.data
                     this.total_search = DataArticles.data.total

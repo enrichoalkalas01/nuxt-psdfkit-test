@@ -97,15 +97,17 @@
                 let urlDetection = window.location.pathname
                 let SearchInput = document.querySelector("#input-search").value
                 let SelectSearch = document.querySelector("#type-search").value
-                let searchPassing = { searchKey: SearchInput, typeSearch: Number(SelectSearch) }
+                let searchPassing = {
+                    searchKey: SearchInput,
+                    typesearch: Number(SelectSearch)
+                }
                 this.$store.commit("setSearchKey", searchPassing)
                 console.log('Searching...')
                 console.log(`Search Key: ${ this.$store.state.Search.SearchKey }`)
-                console.log(urlDetection)
                 if ( urlDetection !== '/pencarian' ) {
-                    window.location.href = `/pencarian?query=${ SearchInput }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=&dateto=&author=&publication=&typesearch=0&size=5&currentpage=1`
                 } else {
-                    window.location.href = `/pencarian?query=${ SearchInput }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=&dateto=&author=&publication=&typesearch=0&size=5&currentpage=1`
                 }
             },
 

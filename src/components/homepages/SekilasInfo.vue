@@ -47,7 +47,7 @@
                                         <!-- <div class="card"> -->
                                             <img :src="Data.image_source" alt="" class="ctn-img mb-3"/>
                                             <h2 class="subtitle">{{ Data.title }}</h2>
-                                            <p class="periode">{{ Data.source_created }}, {{ Data.date }}</p>
+                                            <p class="periode">{ {{ Data.date }}</p>
                                         <!-- </div> -->
                                     </a>
                                 </div>
@@ -62,7 +62,7 @@
                                         <img :src="Data.image_source" alt="" class="ctn-img"/>
                                         <h2 class="subtitle name">{{ Data.title }}</h2>
                                         <h2 class="subtitle title">{{ Data.excerpt }}</h2>
-                                        <p class="periode">{{ Data.source_created }}, {{ Data.date }}</p>
+                                        <p class="periode">{{ Data.date }}</p>
                                     </a>
                                 </div>
                             </div>

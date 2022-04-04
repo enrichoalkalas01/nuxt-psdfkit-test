@@ -19,7 +19,7 @@
                     <!-- Search -->
                     <div class="tab-content komp-tab-content">
                         <!-- Semua -->
-                        <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
+                        <div class="tab-pane fade" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
                             <Semua
                                 v-bind:dataArtikels="artikels"
                                 v-bind:dataFotos="fotos"
@@ -28,7 +28,7 @@
                         </div>
 
                         <!-- Artikel -->
-                        <div class="tab-pane fade" id="AllTabs02" role="tabpanel" aria-labelledby="All-Tabs02">
+                        <div class="tab-pane fade show active" id="AllTabs02" role="tabpanel" aria-labelledby="All-Tabs02">
                             <Artikel v-bind:dataArtikels="artikels ? artikels.documents : null" />
                         </div>
                         

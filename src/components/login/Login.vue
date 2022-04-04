@@ -26,7 +26,7 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password </label>
                                         <div class="my-2">
-                                            <input id="password" type="text" v-model="password" placeholder="Password" class="form-control">
+                                            <input id="password" type="password" v-model="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
