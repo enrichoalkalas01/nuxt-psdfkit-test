@@ -38,8 +38,28 @@
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
-                            <a href="/login" class="btn btn-line" id="login">LOGIN</a>
-                            <a href="/daftar" class="btn btn-second" id="register">DAFTAR</a>
+                            <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
+                                <div class="user-box">
+                                    <span v-on:click="profileBoxEvent">{{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}</span>
+                                    <div class="box-more" v-if="ProfileBox">
+                                        <ul class="list-user-menu">
+                                            <li class="profile">
+                                                {{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}
+                                            </li>
+                                            <li>
+                                                <a href="">Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="/logout">Logout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrapper-user" v-if="!this.$store.state.Login.LoginStatus">
+                                <a href="/login" class="btn btn-line m-2" id="login">LOGIN</a>
+                                <a href="/daftar" class="btn btn-second" id="register">DAFTAR</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,6 +75,7 @@
             return {
                 typeSearch: this.$store.state.Search.TypeSearch,
                 searchKey: this.$store.state.Search.SearchKey,
+                ProfileBox: false,
             }
         },
 
@@ -75,19 +96,19 @@
         },
 
         mounted() {
-            var line = document.getElementById("line")
-            var login = document.getElementById("login")
-            var register = document.getElementById("register")
+            // var line = document.getElementById("line")
+            // var login = document.getElementById("login")
+            // var register = document.getElementById("register")
 
-            if (this.$store.state.Login.LoginStatus) {
-                line.style.visibility = "hidden";
-                login.style.display = "none";
-                register.style.display = "none";
-            } else{
-                line.style.display = "block";
-                login.style.display = "block";
-                register.style.display = "block";
-            }
+            // if (this.$store.state.Login.LoginStatus) {
+            //     line.style.visibility = "hidden";
+            //     login.style.display = "none";
+            //     register.style.display = "none";
+            // } else{
+            //     line.style.display = "block";
+            //     login.style.display = "block";
+            //     register.style.display = "block";
+            // }
         },
 
         
@@ -121,6 +142,10 @@
                 }
             },
 
+            profileBoxEvent: function() {
+                this.ProfileBox = !this.ProfileBox
+            },
+
             urlDetector: function() {
                 return window.location.pathname
             },
@@ -141,3 +166,63 @@
         },
     }
 </script>
+
+<style>
+    .wrapper-loginned {
+        position: relative;
+    }
+
+    .wrapper-loginned .user-box {
+        position: relative;
+    }
+
+    .wrapper-loginned .user-box span {
+        cursor: pointer;
+    }
+
+    .wrapper-loginned .user-box .box-more {
+        position: absolute;
+        width: auto;
+        height: auto;
+        padding: 5% 10%;
+        background-color: #fff;
+        box-shadow: 3px 3px 10px rgba(25, 25, 25, 0.25);
+        border-radius: 5px;
+        bottom: -120px;
+        right: -5px;
+    }
+
+    .wrapper-loginned .user-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+    }
+
+    .wrapper-loginned .user-box ul li {
+        padding: 5px 0;
+        background-color: #dedede;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        padding: 0 10px;
+    }
+
+    .wrapper-loginned .user-box .list-user-menu .profile {
+        margin-bottom: 5px;
+        border-bottom: 1px solid #828282;
+        padding-bottom: 5px;
+        font-weight: 700;
+        background-color: unset;
+        border-radius: unset;
+    }
+
+    .wrapper-loginned .user-box a {
+        text-decoration: none;
+        color: inherit;
+        font-weight: 700;
+    }
+
+    .wrapper-loginned .user-box a:hover {
+        color: #fff;
+    }
+</style>
