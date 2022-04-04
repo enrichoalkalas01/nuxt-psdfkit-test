@@ -1,10 +1,10 @@
 <template>
     <ul class="nav nav-tabs komp-tabs" id="myTabAll" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link" id="All-Tabs01" data-bs-toggle="tab" href="#AllTabs01" aria-controls="AllTabs01" aria-selected="true"><i class="fas fa-search"></i> Semua</a>
+            <a class="nav-link active" id="All-Tabs01" data-bs-toggle="tab" href="#AllTabs01" aria-controls="AllTabs01" aria-selected="true"><i class="fas fa-search"></i> Semua</a>
         </li>
         <li v-if="this.$store.state.Search.TotalArtikel > 0" class="nav-item" role="presentation">
-            <a class="nav-link active" id="All-Tabs02" data-bs-toggle="tab" href="#AllTabs02" aria-controls="AllTabs02" aria-selected="false">Artikel</a>
+            <a class="nav-link" id="All-Tabs02" data-bs-toggle="tab" href="#AllTabs02" aria-controls="AllTabs02" aria-selected="false">Artikel</a>
         </li>
         <li v-if="this.$store.state.Search.TotalFoto > 0" class="nav-item" role="presentation">
             <a class="nav-link" id="All-Tabs03" data-bs-toggle="tab" href="#AllTabs03" aria-controls="AllTabs03" aria-selected="false">Foto</a>

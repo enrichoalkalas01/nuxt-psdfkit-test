@@ -22,12 +22,12 @@
                 total_search: 0,
                 configInfografiksData: {
                     search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 10
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: 10,
                 },
             }
         },

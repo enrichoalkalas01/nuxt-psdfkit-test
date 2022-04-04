@@ -45,11 +45,13 @@
         },
 
         async mounted() {
+            console.log(this.dataFotos)
             this.fotos = this.dataFotos
             this.total_search = this.totalSearch
         },
 
         async updated() {
+            console.log(this.dataFotos)
             this.fotos = this.dataFotos
             this.total_search = this.totalSearch
         },

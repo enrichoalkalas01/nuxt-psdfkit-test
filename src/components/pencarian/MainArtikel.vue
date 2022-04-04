@@ -27,12 +27,11 @@
                     publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
                     publishedTo: `${ this.$store.state.Search.DateToKey }`,
                     from: this.$store.state.Search.CurrentPageKey,
-                    size: this.$store.state.Search.SizeKey,
+                    size: 10,
                 },
             }
         },
         async mounted() {
-            console.log(this.$store.state.Search.DateFromKey)
             this.$store.commit('configSearchArticles', {
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 data: this.configArticlesData
@@ -48,7 +47,6 @@
                 try {
                     // Get Data From API
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
-                    console.log(DataArticles)
                     // Set Data From API
                     this.artikels = DataArticles.data
                     this.total_search = DataArticles.data.total

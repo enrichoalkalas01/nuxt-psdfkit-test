@@ -13,7 +13,7 @@
             </div>
         </div>
         <p class="f14 mt-4">
-            Total Search : <span class="f14">{{ this.$store.state.Search.TotalFoto }} data</span>
+            Total Search : <span class="f14">{{ total_search }} data</span>
         </p>
     </div>
 </template>
@@ -31,12 +31,12 @@
                 total_search: 0,
                 configPhotosData: {
                     search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 10
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: 15,
                 },
             }
         },
@@ -59,9 +59,9 @@
                 try {
                     // Get Data From API
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
-                    console.log(DataPhotos)
                     // Set Data From API
                     this.fotos = DataPhotos.data
+                    this.total_search = this.fotos.total
                     
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'foto', total: this.fotos.total })

@@ -45,15 +45,10 @@
     import Foto from './Foto.vue'
     import Artikel from './Artikel.vue'
     import Infografik from './Infografik.vue'
+    import Axios from 'axios'
     // import Banner from '../banner/Main.vue'
     // import Suggestion from '../suggestion/Main.vue'
 
-    // let dataSuggestions = [
-    //     { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    //     { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    //     { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    // ]
-    
     export default {
         name: 'Semua',
         components: {
@@ -70,37 +65,90 @@
         ],
         data () {
             return {
-                fotos: this.dataFotos,
-                artikels: this.dataArtikels,
-                infografiks: this.dataInfografiks,
+                artikels: null,
+                fotos: null,
+                infografiks: null,
                 total_search_foto: 0,
                 total_search_artikel: 0,
                 total_search_infografik: 0,
-                // suggestions: dataSuggestions,
+                configPhotosData: {
+                    search: this.$store.state.Search.SearchKey,
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: this.$store.state.Search.SizeKey,
+                },
+                configArticlesData: {
+                    search: this.$store.state.Search.SearchKey,
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: this.$store.state.Search.SizeKey,
+                },
+                configInfografiksData: {
+                    search: this.$store.state.Search.SearchKey,
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
+                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    from: this.$store.state.Search.CurrentPageKey,
+                    size: this.$store.state.Search.SizeKey,
+                }
             }
         },
         async mounted() {
-            // this.fotos = this.dataFotos
+            // Passing Data To Vuex
+            this.$store.commit('configSearchPhotos', {
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                data: this.configPhotosData
+            })
+
+            this.$store.commit('configSearchArticles', {
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                data: this.configArticlesData
+            })
+
+            this.$store.commit('SearchConfigInfografiks', {
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                data: this.configInfografiksData
+            })
+
+            this.getData()
         },
 
-        async beforeUpdate() {
-            this.fotos = this.dataFotos.documents
-            this.artikels = this.dataArtikels.documents
-            this.infografiks = this.dataInfografiks.documents
+        methods: {
+            async getData() {
+                console.log(this.$store.state.Search.ChangeStatus)
+                try {
+                    // Get Data From API
+                    let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
+                    let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
+                    let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
 
-            this.total_search_foto = this.dataFotos ? this.dataFotos.total : 0
-            this.total_search_artikel = this.dataArtikels ? this.dataArtikels.total : 0
-            this.total_search_infografik = this.dataInfografiks ? this.dataInfografiks.total : 0
-        },
+                    // Set Data From API
+                    this.fotos = DataPhotos.data.documents
+                    this.artikels = DataArticles.data.documents
+                    this.infografiks = DataInfografiks.data.documents
 
-        async updated() {
-            this.fotos = this.dataFotos.documents
-            this.artikels = this.dataArtikels.documents
-            this.infografiks = this.dataInfografiks.documents
+                    this.total_search_foto = DataPhotos.data.total
+                    this.total_search_artikel = DataArticles.data.total
+                    this.total_search_infografik = DataInfografiks.data.total
 
-            this.total_search_foto = this.dataFotos ? this.dataFotos.total : 0
-            this.total_search_artikel = this.dataArtikels ? this.dataArtikels.total : 0
-            this.total_search_infografik = this.dataInfografiks ? this.dataInfografiks.total : 0
+                    // Set Total Data
+                    let total_search = DataInfografiks.data.total + DataPhotos.data.total + DataArticles.data.total
+                    this.$store.commit('setTotalSearch', total_search)
+                    this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
+                    this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
+                    this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
+                    
+                } catch (error) {
+                    console.log(error.message)
+                }
+            }
         },
     }
 </script>

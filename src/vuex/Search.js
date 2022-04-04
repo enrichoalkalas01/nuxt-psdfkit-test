@@ -66,7 +66,7 @@ const Search = {
                 if ( i === 'dateto' ) state.DateToKey = value[i]
                 if ( i === 'publication' ) state.PublicationKey = value[i]
                 if ( i === 'author' ) state.AuthorKey = value[i]
-                if ( i === 'size' ) state.SizeKey = value[i]
+                if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
                 if ( i === 'currentpage' ) state.CurrentPageKey = ( value[i] * value.size )
             }
         },
