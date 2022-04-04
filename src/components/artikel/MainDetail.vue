@@ -34,17 +34,21 @@
 
                     <!-- Photo Slider -->
                     <div v-if="artikelDetail.images.length > 0" class="row py-3">
-                        <Splide :options="SliderConfig">
-                            <SplideSlide
-                                v-for="(foto, i) in artikelDetail.images" :key="i"
-                            >
-                                <div class="col-12 col-md-9 text-center">
-                                    <a href="">
-                                        <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
-                                    </a>
-                                </div>
-                            </SplideSlide>
-                        </Splide>
+                        <div class="col-9 mx-auto">
+                            <div class="row">
+                                <Splide :options="SliderConfig">
+                                    <SplideSlide
+                                        v-for="(foto, i) in artikelDetail.images" :key="i"
+                                    >
+                                        <div class="col-12 col-md-9 text-center">
+                                            <a href="">
+                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
+                                            </a>
+                                        </div>
+                                    </SplideSlide>
+                                </Splide>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="d-block my-3">
