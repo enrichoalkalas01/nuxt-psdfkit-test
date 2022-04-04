@@ -71,6 +71,9 @@
         width: 100%;
         height: 500px;
         position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     #slide .banner-slide .panel .wrapper {
