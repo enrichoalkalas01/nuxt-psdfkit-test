@@ -15,10 +15,10 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-2 my-3">
-                                <img src="/assets/static/artikel/artikel-detail.png" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <!-- <h3 class="subtitle txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h3> -->
+                                <h3 class="subtitle txt-main">{{ artikelDetail.title }}</h3>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail.rubrics }}</p>
                                     <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ artikelDetail.published_pages[0].date }}</p>
@@ -48,8 +48,10 @@
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
                                 <p>
-                                    <b>PADANG, {{ artikelDetail.published_pages[0].publication }}</b> — {{ artikelDetail.summary }}
+                                    <!-- <b>PADANG, {{ artikelDetail.published_pages[0].publication }}</b> —  -->
+                                    <text v-html="`${ artikelDetail.body }`"></text>
                                 </p>
+                                <!-- <div v-html="`${ artikelDetail.body }`" /> -->
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
@@ -121,7 +123,7 @@
                 let dataArtikel = await Axios(this.ConfigApi)
                 this.artikelDetail = dataArtikel.data
 
-                // console.log(this.artikelDetail);
+                console.log(this.artikelDetail);
             } catch (error) {
                 console.log(error.message)
             }

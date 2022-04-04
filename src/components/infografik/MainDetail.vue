@@ -15,13 +15,11 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img src="/assets/static/infografik/info1.jpg" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">Prestasi Indonesia Di Ajang Olimpiade</h3>
-                                <p>Hampir setahun berlangsung, semburan lumpur di Sidoarjo belum mampu ditangani. Semburan lumpur dari eksplorasi sumur Banjarpanji-1 di Kecamatan Porong, Kabupaten Sidoarjo awalnya dianggap sebagai kejadian yang biasa. Saat
-                                    itu pemerintah pusat masih belum proaktif. Setelah sekian lama semburan itu tidak berhenti justru volumenya semakin besar dan mulaimenggenangi permukiman warga.
-                                </p>
+                                <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
+                                <p>{{ infografikDetail.published_caption }}</p>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. 300.000</span>
                                     <a href="pesan-infografik.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Infografik</a>
@@ -56,6 +54,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -71,7 +70,24 @@
         },
         data () {
             return {
-                suggestions: dataSuggestions
+                suggestions: dataSuggestions,
+                infografikDetail: [],
+                ConfigApi: {
+                    headers: {
+                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                    },
+                    url: `https://dev-be.kompasdata.id/api/Search/photos/` + this.$route.params.id,
+                }
+            }
+        },
+        async beforeMount() {
+            try {
+                let dataInfografik = await Axios(this.ConfigApi)
+                this.infografikDetail = dataInfografik.data
+
+                console.log(this.infografikDetail);
+            } catch (error) {
+                console.log(error.message)
             }
         }
     }

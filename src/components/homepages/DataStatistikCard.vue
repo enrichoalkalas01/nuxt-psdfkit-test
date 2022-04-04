@@ -5,11 +5,11 @@
             class="col-12 col-lg-6 my-2"
         >
             <div class="content borderless">
-                <a :href="`/data-detail/${ statistik ? statistiks[n - 1].id : '' }`">
+                <a :href="`/data-detail/${ statistiks[n - 1].id }`">
                     <img :src="statistiks[n - 1].image_source" alt="" class="foto-img">
                 </a>
                 <h3 class="title my-3">
-                    <a :href="`/data-detail/${ statistik ? statistiks[n - 1].id : '' }`">
+                    <a :href="`/data-detail/${ statistiks[n - 1].id }`">
                         {{ statistiks[n - 1].title }}
                     </a>
                 </h3>

@@ -15,10 +15,10 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img src="/assets/static/foto/foto1.JPG" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + fotoDetail.preview }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">Sekolah Bersiasat Gelar Pembelajaran</h3>
+                                <h3 class="subtitle txt-main">{{ fotoDetail.title }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. 300.000</span>
                                     <a href="pesan-foto.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
@@ -33,10 +33,8 @@
                                 </ul>
                                 <div class="tab-content komp-tab-content">
                                     <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                        <p>Siswa bersiap menjalani vaksinasi Covid-19 di GOR Ranggajati, Kabupaten Cirebon, Jawa Barat, Kamis (5/8/2021). Pemerintah daerah setempat menargetkan 3.000 anak usia 12-17 tahun menjalani vaksinasi dalam sepekan
-                                            ke depan.
-                                        </p>
-                                        <p><b>KOMPAS/ABDULLAH FIKRI ASHRI (IKI)</b></p>
+                                        <p>{{ fotoDetail.published_caption }}</p>
+                                        <p><b>{{ fotoDetail.writer }}</b></p>
                                         <table class="table db-table table-bordered">
                                             <tbody>
                                                 <tr>
@@ -45,11 +43,11 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Judul</th>
-                                                    <td>Bapak Tionghoa Nusantara : Gus Dur, Politik minoritas, dan strategi kebudayaan</td>
+                                                    <td>{{ fotoDetail.title }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Fotografer </th>
-                                                    <td>Aziz, Munawir Nugroho, RBE Agung (ed.)</td>
+                                                    <td>{{ fotoDetail.author }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Terbit </th>
@@ -57,7 +55,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Penerbit </th>
-                                                    <td>Penerbit Buku Kompas</td>
+                                                    <td>{{ fotoDetail.source }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Tahun Terbit</th>
@@ -81,7 +79,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Subjek </th>
-                                                    <td>Biografi, Politik, Minoritas etnis, Keturunan Tionghoa, Tolerasi Indonesia, Wahid, Abdurrahman, Gus Dur</td>
+                                                    <td>{{ fotoDetail.keywords }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -123,6 +121,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
@@ -138,7 +137,24 @@
         },
         data () {
             return {
-                suggestions: dataSuggestions
+                suggestions: dataSuggestions,
+                fotoDetail: [],
+                ConfigApi: {
+                    headers: {
+                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                    },
+                    url: `https://dev-be.kompasdata.id/api/Search/photos/` + this.$route.params.id,
+                }
+            }
+        },
+        async beforeMount() {
+            try {
+                let dataFoto = await Axios(this.ConfigApi)
+                this.fotoDetail = dataFoto.data
+
+                console.log(this.fotoDetail);
+            } catch (error) {
+                console.log(error.message)
             }
         }
     }

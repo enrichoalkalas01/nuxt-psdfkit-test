@@ -80,7 +80,7 @@
                 if (value === 'foto') return 'Foto'
                 if (value === 'layanan') return 'LayananKami'
                 if (value === 'berita_terkini') return 'BeritaTerkini'
-                // if (value === 'data_statistik') return 'DataStatistik'
+                if (value === 'data_statistik') return 'DataStatistik'
                 if (value === 'buku') return 'Buku'
             },
 
@@ -93,7 +93,7 @@
                 if (value.name === 'foto') return value.data
                 if (value.name === 'layanan') return value.data
                 if (value.name === 'berita_terkini') return value.data
-                // if (value.name === 'data_statistik') return value.data
+                if (value.name === 'data_statistik') return value.data
                 if (value.name === 'buku') return value.data
             }
         },
