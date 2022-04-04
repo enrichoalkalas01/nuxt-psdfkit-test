@@ -6,6 +6,14 @@ const Search = {
         return {
             Search: null,
             SearchKey: null,
+
+            AuthorKey: null,            
+            CurrentPageKey: 1,
+            PublicationKey: null,
+            DateFromKey: null,
+            DataToKey: null,
+            SizeKey: 3,
+
             TypeSearch: 0,
             TotalSearch: 0,
             TotalArtikel: 0,
@@ -50,11 +58,22 @@ const Search = {
 
     mutations: {
         setSearchKey(state, value = {}) {
+            console.log(value)
             for ( let i in value ) {
                 if ( i === 'query' ) state.SearchKey = value[i]
-                // if ( i === 'type-search' ) state.value[i] = value.value[i] ? value.value[i] : 0
+                if ( i === 'typesearch' ) state.TypeSearch = value[i]
+                if ( i === 'datefrom' ) state.DateFromKey = value[i]
+                if ( i === 'dateto' ) state.DateToKey = value[i]
+                if ( i === 'publication' ) state.PublicationKey = value[i]
+                if ( i === 'author' ) state.AuthorKey = value[i]
+                if ( i === 'size' ) state.SizeKey = value[i]
+                if ( i === 'currentpage' ) state.CurrentPageKey = ( value[i] * value.size )
             }
         },
+
+        // setMoreSearchKey(state, value = {}) {
+            
+        // },  
         
         setTotalSearchDetail(state, value = {}) {
             for ( let i in value ) {
