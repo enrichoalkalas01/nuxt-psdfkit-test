@@ -6,7 +6,7 @@
                     <h2 class="subtitle py-2"> Hasil Pencarian</h2>
                     <p>Kata kunci : <span class="text-bold">{{ keySearch }}</span></p>
                     <p class="f14">
-                        Total Search : <span class="f14">{{ totalSearch }} data</span>
+                        <!-- Total Search : <span class="f14">{{ totalSearch }} data</span> -->
                     </p>
                 </div>
                 <div class="col col-md-2">
@@ -126,7 +126,7 @@
         },
 
         async mounted() {
-            
+            this.totalSearch = this.$store.state.Search.TotalSearch
         },
 
         updated() {

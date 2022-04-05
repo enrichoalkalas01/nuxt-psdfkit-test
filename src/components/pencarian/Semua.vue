@@ -120,6 +120,11 @@
             this.getData()
         },
 
+        updated() {
+            let total_search = this.total_search_foto + this.total_search_artikel + this.total_search_infografik
+            this.$store.commit('setTotalSearch', total_search)
+        },
+
         methods: {
             async getData() {
                 console.log(this.$store.state.Search.ChangeStatus)
