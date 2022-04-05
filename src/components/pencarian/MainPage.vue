@@ -51,6 +51,23 @@
 
                     <!-- Pagination -->
                     <div>
+                        <div class="col-12 my-3 text-center">
+                            <ul class="pagination cst-pagin d-flex justify-content-center">
+                                <!-- <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li> -->
+                                <li 
+                                    v-for="(pageData, i) in pagination" :key="i"
+                                    :class="i == 0 ? 'page-item active' : 'page-item'"
+                                >
+                                    <a class="page-link" :href="pageData.url">
+                                        {{ pageData.page }}
+                                    </a>
+                                </li>
+                                <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                                <!-- <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li> -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,6 +101,7 @@
                 artikels: null,
                 fotos: null,
                 infografiks: null,
+                pagination: [{ page: 1, url: '' }, { page: 1, url: '' }, { page: 2, url: '' }, { page: 3, url: '' }, { page: 3, url: '' }],
                 keySearch: this.$store.state.Search.SearchKey,
                 totalSearch: this.$store.state.Search.TotalSearch,
                 ChangeStatus: 0,
@@ -127,9 +145,10 @@
 
         async mounted() {
             this.totalSearch = this.$store.state.Search.TotalSearch
+            this.pagination = this.paginationFunction()
         },
 
-        updated() {
+        async updated() {
             this.totalSearch = this.$store.state.Search.TotalSearch
             if ( this.ChangeStatus !== this.$store.state.Search.ChangeStatus ) {
                 this.$store.commit('setSearchStatus')
@@ -138,7 +157,25 @@
         },
 
         methods: {
-            
+            queryStringFunction: function() {
+                const urlSearchParams = new URLSearchParams(window.location.search)
+                const params = Object.fromEntries(urlSearchParams.entries())
+                return params
+            },
+
+            paginationFunction: function() {
+                let queryStringUrl = this.queryStringFunction()
+                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=0&size=${ queryStringUrl.size }`
+                let newArrPage = []
+                for( let i = 0; i < 5; i++ ) {
+                    newArrPage[i] = {
+                        page: Number(queryStringUrl.currentpage) + i,
+                        url: newUrlPassing + `&currentpage=${ Number(queryStringUrl.currentpage) + i }`
+                    }
+                }
+
+                return newArrPage
+            }
         },
     }
 </script>

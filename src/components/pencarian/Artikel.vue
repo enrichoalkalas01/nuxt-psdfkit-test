@@ -18,7 +18,9 @@
                             <span v-html="artikel.title"></span>
                         </a>
                     </h2>
-                    <span class="date-time"> <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date }}</span>
+                    <span class="date-time mb-3">
+                        <span class="date-time"><i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date }} &nbsp; <i class="fa-solid fa-images"></i> 3 &nbsp; <i class="fa-solid fa-chart-line"></i> 0</span>
+                    </span>
                     <p class="short-text three">
                         <span v-html="artikel.summary"></span>
                     </p>

@@ -63,19 +63,19 @@
             }
         },
 
-        beforeMount() {
+        async beforeMount() {
             this.statistiks = this.dataSet
             // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Mounted
-        mounted() {
+        async mounted() {
             this.statistiks = this.dataSet
             // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Update
-        updated() {
+        async updated() {
             this.statistiks = this.dataSet
             // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
