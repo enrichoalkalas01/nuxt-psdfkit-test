@@ -50,7 +50,9 @@
                                             </div>
                                             <!-- <img :src="Data.image_source" alt="" class="ctn-img mb-3"/> -->
                                             <h2 class="subtitle">{{ Data.title }}</h2>
-                                            <p class="periode">{{ Data.date }}</p>
+                                            <p class="periode">
+                                                <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
+                                            </p>
                                         <!-- </div> -->
                                     </div>
                                 </div>
@@ -68,7 +70,9 @@
                                         </div>
                                         <h2 class="subtitle name">{{ Data.title }}</h2>
                                         <h2 class="subtitle title">{{ Data.excerpt }}</h2>
-                                        <p class="periode">{{ Data.date }}</p>
+                                        <p class="periode">
+                                            <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
