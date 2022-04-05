@@ -18,7 +18,7 @@
                             v-for="(AgendaData, i) in Agenda.data" :key="i"
                             class="nav-item" role="presentation"
                         >
-                            <a
+                            <div
                                 :class="i === 0 ? 'nav-link active' : 'nav-link'"
                                 :id="`info-Tabs0${ i + 1 }`"
                                 data-bs-toggle="tab"
@@ -27,7 +27,7 @@
                                 :aria-selected="i == 0 ? 'true' : 'false'"
                             >
                                 {{ AgendaData.type_tab }}
-                            </a>
+                            </div>
                         </li>
                     </ul>
                     <div class="tab-content komp-tab-content">
@@ -43,13 +43,16 @@
                                     v-for="(Data, i) in AgendaData.data" :key="i"
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
-                                    <a :href="Data.id" class="content borderless info-ctn">
+                                    <div :href="Data.id" class="content borderless info-ctn">
                                         <!-- <div class="card"> -->
-                                            <img :src="Data.image_source" alt="" class="ctn-img mb-3"/>
+                                            <div class="img-box">
+                                                <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
+                                            </div>
+                                            <!-- <img :src="Data.image_source" alt="" class="ctn-img mb-3"/> -->
                                             <h2 class="subtitle">{{ Data.title }}</h2>
                                             <p class="periode">{{ Data.date }}</p>
                                         <!-- </div> -->
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -58,12 +61,15 @@
                                     v-for="(Data, i) in AgendaData.data" :key="i"
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img :src="Data.image_source" alt="" class="ctn-img"/>
+                                    <div href="#" class="content borderless info-ctn">
+                                        <!-- <img :src="Data.image_source" alt="" class="ctn-img"/> -->
+                                        <div class="img-box">
+                                            <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
+                                        </div>
                                         <h2 class="subtitle name">{{ Data.title }}</h2>
                                         <h2 class="subtitle title">{{ Data.excerpt }}</h2>
                                         <p class="periode">{{ Data.date }}</p>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
@@ -119,6 +125,26 @@
 <style>
     .info-ctn .ctn-img {
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25) !important;
+    }
+    
+    .img-box {
+        width: 100%;
+        height: 175px;
+        /* background-color: #555; */
+        background-color: #f8f8f8;
+        margin-bottom: 10px;
+    }
+
+    .img-box .images {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+    }
+
+    .periode {
+        text-align: right;
     }
 
     #tgl-penting {
