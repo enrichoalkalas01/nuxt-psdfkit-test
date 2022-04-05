@@ -53,7 +53,22 @@
                     <div>
                         <div class="col-12 my-3 text-center">
                             <ul class="pagination cst-pagin d-flex justify-content-center">
-                                <!-- <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li> -->
+                                <li 
+                                    :class="pagination[0].page > 1 ? 'page-item' : 'page-item disabled'">
+                                    <a 
+                                        class="page-link" 
+                                        :href="
+                                            pagination[0].page > 0 ?
+                                                pagination[0].url.replace(
+                                                    `currentpage=${ pagination[0].url.substring(pagination[0].url.length - 1) }`,
+                                                    `currentpage=${ Number(pagination[0].url.substring(pagination[0].url.length - 1)) - 1 }`
+                                                )
+                                            : ''
+                                        "
+                                    >
+                                        Sebelumnya
+                                    </a>
+                                </li>
                                 <li 
                                     v-for="(pageData, i) in pagination" :key="i"
                                     :class="i == 0 ? 'page-item active' : 'page-item'"
@@ -65,7 +80,14 @@
                                 <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li> -->
-                                <!-- <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li> -->
+                                <li class="page-item">
+                                    <a 
+                                        class="page-link" 
+                                        :href="pagination[1].url"
+                                    >
+                                        Selanjutnya
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -154,6 +176,8 @@
                 this.$store.commit('setSearchStatus')
                 this.getData()
             }
+
+            console.log(this.pagination[0].page)
         },
 
         methods: {
@@ -167,7 +191,7 @@
                 let queryStringUrl = this.queryStringFunction()
                 let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=0&size=${ queryStringUrl.size }`
                 let newArrPage = []
-                for( let i = 0; i < 5; i++ ) {
+                for( let i = 0; i < 3; i++ ) {
                     newArrPage[i] = {
                         page: Number(queryStringUrl.currentpage) + i,
                         url: newUrlPassing + `&currentpage=${ Number(queryStringUrl.currentpage) + i }`
