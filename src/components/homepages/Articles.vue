@@ -22,6 +22,14 @@
                         <span class="date-time">
                             <i class="fas fa-clock"></i>
                             {{ artikel.created_source }}, {{ artikel.created_date }}
+                            &nbsp;
+
+                            <i class="fa-solid fa-images"></i>
+                            {{ artikel.photo_count }}
+                            &nbsp;
+
+                            <i class="fa-solid fa-chart-line"></i>
+                            {{ artikel.infographic_count }}
                         </span>
                     </div>
                 </div>
