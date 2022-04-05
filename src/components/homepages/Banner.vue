@@ -13,7 +13,8 @@
                                     {{ banner.date }}
                                 </div>
                                 <h1 class="heading">
-                                    <a :href="'/artikel-detail/' + banner.id">
+                                    <a :href="banner.url">
+                                    <!-- <a :href="'/artikel-detail/' + banner.id"> -->
                                         {{ banner.title }}
                                     </a>
                                 </h1>
