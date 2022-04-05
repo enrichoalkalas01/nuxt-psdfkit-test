@@ -3,17 +3,26 @@
         <div class="col-12">
             <div
                 v-for="artikel in artikels" :key="artikel.id"
-                class="content borderless my-3"
+                class="row artikels content borderless my-3"
             >
-                <h2 class="title">
-                    <a :href="'/artikel-detail/' + artikel.document_id" class="txt-main">
-                        <span v-html="artikel.title"></span>
-                    </a>
-                </h2>
-                <span class="date-time"> <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date }}</span>
-                <p class="short-text three">
-                    <span v-html="artikel.summary"></span>
-                </p>
+                <div v-if="artikel.featured_image !== ''" class="col-12 col-sm-12 col-md-3 col-lg-3 images-wrapper">
+                    <div class="images-box">
+                        <div class="image" :style="`background-image: url('${ artikel.featured_image }')`"></div>
+                    </div>
+                </div>
+                <div
+                    :class="artikel.featured_image !== '' ? 'col-12 col-sm-12 col-md-9 col-lg-9 text-wrapper' : 'col-12 col-sm-12 col-md-12 col-lg-12 text-wrapper'"
+                >
+                    <h2 class="title">
+                        <a :href="'/artikel-detail/' + artikel.document_id" class="txt-main">
+                            <span v-html="artikel.title"></span>
+                        </a>
+                    </h2>
+                    <span class="date-time"> <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date }}</span>
+                    <p class="short-text three">
+                        <span v-html="artikel.summary"></span>
+                    </p>
+                </div>
             </div>
             <p class="f14 mt-4">
                 Total Search : <span class="f14">{{ total_search }} data</span>
@@ -55,3 +64,25 @@
         },
     }
 </script>
+
+<style>
+    .artikels.content {
+        display: flex !important;
+    }
+
+    .images-wrapper .images-box {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+    }
+
+    .images-wrapper .images-box .images {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+    }
+</style>

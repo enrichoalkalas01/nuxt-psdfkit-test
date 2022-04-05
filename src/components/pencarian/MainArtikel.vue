@@ -51,6 +51,8 @@
                     this.artikels = DataArticles.data
                     this.total_search = DataArticles.data.total
 
+                    console.log(this.artikels)
+
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: this.artikels.total })
                     
