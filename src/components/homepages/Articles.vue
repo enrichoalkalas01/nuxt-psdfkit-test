@@ -17,7 +17,7 @@
                             <span class="short-text four">
                                 {{ artikel.excerpt }}
                             </span>
-                            <a :href="'artikel-detail/' + artikel.id" class="more">Selengkapnya</a>
+                            <a :href="'artikel-detail/' + artikel.document_id" class="more">Selengkapnya</a>
                         </p>
                         <span class="date-time">
                             <i class="fas fa-clock"></i>

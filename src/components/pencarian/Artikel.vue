@@ -7,7 +7,7 @@
             >
                 <div v-if="artikel.featured_image !== ''" class="col-12 col-sm-12 col-md-3 col-lg-3 images-wrapper">
                     <div class="images-box">
-                        <div class="image" :style="`background-image: url('${ artikel.featured_image }')`"></div>
+                        <div class="image" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + artikel.featured_image }')`"></div>
                     </div>
                 </div>
                 <div
@@ -80,7 +80,7 @@
         border-radius: 5px;
     }
 
-    .images-wrapper .images-box .images {
+    .images-wrapper .images-box .image {
         width: 100%;
         height: 100%;
         background-repeat: no-repeat;
