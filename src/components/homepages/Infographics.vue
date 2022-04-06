@@ -19,7 +19,7 @@
                                 <img :src="infografik.image_source" alt="">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i>{{ infografik.created_source }}, {{ infografik.created_date }}</span>
+                                    <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.created_source }}, {{ infografik.created_date }}</span>
                                 </div>
                             </a>
                         </div>
@@ -84,13 +84,17 @@
 
     .infografik-slide .splide__slide.is-next .item {
         justify-content: flex-start;
-        width: 80%;
+        width: 50%;
         margin-left: 0;
     }
 
     .infografik-slide .splide__slide.is-prev .item {
         justify-content: flex-end;
-        width: 80%;
+        width: 50%;
         margin-right: 0;
+    }
+
+    .infografik-slide .date-time{
+        color: #ffffff;
     }
 </style>
