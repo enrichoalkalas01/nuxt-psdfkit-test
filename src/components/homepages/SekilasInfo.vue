@@ -63,8 +63,8 @@
                                     v-for="(Data, i) in AgendaData.data" :key="i"
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
-                                    <div href="#" class="content borderless info-ctn">
-                                        <!-- <img :src="Data.image_source" alt="" class="ctn-img"/> -->
+                                    <!-- <div href="#" class="content borderless info-ctn">
+                                        <img :src="Data.image_source" alt="" class="ctn-img"/>
                                         <div class="img-box">
                                             <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
                                         </div>
@@ -73,6 +73,12 @@
                                         <p class="periode">
                                             <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
                                         </p>
+                                    </div> -->
+                                    <div class=" content borderless info-ctn">
+                                        <img :src="Data.image_source" alt="" class="ctn-img">
+                                        <h2 class="subtitle name">{{ Data.title }}</h2>
+                                        <h2 class="subtitle title">{{ Data.excerpt }}</h2>
+                                        <p class="periode">{{ Data.date }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -137,10 +143,11 @@
     }
     
     .img-box {
-        width: 100%;
-        height: 175px;
+        width: 300px;
+        height: 300px;
         /* background-color: #555; */
         background-color: #f8f8f8;
+        margin: auto;
         margin-bottom: 10px;
     }
 
