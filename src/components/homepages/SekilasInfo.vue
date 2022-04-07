@@ -140,6 +140,7 @@
 
     .info-ctn .ctn-img {
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25) !important;
+        aspect-ratio: 16/9;
     }
     
     .img-box {
