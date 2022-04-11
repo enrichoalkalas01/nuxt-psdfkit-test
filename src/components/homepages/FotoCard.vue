@@ -2,7 +2,7 @@
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center">
         <a :href="idFoto" class=" content borderless info-ctn">
             <img :src="image" alt="" class="ctn-img">
-            <h2 class="subtitle name pb-2 w-100">
+            <h2 class="subtitle name foto w-100">
                 <div class="truncate" v-html="title"></div>
                 <!-- {{ title }} -->
             </h2>
@@ -78,5 +78,9 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    .subtitle.name.foto {
+        border-bottom: none;
     }
 </style>
