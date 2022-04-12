@@ -143,7 +143,7 @@
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
-                    url: `https://dev-be.kompasdata.id/api/Search/photos/` + this.$route.params.id,
+                    url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 }
             }
         },

@@ -41,7 +41,7 @@
                                         v-for="(foto, i) in artikelDetail.images" :key="i"
                                     >
                                         <div class="col-12 col-md-9 text-center">
-                                            <a href="">
+                                            <a :href="`/foto-detail/` + foto.id">
                                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
                                             </a>
                                         </div>
@@ -137,7 +137,7 @@
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
-                    url: `https://dev-be.kompasdata.id/api/Search/articles/` + this.$route.params.id,
+                    url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
                 }
             }
         },
