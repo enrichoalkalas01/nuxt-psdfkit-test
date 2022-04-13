@@ -23,27 +23,27 @@ const Search = {
             TotalData: 0,
             ChangeStatus: 0,
             SearchConfigPhotos: {
-                url: "https://dev-be.kompasdata.id/api/Search/photos",
+                url: "https://dev-be.kompasdata.id/api/iasearch",
                 headers: { "Content-Type": "application/json", },
-                method: "POST",
+                method: "GET",
                 data: JSON.stringify({
                     "search": "", "authors": "", "publication": "",
                     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
                 })
             },
             SearchConfigArticles: {
-                url: "https://dev-be.kompasdata.id/api/Search/articles",
+                url: "https://dev-be.kompasdata.id/api/search",
                 headers: { "Content-Type": "application/json", },
-                method: "POST",
+                method: "GET",
                 data: JSON.stringify({
                     "search": "", "authors": "", "publication": "",
                     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
                 })
             },
             SearchConfigInfografiks: {
-                url: "https://dev-be.kompasdata.id/api/Search/infographics",
+                url: "https://dev-be.kompasdata.id/api/graphicsearch",
                 headers: { "Content-Type": "application/json", },
-                method: "POST",
+                method: "GET",
                 data: JSON.stringify({
                     "search": "", "authors": "", "publication": "",
                     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
