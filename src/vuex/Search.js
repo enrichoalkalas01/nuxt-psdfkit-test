@@ -12,7 +12,7 @@ const Search = {
             PublicationKey: null,
             DateFromKey: null,
             DataToKey: null,
-            SizeKey: 3,
+            SizeKey: 10,
 
             TypeSearch: 0,
             TotalSearch: 0,
@@ -22,59 +22,50 @@ const Search = {
             TotalBuku: 0,
             TotalData: 0,
             ChangeStatus: 0,
+            SearchConfigPhotosPost: {
+                url: "https://dev-be.kompasdata.id/api/Search/photos",
+                headers: { "Content-Type": "application/json", },
+                method: "POST",
+                data: JSON.stringify({
+                    "search": "", "authors": "", "publication": "",
+                    "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
+                })
+            },
+            SearchConfigArticlesPost: {
+                url: "https://dev-be.kompasdata.id/api/Search/articles",
+                headers: { "Content-Type": "application/json", },
+                method: "POST",
+                data: JSON.stringify({
+                    "search": "", "authors": "", "publication": "",
+                    "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
+                })
+            },
+            SearchConfigInfografiksPost: {
+                url: "https://dev-be.kompasdata.id/api/Search/infographics",
+                headers: { "Content-Type": "application/json", },
+                method: "POST",
+                data: JSON.stringify({
+                    "search": "", "authors": "", "publication": "",
+                    "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
+                })
+            },
+
             SearchConfigPhotos: {
-                url: "https://dev-be.kompasdata.id/api/iasearch",
+                url: "https://dev-be.kompasdata.id/api/iasearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
-                params: {
-                    search: "",
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0, 
-                    size: 5
-                },
-                // data: JSON.stringify({
-                //     "search": "", "authors": "", "publication": "",
-                //     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
-                // })
             },
+
             SearchConfigArticles: {
-                url: "https://dev-be.kompasdata.id/api/search",
+                url: "https://dev-be.kompasdata.id/api/search?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
-                params: {
-                    search: "",
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0, 
-                    size: 5
-                },
-                // data: JSON.stringify({
-                //     "search": "", "authors": "", "publication": "",
-                //     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
-                // })
             },
+            
             SearchConfigInfografiks: {
-                url: "https://dev-be.kompasdata.id/api/graphicsearch",
+                url: "https://dev-be.kompasdata.id/api/graphicsearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
-                params: {
-                    search: "",
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0, 
-                    size: 5
-                },
-                // data: JSON.stringify({
-                //     "search": "", "authors": "", "publication": "",
-                //     "publishedFrom": "", "publishedTo": "", "from": 0, "size": 5
-                // })
             },
         }
     },
@@ -85,7 +76,6 @@ const Search = {
 
     mutations: {
         setSearchKey(state, value = {}) {
-            console.log(value)
             for ( let i in value ) {
                 if ( i === 'query' ) state.SearchKey = value[i]
                 if ( i === 'typesearch' ) state.TypeSearch = value[i]
@@ -94,13 +84,9 @@ const Search = {
                 if ( i === 'publication' ) state.PublicationKey = value[i]
                 if ( i === 'author' ) state.AuthorKey = value[i]
                 if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
-                if ( i === 'currentpage' ) state.CurrentPageKey = ( value[i] * value.size )
+                if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
             }
         },
-
-        // setMoreSearchKey(state, value = {}) {
-            
-        // },  
         
         setTotalSearchDetail(state, value = {}) {
             for ( let i in value ) {
@@ -120,30 +106,84 @@ const Search = {
             state.ChangeStatus += state.ChangeStatus
         },
 
-        configSearchPhotos(state, value = {}) {
+        configSearchPhotosPost(state, value = {}) {
             for ( let config in value ) {
-                if ( config === 'headers' ) state.SearchConfigPhotos.headers = value[config]
-                if ( config === 'params' ) state.SearchConfigPhotos.data = JSON.stringify(value[config])
-                if ( config === 'method' ) state.SearchConfigPhotos.method = value[config]
-                if ( config === 'url' ) state.SearchConfigPhotos.url = value[config]
+                if ( config === 'headers' ) state.SearchConfigPhotosPost.headers = value[config]
+                if ( config === 'data' ) state.SearchConfigPhotosPost.data = JSON.stringify(value[config])
+                if ( config === 'method' ) state.SearchConfigPhotosPost.method = value[config]
+                if ( config === 'url' ) state.SearchConfigPhotosPost.url = value[config]
+            }
+        },
+
+        configSearchArticlesPost(state, value = {}) {
+            for ( let config in value ) {
+                if ( config === 'headers' ) state.SearchConfigArticlesPost.headers = value[config]
+                if ( config === 'data' ) state.SearchConfigArticlesPost.data = JSON.stringify(value[config])
+                if ( config === 'method' ) state.SearchConfigArticlesPost.method = value[config]
+                if ( config === 'url' ) state.SearchConfigArticlesPost.url = value[config]
+            }
+        },
+
+        configSearchInfografiksPost(state, value = {}) {
+            for ( let config in value ) {
+                if ( config === 'headers' ) state.SearchConfigInfografiksPost.headers = value[config]
+                if ( config === 'data' ) state.SearchConfigInfografiksPost.data = JSON.stringify(value[config])
+                if ( config === 'method' ) state.SearchConfigInfografiksPost.method = value[config]
+                if ( config === 'url' ) state.SearchConfigInfografiksPost.url = value[config]
             }
         },
 
         configSearchArticles(state, value = {}) {
+            var i = 0, stringUrl = '', urlData = state.SearchConfigArticles.url
             for ( let config in value ) {
                 if ( config === 'headers' ) state.SearchConfigArticles.headers = value[config]
-                if ( config === 'params' ) state.SearchConfigArticles.data = value[config]
                 if ( config === 'method' ) state.SearchConfigArticles.method = value[config]
                 if ( config === 'url' ) state.SearchConfigArticles.url = value[config]
+                if ( config === 'data' ) {
+                    
+                    for ( let queryData in value[config] ) {
+                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                        i = i + 1
+                    }
+                    
+                    state.SearchConfigArticles.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                }
+            }
+        },
+        
+        configSearchPhotos(state, value = {}) {
+            var i = 0, stringUrl = '', urlData = state.SearchConfigPhotos.url
+            for ( let config in value ) {
+                if ( config === 'headers' ) state.SearchConfigPhotos.headers = value[config]
+                if ( config === 'method' ) state.SearchConfigPhotos.method = value[config]
+                if ( config === 'url' ) state.SearchConfigPhotos.url = value[config]
+                if ( config === 'data' ) {
+                    
+                    for ( let queryData in value[config] ) {
+                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                        i = i + 1
+                    }
+                    
+                    state.SearchConfigPhotos.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                }
             }
         },
 
-        SearchConfigInfografiks(state, value = {}) {
+        configSearchInfografiks(state, value = {}) {
+            var i = 0, stringUrl = '', urlData = state.SearchConfigInfografiks.url
             for ( let config in value ) {
                 if ( config === 'headers' ) state.SearchConfigInfografiks.headers = value[config]
-                if ( config === 'params' ) state.SearchConfigInfografiks.data = JSON.stringify(value[config])
                 if ( config === 'method' ) state.SearchConfigInfografiks.method = value[config]
                 if ( config === 'url' ) state.SearchConfigInfografiks.url = value[config]
+                if ( config === 'data' ) {
+                    
+                    for ( let queryData in value[config] ) {
+                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                        i = i + 1
+                    }
+                    
+                    state.SearchConfigInfografiks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                }
             }
         }
     }

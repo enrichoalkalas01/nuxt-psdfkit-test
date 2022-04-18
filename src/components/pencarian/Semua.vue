@@ -71,52 +71,9 @@
                 total_search_foto: 0,
                 total_search_artikel: 0,
                 total_search_infografik: 0,
-                configPhotosData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: this.$store.state.Search.AuthorKey,
-                    publication: this.$store.state.Search.PublicationKey,
-                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
-                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
-                    from: this.$store.state.Search.CurrentPageKey,
-                    size: this.$store.state.Search.SizeKey,
-                },
-                configArticlesData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: this.$store.state.Search.AuthorKey,
-                    publication: this.$store.state.Search.PublicationKey,
-                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
-                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
-                    from: this.$store.state.Search.CurrentPageKey,
-                    size: this.$store.state.Search.SizeKey,
-                },
-                configInfografiksData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: this.$store.state.Search.AuthorKey,
-                    publication: this.$store.state.Search.PublicationKey,
-                    publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
-                    publishedTo: `${ this.$store.state.Search.DateToKey }`,
-                    from: this.$store.state.Search.CurrentPageKey,
-                    size: this.$store.state.Search.SizeKey,
-                }
             }
         },
         async mounted() {
-            // Passing Data To Vuex
-            this.$store.commit('configSearchPhotos', {
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
-                data: this.configPhotosData
-            })
-
-            this.$store.commit('configSearchArticles', {
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
-                data: this.configArticlesData
-            })
-
-            this.$store.commit('SearchConfigInfografiks', {
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
-                data: this.configInfografiksData
-            })
-
             this.getData()
         },
 
@@ -127,7 +84,6 @@
 
         methods: {
             async getData() {
-                console.log(this.$store.state.Search.ChangeStatus)
                 try {
                     // Get Data From API
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
@@ -135,9 +91,9 @@
                     let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
 
                     // Set Data From API
-                    this.fotos = DataPhotos.data.documents
-                    this.artikels = DataArticles.data.documents
-                    this.infografiks = DataInfografiks.data.documents
+                    this.fotos = DataPhotos.data.documents.filter((data, i) => { return i < 5 ? data : null })
+                    this.artikels = DataArticles.data.documents.filter((data, i) => { return i < 3 ? data : null })
+                    this.infografiks = DataInfografiks.data.documents.filter((data, i) => { return i < 3 ? data : null })
 
                     this.total_search_foto = DataPhotos.data.total
                     this.total_search_artikel = DataArticles.data.total

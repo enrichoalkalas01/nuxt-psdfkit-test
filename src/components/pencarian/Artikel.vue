@@ -86,5 +86,6 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: auto 100%;
+        background-color: #dedede;
     }
 </style>

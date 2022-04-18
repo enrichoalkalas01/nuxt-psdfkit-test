@@ -19,7 +19,7 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username/Email</label>
                                         <div class="my-2">
-                                            <input id="username" type="text" v-model="username" placeholder="Username/Email" class="form-control">
+                                            <input id="username" v-on:keyup.enter="login" type="text" v-model="username" placeholder="Username/Email" class="form-control">
                                         </div>
                                     </div>
 

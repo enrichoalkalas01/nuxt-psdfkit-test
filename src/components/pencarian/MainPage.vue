@@ -174,10 +174,10 @@
             this.totalSearch = this.$store.state.Search.TotalSearch
             if ( this.ChangeStatus !== this.$store.state.Search.ChangeStatus ) {
                 this.$store.commit('setSearchStatus')
-                this.getData()
+                // this.getData()
             }
 
-            console.log(this.pagination[0].page)
+            // console.log(this.pagination[0].page)
         },
 
         methods: {
@@ -202,6 +202,22 @@
             }
         },
     }
+
+    /*
+
+        let url = https://dev-be.kompasdata.id/api/search?search&authors&publication&page&publishedfrom&publishedto&orderdirection&from=1&size=2
+
+        - search (kata kunci)
+        - authors (penulis)
+        - publication (media)
+        - page (halaman)
+        - publishedfrom (tanggal awal)
+        - publishedto (tanggal akhir)
+        - orderdirection (urutan)
+        - from (default=1, record hasil pencarian)
+        - size (default=30, jumlah hasil pencarian per halaman)
+
+    */
 </script>
 
 <style>

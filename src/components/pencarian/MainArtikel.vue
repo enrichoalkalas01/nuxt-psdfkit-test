@@ -47,11 +47,10 @@
                 try {
                     // Get Data From API
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
+                    
                     // Set Data From API
                     this.artikels = DataArticles.data
                     this.total_search = DataArticles.data.total
-
-                    console.log(this.artikels)
 
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: this.artikels.total })

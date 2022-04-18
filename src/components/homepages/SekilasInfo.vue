@@ -43,7 +43,7 @@
                                     v-for="(Data, i) in AgendaData.data" :key="i"
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
-                                    <div :href="Data.id" class="content borderless info-ctn">
+                                    <a :href="Data.url" class="content borderless info-ctn">
                                         <!-- <div class="card"> -->
                                             <div class="img-box">
                                                 <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
@@ -54,7 +54,7 @@
                                                 <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
                                             </p>
                                         <!-- </div> -->
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
 

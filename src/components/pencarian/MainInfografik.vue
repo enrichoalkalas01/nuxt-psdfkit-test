@@ -32,7 +32,7 @@
             }
         },
         async mounted() {
-            this.$store.commit('SearchConfigInfografiks', {
+            this.$store.commit('configSearchInfografiks', {
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 data: this.configInfografiksData
             })

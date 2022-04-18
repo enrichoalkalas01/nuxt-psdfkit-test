@@ -10,7 +10,11 @@
                     </div>
                     <div class="col-sm-8 my-3">
                         <div class="desc">
-                            <h3 class="subtitle"><a :href="'/infografik-detail/' + infografik.document_id">{{ infografik.title }}</a></h3>
+                            <h3 class="subtitle">
+                                <a :href="'/infografik-detail/' + infografik.document_id">
+                                    <div v-html="infografik.title"></div>
+                                </a>
+                            </h3>
                             <!-- <p class="short-text three">{{ infografik.desc }}</p> -->
                             <span class="date-time">
                                 <i class="fas fa-clock"></i> {{ infografik.publication }} {{ infografik.published_date }}

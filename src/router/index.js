@@ -2,6 +2,7 @@
 import { createWebHistory, createRouter } from "vue-router"
 // import Store from '../vuex/Store'
 import Login from '../components/login/Login.vue'
+import Logout from '../components/login/Logout.vue'
 import Register from '../components/login/Register.vue'
 import MainPage from '../components/homepages/MainPage.vue'
 import Arsip from '../components/arsip/MainPage.vue'
@@ -21,6 +22,7 @@ import Test from '../components/test/TestCarousel.vue'
 const routes = [
     // Login & Register
     { path: '/login', name: 'login', component: Login },
+    { path: '/logout', name: 'logout', component: Logout },
     { path: '/daftar', name: 'daftar', component: Register },
 
     // Homepages
