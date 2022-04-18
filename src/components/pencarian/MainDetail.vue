@@ -27,20 +27,20 @@
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Kata Kunci </label>
                                                 <div class="col-md-9">
-                                                    <input id="query" type="text" class="form-control" placeholder="search query...">
+                                                    <input id="query-artikel" type="text" class="form-control" placeholder="search query...">
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Penulis </label>
                                                 <div class="col-md-9">
-                                                    <input id="author" type="text" class="form-control" placeholder="author...">
+                                                    <input id="author-artikel" type="text" class="form-control" placeholder="author...">
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Media </label>
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="publication" id="publication" class="form-control">
+                                                    <select name="publication" id="publication-artikel" class="form-control">
                                                         <option value="">Seluruh Media</option>
                                                         <option value="KOMPAS">Kompas</option>
                                                         <!-- <option value="kompascetak">Kompas</option>
@@ -51,7 +51,7 @@
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Halaman</label>
                                                 <div class="col-md-9">
-                                                    <input id="page" type="number" class="form-control" placeholder="pages from...">
+                                                    <input id="page-artikel" type="number" class="form-control" placeholder="pages from...">
                                                 </div>
                                             </div>
                                             <div class="form-group my-3 row">
@@ -59,19 +59,19 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="date" class="form-control date" id="date-from" placeholder="Tanggal Mulai">
+                                                            <input type="date" class="form-control date" id="date-from-artikel" placeholder="Tanggal Mulai">
                                                         </div>
                                                         <div class="col-sm-4 text-start text-md-center mb-2">
                                                             Hingga
                                                         </div>
                                                         <div class="col-sm-4  mb-2">    
-                                                            <input type="date" class="form-control date" id="date-to" placeholder="Tanggal Akhir">
+                                                            <input type="date" class="form-control date" id="date-to-artikel" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
-                                                <a href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                                <a v-on:click="searchLanjutArtikel" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -84,7 +84,7 @@
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Kata Kunci </label>
                                                 <div class="col-md-9">
-                                                    <input id="query" type="text" class="form-control" placeholder="search query ...">
+                                                    <input id="query-infografik" type="text" class="form-control" placeholder="search query ...">
                                                 </div>
                                             </div>
 
@@ -93,19 +93,19 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="date" class="form-control date" id="date-from" placeholder="Tanggal Mulai">
+                                                            <input type="date" class="form-control date" id="date-from-infografik" placeholder="Tanggal Mulai">
                                                         </div>
                                                         <div class="col-sm-4 text-start text-md-center mb-2">
                                                             Hingga
                                                         </div>
                                                         <div class="col-sm-4  mb-2">    
-                                                            <input type="date" class="form-control date" id="date-to" placeholder="Tanggal Akhir">
+                                                            <input type="date" class="form-control date" id="date-to-infografik" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
-                                                <a href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                                <a v-on:click="searchLanjutInfografik" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -153,7 +153,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
-                                                <a href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                                <a v-on:click="searchLanjut" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="tab-pane fade p-3 p-md-4" id="cariTabs04" role="tabpanel" aria-labelledby="cari-Tabs04">
                                     <!-- Buku -->
-                                    <div>
+                                    <div id="buku">
                                         <fieldset>
 
                                             <div class="form-group row my-3">
@@ -230,6 +230,37 @@
 
 <script>
     export default {
-        name: 'MainDetail'
+        name: 'MainDetail',
+        methods: {
+            searchLanjutArtikel: () => {
+                console.log('search lanjut here..')
+
+                let query = document.querySelector("#query-artikel").value
+                let dateFrom = document.querySelector("#date-from-artikel").value
+                let dateTo = document.querySelector("#date-to-artikel").value
+                let publication = document.querySelector("#publication-artikel").value
+                let page = document.querySelector("#page-artikel").value
+                let author = document.querySelector("#author-artikel").value
+                let size = 10
+                let currentpage = 1
+                
+                window.location.href = `/pencarian?query=${ query }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&currentpage=${ currentpage }&page=${ page }`
+            },
+
+            searchLanjutInfografik: () => {
+                console.log('search lanjut here..')
+
+                let query = document.querySelector("#query-infografik").value
+                let dateFrom = document.querySelector("#date-from-infografik").value
+                let dateTo = document.querySelector("#date-to-infografik").value
+                // let publication = document.querySelector("#publication-infografik").value
+                // let page = document.querySelector("#page-infografik").value
+                // let author = document.querySelector("#author-infografik").value
+                let size = 10
+                let currentpage = 1
+                
+                window.location.href = `/pencarian?query=${ query }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=3&size=${ size }&currentpage=${ currentpage }`
+            },
+        },
     }
 </script>

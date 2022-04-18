@@ -19,22 +19,42 @@
                     <!-- Search -->
                     <div class="tab-content komp-tab-content">
                         <!-- Semua -->
-                        <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
+                        <div 
+                            :class="this.$store.state.Search.TypeSearch === '0' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs01"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs01"
+                        >
                             <Semua />
                         </div>
 
                         <!-- Artikel -->
-                        <div class="tab-pane fade" id="AllTabs02" role="tabpanel" aria-labelledby="All-Tabs02">
+                        <div 
+                            :class="this.$store.state.Search.TypeSearch === '1' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs02"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs02"
+                        >
                             <Artikel v-bind:dataArtikels="artikels ? artikels.documents : null" />
                         </div>
                         
                         <!-- Foto -->
-                        <div class="tab-pane fade" id="AllTabs03" role="tabpanel" aria-labelledby="All-Tabs03">
+                        <div 
+                            :class="this.$store.state.Search.TypeSearch === '2' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs03"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs03"
+                        >
                             <Gallery v-bind:dataFotos="fotos ? fotos.documents : null" />
                         </div>
 
                         <!-- Infografik -->
-                        <div class="tab-pane fade" id="AllTabs04" role="tabpanel" aria-labelledby="All-Tabs04">
+                        <div
+                            :class="this.$store.state.Search.TypeSearch === '3' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs04"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs04"
+                        >
                             <Infografik v-bind:dataInfografiks="infografiks ? infografiks.documents : null" />
                         </div>
 
@@ -166,6 +186,7 @@
         },
 
         async mounted() {
+            console.log(this.$store.state.Search.TypeSearch)
             this.totalSearch = this.$store.state.Search.TotalSearch
             this.pagination = this.paginationFunction()
         },
