@@ -4,9 +4,7 @@
              <div class="row d-flex justify-content-center">
                 <div class="col-12 text-center mb-3">
                     <h2 class="tag">Pengumuman</h2>
-                    <h2 class="subtitle py-2">
-                        {{ pengumuman }}
-                    </h2>
+                    <h2 class="subtitle pengumuman py-2" v-html="`${ pengumuman }`"></h2>
                 </div>
             </div>
         </div>
@@ -40,3 +38,9 @@
         },
     }
 </script>
+
+<style>
+    .pengumuman{
+        font-weight: normal;
+    }
+</style>
