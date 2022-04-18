@@ -86,12 +86,14 @@
         justify-content: flex-start;
         width: 50%;
         margin-left: 0;
+        filter: blur(2px);
     }
 
     .infografik-slide .splide__slide.is-prev .item {
         justify-content: flex-end;
         width: 50%;
         margin-right: 0;
+        filter: blur(2px);
     }
 
     .infografik-slide .date-time{
