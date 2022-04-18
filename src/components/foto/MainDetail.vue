@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-artikel">
+    <section class="sec-artikel my-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
