@@ -13,6 +13,7 @@ const Search = {
             DateFromKey: null,
             DataToKey: null,
             SizeKey: 10,
+            OrderDirectionKey: 'desc',
 
             TypeSearch: 0,
             TotalSearch: 0,
@@ -147,6 +148,7 @@ const Search = {
                     }
                     
                     state.SearchConfigArticles.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                    console.log(state.SearchConfigArticles)
                 }
             }
         },

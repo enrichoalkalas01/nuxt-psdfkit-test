@@ -28,6 +28,7 @@
                     publishedTo: `${ this.$store.state.Search.DateToKey }`,
                     from: this.$store.state.Search.CurrentPageKey,
                     size: 10,
+                    orderdirection: this.$store.state.Search.OrderDirectionKey
                 },
             }
         },

@@ -30,6 +30,7 @@
                                     >
                                     <a v-on:click="searchBar" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                                 </div>
+                                <a style="font-size: 12px;" href="/pencarian-lanjut">Pencarian lanjut</a>
                             </div>
 
                         </div>
@@ -136,9 +137,9 @@
                 console.log(`Search Key: ${ this.$store.state.Search.SearchKey }`)
 
                 if ( urlDetection !== '/pencarian' ) {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=0&size=${ Size }&currentpage=${ CurrentPage }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }`
                 } else {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=0&size=${ Size }&currentpage=${ CurrentPage }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }`
                 }
             },
 
