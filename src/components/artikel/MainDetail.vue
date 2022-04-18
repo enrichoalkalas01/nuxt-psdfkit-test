@@ -41,7 +41,10 @@
                                         v-for="(foto, i) in artikelDetail.images" :key="i"
                                     >
                                         <div class="col-12 col-md-9 text-center">
-                                            <a :href="`/foto-detail/` + foto.id">
+                                            <a v-if="`${ foto.kind }` === 'Foto'" :href="`/foto-detail/` + foto.id">
+                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
+                                            </a>
+                                            <a v-if="`${ foto.kind }` === 'Infografis'" :href="`/infografik-detail/` + foto.id">
                                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
                                             </a>
                                         </div>
