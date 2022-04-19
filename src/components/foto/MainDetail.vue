@@ -38,48 +38,20 @@
                                         <table class="table db-table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">No. Id </th>
-                                                    <td>w 929:321.15(=581)(594) AZI b</td>
+                                                    <th scope="row">Id</th>
+                                                    <td>{{ fotoDetail.reference_id }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Judul</th>
-                                                    <td>{{ fotoDetail.title }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Fotografer </th>
+                                                    <th scope="row">Author</th>
                                                     <td>{{ fotoDetail.author }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Terbit </th>
-                                                    <td>Jakarta</td>
+                                                    <th scope="row">Publication</th>
+                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail.published_date }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Penerbit </th>
-                                                    <td>{{ fotoDetail.source }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tahun Terbit</th>
-                                                    <td>2021</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Edisi</th>
-                                                    <td>-</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Kolasi </th>
-                                                    <td>xxiv, 280 p:21 (2copies).</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">ISBN </th>
-                                                    <td>978-623-241-494-5</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Bahasa </th>
-                                                    <td>Ind</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Subjek </th>
-                                                    <td>{{ fotoDetail.keywords }}</td>
+                                                    <th scope="row">Credit</th>
+                                                    <td>{{ fotoDetail.credit }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
