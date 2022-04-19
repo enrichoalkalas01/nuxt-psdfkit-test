@@ -59,8 +59,13 @@
                         </div>
 
                         <!-- Buku -->
-                        <div class="tab-pane fade" id="AllTabs05" role="tabpanel" aria-labelledby="All-Tabs05">
-                            asldkas
+                        <div 
+                            :class="this.$store.state.Search.TypeSearch === '4' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs05"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs05"
+                        >
+                            <Buku />
                         </div>
 
                         <!-- Data -->
@@ -123,6 +128,7 @@
     import Artikel from './MainArtikel.vue'
     import Infografik from './MainInfografik.vue'
     import Gallery from './Gallery.vue'
+    import Buku from './MainBook.vue'
 
 
     export default {
@@ -134,6 +140,7 @@
             // Foto,
             Infografik,
             Gallery,
+            Buku,
         },
         props: { },
         
@@ -147,33 +154,6 @@
                 keySearch: this.$store.state.Search.SearchKey,
                 totalSearch: this.$store.state.Search.TotalSearch,
                 ChangeStatus: 0,
-                configPhotosData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 5
-                },
-                configArticlesData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 3
-                },
-                configInfografiksData: {
-                    search: this.$store.state.Search.SearchKey,
-                    authors: "",
-                    publication: "",
-                    publishedFrom: "",
-                    publishedTo: "",
-                    from: 0,
-                    size: 3
-                }
             }
         },
 

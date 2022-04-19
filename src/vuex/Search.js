@@ -20,7 +20,7 @@ const Search = {
             TotalArtikel: 0,
             TotalFoto: 0,
             TotalInfografik: 0,
-            TotalBuku: 0,
+            TotalBuku: 1,
             TotalData: 0,
             ChangeStatus: 0,
             SearchConfigPhotosPost: {
@@ -65,6 +65,12 @@ const Search = {
             
             SearchConfigInfografiks: {
                 url: "https://dev-be.kompasdata.id/api/graphicsearch?",
+                headers: { "Content-Type": "application/json", },
+                method: "GET",
+            },
+
+            SearchConfigBooks: {
+                url: "https://dev-be.kompasdata.id/api/booksearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
@@ -185,6 +191,24 @@ const Search = {
                     }
                     
                     state.SearchConfigInfografiks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                }
+            }
+        },
+
+        configSearchBooks(state, value = {}) {
+            var i = 0, stringUrl = '', urlData = state.SearchConfigBooks.url
+            for ( let config in value ) {
+                if ( config === 'headers' ) state.SearchConfigBooks.headers = value[config]
+                if ( config === 'method' ) state.SearchConfigBooks.method = value[config]
+                if ( config === 'url' ) state.SearchConfigBooks.url = value[config]
+                if ( config === 'data' ) {
+                    
+                    for ( let queryData in value[config] ) {
+                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                        i = i + 1
+                    }
+                    
+                    state.SearchConfigBooks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
                 }
             }
         }
