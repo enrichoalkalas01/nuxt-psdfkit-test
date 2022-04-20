@@ -44,6 +44,10 @@
 
                                 <i class="fa-solid fa-chart-line"></i>
                                 {{ artikel.infographic_count }}
+                                &nbsp;
+
+                                <i class="fa-solid fa-coins"></i>
+                                Gratis
                             </span>
                         </div>
                     </div>

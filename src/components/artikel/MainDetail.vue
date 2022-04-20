@@ -18,7 +18,7 @@
                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">{{ artikelDetail.title }}</h3>
+                                <h3 class="title txt-main">{{ artikelDetail.title }}</h3>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail.rubrics }}</p>
                                     <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ artikelDetail.published_pages[0].date }}</p>
