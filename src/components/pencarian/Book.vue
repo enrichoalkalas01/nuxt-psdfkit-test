@@ -45,7 +45,6 @@
         async mounted() {
             this.books = this.dataBooks
             this.total_search = this.totalSearch
-            console.log(this.books)
         },
 
         async updated() {

@@ -62,7 +62,6 @@
 
         async mounted() {
             this.artikels = this.dataArtikels
-            console.log(this.artikels)
             this.total_search = this.totalSearch
         },
 

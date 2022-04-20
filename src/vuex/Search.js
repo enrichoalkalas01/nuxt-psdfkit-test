@@ -159,7 +159,6 @@ const Search = {
                     }
                     
                     state.SearchConfigArticles.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
-                    console.log(state.SearchConfigArticles)
                 }
             }
         },

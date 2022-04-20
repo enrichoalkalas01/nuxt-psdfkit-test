@@ -86,9 +86,9 @@
             async getData() {
                 try {
                     // Get Data From API
-                    let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
-                    let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
+                    let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
+                    let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
 
                     // Set Data From API
                     this.fotos = DataPhotos.data.documents.filter((data, i) => { return i < 5 ? data : null })
@@ -105,7 +105,8 @@
                     this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
                     this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
                     this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
-                    // this.$store.commit('setTotalSearchDetail', { type: 'data', total: DataInfografiks.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'buku', total: DataBukus.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'data', total: DataDatas.data.total })
                     
                 } catch (error) {
                     console.log(error.message)

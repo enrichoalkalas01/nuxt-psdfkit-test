@@ -165,14 +165,12 @@
 
         watch: {
             '$store.state.Search.SearchKey': function() {
-                console.log(this.$store.state.Search)
                 this.keySearch !== this.$store.state.Search.SearchKey ?
                 this.keySearch = this.$store.state.Search.SearchKey : this.keySearch
             }
         },
 
         async mounted() {
-            console.log(this.$store.state.Search.TypeSearch)
             this.totalSearch = this.$store.state.Search.TotalSearch
             this.pagination = this.paginationFunction()
         },
@@ -183,8 +181,6 @@
                 this.$store.commit('setSearchStatus')
                 // this.getData()
             }
-
-            // console.log(this.pagination[0].page)
         },
 
         methods: {
