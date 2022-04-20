@@ -20,7 +20,7 @@
                     </h2>
                     <span class="date-time mb-3">
                         <span class="date-time">
-                            <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date }} &nbsp;
+                            <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date ? artikel.published_date.substring(0, 10) : artikel.published_date.substring(0, 10) }} &nbsp;
                             <i class="fa-solid fa-images"></i> {{ artikel.photo_count }} &nbsp;
                             <i class="fa-solid fa-chart-line"></i> {{ artikel.infographic_count }} &nbsp;
                             <i class="fa-solid fa-money-bill-1-wave"></i> {{ artikel.price ? artikel.price : 'Gratis' }} &nbsp;
