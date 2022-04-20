@@ -119,7 +119,7 @@
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Kata Kunci </label>
                                                 <div class="col-md-9">
-                                                    <input id="query" type="text" class="form-control" placeholder="search query...">
+                                                    <input id="query-foto" type="text" class="form-control" placeholder="search query...">
                                                 </div>
                                             </div>
 
@@ -127,7 +127,7 @@
                                                 <label class="col-md-3 form-label">Album </label>
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="publication" id="publication" class="form-control">
+                                                    <select name="publication" id="publication-foto" class="form-control">
                                                         <option value="">Seluruh Media</option>
                                                         <option value="KOMPAS">Kompas</option>
                                                         <!-- <option value="kompascetak">Kompas</option>
@@ -141,19 +141,19 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="date" class="form-control date" id="date-from" placeholder="Tanggal Mulai">
+                                                            <input type="date" class="form-control date" id="date-from-foto" placeholder="Tanggal Mulai">
                                                         </div>
                                                         <div class="col-sm-4 text-start text-md-center mb-2">
                                                             Hingga
                                                         </div>
                                                         <div class="col-sm-4  mb-2">    
-                                                            <input type="date" class="form-control date" id="date-to" placeholder="Tanggal Akhir">
+                                                            <input type="date" class="form-control date" id="date-to-foto" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
-                                                <a v-on:click="searchLanjut" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                                <a v-on:click="searchLanjutFoto" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -163,29 +163,34 @@
                                     <!-- Buku -->
                                     <div id="buku">
                                         <fieldset>
-
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Kata Kunci </label>
+                                                <label class="col-md-3 form-label">Subjek</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input name="subjek-buku" id="subjek-buku" type="text" class="form-control" placeholder="subjek...">
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Penulis </label>
+                                                <label class="col-md-3 form-label">Judul</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input name="query-buku" id="query-buku" type="text" class="form-control" placeholder="search query...">
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Media </label>
+                                                <label class="col-md-3 form-label">Penulis</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input name="author-buku" id="author-buku" type="text" class="form-control" placeholder="author...">
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Halaman</label>
+                                                <label class="col-md-3 form-label">Serial</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="">
+                                                    <input name="serial-buku" id="serial-buku" type="text" class="form-control" placeholder="serial...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Penerbit</label>
+                                                <div class="col-md-9">
+                                                    <input name="penerbit-buku" id="penerbit-buku" type="text" class="form-control" placeholder="penerbit...">
                                                 </div>
                                             </div>
                                             <div class="form-group my-3 row">
@@ -193,19 +198,19 @@
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="text" class="form-control date" id="formDateStart4" placeholder="Tanggal Mulai">
+                                                            <input type="date" class="form-control date" id="date-from-buku" placeholder="Tanggal Mulai">
                                                         </div>
                                                         <div class="col-sm-4 text-start text-md-center mb-2">
                                                             Hingga
                                                         </div>
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="text" class="form-control date" id="formDateEnd4" placeholder="Tanggal Akhir">
+                                                            <input type="date" class="form-control date" id="date-to-buku" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
-                                                <a href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                                <a v-on:click="searchLanjutBuku" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
                                         </fieldset>
                                     </div>
@@ -243,8 +248,9 @@
                 let author = document.querySelector("#author-artikel").value
                 let size = 10
                 let currentpage = 1
-                
-                window.location.href = `/pencarian?query=${ query }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&currentpage=${ currentpage }&page=${ page }`
+                let orderDirection = 'desc'
+
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&currentpage=${ currentpage }&page=${ page }`
             },
 
             searchLanjutInfografik: () => {
@@ -258,9 +264,40 @@
                 // let author = document.querySelector("#author-infografik").value
                 let size = 10
                 let currentpage = 1
-                
-                window.location.href = `/pencarian?query=${ query }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=3&size=${ size }&currentpage=${ currentpage }`
+                let orderDirection = 'desc'
+
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=3&size=${ size }&currentpage=${ currentpage }`
             },
+
+            searchLanjutFoto: () => {
+                let query = document.querySelector("#query-foto").value
+                let dateFrom = document.querySelector("#date-from-foto").value
+                let dateTo = document.querySelector("#date-to-foto").value
+                let publication = document.querySelector("#publication-foto").value
+                // let page = document.querySelector("#page-foto").value
+                // let author = document.querySelector("#author-foto").value
+                let size = 10
+                let currentpage = 1
+                let orderDirection = 'desc'
+
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ publication }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
+            },
+
+            searchLanjutBuku: () => {
+                // let subjek = document.querySelector("#subjek-buku").value
+                // let serial = document.querySelector("#serial-buku").value
+                let query = document.querySelector("#query-buku").value
+                let dateFrom = document.querySelector("#date-from-buku").value
+                let dateTo = document.querySelector("#date-to-buku").value
+                let publication = document.querySelector("#penerbit-buku").value
+                // let page = document.querySelector("#page-buku").value
+                let author = document.querySelector("#author-buku").value
+                let size = 10
+                let currentpage = 1
+                let orderDirection = 'desc'
+
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&currentpage=${ currentpage }`
+            }
         },
     }
 </script>

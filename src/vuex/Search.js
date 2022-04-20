@@ -92,6 +92,7 @@ const Search = {
                 if ( i === 'author' ) state.AuthorKey = value[i]
                 if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
                 if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
+                if ( i === 'orderdirection' ) state.OrderDirectionKey = value[i]
             }
         },
         
@@ -111,6 +112,10 @@ const Search = {
 
         setSearchStatus(state) {
             state.ChangeStatus += state.ChangeStatus
+        },
+
+        setOrderDirection(state, value) {
+            state.OrderDirectionKey = value
         },
 
         configSearchPhotosPost(state, value = {}) {

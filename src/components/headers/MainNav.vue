@@ -130,6 +130,7 @@
                 let DateTo = this.$store.state.Search.DateToKey ? this.$store.state.Search.DateToKey : ''
                 let Size = this.$store.state.Search.SizeKey ? this.$store.state.Search.SizeKey : this.$store.state.Search.CurrentPageKey
                 let CurrentPage = this.$store.state.Search.CurrentPageKey ? this.$store.state.Search.CurrentPageKey : this.$store.state.Search.CurrentPageKey
+                let OrderDirection = this.$store.state.Search.OrderDirectionKey ? this.$store.state.Search.OrderDirectionKey : this.$store.state.Search.OrderDirectionKey
                 
                 this.$store.commit("setSearchKey", searchPassing)
 
@@ -137,9 +138,9 @@
                 console.log(`Search Key: ${ this.$store.state.Search.SearchKey }`)
 
                 if ( urlDetection !== '/pencarian' ) {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
                 } else {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
                 }
             },
 

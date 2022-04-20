@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel pt-5">
-        <div class="container">
+        <div class="container pt-3">
             <div class="row d-flex justify-content-center pb-5">
                 <div class="col-12 col-md-10 mb-3">
                     <h2 class="subtitle py-2"> Hasil Pencarian</h2>
@@ -9,8 +9,17 @@
                         <!-- Total Search : <span class="f14">{{ totalSearch }} data</span> -->
                     </p>
                 </div>
-                <div class="col col-md-2">
+                <div class="col col-md-2 align-items-end d-flex">
                     <!-- <p class="text-md-right">Pencarian Lanjut</p> -->
+                    <select
+                        v-on:change="orderDirectionData"
+                        class="form-control"
+                        id="order-direction"
+                        :value="this.$store.state.Search.OrderDirectionKey"
+                    >
+                        <option value="asc">Asc</option>
+                        <option value="desc">Desc</option>
+                    </select>
                 </div>
                 <div class="col-12">
                     <!-- Mini Menu -->
@@ -102,9 +111,6 @@
                                         {{ pageData.page }}
                                     </a>
                                 </li>
-                                <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li> -->
                                 <li class="page-item">
                                     <a 
                                         class="page-link" 
@@ -190,7 +196,7 @@
 
             paginationFunction: function() {
                 let queryStringUrl = this.queryStringFunction()
-                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=0&size=${ queryStringUrl.size }`
+                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=${ queryStringUrl.typesearch }&size=${ queryStringUrl.size }`
                 let newArrPage = []
                 for( let i = 0; i < 3; i++ ) {
                     newArrPage[i] = {
@@ -200,6 +206,20 @@
                 }
 
                 return newArrPage
+            },
+
+            orderDirectionData: function(e) {
+                let queryString = this.queryStringFunction(), urlString = `${ window.location.pathname }?`
+                for ( let i in queryString ) {
+                    if ( i === 'orderdirection' ) {
+                        urlString = urlString + `${ i }=${ e.target.value }&`
+                    } else {
+                        urlString = urlString + `${ i }=${ queryString[i] }&`
+                    }
+                }
+
+                window.location.href = urlString
+                this.$store.commit('setOrderDirection', e.target.value)
             }
         },
     }

@@ -105,6 +105,7 @@
                     this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
                     this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
                     this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'data', total: DataInfografiks.data.total })
                     
                 } catch (error) {
                     console.log(error.message)

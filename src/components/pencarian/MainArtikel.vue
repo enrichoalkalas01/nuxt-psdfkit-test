@@ -26,7 +26,8 @@
                     publication: this.$store.state.Search.PublicationKey,
                     publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
                     publishedTo: `${ this.$store.state.Search.DateToKey }`,
-                    from: this.$store.state.Search.CurrentPageKey,
+                    from: this.$store.state.Search.CurrentPageKey < 2 ? this.$store.state.Search.CurrentPageKey :
+                    (Number(this.$store.state.Search.CurrentPageKey) - 1 ) * this.$store.state.Search.SizeKey + 1,
                     size: 10,
                     orderdirection: this.$store.state.Search.OrderDirectionKey
                 },

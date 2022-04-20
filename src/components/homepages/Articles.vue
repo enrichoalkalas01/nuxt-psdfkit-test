@@ -19,13 +19,19 @@
                                 'col-12 col-sm-12 col-md-12 col-lg-4 wrapper-images none'
                             "
                         >
-                            <div class="image"></div>
+                            <div
+                                class="image"
+                                :style="
+                                    artikel.image_source !== '' ? `background-image: url('${ artikel.image_source }')` : ''
+                                "
+                            ></div>
                         </div>
                         <div :class="
-                            (i === 0 && artikel.image_source !== '') ?
-                            'col-12 col-sm-12 col-md-12 col-lg-8 wrapper-text' :
-                            'col-12 col-sm-12 col-md-12 col-lg-12 wrapper-text'
-                        ">
+                                (i === 0 && artikel.image_source !== '') ?
+                                'col-12 col-sm-12 col-md-12 col-lg-8 wrapper-text' :
+                                'col-12 col-sm-12 col-md-12 col-lg-12 wrapper-text'
+                            "
+                        >
                             <h3 class="title">{{ artikel.title }}</h3>
                             <p>
                                 <span class="short-text four">
@@ -44,6 +50,12 @@
 
                                 <i class="fa-solid fa-chart-line"></i>
                                 {{ artikel.infographic_count }}
+                                &nbsp;
+
+                                <!-- <i class="fa-solid fa-hand-holding-dollar"></i> -->
+                                <i class="fa-solid fa-money-bill-1-wave"></i>
+                                {{ artikel.price ? artikel.price : 'Gratis' }} 
+                                &nbsp;
                             </span>
                         </div>
                     </div>
@@ -112,6 +124,9 @@
         height: 100%;
         background-color: #dedede;
         border-radius: 2.5px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     @media screen and ( max-width: 992px ) {
