@@ -17,7 +17,7 @@
                             </h3>
                             <!-- <p class="short-text three">{{ infografik.desc }}</p> -->
                             <span class="date-time">
-                                <i class="fas fa-clock"></i> {{ infografik.publication }} {{ infografik.published_date ? infografik.published_date.substring(0, 10) : infografik.published_date.substring(0, 10) }}
+                                <i class="fas fa-clock"></i> {{ infografik.publication }}, {{ infografik.published_date ? this.$store.state.Tools.ChangeDateString(infografik.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(infografik.published_date.substring(0, 10)) }}
                             </span>
                         </div>
                     </div>

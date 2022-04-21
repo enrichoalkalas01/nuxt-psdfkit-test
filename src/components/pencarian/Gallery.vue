@@ -49,8 +49,6 @@
                 data: this.configPhotosData
             })
 
-            console.log(this.$store.state.Search.SearchConfigPhotos)
-
             this.getData()
         },
 

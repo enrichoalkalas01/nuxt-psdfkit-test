@@ -20,7 +20,7 @@
                     </h2>
                     <span class="date-time mb-3">
                         <span class="date-time">
-                            <i class="fas fa-clock"></i> {{ artikel.publication }} {{ artikel.published_date ? artikel.published_date.substring(0, 10) : artikel.published_date.substring(0, 10) }} &nbsp;
+                            <i class="fas fa-clock"></i> {{ artikel.publication }}, {{ artikel.published_date ? this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) }} &nbsp;
                             <i class="fa-solid fa-images"></i> {{ artikel.photo_count }} &nbsp;
                             <i class="fa-solid fa-chart-line"></i> {{ artikel.infographic_count }} &nbsp;
                             <i class="fa-solid fa-money-bill-1-wave"></i> {{ artikel.price ? artikel.price : 'Gratis' }} &nbsp;
@@ -35,15 +35,6 @@
                 Total Search : <span class="f14">{{ total_search }} data</span>
             </p>
         </div>
-        <!-- <div class="col-12 my-3 text-center">
-            <ul class="pagination cst-pagin d-flex justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Sebelumnya</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Selanjutnya</a></li>
-            </ul>
-        </div> -->
     </div>
 </template>
 
