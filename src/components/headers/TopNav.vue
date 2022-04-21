@@ -60,7 +60,7 @@
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="layananDropdown">
                             <li><a class="dropdown-item" href="/layanan#riset">Jasa Riset</a></li>
-                            <li><a class="dropdown-item" href="/layanan#informasi">Konten Kreatif</a></li>
+                            <li><a class="dropdown-item" href="/layanan#konten">Konten Kreatif</a></li>
                             <li><a class="dropdown-item" href="/layanan#penerbit">Penerbitan Buku</a></li>
                         </ul>
                     </li>
