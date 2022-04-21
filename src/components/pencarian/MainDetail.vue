@@ -124,6 +124,13 @@
                                             </div>
 
                                             <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Fotografer</label>
+                                                <div class="col-md-9">
+                                                    <input id="author-foto" type="text" class="form-control" placeholder="author...">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Album </label>
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
@@ -275,12 +282,12 @@
                 let dateTo = document.querySelector("#date-to-foto").value
                 let publication = document.querySelector("#publication-foto").value
                 // let page = document.querySelector("#page-foto").value
-                // let author = document.querySelector("#author-foto").value
+                let author = document.querySelector("#author-foto").value
                 let size = 10
                 let currentpage = 1
                 let orderDirection = 'desc'
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ publication }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
             },
 
             searchLanjutBuku: () => {
