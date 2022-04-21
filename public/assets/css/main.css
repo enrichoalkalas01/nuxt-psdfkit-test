@@ -797,7 +797,7 @@ section {
 
 .content.kolom2 {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: stretch;
     flex-flow: nowrap row;
     gap: 1rem;

@@ -58,11 +58,11 @@
                                 </div>
                             </div>
 
-                            <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
+                            <!-- <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
                                 <div
                                     v-for="(Data, i) in AgendaData.data" :key="i"
                                     class="col-12 col-md-4 my-3 text-center"
-                                >
+                                > -->
                                     <!-- <div href="#" class="content borderless info-ctn">
                                         <img :src="Data.image_source" alt="" class="ctn-img"/>
                                         <div class="img-box">
@@ -74,14 +74,26 @@
                                             <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
                                         </p>
                                     </div> -->
-                                    <div class=" content borderless info-ctn">
+                                    <!-- <div class=" content borderless info-ctn">
                                         <img :src="Data.image_source" alt="" class="ctn-img">
                                         <h2 class="subtitle name">{{ Data.title }}</h2>
                                         <h2 class="subtitle title">{{ Data.excerpt }}</h2>
                                         <p class="periode">{{ Data.date }}</p>
                                     </div>
                                 </div>
+                            </div> -->
+
+                            <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
+                                <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
+                                    <div class="content borderless info-ctn">
+                                        <img :src="Data.picture" alt="" class="ctn-img">
+                                        <h2 class="subtitle name">{{ Data.name }}</h2>
+                                        <h2 class="subtitle title">{{ Data.notes }}</h2>
+                                        <p class="periode">{{ Data.birthplace }}, {{ this.$store.state.Tools.ChangeDateString(Data.birthdate.substring(0, 10)) }}</p>
+                                    </div>
+                                </div>
                             </div>
+                            
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
                                 <div class="col-12 wrapper-tgl-p">
                                     <div v-for="(DataMonth, i) in AgendaData.data" :key="i" class="row">
@@ -109,17 +121,26 @@
 </template>
 
 <script>
+    import Axios from 'axios'
+
     export default {
         props: [ 'dataSet' ],
 
         data() {
             return {
-                Agenda: null
+                Agenda: null,
+                ulangTahun: []
             }
         },
 
-        beforeMount() {
+        async beforeMount() {
             this.Agenda = this.dataSet  
+
+            let dataUltah = await Axios({
+                url: 'https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/6'
+            })
+            this.ulangTahun = dataUltah.data
+            console.log(this.ulangTahun);
         },
 
         mounted() {
