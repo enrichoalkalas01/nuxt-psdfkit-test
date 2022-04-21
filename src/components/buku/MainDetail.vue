@@ -21,7 +21,6 @@
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ bukuDetail.judul }}</h3>
                                 <div class="db-price rounded">
-                                    <span class="price-tag">mulai dari Rp. 300.000</span>
                                     <a href="pesan-buku.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Buku</a>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">

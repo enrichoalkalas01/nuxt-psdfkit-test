@@ -1,10 +1,10 @@
 <template>
     <section>
-        <div class="anchor" id="informasi"></div>
+        <div class="anchor" id="konten"></div>
             <div class="row">
                 <div class="col-sm-4 col-md-3 my-3">
                     <div class="box-title text-center">
-                        <h3 class="subtitle">Jasa Paket Informasi</h3>
+                        <h3 class="subtitle">Jasa Konten Kreatif</h3>
                     </div>
                 </div>
                 <div class="col-sm-8 col-md-9 my-3">
