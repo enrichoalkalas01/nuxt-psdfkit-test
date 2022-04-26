@@ -18,7 +18,7 @@
                             v-for="(AgendaData, i) in Agenda.data" :key="i"
                             class="nav-item" role="presentation"
                         >
-                            <div
+                            <a
                                 :class="i === 0 ? 'nav-link active' : 'nav-link'"
                                 :id="`info-Tabs0${ i + 1 }`"
                                 data-bs-toggle="tab"
@@ -27,7 +27,7 @@
                                 :aria-selected="i == 0 ? 'true' : 'false'"
                             >
                                 {{ AgendaData.type_tab }}
-                            </div>
+                            </a>
                         </li>
                     </ul>
                     <div class="tab-content komp-tab-content">
