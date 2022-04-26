@@ -20,8 +20,10 @@ const Search = {
             TotalArtikel: 0,
             TotalFoto: 0,
             TotalInfografik: 0,
-            TotalBuku: 1,
+            TotalStatistik: 1,
+            TotalBuku: 0,
             TotalData: 0,
+
             ChangeStatus: 0,
             SearchConfigPhotosPost: {
                 url: "https://dev-be.kompasdata.id/api/Search/photos",
@@ -71,6 +73,12 @@ const Search = {
 
             SearchConfigBooks: {
                 url: "https://dev-be.kompasdata.id/api/booksearch?",
+                headers: { "Content-Type": "application/json", },
+                method: "GET",
+            },
+
+            SearchConfigStatistiks: {
+                url: "https://dev-be.kompasdata.id/api/datasearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
@@ -200,6 +208,24 @@ const Search = {
         },
 
         configSearchBooks(state, value = {}) {
+            var i = 0, stringUrl = '', urlData = state.SearchConfigBooks.url
+            for ( let config in value ) {
+                if ( config === 'headers' ) state.SearchConfigBooks.headers = value[config]
+                if ( config === 'method' ) state.SearchConfigBooks.method = value[config]
+                if ( config === 'url' ) state.SearchConfigBooks.url = value[config]
+                if ( config === 'data' ) {
+                    
+                    for ( let queryData in value[config] ) {
+                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                        i = i + 1
+                    }
+                    
+                    state.SearchConfigBooks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                }
+            }
+        },
+
+        configSearchStatistiks(state, value = {}) {
             var i = 0, stringUrl = '', urlData = state.SearchConfigBooks.url
             for ( let config in value ) {
                 if ( config === 'headers' ) state.SearchConfigBooks.headers = value[config]

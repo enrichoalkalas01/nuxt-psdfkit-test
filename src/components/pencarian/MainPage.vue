@@ -78,8 +78,13 @@
                         </div>
 
                         <!-- Data -->
-                        <div class="tab-pane fade" id="AllTabs06" role="tabpanel" aria-labelledby="All-Tabs06">
-                            saldksa
+                        <div 
+                            :class="this.$store.state.Search.TypeSearch === '4' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            id="AllTabs06"
+                            role="tabpanel"
+                            aria-labelledby="All-Tabs06"
+                        >
+                            <Statistik />
                         </div>
                     </div>
 
@@ -135,7 +140,7 @@
     import Infografik from './MainInfografik.vue'
     import Gallery from './Gallery.vue'
     import Buku from './MainBook.vue'
-
+    import Statistik from './MainStatistik.vue'
 
     export default {
         name: 'MainPage',
@@ -147,6 +152,7 @@
             Infografik,
             Gallery,
             Buku,
+            Statistik
         },
         props: { },
         
@@ -156,6 +162,7 @@
                 artikels: null,
                 fotos: null,
                 infografiks: null,
+                statistiks: null,
                 pagination: [{ page: 1, url: '' }, { page: 1, url: '' }, { page: 2, url: '' }, { page: 3, url: '' }, { page: 3, url: '' }],
                 keySearch: this.$store.state.Search.SearchKey,
                 totalSearch: this.$store.state.Search.TotalSearch,

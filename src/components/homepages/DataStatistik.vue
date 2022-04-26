@@ -39,7 +39,6 @@
                 <div class="col-12 mt-4 text-center text-md-end">
                     <a href="data.html" class="more-link">Data Lainnya <i class="fas fa-chevron-right"></i></a>
                 </div>
-
             </div>
         </div>
     </section>

@@ -30,7 +30,7 @@
                 id="All-Tabs05" data-bs-toggle="tab" href="#AllTabs05" aria-controls="AllTabs05" aria-selected="false"
             >Buku</a>
         </li>
-        <li v-if="this.$store.state.Search.TotalData > 0" class="nav-item" role="presentation">
+        <li v-if="this.$store.state.Search.TotalStatistik > 0" class="nav-item" role="presentation">
             <a
                 :class="this.$store.state.Search.TypeSearch === '5' ? 'nav-link active' : 'nav-link'"
                 id="All-Tabs06" data-bs-toggle="tab" href="#AllTabs06" aria-controls="AllTabs06" aria-selected="false"
