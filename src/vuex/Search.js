@@ -20,7 +20,7 @@ const Search = {
             TotalArtikel: 0,
             TotalFoto: 0,
             TotalInfografik: 0,
-            TotalStatistik: 1,
+            TotalStatistik: 0,
             TotalBuku: 0,
             TotalData: 0,
 
@@ -109,8 +109,8 @@ const Search = {
                 if ( value.type === 'artikel' ) state.TotalArtikel = value[i]
                 if ( value.type === 'foto' ) state.TotalFoto = value[i]
                 if ( value.type === 'infografik' ) state.TotalInfografik = value[i]
-                if ( value.type === 'buku' ) state.TotalBuku = value[i]
-                if ( value.type === 'data' ) state.TotalData = value[i]
+                if ( value.type === 'book' ) state.TotalBuku = value[i]
+                if ( value.type === 'statistik' ) state.TotalStatistik = value[i]
             }
         },
 
@@ -226,11 +226,11 @@ const Search = {
         },
 
         configSearchStatistiks(state, value = {}) {
-            var i = 0, stringUrl = '', urlData = state.SearchConfigBooks.url
+            var i = 0, stringUrl = '', urlData = state.SearchConfigStatistiks.url
             for ( let config in value ) {
-                if ( config === 'headers' ) state.SearchConfigBooks.headers = value[config]
-                if ( config === 'method' ) state.SearchConfigBooks.method = value[config]
-                if ( config === 'url' ) state.SearchConfigBooks.url = value[config]
+                if ( config === 'headers' ) state.SearchConfigStatistiks.headers = value[config]
+                if ( config === 'method' ) state.SearchConfigStatistiks.method = value[config]
+                if ( config === 'url' ) state.SearchConfigStatistiks.url = value[config]
                 if ( config === 'data' ) {
                     
                     for ( let queryData in value[config] ) {
@@ -238,7 +238,7 @@ const Search = {
                         i = i + 1
                     }
                     
-                    state.SearchConfigBooks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
+                    state.SearchConfigStatistiks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
                 }
             }
         }

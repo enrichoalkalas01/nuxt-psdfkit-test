@@ -17,8 +17,8 @@
                         id="order-direction"
                         :value="this.$store.state.Search.OrderDirectionKey"
                     >
-                        <option value="asc">Asc</option>
-                        <option value="desc">Desc</option>
+                        <option value="asc">Urutkan Terlama</option>
+                        <option value="desc">Urutkan Terbaru</option>
                     </select>
                 </div>
                 <div class="col-12">
@@ -199,7 +199,8 @@
 
             paginationFunction: function() {
                 let queryStringUrl = this.queryStringFunction()
-                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=${ queryStringUrl.typesearch }&size=${ queryStringUrl.size }`
+                console.log(queryStringUrl)
+                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&orderdirection=${ queryStringUrl.orderdirection }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=${ queryStringUrl.typesearch }&size=${ queryStringUrl.size }`
                 let newArrPage = []
                 for( let i = 0; i < 3; i++ ) {
                     newArrPage[i] = {
