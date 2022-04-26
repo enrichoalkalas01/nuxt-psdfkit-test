@@ -14,8 +14,8 @@ const Tools = {
             },
             ChangeDateString: (dateValue) => {
                 var mydate = new Date(dateValue)
-                var month = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"][mydate.getMonth()]
+                var month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"][mydate.getMonth()]
                 var str = mydate.getDate() + ' ' + month + ' ' + mydate.getFullYear()
                 return str
             },

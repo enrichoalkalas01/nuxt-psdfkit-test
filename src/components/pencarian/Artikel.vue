@@ -5,11 +5,6 @@
                 v-for="artikel in artikels" :key="artikel.id"
                 class="row artikels content borderless my-3"
             >
-                <div v-if="artikel.featured_image !== ''" class="col-12 col-sm-12 col-md-3 col-lg-3 images-wrapper">
-                    <div class="images-box">
-                        <div class="image" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + artikel.featured_image }')`"></div>
-                    </div>
-                </div>
                 <div
                     :class="artikel.featured_image !== '' ? 'col-12 col-sm-12 col-md-9 col-lg-9 text-wrapper' : 'col-12 col-sm-12 col-md-12 col-lg-12 text-wrapper'"
                 >
@@ -29,6 +24,11 @@
                     <p class="short-text three">
                         <span v-html="artikel.summary"></span>
                     </p>
+                </div>
+                <div v-if="artikel.featured_image !== ''" class="col-12 col-sm-12 col-md-3 col-lg-3 images-wrapper">
+                    <div class="images-box">
+                        <div class="image" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + artikel.featured_image }')`"></div>
+                    </div>
                 </div>
             </div>
             <p class="f14 mt-4">
