@@ -15,7 +15,7 @@
                 <SplideSlide v-for="infografik in infografiks.data" :key="infografik.id">
                     <div class="item">
                         <div class="item-inner">
-                            <a :href="'infografik-detail/' + infografik.id">
+                            <a :href="'infografik-detail/' + infografik.document_id">
                                 <img :src="infografik.image_source" alt="">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>

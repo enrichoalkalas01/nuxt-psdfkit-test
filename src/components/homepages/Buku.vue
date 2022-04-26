@@ -36,7 +36,7 @@
                                 <BukuCard 
                                     v-for="buku in bukuData.data" :key="buku.id"
                                     v-bind:data="buku"
-                                    v-bind:dataId="buku.id"
+                                    v-bind:dataId="buku.document_id"
                                     v-bind:dataImage="buku.image_source"
                                     v-bind:dataTitle="buku.title"
                                     v-bind:dataDesc="buku.excerpt"

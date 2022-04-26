@@ -11,7 +11,7 @@
                     <FotoCard
                         v-for="foto in fotos.data" :key="foto.id"
                         v-bind:data="foto"
-                        v-bind:dataId="foto.id"
+                        v-bind:dataId="foto.document_id"
                         v-bind:dataImage="foto.image_source"
                         v-bind:dataTitle="foto.title"
                         v-bind:dataSource="foto.created_source"
