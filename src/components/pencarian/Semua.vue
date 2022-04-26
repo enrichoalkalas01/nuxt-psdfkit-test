@@ -18,6 +18,14 @@
                 />
             </div>
 
+            <!-- Buku -->
+            <div v-if="total_search_books> 0">
+                <Buku
+                    v-bind:dataBooks="books ? books : null"
+                    v-bind:totalSearch="total_search_books"
+                />
+            </div>
+
             <!-- Infografik -->
             <div v-if="total_search_infografik > 0">
                 <Infografik
@@ -25,10 +33,14 @@
                     v-bind:totalSearch="total_search_infografik"
                 />
             </div>
-
-            <!-- Buku -->
             
             <!-- Data -->
+            <div v-if="total_search_statistiks> 0">
+                <Stastistik
+                    v-bind:dataStatistiks="statistiks ? statistiks : null"
+                    v-bind:totalSearch="total_search_statistiks"
+                />
+            </div>
             
         </div>
         <div class="col-12 col-md-3 my-3">
@@ -45,6 +57,8 @@
     import Foto from './Foto.vue'
     import Artikel from './Artikel.vue'
     import Infografik from './Infografik.vue'
+    import Buku from './Book.vue'
+    import Stastistik from './Statistik.vue'
     import Axios from 'axios'
     // import Banner from '../banner/Main.vue'
     // import Suggestion from '../suggestion/Main.vue'
@@ -55,6 +69,8 @@
             Foto,
             Artikel,
             Infografik,
+            Buku,
+            Stastistik
             // Banner,
             // Suggestion,
         },
@@ -68,9 +84,13 @@
                 artikels: null,
                 fotos: null,
                 infografiks: null,
+                books: null,
+                statistiks: null,
                 total_search_foto: 0,
                 total_search_artikel: 0,
                 total_search_infografik: 0,
+                total_search_books: 0,
+                total_search_statistiks: 0,
             }
         },
         async mounted() {
@@ -89,15 +109,21 @@
                     let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
+                    let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)
+                    let DataStatistiks = await Axios(this.$store.state.Search.SearchConfigStatistiks)
 
                     // Set Data From API
                     this.fotos = DataPhotos.data.documents.filter((data, i) => { return i < 5 ? data : null })
                     this.artikels = DataArticles.data.documents.filter((data, i) => { return i < 3 ? data : null })
                     this.infografiks = DataInfografiks.data.documents.filter((data, i) => { return i < 3 ? data : null })
+                    this.books = DataBooks.data.documents.filter((data, i) => { return i < 3 ? data : null })
+                    this.statistiks = DataStatistiks.data.documents.filter((data, i) => { return i < 3 ? data : null })
 
                     this.total_search_foto = DataPhotos.data.total
                     this.total_search_artikel = DataArticles.data.total
                     this.total_search_infografik = DataInfografiks.data.total
+                    this.total_search_books = DataBooks.data.total
+                    this.total_search_statistiks = DataStatistiks.data.total
 
                     // Set Total Data
                     let total_search = DataInfografiks.data.total + DataPhotos.data.total + DataArticles.data.total
