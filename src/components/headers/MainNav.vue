@@ -30,9 +30,10 @@
                                     >
                                     <a v-on:click="searchBar" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                                 </div>
-                                <a style="font-size: 12px;" href="/pencarian-lanjut">Pencarian lanjut</a>
+                                <div class="pl">
+                                    <a style="font-size: 12px;" href="/pencarian-lanjut">Pencarian lanjut</a>
+                                </div>
                             </div>
-
                         </div>
                         <div class="user-box">
                             <a href="#" class="cart d-none d-md-block">
@@ -226,5 +227,45 @@
 
     .wrapper-loginned .user-box a:hover {
         color: #fff;
+    }
+
+    .search-box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .search-box .input-group {
+        width: 80%;
+    }
+
+    .search-box .pl {
+        width: 20%;
+        text-align: center;
+        display: flex;
+        justify-self: center;
+        align-content: center;
+    }
+
+    .search-box .pl {
+        margin: auto;
+    }
+
+    .search-box .pl a {
+        width: 100%;
+    }
+
+    @media screen and ( max-width: 1280px ) and ( min-width: 768px ) {
+        .search-box {
+            flex-direction: column;
+        }
+        .search-box .input-group {
+            width: 100%;
+        }
+
+        .search-box .pl {
+            width: 100%;
+            text-align: left;
+            margin-top: 5px;
+        }
     }
 </style>
