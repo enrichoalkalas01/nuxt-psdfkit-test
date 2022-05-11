@@ -46,7 +46,7 @@ const routes = [
 
     // Data
     { path: '/data', name: 'data', component: Data },
-    { path: '/data-detail/:id', name: 'data-detail', component: DataDetail },
+    { path: '/data-detail/:collection/:id', name: 'data-detail', component: DataDetail },
 
     // Layanan
     { path: '/layanan', name: 'layanan', component: Layanan },

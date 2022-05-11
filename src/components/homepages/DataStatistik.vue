@@ -70,7 +70,7 @@
         // Component Did Mounted
         async mounted() {
             this.statistiks = this.dataSet
-            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
+            console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Update

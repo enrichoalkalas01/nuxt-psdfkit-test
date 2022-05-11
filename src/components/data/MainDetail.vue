@@ -15,12 +15,12 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img src="/assets/static/data/data1.png" alt="" class="db-img">
+                                <img :src="dataDetail.thumbnail" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <!-- <h3 class="subtitle txt-main">Penderita Penyakit Demam Berdarah</h3> -->
                                 <div class="d-block">
-                                    <p class="fw-bold">PENDERITA PENYAKIT DEMAM BERDARAH</p>
+                                    <p class="fw-bold">{{ dataDetail.title }}</p>
                                     <!-- <p>KOMPAS edisi Jumat 20 Agustus 2021</p> -->
                                     <p>Halaman: 1</p>
                                     <p>Penulis: JOL</p>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="d-block my-3">
-                        <h2 class="title txt-main">Penderita Penyakit Demam Berdarah Dengue di DKI Jakarta</h2>
+                        <h2 class="title txt-main">{{ dataDetail.title }}</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
@@ -44,15 +44,7 @@
                         </ul>
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                <p>
-                                    Penyakit demam berdarah adalah penyakit yang disebabkan oleh gigitan nyamuk Aedes aegypti pembawa virus dengue. Penderita penyakit ini mengalami gejala demam yang tinggi, ada kalanya disertai sakit kepala dan nyeri sendi. 
-                                </p>
-                                <p>
-                                    Data jumlah penderita DBD yang dilaporkan oleh RS dan ditindaklanjuti dengan penyelidikan epidemiologi di Provinsi DKI Jakarta dalam tiga tahun terakhir menunjukkan kasus yang cukup tinggi. Pada tahun 2018, kasus tertinggi terjadi di Jakarta Barat dengan 909 penderita (32%). 
-                                    Kenaikan kasus terjadi pada tahun 2019 di semua Kota di DKI Jakarta dengan kasus tertinggi sebanyak 3004 terjadi di Jakarta Timur. 
-                                    Pada tahun 2020 angka kasus demam berdarah menurun dibanding tahun 2019 meskipun masih menunjukkan angka yang cukup tinggi. 
-                                    Kesadaran masyarakat akan kebersihan lingkungan tempat tinggal dan sekitar perlu ditingkatkan untuk membasmi tempat bersarangnya nyamuk penyebab penyakit ini. (AAN/Litbang Kompas)
-                                </p>
+                                <p>{{ dataDetail.description }}</p>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
@@ -106,7 +98,7 @@
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
-                    url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/kompas`,
+                    url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/` + this.$route.params.collection,
                 }
             }
         },
@@ -114,6 +106,8 @@
             try {
                 let dataData = await Axios(this.ConfigApi)
                 this.dataDetail = dataData.data
+
+                console.log(dataData);
             } catch(error){
                 console.log(error.message);
             }
