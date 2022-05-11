@@ -21,7 +21,7 @@
         ],
         data () {
             return {
-                idBuku: `/foto-detail/${ null }`,
+                idBuku: `/buku-detail/${ null }`,
                 image: null,
                 title: null,
                 desc: null,
@@ -29,14 +29,14 @@
         },
 
         mounted() {
-            this.idBuku = `/foto-detail/${ this.dataId }`,
+            this.idBuku = `/buku-detail/${ this.dataId }`,
             this.image = this.dataImage
             this.title = this.dataTitle
             this.desc = this.dataDesc
         },
 
         updated() {
-            this.idBuku = `/foto-detail/${ this.dataId }`,
+            this.idBuku = `/buku-detail/${ this.dataId }`,
             this.image = this.dataImage
             this.title = this.dataTitle
             this.desc = this.dataDesc

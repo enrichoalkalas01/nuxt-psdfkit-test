@@ -41,8 +41,8 @@
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
                             <li><a class="dropdown-item" href="/buku#bukuTabs02">Penerbit Buku Kompas</a></li>
                             <li><a class="dropdown-item" href="/buku#bukuTabs03">Perpustakaan</a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li>
-                            <li><a class="dropdown-item" href="#">Laporan</a></li>
+                            <!-- <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li> -->
+                            <!-- <li><a class="dropdown-item" href="#">Laporan</a></li> -->
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

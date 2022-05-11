@@ -137,7 +137,7 @@
             this.Agenda = this.dataSet  
 
             let dataUltah = await Axios({
-                url: 'https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/6'
+                url: 'https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/5'
             })
             this.ulangTahun = dataUltah.data
             console.log(this.ulangTahun);

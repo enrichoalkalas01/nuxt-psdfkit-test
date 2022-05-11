@@ -82,6 +82,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
@@ -99,7 +100,22 @@
         },
         data () {
             return {
-                suggestions: dataSuggestions
+                suggestions: dataSuggestions,
+                dataDetail: [],
+                ConfigApi: {
+                    headers: {
+                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                    },
+                    url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/kompas`,
+                }
+            }
+        },
+        async beforeMount() {
+            try {
+                let dataData = await Axios(this.ConfigApi)
+                this.dataDetail = dataData.data
+            } catch(error){
+                console.log(error.message);
             }
         }
     }

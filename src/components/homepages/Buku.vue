@@ -13,6 +13,7 @@
                             class="nav-item" role="presentation"
                         >
                             <a
+                                v-if="i < 3"
                                 :class="i === 0 ? 'nav-link active' : 'nav-link'"
                                 :id="`buku-Tabs0${ i + 1 }`"
                                 data-bs-toggle="tab"
