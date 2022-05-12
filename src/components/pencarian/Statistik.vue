@@ -8,7 +8,7 @@
                         class="col-12 pt-2 pb-3"
                     >
                         <div class="content full-height borderless kolom2 mb-3">
-                            <a :href="`/data-detail/${ statistik.document_id }`">
+                            <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">
                                 <img :src="`https://assets.kompasdata.id/${ statistik.thumbnail }`" alt="" class="foto-img">
                             </a>
                             <div class="desc">
