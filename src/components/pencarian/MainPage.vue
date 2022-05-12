@@ -79,7 +79,7 @@
 
                         <!-- Data -->
                         <div 
-                            :class="this.$store.state.Search.TypeSearch === '4' ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            :class="this.$store.state.Search.TypeSearch === '5' ? 'tab-pane fade show active' : 'tab-pane fade'"
                             id="AllTabs06"
                             role="tabpanel"
                             aria-labelledby="All-Tabs06"
