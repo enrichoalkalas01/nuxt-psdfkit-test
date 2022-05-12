@@ -52,6 +52,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-artikel" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Halaman</label>
                                                 <div class="col-md-9">
                                                     <input id="page-artikel" type="number" class="form-control" placeholder="pages from...">
@@ -88,6 +98,17 @@
                                                 <label class="col-md-3 form-label">Kata Kunci </label>
                                                 <div class="col-md-9">
                                                     <input id="query-infografik" type="text" class="form-control" placeholder="search query ...">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-infografik" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -152,6 +173,17 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-foto" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal </label>
                                                 <div class="col-md-9">
@@ -209,6 +241,16 @@
                                                     <input name="penerbit-buku" id="penerbit-buku" type="text" class="form-control" placeholder="penerbit...">
                                                 </div>
                                             </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-buku" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal</label>
                                                 <div class="col-md-9">
@@ -233,7 +275,7 @@
                                     <!-- End Of Buku -->
                                 </div>
                                 <div class="tab-pane fade p-3 p-md-4" id="cariTabs05" role="tabpanel" aria-labelledby="cari-Tabs05">
-                                    <!-- Buku -->
+                                    <!-- Survey Data -->
                                     <div id="surveydata">
                                         <fieldset>
                                             <div class="form-group row my-3">
@@ -246,6 +288,16 @@
                                                 <label class="col-md-3 form-label">Judul</label>
                                                 <div class="col-md-9">
                                                     <input name="query-data" id="query-data" type="text" class="form-control" placeholder="search query...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-data" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3 row">
@@ -269,7 +321,7 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <!-- End Of Buku -->
+                                    <!-- End Of Survey Data -->
                                 </div>
                             </div>
                         </div>
@@ -303,7 +355,8 @@
                 let author = document.querySelector("#author-artikel").value
                 let size = 10
                 let currentpage = 1
-                let orderDirection = 'desc'
+                let orderDirection = document.querySelector("#sort-artikel").value
+                
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&currentpage=${ currentpage }&page=${ page }`
             },
@@ -319,7 +372,7 @@
                 // let author = document.querySelector("#author-infografik").value
                 let size = 10
                 let currentpage = 1
-                let orderDirection = 'desc'
+                let orderDirection = document.querySelector("#sort-infografik").value
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=3&size=${ size }&currentpage=${ currentpage }`
             },
@@ -333,7 +386,7 @@
                 let author = document.querySelector("#author-foto").value
                 let size = 10
                 let currentpage = 1
-                let orderDirection = 'desc'
+                let orderDirection = document.querySelector("#sort-foto").value
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
             },
@@ -349,7 +402,7 @@
                 let author = document.querySelector("#author-buku").value
                 let size = 10
                 let currentpage = 1
-                let orderDirection = 'desc'
+                let orderDirection = document.querySelector("#sort-buku").value
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&currentpage=${ currentpage }`
             },
@@ -365,7 +418,7 @@
                 let author = document.querySelector("#author-data").value
                 let size = 10
                 let currentpage = 1
-                let orderDirection = 'desc'
+                let orderDirection = document.querySelector("#sort-data").value
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=5&size=${ size }&currentpage=${ currentpage }`
             }
