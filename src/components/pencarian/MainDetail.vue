@@ -18,6 +18,9 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="cari-Tabs04" data-bs-toggle="tab" href="#cariTabs04" aria-controls="cariTabs04" aria-selected="false">Buku</a>
                                 </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="cari-Tabs05" data-bs-toggle="tab" href="#cariTabs05" aria-controls="cariTabs05" aria-selected="false">Survey &amp; Data</a>
+                                </li>
                             </ul>
                             <div class="tab-content komp-tab-content">
                                 <div class="tab-pane fade show active p-3 p-md-4" id="cariTabs01" role="tabpanel" aria-labelledby="cari-Tabs01">
@@ -43,8 +46,8 @@
                                                     <select name="publication" id="publication-artikel" class="form-control">
                                                         <option value="">Seluruh Media</option>
                                                         <option value="KOMPAS">Kompas</option>
-                                                        <!-- <option value="kompascetak">Kompas</option>
-                                                        <option value="kompassiang">Kompas Siang</option> -->
+                                                        <option value="kompascetak">Kompas</option>
+                                                        <option value="kompassiang">Kompas Siang</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -118,7 +121,7 @@
 
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Kata Kunci </label>
-                                                <div class="col-md-9">
+                                                 <div class="col-md-9">
                                                     <input id="query-foto" type="text" class="form-control" placeholder="search query...">
                                                 </div>
                                             </div>
@@ -135,8 +138,14 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="publication" id="publication-foto" class="form-control">
-                                                        <option value="">Seluruh Media</option>
-                                                        <option value="KOMPAS">Kompas</option>
+                                                        <option value="">Seluruh Album</option>
+                                                        <option value="kompasdigital">Kompas Digital</option>
+                                                        <option value="kompasdakode">Kompas Dakode</option>
+                                                        <option value="kompasweb">Kompas Web</option>
+                                                        <option value="kompasdigital">Kompas Digital</option>
+                                                        <option value="kompassiang">Kompas Siang</option>
+                                                        <option value="kompasipad">Kompas Ipad</option>
+                                                        <!-- <option value="KOMPAS">Kompas</option> -->
                                                         <!-- <option value="kompascetak">Kompas</option>
                                                         <option value="kompassiang">Kompas Siang</option> -->
                                                     </select>
@@ -223,6 +232,45 @@
                                     </div>
                                     <!-- End Of Buku -->
                                 </div>
+                                <div class="tab-pane fade p-3 p-md-4" id="cariTabs05" role="tabpanel" aria-labelledby="cari-Tabs05">
+                                    <!-- Buku -->
+                                    <div id="surveydata">
+                                        <fieldset>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Subjek</label>
+                                                <div class="col-md-9">
+                                                    <input name="subjek-data" id="subjek-data" type="text" class="form-control" placeholder="subjek...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Judul</label>
+                                                <div class="col-md-9">
+                                                    <input name="query-data" id="query-data" type="text" class="form-control" placeholder="search query...">
+                                                </div>
+                                            </div>
+                                            <div class="form-group my-3 row">
+                                                <label class="form-label col-md-3">Tanggal</label>
+                                                <div class="col-md-9">
+                                                    <div class="row">
+                                                        <div class="col-sm-4  mb-2">
+                                                            <input type="date" class="form-control date" id="date-from-data" placeholder="Tanggal Mulai">
+                                                        </div>
+                                                        <div class="col-sm-4 text-start text-md-center mb-2">
+                                                            Hingga
+                                                        </div>
+                                                        <div class="col-sm-4  mb-2">
+                                                            <input type="date" class="form-control date" id="date-to-data" placeholder="Tanggal Akhir">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group my-3">
+                                                <a v-on:click="searchLanjutData" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <!-- End Of Buku -->
+                                </div>
                             </div>
                         </div>
                         <div class="col-12 col-md-3 my-3">
@@ -304,6 +352,22 @@
                 let orderDirection = 'desc'
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&currentpage=${ currentpage }`
+            },
+
+            searchLanjutData: () => {
+                // let subjek = document.querySelector("#subjek-data").value
+                // let serial = document.querySelector("#serial-data").value
+                let query = document.querySelector("#query-data").value
+                let dateFrom = document.querySelector("#date-from-data").value
+                let dateTo = document.querySelector("#date-to-data").value
+                let publication = document.querySelector("#penerbit-data").value
+                // let page = document.querySelector("#page-data").value
+                let author = document.querySelector("#author-data").value
+                let size = 10
+                let currentpage = 1
+                let orderDirection = 'desc'
+
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=5&size=${ size }&currentpage=${ currentpage }`
             }
         },
     }

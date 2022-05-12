@@ -60,8 +60,7 @@
             async getData() {
                 try {
                     // Get Data From API
-                    let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
-                    console.log(DataPhotos)
+                    let DataPhotos = await Axios('https://dev-be.kompasdata.id/api/iasearch')
                     // Set Data From API
                     this.fotos = DataPhotos.data
                     this.total_search = this.fotos.total

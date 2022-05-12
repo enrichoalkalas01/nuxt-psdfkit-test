@@ -29,9 +29,9 @@
                         Arsip
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="ArsipDropdown">
-                            <li><a class="dropdown-item" href="/arsip#AllTabs02">Artikel</a></li>
-                            <li><a class="dropdown-item" href="/arsip#AllTabs03">Foto</a></li>
-                            <li><a class="dropdown-item" href="/arsip#AllTabs04">Infografik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&currentpage=1&orderdirection=desc">Artikel</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc">Foto</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc">Infografik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -39,8 +39,8 @@
                         Buku
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="/buku#bukuTabs02">Penerbit Buku Kompas</a></li>
-                            <li><a class="dropdown-item" href="/buku#bukuTabs03">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&currentpage=1&orderdirection=desc">Penerbit Buku Kompas</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&currentpage=1&orderdirection=desc">Perpustakaan</a></li>
                             <!-- <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li> -->
                             <!-- <li><a class="dropdown-item" href="#">Laporan</a></li> -->
                         </ul>
@@ -50,8 +50,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="/data#dataTabs03">Survei Kompas</a></li>
-                            <li><a class="dropdown-item" href="/data#dataTabs04">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
