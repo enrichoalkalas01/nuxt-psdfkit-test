@@ -47,7 +47,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Publication</th>
-                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail.published_date }}</td>
+                                                    <td>{{ fotoDetail.credit }}, {{ this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.substring(0, 10)) }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Credit</th>

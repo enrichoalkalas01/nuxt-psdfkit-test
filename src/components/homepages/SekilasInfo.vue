@@ -136,8 +136,10 @@
         async beforeMount() {
             this.Agenda = this.dataSet  
 
+            const currentMonth = new Date().getMonth() + 1;
+
             let dataUltah = await Axios({
-                url: 'https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/5'
+                url: `https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/` + currentMonth,
             })
             this.ulangTahun = dataUltah.data
             console.log(this.ulangTahun);

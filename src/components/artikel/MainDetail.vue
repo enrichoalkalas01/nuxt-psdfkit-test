@@ -21,7 +21,7 @@
                                 <h3 class="title txt-main">{{ artikelDetail.title }}</h3>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail.rubrics }}</p>
-                                    <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ artikelDetail.published_pages[0].date }}</p>
+                                    <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail.published_pages[0].date.substring(0, 10)) }}</p>
                                     <p>Halaman: {{ artikelDetail.published_pages[0].number }}</p>
                                     <p>Penulis: {{ artikelDetail.authors }}</p>
                                     <div class="db-price rounded">
