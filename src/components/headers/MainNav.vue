@@ -49,7 +49,10 @@
                                                 {{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}
                                             </li>
                                             <li>
-                                                <a href="">Profile</a>
+                                                <a href="">Dashboard</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Tambah Saldo</a>
                                             </li>
                                             <li>
                                                 <a href="/logout">Logout</a>
