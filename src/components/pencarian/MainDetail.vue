@@ -154,24 +154,24 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row my-3">
+                                            <!-- <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Album </label>
-                                                <div class="col-md-9">
+                                                <div class="col-md-9"> -->
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="publication" id="publication-foto" class="form-control">
+                                                    <!-- <select name="publication" id="publication-foto" class="form-control">
                                                         <option value="">Seluruh Album</option>
                                                         <option value="kompasdigital">Kompas Digital</option>
                                                         <option value="kompasdakode">Kompas Dakode</option>
                                                         <option value="kompasweb">Kompas Web</option>
                                                         <option value="kompasdigital">Kompas Digital</option>
                                                         <option value="kompassiang">Kompas Siang</option>
-                                                        <option value="kompasipad">Kompas Ipad</option>
+                                                        <option value="kompasipad">Kompas Ipad</option> -->
                                                         <!-- <option value="KOMPAS">Kompas</option> -->
                                                         <!-- <option value="kompascetak">Kompas</option>
                                                         <option value="kompassiang">Kompas Siang</option> -->
-                                                    </select>
+                                                    <!-- </select>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Urutkan </label>

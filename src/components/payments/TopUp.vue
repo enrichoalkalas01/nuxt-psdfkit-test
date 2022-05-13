@@ -4,8 +4,13 @@
             <div class="col-12 content">
                 <ul class="nav nav-tabs komp-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="buku-Tabs01" data-bs-toggle="tab" href="#bukuTabs01" aria-controls="bukuTabs0" aria-selected="true">
-                            Tester
+                        <a class="nav-link active" id="buku-Tabs01" data-bs-toggle="tab" href="#bukuTabs01" aria-controls="bukuTabs01" aria-selected="true">
+                            Beli
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="buku-Tabs02" data-bs-toggle="tab" href="#bukuTabs02" aria-controls="bukuTabs02" aria-selected="true">
+                            Kode Akses Kompas Data
                         </a>
                     </li>
                 </ul>
@@ -14,19 +19,19 @@
                         <div class="row wrapper-topup">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="row wrapper-info-left">
-                                    <div class="col-12">
+                                    <div class="col-12 pt-2">
                                         <h6>Nama</h6>
                                         <p>
                                             {{ this.$store.state.Login.UserData.username ? this.$store.state.Login.UserData.username : 'None' }}
                                         </p>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 pt-2">
                                         <h6>Email</h6>
                                         <p>
                                             {{ this.$store.state.Login.UserData.email ? this.$store.state.Login.UserData.email : 'None' }}
                                         </p>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-12 pt-2">
                                         <h6>Pilih Nominal Poin</h6>
                                         <select class="form-control pik-filterby-transaction-list" id="nominal">
                                             <option data-expiration-days="30" value="50000">50.000 poin (Rp 50.000)</option>
@@ -54,7 +59,9 @@
                                 <div class="col-12">
                                     <div class="row pik-payment-step-detail-title-row pik-dashboard-payment-list" id="transfer" style="display: block;">
                                         <div class="row">
-                                            <div class="pik-dashboard-payment-logo-container"><img class="pik-dashboard-payment-logo-thumbnail" src="/Content/img/dummies/logos/bank-transfer.png"></div>
+                                            <div class="pik-dashboard-payment-logo-container">
+                                                <img class="pik-dashboard-payment-logo-thumbnail" src="/assets/images/payments/bank-transfer.png">
+                                                </div>
                                         </div>
                                         <div class="row"><span class="pik-payment-step-detail-title">Transfer ke</span></div>
                                         <div class="row">
@@ -66,10 +73,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 pt-2">
                                     <h6>Catatan Pembayaran</h6>
+                                    <textarea name="catatan-payment" id="catatan-payment" class="form-control" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="col-12 pt-4">
+                                    <button class="form-control btn-primary">Bayar</button>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-12 tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
+                        <div class="wrapper-payment-voucher">
+                            <span>Masukkan Kode Akses KompasData</span>
+                            <input type="text" class="form-control">
+                            <button class="btn-success">Isi Ulang</button>
                         </div>
                     </div>
                 </div>

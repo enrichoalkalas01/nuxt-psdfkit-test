@@ -53,6 +53,8 @@
                 try {
                     // Get Data From API
                     let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)
+                    // console.log(this.$store.state.Search.SearchConfigBooks)
+                    // console.log(DataBooks)
                     
                     // Set Data From API
                     this.books = DataBooks.data

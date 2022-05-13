@@ -84,6 +84,7 @@
                             </div> -->
 
                             <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
+                                
                                 <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
                                     <div class="content borderless info-ctn">
                                         <img :src="Data.picture" alt="" class="ctn-img">
@@ -97,6 +98,7 @@
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
                                 <div class="col-12 wrapper-tgl-p">
                                     <div v-for="(DataMonth, i) in AgendaData.data" :key="i" class="row">
+                                        
                                         <div class="col-12 col-lg-12 title-month">
                                             <h4>{{ DataMonth.month }}</h4>
                                         </div>

@@ -128,9 +128,9 @@
                     // Set Total Data
                     let total_search = DataInfografiks.data.total + DataPhotos.data.total + DataArticles.data.total
                     this.$store.commit('setTotalSearch', total_search)
-                    this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
-                    this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
-                    this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
+                    // this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'buku', total: DataBukus.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'data', total: DataDatas.data.total })
                     
