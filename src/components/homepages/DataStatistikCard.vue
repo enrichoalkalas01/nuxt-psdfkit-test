@@ -5,11 +5,11 @@
             class="col-12 col-lg-6 my-2"
         >
             <div class="content borderless">
-                <a :href="`/data-detail/${ statistiks[n - 1].document_id }`">
+                <a :href="`/data-detail/${ statistiks[n - 1].collection }/${ statistiks[n - 1].document_id }`">
                     <img :src="statistiks[n - 1].image_source" alt="" class="foto-img">
                 </a>
                 <h3 class="title my-3">
-                    <a :href="`/data-detail/${ statistiks[n - 1].document_id }`">
+                    <a :href="`/data-detail/${ statistiks[n - 1].collection }/${ statistiks[n - 1].document_id }`">
                         {{ statistiks[n - 1].title }}
                     </a>
                 </h3>
@@ -26,12 +26,12 @@
                     class="col-12 pt-2 pb-3"
                 >
                     <div class="content full-height borderless kolom2 bot-line mb-3">
-                        <a :href="`/data-detail/${ statistiks[n].document_id }`">
+                        <a :href="`/data-detail/${ statistiks[n].collection }/${ statistiks[n].document_id }`">
                             <img :src="statistiks[n].image_source" alt="" class="foto-img">
                         </a>
                         <div class="desc">
                             <h3 class="title">
-                                <a :href="`/data-detail/${statistiks[n].document_id}`">{{ statistiks[n].title }}</a>
+                                <a :href="`/data-detail/${ statistiks[n].collection }/${statistiks[n].document_id}`">{{ statistiks[n].title }}</a>
                             </h3>
                             <span class="date-time">
                                 <i class="fas fa-clock"></i>
