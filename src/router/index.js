@@ -18,12 +18,16 @@ import Bantuan from '../components/bantuan/MainPage.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
 import PencarianLanjut from '../components/pencarian/MainDetail.vue'
 import Test from '../components/test/TestCarousel.vue'
+import TopUp from '../components/payments/TopUp.vue'
 
 const routes = [
     // Login & Register
     { path: '/login', name: 'login', component: Login },
     { path: '/logout', name: 'logout', component: Logout },
     { path: '/daftar', name: 'daftar', component: Register },
+
+    // Payments
+    { path: '/topup', name: 'topup', component: TopUp },
 
     // Homepages
     { path: '/', name: 'homepages', component: MainPage },

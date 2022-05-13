@@ -260,7 +260,7 @@
         width: 100%;
     }
 
-    @media screen and ( max-width: 1280px ) and ( min-width: 768px ) {
+    @media screen and ( max-width: 992px ) and ( min-width: 768px ) {
         .search-box {
             flex-direction: column;
         }
@@ -272,6 +272,7 @@
             width: 100%;
             text-align: left;
             margin-top: 5px;
+            padding-left: 10px !important;
         }
     }
 </style>
