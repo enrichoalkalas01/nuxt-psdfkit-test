@@ -36,11 +36,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="bukuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Buku
-                    </a>
+                            Buku
+                        </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&currentpage=1&orderdirection=desc">Penerbit Buku Kompas</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&currentpage=1&orderdirection=desc">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="/#buku-Tabs02">Penerbit Buku Kompas</a></li>
+                            <li><a class="dropdown-item" href="/#buku-Tabs03">Perpustakaan</a></li>
                             <!-- <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li> -->
                             <!-- <li><a class="dropdown-item" href="#">Laporan</a></li> -->
                         </ul>
@@ -50,8 +50,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc">Survei Kompas</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/#data-Tabs01">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="/#data-Tabs02">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -89,7 +89,10 @@
 
 <script>
     export default {
-        name: 'TopNav'
+        name: 'TopNav',
+        mounted() {
+            
+        }
     }
 </script>
 

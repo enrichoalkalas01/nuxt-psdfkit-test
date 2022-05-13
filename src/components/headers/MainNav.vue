@@ -42,7 +42,10 @@
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
                             <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
                                 <div class="user-box">
-                                    <span v-on:click="profileBoxEvent">{{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}</span>
+                                    <span v-on:click="profileBoxEvent">
+                                        <i class="fa-solid fa-user"></i>
+                                        <!-- {{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }} -->
+                                    </span>
                                     <div class="box-more" v-if="ProfileBox">
                                         <ul class="list-user-menu">
                                             <li class="profile">

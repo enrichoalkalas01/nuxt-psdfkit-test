@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-artikel line-bot py-5">
+    <section id="sec-artikel" class="sec-artikel line-bot py-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-3">

@@ -24,7 +24,7 @@
                     </ul>
                 </div>
                 <div class="row py-3">
-                    <div class="tab-content">
+                    <div class="tab-content" id="data-content">
                         <div
                             v-for="(statistik, i) in statistiks.data" :key="i"
                             :class="i === 0 ? 'tab-pane fade show active' : 'tab-pane fade'"
@@ -71,6 +71,8 @@
         async mounted() {
             this.statistiks = this.dataSet
             console.log(JSON.parse(JSON.stringify(this.statistiks)));
+
+            
         },
 
         // Component Did Update
@@ -78,5 +80,20 @@
             this.statistiks = this.dataSet
             // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
+
+        watch: {
+            $route(to, from) {
+                console.log(from)
+                let dataHash = to.hash
+                if ( dataHash.includes('data-Tabs') ) {
+                    document.querySelector('#myTab2 .nav-item .nav-link.active').classList.remove('active')
+                    document.querySelector('#data-content .tab-pane').classList.remove('show')
+                    document.querySelector('#data-content .tab-pane').classList.remove('active')
+                    document.querySelector(dataHash).classList.add('active')
+                    document.querySelector(dataHash.replace('-','')).classList.add('show')
+                    document.querySelector(dataHash.replace('-','')).classList.add('active')
+                } 
+            }
+        }
     }
 </script>

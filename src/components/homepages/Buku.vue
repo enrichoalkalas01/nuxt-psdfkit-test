@@ -99,5 +99,20 @@
             //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
             // }
         },
+
+        watch: {
+            $route(to, from) {
+                console.log(from)
+                let dataHash = to.hash
+                if ( dataHash.includes('buku-Tabs') ) {
+                    document.querySelector('#myTab .nav-item .nav-link.active').classList.remove('active')
+                    document.querySelector('#komp-tab-content .tab-pane').classList.remove('show')
+                    document.querySelector('#komp-tab-content .tab-pane').classList.remove('active')
+                    document.querySelector(dataHash).classList.add('active')
+                    document.querySelector(dataHash.replace('-','')).classList.add('show')
+                    document.querySelector(dataHash.replace('-','')).classList.add('active')
+                } 
+            }
+        }
     }
 </script>
