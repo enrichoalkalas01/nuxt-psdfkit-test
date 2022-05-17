@@ -98,9 +98,26 @@
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
                                 <div class="col-12 wrapper-tgl-p">
                                     <div class="row">
-                                        
+                                        <!-- <div class="col-12">
+                                            <i class="fa-solid fa-left"></i> {{ Month }} <i class="fa-solid fa-right"></i>
+                                        </div> -->
                                         <div class="col-12 col-lg-12 title-month">
-                                            <h4>{{ IndonesiaMonth[Month] }}</h4>
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item">
+                                                        <a class="page-link prev" id="month-prev" v-on:click="prevMonth">Previous</a>
+                                                    </li>
+                                                    <li class="page-item c-m">
+                                                        <a class="page-link">
+                                                            {{ IndonesiaMonth[Month] }}
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item next">
+                                                        <a class="page-link" id="month-next" v-on:click="nextMonth">Next</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                            
                                         </div>
                                         <div
                                             v-for="(DataDay, j) in NewAgendaData" :key="j"
@@ -132,7 +149,7 @@
             return {
                 Agenda: null,
                 ulangTahun: [],
-                Month: new Date().getMonth(),
+                Month: 0,
                 IndonesiaMonth: [
                     'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
                 ],
@@ -143,24 +160,47 @@
 
         async beforeMount() {
             // const currentMonth = new Date().getMonth() + 1;
-            
             this.Agenda = this.dataSet
-
-            let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month }`)
-            let dataAgenda = await Axios('https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/1')
-
-            this.NewAgendaData = dataAgenda.data
-            this.ulangTahun = dataUltah.data
-            console.log(this.Year)
         },
 
         mounted() {
             this.Agenda = this.dataSet
+            this.getData()
         },
 
         updated() {
             this.Agenda = this.dataSet
         },
+
+        methods: {
+            async getData() {
+                let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month }`)
+                let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
+
+                this.NewAgendaData = dataAgenda.data
+                this.ulangTahun = dataUltah.data
+            },
+            
+            nextMonth() {
+                if ( Number(this.Month) < 11 ) {
+                    this.Month = Number(this.Month) + 1
+                    this.getData()
+                } else {
+                    this.Month = 0
+                    this.getData()
+                }
+            },
+
+            prevMonth() {
+                if ( Number(this.Month) > 0 ) {
+                    this.Month = Number(this.Month) - 1
+                    this.getData()
+                } else {
+                    this.Month = 11
+                    this.getData()
+                }
+            },
+        }
     };
 </script>
 
@@ -251,5 +291,18 @@
     /* Handle on hover */
     #tgl-penting::-webkit-scrollbar-thumb:hover {
         background: #555; 
+    }
+
+    #tgl-penting nav {
+        font-size: 14px;
+    }
+
+    #tgl-penting nav .next,
+    #tgl-penting nav .prev {
+        cursor: pointer;
+    }
+
+    #tgl-penting nav .c-m a {
+        color: #4f4f4f;
     }
 </style>
