@@ -90,25 +90,25 @@
                                         <img :src="Data.picture" alt="" class="ctn-img">
                                         <h2 class="subtitle name">{{ Data.name }}</h2>
                                         <h2 class="subtitle title">{{ Data.notes }}</h2>
-                                        <p class="periode">{{ Data.birthplace }}, {{ this.$store.state.Tools.ChangeDateString(Data.birthdate.substring(0, 10)) }}</p>
+                                        <p class="periode">{{ Data.birthplace !== '' ? `${ Data.birthplace },` : '' }} {{ this.$store.state.Tools.ChangeDateString(Data.birthdate.substring(0, 10)) }}</p>
                                     </div>
                                 </div>
                             </div>
                             
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
                                 <div class="col-12 wrapper-tgl-p">
-                                    <div v-for="(DataMonth, i) in AgendaData.data" :key="i" class="row">
+                                    <div class="row">
                                         
                                         <div class="col-12 col-lg-12 title-month">
-                                            <h4>{{ DataMonth.month }}</h4>
+                                            <h4>{{ IndonesiaMonth[Month] }}</h4>
                                         </div>
                                         <div
-                                            v-for="(DataDay, j) in DataMonth.data_tanggal" :key="j"
+                                            v-for="(DataDay, j) in NewAgendaData" :key="j"
                                             class="col-12 col-md-4 col-lg-3 card-date"
                                         >
                                             <div class="wrapper-date card w-100 p-2">
                                                 <label>{{ DataDay.title }}</label>
-                                                <p>{{ DataDay.detail }}</p>
+                                                <p>Tanggal : {{ DataDay.day }} {{ IndonesiaMonth[Month] }} {{ YearData }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -131,20 +131,27 @@
         data() {
             return {
                 Agenda: null,
-                ulangTahun: []
+                ulangTahun: [],
+                Month: new Date().getMonth(),
+                IndonesiaMonth: [
+                    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ],
+                YearData: new Date().getFullYear(),
+                NewAgendaData: []
             }
         },
 
         async beforeMount() {
-            this.Agenda = this.dataSet  
+            // const currentMonth = new Date().getMonth() + 1;
+            
+            this.Agenda = this.dataSet
 
-            const currentMonth = new Date().getMonth() + 1;
+            let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month }`)
+            let dataAgenda = await Axios('https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/1')
 
-            let dataUltah = await Axios({
-                url: `https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/` + currentMonth,
-            })
+            this.NewAgendaData = dataAgenda.data
             this.ulangTahun = dataUltah.data
-            console.log(this.ulangTahun);
+            console.log(this.Year)
         },
 
         mounted() {

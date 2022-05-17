@@ -84,15 +84,12 @@
         },
         beforeMount() {
             this.artikels = this.dataSet
-            console.log(this.artikels = this.dataSet)
         },
         mounted() {
             this.artikels = this.dataSet
-            console.log(this.artikels = this.dataSet)
         },
         updated() {
             this.artikels = this.dataSet
-            console.log(this.artikels = this.dataSet)
         },
     }
 </script>
