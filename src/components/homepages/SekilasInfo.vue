@@ -159,13 +159,14 @@
         },
 
         async beforeMount() {
-            // const currentMonth = new Date().getMonth() + 1;
+            const currentMonth = new Date().getMonth();
+            this.Month = currentMonth
             this.Agenda = this.dataSet
+            this.getData()
         },
 
         mounted() {
             this.Agenda = this.dataSet
-            this.getData()
         },
 
         updated() {
@@ -174,10 +175,10 @@
 
         methods: {
             async getData() {
-                let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month }`)
                 let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
-
                 this.NewAgendaData = dataAgenda.data
+
+                let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
                 this.ulangTahun = dataUltah.data
             },
             
