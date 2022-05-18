@@ -36,6 +36,10 @@
                             </div>
                         </div>
                         <div class="user-box">
+                            <div class="saldo">
+                                <h6>Saldo</h6>
+                                <span>{{ saldoUser }}</span>
+                            </div>
                             <a href="#" class="cart d-none d-md-block">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
@@ -77,6 +81,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     export default {
         name: 'MainNav',
         data() {
@@ -84,6 +89,7 @@
                 typeSearch: this.$store.state.Search.TypeSearch,
                 searchKey: this.$store.state.Search.SearchKey,
                 ProfileBox: false,
+                saldoUser: 0,
             }
         },
 
@@ -103,7 +109,14 @@
             this.setHookSearch()
         },
 
-        mounted() {
+        async mounted() {
+            let config = {
+                url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
+                headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+            }
+            
+            let saldo = await Axios(config)
+            this.saldoUser = 'Rp.' + this.$store.state.Tools.PriceFormat(saldo.data.credit_balance, 2, ',', '.')
             // var line = document.getElementById("line")
             // var login = document.getElementById("login")
             // var register = document.getElementById("register")
@@ -171,7 +184,9 @@
                 }
             },
 
-            
+            // getSaldo: async () => {
+                
+            // }
         },
     }
 </script>
@@ -258,6 +273,24 @@
 
     .search-box .pl a {
         width: 100%;
+    }
+
+    .user-box .saldo {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center; */
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .user-box .saldo h6 {
+        margin-bottom: 5px;
+    }
+
+    .user-box .saldo span {
+        /* margin-left: 5px; */
+        /* margin-top: 5px; */
+        font-size: 12px;
     }
 
     @media screen and ( max-width: 992px ) and ( min-width: 768px ) {
