@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-3">
-        <div class="col-12">
+        <div class="col-12 line-bot">
             <div class="content borderless">
                 <div class="row">
                     <div

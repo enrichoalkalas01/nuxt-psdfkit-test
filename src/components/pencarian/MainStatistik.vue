@@ -49,7 +49,6 @@
                 try {
                     // Get Data From API
                     let DataStatistiks = await Axios(this.$store.state.Search.SearchConfigStatistiks)
-
                     // Set Data From API
                     this.statistiks = DataStatistiks.data
                     this.total_search = DataStatistiks.data.total

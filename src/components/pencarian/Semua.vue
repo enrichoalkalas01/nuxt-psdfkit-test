@@ -35,7 +35,7 @@
             </div>
             
             <!-- Data -->
-            <div v-if="total_search_statistiks> 0">
+            <div v-if="(total_search_statistiks > 0)">
                 <Stastistik
                     v-bind:dataStatistiks="statistiks ? statistiks : null"
                     v-bind:totalSearch="total_search_statistiks"
@@ -70,7 +70,7 @@
             Artikel,
             Infografik,
             Buku,
-            Stastistik
+            Stastistik,
             // Banner,
             // Suggestion,
         },
@@ -81,15 +81,15 @@
         ],
         data () {
             return {
-                artikels: null,
-                fotos: null,
-                infografiks: null,
                 books: null,
+                fotos: null,
+                artikels: null,
                 statistiks: null,
+                infografiks: null,
                 total_search_foto: 0,
+                total_search_books: 0,
                 total_search_artikel: 0,
                 total_search_infografik: 0,
-                total_search_books: 0,
                 total_search_statistiks: 0,
             }
         },
@@ -106,11 +106,13 @@
             async getData() {
                 try {
                     // Get Data From API
-                    let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
+                    let TestApi = await Axios('https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/1')
+                    console.log(TestApi)
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
                     let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)
                     let DataStatistiks = await Axios(this.$store.state.Search.SearchConfigStatistiks)
+                    let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
 
                     // Set Data From API
                     this.fotos = DataPhotos.data.documents.filter((data, i) => { return i < 5 ? data : null })
@@ -118,7 +120,7 @@
                     this.infografiks = DataInfografiks.data.documents.filter((data, i) => { return i < 3 ? data : null })
                     this.books = DataBooks.data.documents.filter((data, i) => { return i < 3 ? data : null })
                     this.statistiks = DataStatistiks.data.documents.filter((data, i) => { return i < 3 ? data : null })
-
+                    
                     this.total_search_foto = DataPhotos.data.total
                     this.total_search_artikel = DataArticles.data.total
                     this.total_search_infografik = DataInfografiks.data.total
@@ -133,7 +135,6 @@
                     // this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'buku', total: DataBukus.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'data', total: DataDatas.data.total })
-                    
                 } catch (error) {
                     console.log(error.message)
                 }

@@ -199,7 +199,6 @@
 
             paginationFunction: function() {
                 let queryStringUrl = this.queryStringFunction()
-                console.log(queryStringUrl)
                 let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&orderdirection=${ queryStringUrl.orderdirection }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=${ queryStringUrl.typesearch }&size=${ queryStringUrl.size }`
                 let newArrPage = []
                 for( let i = 0; i < 3; i++ ) {
