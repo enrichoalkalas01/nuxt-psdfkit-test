@@ -17,7 +17,7 @@
                 <div class="row py-2 tab-content komp-tab-content" id="komp-tab-content">
                     <div class="col-12 tab-pane fade show active" id="bukuTabs01" role="tabpanel" aria-labelledby="buku-Tabs01">
                         <div class="row wrapper-topup">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-12">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="row wrapper-info-left">
                                     <div class="col-12 pt-2">
                                         <h6>Nama</h6>
