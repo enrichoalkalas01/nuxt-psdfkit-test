@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="user-box">
-                            <div class="saldo">
+                            <div class="saldo" v-if="this.$store.state.Login.LoginStatus">
                                 <h6>Saldo</h6>
                                 <span>{{ saldoUser }}</span>
                             </div>
@@ -59,7 +59,7 @@
                                                 <a href="">Dashboard</a>
                                             </li>
                                             <li>
-                                                <a href="">Tambah Saldo</a>
+                                                <a href="/topup">Tambah Saldo</a>
                                             </li>
                                             <li>
                                                 <a href="/logout">Logout</a>
@@ -281,6 +281,7 @@
         justify-content: center; */
         text-align: center;
         font-size: 14px;
+        margin-right: 25px;
     }
 
     .user-box .saldo h6 {

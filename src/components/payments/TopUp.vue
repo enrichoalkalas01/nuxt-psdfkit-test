@@ -17,7 +17,7 @@
                 <div class="row py-2 tab-content komp-tab-content" id="komp-tab-content">
                     <div class="col-12 tab-pane fade show active" id="bukuTabs01" role="tabpanel" aria-labelledby="buku-Tabs01">
                         <div class="row wrapper-topup">
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-12">
                                 <div class="row wrapper-info-left">
                                     <div class="col-12 pt-2">
                                         <h6>Nama</h6>
@@ -42,9 +42,16 @@
                                         </select>
                                         <p>*Pembayaran melalui transfer akan dikonfirmasi admin pada jam kerja (Senin-Sabtu pukul 09:00-16:00)</p>
                                     </div>
+                                    <div class="col-12 pt-2">
+                                        <h6>Catatan Pembayaran</h6>
+                                        <textarea name="catatan-payment" id="catatan-payment" class="form-control" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="col-12 pt-4">
+                                        <button class="form-control btn-primary" v-on:click="topup(this.$store.state.Login.UserData)">Bayar</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="col-12">
                                     <h6>Pilih Metode Pembayaran</h6>
                                     <select class="form-control pik-filterby-transaction-list" id="pik-payment-list2">
@@ -73,21 +80,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 pt-2">
-                                    <h6>Catatan Pembayaran</h6>
-                                    <textarea name="catatan-payment" id="catatan-payment" class="form-control" cols="30" rows="10"></textarea>
-                                </div>
-                                <div class="col-12 pt-4">
-                                    <button class="form-control btn-primary">Bayar</button>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-12 tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
                         <div class="wrapper-payment-voucher">
                             <span>Masukkan Kode Akses KompasData</span>
-                            <input type="text" class="form-control">
-                            <button class="btn-success">Isi Ulang</button>
+                            <input type="text" class="form-control mb-2">
+                            <button class="form-control btn-success">Isi Ulang</button>
                         </div>
                     </div>
                 </div>
@@ -97,9 +97,37 @@
 </template>
 
 <script>
-
+    import Axios from 'axios'
     export default {
         name: 'TopUp',
+        methods: {
+            topup: async (userdata) => {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/CreditTopups?userid=${ userdata.id }`,
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${ userdata.token }`,
+                        'Content-Type': 'application/json'
+                    },
+                    data: JSON.stringify({
+                        "amount": Number(document.querySelector("#nominal").value),
+                        "expirationDays": Number(document.querySelector("#nominal").getAttribute("data-expiration-days")),
+                        "paymentMethod": 0,
+                        "note": document.querySelector("#catatan-payment").value
+                    })
+                }
+
+                let Payment = await Axios(config)
+                if ( Payment ) {
+                    window.open(Payment.data.data.url)
+                    window.close()
+                }
+            },
+
+            // replaceAll: (str, find, replace) => {
+            //     return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+            // }
+        }
     }
 
 </script>
