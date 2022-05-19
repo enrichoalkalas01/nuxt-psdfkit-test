@@ -48,38 +48,37 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Email</label>
                                         <div class="my-2">
-                                            <input type="email" placeholder="Email Anda" class="form-control">
+                                            <input id="email" type="email" placeholder="Email Anda" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username</label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Username Anda" class="form-control">
+                                            <input id="username" type="text" placeholder="Username Anda" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password (min. 6 karakter) </label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Password" class="form-control">
+                                            <input id="password" type="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Ulangi Password  </label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Confirm Password" class="form-control">
+                                            <input type="password" placeholder="Confirm Password" class="form-control">
                                         </div>
                                     </div>
 
 
                                     <div class="form-group py-2">
                                         <div class="g-recaptcha" data-sitekey="6LfYC-EUAAAAALIiQ05h0h4jm7P5OCe2DcJ728gs"></div>
-
                                     </div>
 
                                     <div class="form-group row py-1">
                                         <div class="my-2">
-                                            <a href="#" class="btn btn-main">Daftar Sekarang</a>
+                                            <a v-on:click="register" class="btn btn-main">Daftar Sekarang</a>
                                         </div>
 
                                     </div>
@@ -96,6 +95,8 @@
 </template>
 
 <script>
+    import Axios from 'axios'
+
     export default {
         name: 'Register',
         mounted() {
@@ -103,5 +104,28 @@
                 window.location.href = '/'
             }
         },
+
+        methods: {
+            async register(){
+                var username = document.querySelector("#username").value
+                var password = document.querySelector("#password").value
+                var email = document.querySelector("#email").value
+
+                let getData = await Axios({
+                    method: 'POST',
+                    url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
+                    data: JSON.stringify({
+                        'username' : username,
+                        'password' : password,
+                        'email' : email,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                }).then( Response => Response ).catch( Error => Error );
+
+                console.log(getData)
+            }
+        }
     }
 </script>
