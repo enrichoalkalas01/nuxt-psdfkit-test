@@ -42,7 +42,7 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Nama Lengkap</label>
                                         <div class="my-2">
-                                            <input type="text" placeholder="Nama Anda" class="form-control">
+                                            <input id="firstName" type="text" placeholder="Nama Anda" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group py-1">
@@ -58,19 +58,37 @@
                                         </div>
                                     </div>
                                     <div class="form-group py-1">
-                                        <label class="form-label my-2">Password (min. 6 karakter) </label>
+                                        <label class="form-label my-2">Password (min. 6 karakter)</label>
                                         <div class="my-2">
                                             <input id="password" type="password" placeholder="Password" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
-                                        <label class="form-label my-2">Ulangi Password  </label>
+                                        <label class="form-label my-2">Ulangi Password</label>
                                         <div class="my-2">
                                             <input type="password" placeholder="Confirm Password" class="form-control">
                                         </div>
                                     </div>
 
+
+                                    <div class="form-group py-1">
+                                        <label class="form-label my-2">Jenis Kelamin</label>
+                                        <div class="my-2">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="gender" value="m" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    Laki-laki
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender" id="gender" value="f">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Perempuan
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="form-group py-2">
                                         <div class="g-recaptcha" data-sitekey="6LfYC-EUAAAAALIiQ05h0h4jm7P5OCe2DcJ728gs"></div>
@@ -107,24 +125,32 @@
 
         methods: {
             async register(){
+                var firstName = document.querySelector("#firstName").value
                 var username = document.querySelector("#username").value
                 var password = document.querySelector("#password").value
                 var email = document.querySelector("#email").value
+                var gender = document.querySelector("#gender").value
 
                 let getData = await Axios({
                     method: 'POST',
                     url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
                     data: JSON.stringify({
+                        'firstName' : firstName,
                         'username' : username,
                         'password' : password,
                         'email' : email,
+                        'gender' : gender,
                     }),
                     headers: {
                         'Content-Type': 'application/json' 
                     },
                 }).then( Response => Response ).catch( Error => Error );
 
-                console.log(getData)
+                if (!getData.data) {
+                    alert("Something went wrong!")
+                } else {
+                    window.location.href = '/notification'
+                }
             }
         }
     }
