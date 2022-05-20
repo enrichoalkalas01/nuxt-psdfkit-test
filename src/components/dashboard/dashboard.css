@@ -52,3 +52,13 @@
 #dashboard #sec-payment {
     padding: 0;
 }
+
+#dashboard .dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dashboard .dropdown-toggle::after {
+    content: none;
+}
