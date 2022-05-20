@@ -1,0 +1,54 @@
+#dashboard {
+    padding-top: 10px;
+}
+
+#footer-box .footer {
+    margin: 0 !important;
+    padding: 0;
+}
+
+#content-box {
+    padding: 0;
+}
+
+#dashboard .box-dashboard {
+    height: 100vh;
+}
+
+#dashboard .box-sidebar {
+    background-color: #23282d;
+    color: #fff;
+    height: 100%;
+}
+
+#dashboard #box-cd {
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 2.5%;
+}
+
+#dashboard #box-cd::-webkit-scrollbar {
+    width: 5px;
+}
+
+#dashboard #box-cd::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+#dashboard #box-cd::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+#dashboard #box-cd::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+#dashboard #box-cd::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+#dashboard #sec-payment {
+    padding: 0;
+}

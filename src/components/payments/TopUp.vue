@@ -8,11 +8,6 @@
                             Beli
                         </a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="buku-Tabs02" data-bs-toggle="tab" href="#bukuTabs02" aria-controls="bukuTabs02" aria-selected="true">
-                            Kode Akses Kompas Data
-                        </a>
-                    </li>
                 </ul>
                 <div class="row py-2 tab-content komp-tab-content" id="komp-tab-content">
                     <div class="col-12 tab-pane fade show active" id="bukuTabs01" role="tabpanel" aria-labelledby="buku-Tabs01">
@@ -81,13 +76,6 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                    <div class="col-12 tab-pane fade" id="bukuTabs02" role="tabpanel" aria-labelledby="buku-Tabs02">
-                        <div class="wrapper-payment-voucher">
-                            <span>Masukkan Kode Akses KompasData</span>
-                            <input type="text" class="form-control mb-2">
-                            <button class="form-control btn-success">Isi Ulang</button>
                         </div>
                     </div>
                 </div>

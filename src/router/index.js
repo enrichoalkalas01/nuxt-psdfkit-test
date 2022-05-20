@@ -18,16 +18,17 @@ import Bantuan from '../components/bantuan/MainPage.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
 import PencarianLanjut from '../components/pencarian/MainDetail.vue'
 import Test from '../components/test/TestCarousel.vue'
+
+// Dashboard
+import Dashboard from '../components/dashboard/MainPage'
 import TopUp from '../components/payments/TopUp.vue'
+import Voucher from '../components/payments/Voucher.vue'
 
 const routes = [
     // Login & Register
     { path: '/login', name: 'login', component: Login },
     { path: '/logout', name: 'logout', component: Logout },
     { path: '/daftar', name: 'daftar', component: Register },
-
-    // Payments
-    { path: '/topup', name: 'topup', component: TopUp },
 
     // Homepages
     { path: '/', name: 'homepages', component: MainPage },
@@ -64,6 +65,16 @@ const routes = [
 
     // Tester
     { path: '/test', name: 'test', component: Test },
+
+    // Dashboard
+    {
+        path: '/dashboard', name: 'dashboard', component: Dashboard,
+        children: [
+            { path: '/dashboard', name: 'dashboard', component: TopUp },
+            { path: '/dashboard/topup', name: 'topup', component: TopUp },
+            { path: '/dashboard/voucher', name: 'voucher', component: Voucher },
+        ]
+    },
 ]
 
 const router = createRouter({
