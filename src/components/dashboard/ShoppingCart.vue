@@ -20,7 +20,7 @@
             <div class="row wrapper-cart">
                 <div class="col-12 col-sm-12 card list-item" v-for="(item, i) in ListItem" :key="i">
                     <div class="select-wrapper">
-                        <input checked="false" type="radio">
+                        <input class="form-check-input" type="checkbox" :name="`flexRadioDefault${ i }`">
                     </div>
                     <div class="images-wrapper">
                         <div class="images"></div>
