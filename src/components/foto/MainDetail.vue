@@ -14,14 +14,14 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            <div class="col-sm-4 my-3">
+                            <div class="col-12 col-6 col-md-6 col-lg-4 my-3">
                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + fotoDetail.preview }`" alt="" class="db-img">
                             </div>
-                            <div class="col-sm-8 my-3">
+                            <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail.title }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. 300.000</span>
-                                    <a href="pesan-foto.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
+                                    <a v-on:click="FormPesan" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -71,7 +71,59 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <!-- Formulir -->
+                                <div class="row mt-6 mb-6" v-if="FormPesanClick">
+                                    <div class="col-12">
+                                        <h4 class="txt-main">Formulir Penggunaan</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <h5 class="subtitle">Deskripsi</h5>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <h5 class="subtitle">Jenis Penggunaan</h5>
+                                        </div>
+                                        <div class="px-4">
+                                            <div 
+                                                v-for="(jenis, i) in JenisPenggunaan" :key="i"
+                                                class="form-check"
+                                            >
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ jenis.id }}">
+                                                <label class="form-check-label" for="flexRadioDefault{{ jenis.id }}">{{ jenis.text }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <h5 class="subtitle">Informasi Persetujuan</h5>
+                                        <div class="mb-2">
+                                            <b>
+                                                <label for="">Foto lebih dari satu jenis penggunaan, silahkan mengisi form lagi sesuai kebutuhan yang lain.</label>
+                                                <label for="">Untuk pengunaan diluar pilihan silahkan hubungi kami.</label>
+                                            </b>
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    <i>Saya setuju dengan syarat dan ketentuan yang berlaku.</i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="total-harga" id="total-harga">
+                                            <h4>Rp. 1.000.000</h4>
+                                        </div>
+                                        <div class="button-box">
+                                            <button class="payment btn btn-primary" id="pesan">Pesan</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +168,20 @@
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
-                }
+                },
+                FormPesanClick: false,
+                JenisPenggunaan: [
+                    { id: 1, name: 'individu', text: 'Individu', price: 300000 },
+                    { id: 2, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
+                    { id: 3, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
+                    { id: 4, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
+                    { id: 5, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
+                    { id: 6, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
+                    { id: 7, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
+                    { id: 8, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
+                    { id: 9, name: 'media-siar', text: 'Media Siar', price: 1000000 },
+                    { id: 10, name: 'media-online', text: 'Media Online', price: 1000000 },
+                ]
             }
         },
         async beforeMount() {
@@ -128,6 +193,23 @@
             } catch (error) {
                 console.log(error.message)
             }
+        },
+
+        methods: {
+            FormPesan() {
+                console.log('cliciked')
+                this.FormPesanClick = !this.FormPesanClick
+            }
         }
     }
 </script>
+
+<style>
+    .detail-box .db-img {
+        max-width: 500px !important;
+    }
+
+    #pesan {
+        background-color: #007BD2;
+    }
+</style>

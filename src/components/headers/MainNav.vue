@@ -1,5 +1,6 @@
 <template>
-    <div class="nav-below  d-none d-md-block">
+    <div class="nav-below d-none d-md-block">
+        
         <div class="container">
             <div class="row">
                 <div class="col-12 py-3">

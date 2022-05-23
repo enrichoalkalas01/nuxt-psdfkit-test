@@ -1,5 +1,8 @@
 <template>
     <section>
+        <section>
+            <TopBarReflection />
+        </section>
         <section class="fixed-top">
             <TopNav />
             <MainNav />
@@ -14,12 +17,13 @@
 </template>
 
 <script>
+    import TopBarReflection from './components/dashboard/TopBarReflection.vue'
     import TopNav from './components/headers/TopNav.vue'
     import MainNav from './components/headers/MainNav.vue'
     import Footer from './components/headers/Footer.vue'
     export default {
         name: 'App',
-        components: { TopNav, MainNav, Footer },
+        components: { TopNav, MainNav, Footer, TopBarReflection },
     }
 </script>
 
