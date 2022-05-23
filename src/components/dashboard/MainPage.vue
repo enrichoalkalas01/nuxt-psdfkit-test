@@ -1,6 +1,5 @@
 <template>
     <section id="dashboard" class="container-fluid">
-        <TopBarReflection />
         <div class="row box-dashboard">
             <SideBar />
             <div class="col-9 py-3 box-cd" id="box-cd">
@@ -11,12 +10,10 @@
 </template>
 
 <script>
-    import TopBarReflection from './TopBarReflection.vue'
     import SideBar from './SideBar.vue'
     export default {
         name: "MainPage",
         components: {
-            TopBarReflection,
             SideBar
         },
         
