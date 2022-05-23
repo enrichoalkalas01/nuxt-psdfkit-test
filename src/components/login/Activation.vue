@@ -6,7 +6,7 @@
                     <div class="content shadow my-3">
                         <div class="p-3">
                             <a href="/" class="logo-big mb-3">
-                                <img src="assets/images/logo-kompasdata-big.png" alt="">
+                                <img src="@/assets/images/logo-kompasdata-big.png" alt="">
                             </a>
                             <p>{{ status }}</p>
                         </div>
@@ -35,10 +35,12 @@
             try {
                 this.dataActivation = await Axios(this.configAPI)
                 this.status = 'Akun anda sudah aktif, silahkan login untuk melanjutkan'
-
-                console.log(this.dataActivation);
             } catch (error) {
-                console.log(error.message);
+                if (error.response.data.message === "User already activated") {
+                    this.status = 'User already activated'
+                } else {
+                    this.status = 'An error has occurred'
+                }
             }
         }
     }

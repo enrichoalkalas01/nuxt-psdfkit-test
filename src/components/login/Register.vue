@@ -15,9 +15,9 @@
                             <li>
                                 Dapatkan pengalaman baru dalam mencari data</li>
                             <li>
-                                Gratis sebanyak 10 judul Artikel terbaru</li>
+                                Gratis sebanyak 5 judul Artikel terbaru</li>
                             <li>
-                                Masa percobaan 30 hari
+                                Masa percobaan 14 hari
                             </li>
                         </ol>
                         <p>
