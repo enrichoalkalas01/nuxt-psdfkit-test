@@ -34,7 +34,7 @@
                             <h2 class="title">Daftar</h2>
                             <p>Silahkan isikan data dibawah untuk melakukan daftar akun baru dan User Trial</p>
                             <div class="box-title my-2 p-3 p-md-4">
-                                <p>User Trial hanya bisa digunakan <b>selama 30 hari </b> semenjak aktivasi dan proses registrasi user berhasil.</p>
+                                <p>User Trial hanya bisa digunakan <b>selama 14 hari </b> semenjak aktivasi dan proses registrasi user berhasil.</p>
                             </div>
                             <form class="text-start">
                                 <fieldset>
@@ -149,7 +149,7 @@
                 if (!getData.data) {
                     alert("Something went wrong!")
                 } else {
-                    window.location.href = '/notification'
+                    window.location.href = '/notification-activation'
                 }
             }
         }
