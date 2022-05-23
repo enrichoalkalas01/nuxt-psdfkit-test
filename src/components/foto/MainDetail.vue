@@ -95,11 +95,11 @@
                                                 v-for="(jenis, i) in JenisPenggunaan" :key="i"
                                                 class="form-check"
                                             >
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{ jenis.id }}">
-                                                <label class="form-check-label" for="flexRadioDefault{{ jenis.id }}">{{ jenis.text }}</label>
+                                                <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>  
                                     <div class="col-12">
                                         <h5 class="subtitle">Informasi Persetujuan</h5>
                                         <div class="mb-2">
@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                         <div class="total-harga" id="total-harga">
-                                            <h4>Rp. 1.000.000</h4>
+                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
                                         </div>
                                         <div class="button-box">
                                             <button class="payment btn btn-primary" id="pesan">Pesan</button>
@@ -170,6 +170,7 @@
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
                 FormPesanClick: false,
+                TotalPayment: 0,
                 JenisPenggunaan: [
                     { id: 1, name: 'individu', text: 'Individu', price: 300000 },
                     { id: 2, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
@@ -199,6 +200,11 @@
             FormPesan() {
                 console.log('cliciked')
                 this.FormPesanClick = !this.FormPesanClick
+                this.TotalPayment = this.JenisPenggunaan[0].price
+            },
+
+            BtnRadioJenis(event) {
+                this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price
             }
         }
     }
