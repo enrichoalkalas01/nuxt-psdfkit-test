@@ -88,6 +88,20 @@
                                     </div>
                                     <div class="col-12">
                                         <div>
+                                            <h5 class="subtitle">Ukuran Foto</h5>
+                                        </div>
+                                        <div class="px-4">
+                                            <div 
+                                                v-for="(ukuran, i) in UkuranFoto" :key="i"
+                                                class="form-check"
+                                            >
+                                                <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="ukuran.name">
+                                                <label class="form-check-label" :for="ukuran.name">{{ ukuran.size }}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
                                             <h5 class="subtitle">Jenis Penggunaan</h5>
                                         </div>
                                         <div class="px-4">
@@ -169,6 +183,11 @@
                     },
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
+                UkuranFoto: [
+                    { id: 1, ukuran: 'low', size: 'Low' },
+                    { id: 2, ukuran: 'medium', size: 'Medium' },
+                    { id: 3, ukuran: 'high', size: 'High' },
+                ],
                 FormPesanClick: false,
                 TotalPayment: 0,
                 JenisPenggunaan: [
