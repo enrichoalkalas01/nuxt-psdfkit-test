@@ -13,6 +13,12 @@
                         Home
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/dashboard/daftar-pesanan" :class="ShoppingCart ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                        Daftar Pesanan
+                    </a>
+                </li>
                 <li>
                     <a href="/dashboard/topup" :class="Topup ? 'nav-link text-white active' : 'nav-link text-white'">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
@@ -59,6 +65,7 @@
                 Voucher: false,
                 Topup: false,
                 Dashboard: false,
+                ShoppingCart: false
             }
         },
 
@@ -66,6 +73,7 @@
             if ( window.location.pathname === '/dashboard' ) this.Dashboard = !this.Dashboard
             if ( window.location.pathname === '/dashboard/topup' ) this.Topup = !this.Topup
             if ( window.location.pathname === '/dashboard/voucher' ) this.Voucher = !this.Voucher
+            if ( window.location.pathname === '/dashboard/daftar-pesanan' ) this.ShoppingCart = !this.ShoppingCart
         }
     }
 </script>

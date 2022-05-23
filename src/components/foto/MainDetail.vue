@@ -95,7 +95,7 @@
                                                 v-for="(ukuran, i) in UkuranFoto" :key="i"
                                                 class="form-check"
                                             >
-                                                <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="ukuran.name">
+                                                <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
                                                 <label class="form-check-label" :for="ukuran.name">{{ ukuran.size }}</label>
                                             </div>
                                         </div>

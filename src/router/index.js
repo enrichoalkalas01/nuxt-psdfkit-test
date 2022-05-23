@@ -24,6 +24,7 @@ import Test from '../components/test/TestCarousel.vue'
 import Dashboard from '../components/dashboard/MainPage'
 import TopUp from '../components/payments/TopUp.vue'
 import Voucher from '../components/payments/Voucher.vue'
+import ShoppingCart from '../components/dashboard/ShoppingCart.vue'
 
 const routes = [
     // Login & Register
@@ -75,6 +76,7 @@ const routes = [
             { path: '/dashboard', name: 'dashboard', component: TopUp },
             { path: '/dashboard/topup', name: 'topup', component: TopUp },
             { path: '/dashboard/voucher', name: 'voucher', component: Voucher },
+            { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart }
         ]
     },
 ]
