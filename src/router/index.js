@@ -5,6 +5,7 @@ import Login from '../components/login/Login.vue'
 import Logout from '../components/login/Logout.vue'
 import Register from '../components/login/Register.vue'
 import Notification from '../components/login/Notification.vue'
+import Activation from '../components/login/Activation.vue'
 import MainPage from '../components/homepages/MainPage.vue'
 import Arsip from '../components/arsip/MainPage.vue'
 import ArtikelDetail from '../components/artikel/MainDetail.vue'
@@ -30,7 +31,8 @@ const routes = [
     { path: '/login', name: 'login', component: Login },
     { path: '/logout', name: 'logout', component: Logout },
     { path: '/daftar', name: 'daftar', component: Register },
-    { path: '/notification', name: 'notification', component: Notification },
+    { path: '/notification-activation', name: 'notification', component: Notification },
+    { path: '/user/activation', name: 'activation', component: Activation },
 
     // Homepages
     { path: '/', name: 'homepages', component: MainPage },
