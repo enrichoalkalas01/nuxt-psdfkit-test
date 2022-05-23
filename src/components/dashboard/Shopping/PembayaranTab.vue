@@ -29,10 +29,8 @@
                     <p class="desc">bla bla bla bla</p>
                     <p class="date">Date : 17 Agustus 1945</p>
                 </div>
-                <div class="wc-qty">
-                    <i class="fa-solid fa-chevron-left"></i>
-                    <input type="number" class="form-control" id="" min="0">
-                    <i class="fa-solid fa-chevron-right"></i>
+                <div class="wc-qty-done">
+                    <span>{{ 1 }} Qty</span>
                 </div>
                 <div class="wc-price">
                     <span>Rp. 10.000.000</span>

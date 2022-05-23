@@ -114,7 +114,8 @@
 }
 
 #shopping-cart .list-item .item-wrapper {
-    max-width: 80%;
+    /* max-width: 80%; */
+    max-width: 100%;
     width: 100%;
     /* display: grid;
     grid-template-columns: 50% 25% 25%; */
@@ -127,6 +128,7 @@
 #shopping-cart .list-item .item-wrapper .wc-item {
     max-width: 50%;
     width: 100%;
+    padding-left: 2.5%;
 }
 
 #shopping-cart .list-item .item-wrapper .wc-item .title {
@@ -172,8 +174,8 @@
 }
 
 #shopping-cart .list-item .item-wrapper .wc-qty-done {
-    max-width: 100%;
-    width: 25%;
+    max-width: 10%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,7 +186,7 @@
 }
 
 #shopping-cart .list-item .item-wrapper .wc-confirmation {
-    max-width: 100%;
+    max-width: 15%;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -203,10 +205,33 @@
 
 #shopping-cart .list-item .item-wrapper .wc-confirmation span.waiting {
     background-color: #f1c40f;
+    font-size: 12px;
 }
 
 #shopping-cart .list-item .item-wrapper .wc-confirmation span.success {
     background-color: #27ae60;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-confirmation span.failed {
+    background-color: #c0392b;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-paytab {
+    max-width: 15%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-paytab a {
+    background-color: #0b5ed7;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 #shopping-cart .order-cart {
