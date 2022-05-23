@@ -25,7 +25,7 @@ import Test from '../components/test/TestCarousel.vue'
 import Dashboard from '../components/dashboard/MainPage'
 import TopUp from '../components/payments/TopUp.vue'
 import Voucher from '../components/payments/Voucher.vue'
-import ShoppingCart from '../components/dashboard/ShoppingCart.vue'
+import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
 
 const routes = [
     // Login & Register

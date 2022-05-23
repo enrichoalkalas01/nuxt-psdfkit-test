@@ -75,13 +75,14 @@
 #shopping-cart .list-item {
     height: auto;
     padding: 10px;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    /* grid-template-columns: 7.5% 12.5% 80%; */
     margin-bottom: 25px;
-    grid-template-columns: 7.5% 12.5% 80%;
 }
 
 #shopping-cart .select-wrapper {
-    max-width: 100%;
+    max-width: 7.5%;
     width: 100%;
     position: relative;
     height: 100%;
@@ -97,7 +98,7 @@
 }
 
 #shopping-cart .list-item .images-wrapper {
-    max-width: 100%;
+    max-width: 12.5%;
     width: 100%;
     position: relative;
     display: flex;
@@ -113,16 +114,18 @@
 }
 
 #shopping-cart .list-item .item-wrapper {
-    max-width: 100%;
+    max-width: 80%;
     width: 100%;
-    display: grid;
-    grid-template-columns: 50% 25% 25%;
+    /* display: grid;
+    grid-template-columns: 50% 25% 25%; */
+    display: flex;
+    flex-direction: row;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 #shopping-cart .list-item .item-wrapper .wc-item {
-    max-width: 100%;
+    max-width: 50%;
     width: 100%;
 }
 
@@ -142,7 +145,7 @@
 }
 
 #shopping-cart .list-item .item-wrapper .wc-qty {
-    max-width: 100%;
+    max-width: 25%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -160,12 +163,50 @@
 }
 
 #shopping-cart .list-item .item-wrapper .wc-price {
-    max-width: 100%;
+    max-width: 25%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-qty-done {
+    max-width: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-qty-done span {
+    font-size: 14px;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-confirmation {
+    max-width: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-confirmation span {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-confirmation span.waiting {
+    background-color: #f1c40f;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-confirmation span.success {
+    background-color: #27ae60;
 }
 
 #shopping-cart .order-cart {
