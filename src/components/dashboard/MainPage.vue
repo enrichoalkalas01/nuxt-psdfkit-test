@@ -25,4 +25,5 @@
 
 <style>
     @import './dashboard.css';
+    @import './Chat/chat.css';
 </style>

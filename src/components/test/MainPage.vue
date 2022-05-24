@@ -1,55 +1,49 @@
 <template>
     <div>
-        <SmallComponent
-            v-for="product in products" :key="product._id"
-            v-bind:data="product"
-            v-bind:dataImage="product.images"
-            v-bind:configs="{ id: 201 }"
-        />
+        <div v-html="HTML"></div>
     </div>
 </template>
 
 <script>
-    import SmallComponent from './SmallComponents.vue'
-    let dataProducts = [
-        { _id: 1, images: '/assets/images/buku/image 22.png' },
-        { _id: 2, images: '/assets/images/buku/image 22 (1).png' },
-        { _id: 3, images: '/assets/images/buku/image 22 (2).png' },
-        { _id: 4, images: '/assets/images/buku/image 22 (3).png' },
-        { _id: 5, images: '/assets/images/buku/image 24.png' },
-        { _id: 6, images: '/assets/images/buku/image 24 (1).png' },
-        { _id: 7, images: '/assets/images/buku/image 24 (2).png' },
-        { _id: 8, images: '/assets/images/buku/image 24 (3).png' },
-        { _id: 9, images: '/assets/images/buku/image 26.png' },
-        { _id: 10, images: '/assets/images/buku/image 26 (1).png' },
-        { _id: 11, images: '/assets/images/buku/image 26 (2).png' },
-        { _id: 12, images: '/assets/images/buku/image 26 (3).png' },
-    ]
-
+    // import Axios from 'axios'
     export default {
         name: 'TestMain',
-        components: { SmallComponent },
-
-        // Component Did Mount
-        mounted() {
-            console.log(this.configs)
-            console.log(this.dataImage)
-            console.log(this.data)
-            console.log('data')
-        },
-
-        // State Management
         data() {
             return {
-                products: dataProducts
+                HTML: null
             }
         },
+        async mounted() {
+            // Axios.get('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/').then(response => {
+            //     console.log(response.data)
+            //     let item = response.data.querySelector('item')
+            //     // let html = ``
+            //     console.log(item)
+            // }).catch(err => {
+            //     console.log(err)
+            // })
 
-        // Methods / Actions
-        methods: {
-            test() {
-                console.log('from test methods')
-            }
+            fetch('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                console.log(data);
+                const items = data.querySelectorAll("item");
+                let html = ``;
+                items.forEach(el => {
+                    html += `
+                        <article>
+                            <h2>
+                                <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
+                                    ${el.querySelector("title").innerHTML}
+                                </a>
+                            </h2>
+                        </article>
+                    `;
+                });
+                // document.body.insertAdjacentHTML("beforeend", html);
+                this.HTML = html
+            });
         }
     }
 </script>

@@ -19,13 +19,14 @@ import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
 import PencarianLanjut from '../components/pencarian/MainDetail.vue'
-import Test from '../components/test/TestCarousel.vue'
+import Test from '../components/test/MainPage.vue'
 
 // Dashboard
 import Dashboard from '../components/dashboard/MainPage'
 import TopUp from '../components/payments/TopUp.vue'
 import Voucher from '../components/payments/Voucher.vue'
 import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
+import Chatting from '../components/dashboard/Chat/Chatting.vue'
 
 const routes = [
     // Login & Register
@@ -78,7 +79,8 @@ const routes = [
             { path: '/dashboard', name: 'dashboard', component: TopUp },
             { path: '/dashboard/topup', name: 'topup', component: TopUp },
             { path: '/dashboard/voucher', name: 'voucher', component: Voucher },
-            { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart }
+            { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart },
+            { path: '/dashboard/pesan', name: 'chatting', component: Chatting },
         ]
     },
 ]

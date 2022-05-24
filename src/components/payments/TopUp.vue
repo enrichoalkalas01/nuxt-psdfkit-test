@@ -35,12 +35,12 @@
                                             <option data-expiration-days="60" value="500000">500.000 poin (Rp 500.000)</option>
                                             <option data-expiration-days="60" value="1000000">1.000.000 poin (Rp 1.000.000)</option>
                                         </select>
-                                        <p>*Pembayaran melalui transfer akan dikonfirmasi admin pada jam kerja (Senin-Sabtu pukul 09:00-16:00)</p>
+                                        <!-- <p>*Pembayaran melalui transfer akan dikonfirmasi admin pada jam kerja (Senin-Sabtu pukul 09:00-16:00)</p> -->
                                     </div>
-                                    <div class="col-12 pt-2">
+                                    <!-- <div class="col-12 pt-2">
                                         <h6>Catatan Pembayaran</h6>
                                         <textarea name="catatan-payment" id="catatan-payment" class="form-control" cols="30" rows="10"></textarea>
-                                    </div>
+                                    </div> -->
                                     <div class="col-12 pt-4">
                                         <button class="form-control btn-primary" v-on:click="topup(this.$store.state.Login.UserData)">Bayar</button>
                                     </div>
