@@ -13,7 +13,7 @@
                     "
                 >
                     <div class="wb-image" v-if="chat.adminId !== ''">
-                        <div class="image"></div>
+                        <div class="image" style="background-image: url('https://www.kompasdata.id/Content/img/icons/cs.jpg')"></div>
                     </div>
                     <div class="wb-text">
                         <div class="wp-wb-text">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="wb-image" v-if="chat.adminId === ''">
-                        <div class="image"></div>
+                        <div class="image" style="background-image: url('https://www.kompasdata.id/Content/img/icons/man.png')"></div>
                     </div>
                 </div>
             </div>
