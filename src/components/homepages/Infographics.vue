@@ -71,6 +71,7 @@
 <style>
     .infografik-slide .item {
         height: 100%;
+        width: 70%;
         margin: auto;
         display: flex;
         align-items: center;

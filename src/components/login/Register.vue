@@ -74,16 +74,16 @@
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Jenis Kelamin</label>
-                                        <div class="my-2">
+                                        <div class="my-2" id="gender">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gender" id="gender" value="m" checked>
-                                                <label class="form-check-label" for="exampleRadios1">
+                                                <input class="form-check-input" type="radio" name="gender" value="m" checked>
+                                                <label class="form-check-label" for="gender">
                                                     Laki-laki
                                                 </label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gender" id="gender" value="f">
-                                                <label class="form-check-label" for="exampleRadios2">
+                                                <input class="form-check-input" type="radio" name="gender" value="f">
+                                                <label class="form-check-label" for="gender">
                                                     Perempuan
                                                 </label>
                                             </div>
@@ -146,10 +146,12 @@
                     },
                 }).then( Response => Response ).catch( Error => Error );
 
-                if (!getData.data) {
-                    alert("Something went wrong!")
-                } else {
+                if (getData.data) {
                     window.location.href = '/notification-activation'
+                } else if (getData.response.data.message === "Username or Email exist"){
+                    alert("Username atau Email sudah ada")
+                } else {
+                    alert("Something went wrong!")
                 }
             }
         }
