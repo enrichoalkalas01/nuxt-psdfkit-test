@@ -36,38 +36,41 @@
                             <div class="box-title my-2 p-3 p-md-4">
                                 <p>User Trial hanya bisa digunakan <b>selama 14 hari </b> semenjak aktivasi dan proses registrasi user berhasil.</p>
                             </div>
-                            <form class="text-start">
-                                <fieldset>
 
+                            <form v-on:submit.prevent="register" class="text-start">
+                                <fieldset>
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Nama Lengkap</label>
                                         <div class="my-2">
-                                            <input id="firstName" type="text" placeholder="Nama Anda" class="form-control">
+                                            <input id="firstName" type="text" placeholder="Nama Anda" class="form-control" required>
                                         </div>
                                     </div>
+
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Email</label>
                                         <div class="my-2">
-                                            <input id="email" type="email" placeholder="Email Anda" class="form-control">
+                                            <input id="email" type="email" placeholder="Email Anda" class="form-control" required>
                                         </div>
                                     </div>
+
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username</label>
                                         <div class="my-2">
-                                            <input id="username" type="text" placeholder="Username Anda" class="form-control">
+                                            <input id="username" type="text" placeholder="Username Anda" class="form-control" required>
                                         </div>
                                     </div>
+
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password (min. 6 karakter)</label>
                                         <div class="my-2">
-                                            <input id="password" type="password" placeholder="Password" class="form-control">
+                                            <input id="password" type="password" placeholder="Password" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Ulangi Password</label>
                                         <div class="my-2">
-                                            <input type="password" placeholder="Confirm Password" class="form-control">
+                                            <input type="password" placeholder="Confirm Password" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -76,7 +79,7 @@
                                         <label class="form-label my-2">Jenis Kelamin</label>
                                         <div class="my-2" id="gender">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="gender" value="m" checked>
+                                                <input class="form-check-input" type="radio" name="gender" value="m" required>
                                                 <label class="form-check-label" for="gender">
                                                     Laki-laki
                                                 </label>
@@ -96,9 +99,9 @@
 
                                     <div class="form-group row py-1">
                                         <div class="my-2">
-                                            <a v-on:click="register" class="btn btn-main">Daftar Sekarang</a>
+                                            <!-- <a v-on:click="register" class="btn btn-main">Daftar Sekarang</a> -->
+                                            <button class="btn btn-main" type="submit">Submit form</button>
                                         </div>
-
                                     </div>
                                 </fieldset>
                             </form>
