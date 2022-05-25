@@ -102,19 +102,28 @@
                                         <!-- <div class="col-12">
                                             <i class="fa-solid fa-left"></i> {{ Month }} <i class="fa-solid fa-right"></i>
                                         </div> -->
-                                        <div class="col-12 col-lg-12 title-month">
+
+                                        <!-- Testing -->
+                                        <table class="table">
+                                            <tbody>
+                                                <section v-for="(data, i) in tanggalPenting" :key="i" class="">
+                                                    <tr v-for="(event, j) in data.events" :key="j" >
+                                                        <td>{{ IndonesiaMonth[data.month-1] }}</td>
+                                                        <td>{{ data.day }}</td>
+                                                        <td>{{ event.note }}</td>
+                                                    </tr>
+                                                </section>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="col-12 col-lg-12 title-month d-flex justify-content-center">
                                             <nav aria-label="Page navigation example">
                                                 <ul class="pagination">
                                                     <li class="page-item">
-                                                        <a class="page-link prev" id="month-prev" v-on:click="prevMonth">Previous</a>
-                                                    </li>
-                                                    <li class="page-item c-m">
-                                                        <a class="page-link">
-                                                            {{ IndonesiaMonth[Month] }}
-                                                        </a>
+                                                        <a class="page-link prev" id="month-prev" v-on:click="prevWeek">Previous</a>
                                                     </li>
                                                     <li class="page-item next">
-                                                        <a class="page-link" id="month-next" v-on:click="nextMonth">Next</a>
+                                                        <a class="page-link" id="month-next" v-on:click="nextWeek">Next</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -150,24 +159,28 @@
             return {
                 Agenda: null,
                 ulangTahun: [],
+                tanggalPenting: [],
                 Month: 0,
+                week: 0,
                 IndonesiaMonth: [
                     'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
                 ],
                 YearData: new Date().getFullYear(),
-                NewAgendaData: []
+                // NewAgendaData: []
             }
         },
 
         async beforeMount() {
             const currentMonth = new Date().getMonth();
             this.Month = currentMonth
+
             this.Agenda = this.dataSet
 
             let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
             this.ulangTahun = dataUltah.data
             
-            this.getData()
+            let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+            this.tanggalPenting = dataTanggalPenting.data
         },
 
         mounted() {
@@ -179,10 +192,10 @@
         },
 
         methods: {
-            async getData() {
-                let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
-                this.NewAgendaData = dataAgenda.data
-            },
+            // async getData() {
+            //     let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
+            //     this.NewAgendaData = dataAgenda.data
+            // },
             
             nextMonth() {
                 if ( Number(this.Month) < 11 ) {
@@ -203,6 +216,31 @@
                     this.getData()
                 }
             },
+
+            async getData(){
+                let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                this.tanggalPenting = dataTanggalPenting.data
+            },
+
+            nextWeek() {
+                if ( Number(this.week) < 52) {
+                    this.week = Number(this.week) + 1
+                } else {
+                    this.week = 0
+                }
+
+                this.getData()
+            },
+
+            prevWeek() {
+                if ( Number(this.week) > -52) {
+                    this.week = Number(this.week) - 1
+                } else {
+                    this.week = 52
+                }
+
+                this.getData()
+            }
         }
     };
 </script>
