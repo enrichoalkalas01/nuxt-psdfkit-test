@@ -100,7 +100,7 @@
                                     <div class="form-group row py-1">
                                         <div class="my-2">
                                             <!-- <a v-on:click="register" class="btn btn-main">Daftar Sekarang</a> -->
-                                            <button class="btn btn-main" type="submit">Submit form</button>
+                                            <button class="btn btn-main" type="submit">Daftar Sekarang</button>
                                         </div>
                                     </div>
                                 </fieldset>

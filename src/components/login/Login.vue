@@ -13,20 +13,20 @@
                             <h2 class="title">Login</h2>
                             <p>Silahkan isikan data dibawah untuk melakukan Login</p>
 
-                            <form class="text-start">
+                            <form v-on:submit.prevent="login" class="text-start">
                                 <fieldset>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Username/Email</label>
                                         <div class="my-2">
-                                            <input id="username" v-on:keyup.enter="login" type="text" v-model="username" placeholder="Username/Email" class="form-control">
+                                            <input id="username" v-on:keyup.enter="login" type="text" v-model="username" placeholder="Username/Email" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password </label>
                                         <div class="my-2">
-                                            <input id="password" v-on:keyup.enter="login" type="password" v-model="password" placeholder="Password" class="form-control">
+                                            <input id="password" v-on:keyup.enter="login" type="password" v-model="password" placeholder="Password" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -46,7 +46,8 @@
 
                                     <div class="form-group row py-1">
                                         <div class="my-2">
-                                            <a v-on:click="login" class="btn btn-main">Masuk</a>
+                                            <!-- <a v-on:click="login" class="btn btn-main">Masuk</a> -->
+                                            <button class="btn btn-main" type="submit">Masuk</button>
                                         </div>
 
                                     </div>
