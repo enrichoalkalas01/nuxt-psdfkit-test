@@ -86,6 +86,7 @@
                             <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
                                 
                                 <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
+                                    
                                     <div class="content borderless info-ctn">
                                         <img :src="Data.picture" alt="" class="ctn-img">
                                         <h2 class="subtitle name">{{ Data.name }}</h2>
@@ -162,6 +163,10 @@
             const currentMonth = new Date().getMonth();
             this.Month = currentMonth
             this.Agenda = this.dataSet
+
+            let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
+            this.ulangTahun = dataUltah.data
+            
             this.getData()
         },
 
@@ -177,9 +182,6 @@
             async getData() {
                 let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
                 this.NewAgendaData = dataAgenda.data
-
-                let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
-                this.ulangTahun = dataUltah.data
             },
             
             nextMonth() {
