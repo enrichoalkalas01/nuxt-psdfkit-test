@@ -28,7 +28,7 @@
                 <li>
                     <a href="/dashboard/voucher" :class="Voucher ? 'nav-link text-white active' : 'nav-link text-white'">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Redem Voucher
+                        Redeem Voucher
                     </a>
                 </li>
                 <li>
