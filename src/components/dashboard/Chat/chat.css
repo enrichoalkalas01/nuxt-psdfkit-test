@@ -32,6 +32,7 @@
     justify-content: center;
     border-top: 1px solid #ced4da;
     padding-top: 1.5%;
+    flex-direction: column;
 }
 
 #chatting .send-chat-box .wrapper-scb {

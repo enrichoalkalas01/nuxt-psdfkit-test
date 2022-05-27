@@ -101,7 +101,8 @@
                         "amount": Number(document.querySelector("#nominal").value),
                         "expirationDays": Number(document.querySelector("#nominal").getAttribute("data-expiration-days")),
                         "paymentMethod": 0,
-                        "note": document.querySelector("#catatan-payment").value
+                        "note": "",
+                        // "note": document.querySelector("#catatan-payment").value
                     })
                 }
 

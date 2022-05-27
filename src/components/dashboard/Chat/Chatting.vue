@@ -70,26 +70,10 @@
             </div>
         </div>
         <div class="col-12 send-chat-box">
-            <div class="col-12 user-chat right-user" id="chatId-348">
-                <div class="wb-chat-box">
-                    <div class="wb-text">
-                        <div class="wp-wb-text">
-                            <div class="title">
-                                <h5>Testing Message</h5>
-                            </div>
-                            <div class="message">
-                                <span>ini parent nya...</span>
-                            </div>
-                            <div class="date">
-                                <span>2022-05-24</span>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="wb-image">
-                        <div class="image" style="background-image: url(&quot;https://www.kompasdata.id/Content/img/icons/man.png&quot;);"></div>
-                    </div>
-                </div>
+            <div class="wrapper-replay-chat">
+                <span>Re From</span>
             </div>
+
             <div class="wrapper-scb">
                 <textarea name="" id="" class="form-control" placeholder="Ketik untuk mengirim pesan..."></textarea>
                 <i id="send-chat" class="fa-solid fa-paper-plane"></i>
