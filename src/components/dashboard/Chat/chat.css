@@ -105,15 +105,19 @@
 }
 
 #chatting .list-chat-box .wrapper-lcb .user-chat {
-    display: flex;
-    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ced4da;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 5px;
+    border: 1px solid #ced4da;
     box-shadow: 3px 3px 10px rgb(206, 212, 218, 25%);
+    z-index: 1;
+}
+
+#chatting .list-chat-box .wrapper-lcb .user-chat .wb-chat-box {
+    display: flex;
+    align-items: center;
 }
 
 #chatting .list-chat-box .wrapper-lcb .user-chat .wb-image {
@@ -157,4 +161,32 @@
     padding-left: 2.5%;
     padding-right: 2.5%;
     text-align: right;
+}
+
+#chatting .list-chat-box .wrapper-lcb .wb-replay {
+    width: 100%;
+    border: 1px solid #ced4da;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+    z-index: 5;
+    cursor: pointer;
+}
+
+#chatting .list-chat-box .wrapper-lcb .user-chat .wb-replay .wb-image .image {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+#chatting .list-chat-box .wrapper-lcb .user-chat .wb-replay .wb-text .title h6 {
+    margin: 0;
+}
+
+#chatting .list-chat-box .wrapper-lcb .user-chat .wb-replay .wb-text .message p {
+    font-size: 12px;
+    margin: 0;
+    margin-top: 2.5px;
 }
