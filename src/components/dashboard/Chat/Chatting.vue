@@ -66,17 +66,26 @@
                             <div class="image" style="background-image: url('https://www.kompasdata.id/Content/img/icons/man.png')"></div>
                         </div>
                     </div>
+                    <div class="wb-icon">
+                        <i class="fa-solid fa-reply" v-on:click="addReplayedData(`chatId-${ chat.mainChat.id }`)"></i>
+                        <span v-on:click="addReplayedData(chat.mainChat.id)">Replay</span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-12 send-chat-box">
-            <div class="wrapper-replay-chat">
-                <span>Re From</span>
+            <div class="wrapper-replay-chat" id="ready-replay">
+                <!-- <span>Re From : <span>sadlaskdnalskdn</span></span> -->
             </div>
 
             <div class="wrapper-scb">
-                <textarea name="" id="" class="form-control" placeholder="Ketik untuk mengirim pesan..."></textarea>
-                <i id="send-chat" class="fa-solid fa-paper-plane"></i>
+                <button class="form-control mb-2" v-if="this.ReadyReplayData" v-on:click="removeReplayedData">Clear Replay Data</button>
+                <input placeholder="title message..." type="text" name="title-chat" id="title-chat" class="form-control mb-2">
+                <textarea name="message-chat" id="message-chat" class="form-control mb-2" placeholder="Ketik untuk mengirim pesan..."></textarea>
+                <button class="form-control" v-on:click="sendChat">
+                    <span>Send Pesan</span>
+                    <i id="send-chat" class="fa-solid fa-paper-plane"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -89,28 +98,33 @@
         data() {
             return {
                 ChatData: [],
+                ReadyReplayData: null,
             }
         },
         async mounted() {
-            let configChat = {
-                url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
-                method: 'get',
-                headers: {
-                    'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`
-                }
-            }
-
-            await Axios(configChat).then(response => {
-                // this.getReplayChat(response.data)
-                // console.log(this.getReplayChat(response.data))
-                // this.ChatData = response.data
-                this.ChatData = this.getReplayChat(response.data)
-                
-            }).catch(err => {
-                console.log(err)
-            })
+            this.getChat()
         },
         methods: {
+            async getChat() {
+                let configChat = {
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
+                    method: 'get',
+                    headers: {
+                        'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`
+                    }
+                }
+
+                await Axios(configChat).then(response => {
+                    // this.getReplayChat(response.data)
+                    // console.log(this.getReplayChat(response.data))
+                    // this.ChatData = response.data
+                    this.ChatData = this.getReplayChat(response.data)
+                    
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
+
             getReplayChat(paramChats) {
                 return paramChats.map((data, i, arrData) => {
                     if ( data.id !== data.parentId ) return { mainChat: arrData[i], parentChat: arrData.filter(x => data.parentId === x.id ) }
@@ -132,7 +146,69 @@
                 });
             },
 
-            // sendChat
+            addReplayedData(params) {
+                let replayedData = document.querySelector("#ready-replay")
+                replayedData.innerHTML = ''
+                let chatData = this.ChatData.filter(x => x.mainChat.id === Number(params))[0]
+                replayedData.innerHTML = `<span>Balas Untuk : ${ chatData.mainChat.title }</span>`
+                this.ReadyReplayData = chatData
+            },
+
+            removeReplayedData() {
+                let replayedData = document.querySelector("#ready-replay")
+                replayedData.innerHTML = ''
+                this.ReadyReplayData = null
+            },
+
+            async sendChat() {
+                let titleChat = document.querySelector('#title-chat')
+                let messageChat = document.querySelector("#message-chat")
+                let configSendChat
+                if ( !this.ReadyReplayData ) {
+                    configSendChat = {
+                        url: 'https://dev-be.kompasdata.id/api/Messages',
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
+                            'Content-Type': 'application/json'
+                        },
+                        data: JSON.stringify({
+                            "userId": this.$store.state.Login.UserData.id,
+                            "adminId": "",
+                            "parentID": 0,
+                            "title": document.querySelector("#title-chat").value,
+                            "message": document.querySelector("#message-chat").value
+                        })
+                    }
+                } else {
+                    configSendChat = {
+                        url: 'https://dev-be.kompasdata.id/api/Messages',
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
+                            'Content-Type': 'application/json'
+                        },
+                        data: JSON.stringify({
+                            "userId": this.$store.state.Login.UserData.id,
+                            "adminId": "",
+                            "parentID": this.ReadyReplayData.mainChat.id,
+                            "title": document.querySelector("#title-chat").value,
+                            "message": document.querySelector("#message-chat").value
+                        })
+                    }
+                }
+
+                await Axios(configSendChat).then(response => {
+                    if ( response ) {
+                        titleChat.value = ''
+                        messageChat.value = ''
+                        this.removeReplayedData()
+                        this.getChat()
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
         }
     }
 </script>
