@@ -38,6 +38,12 @@ const Tools = {
                     s[1] += new Array(prec - s[1].length + 1).join('0');
                 }
                 return s.join(dec);
+            },
+            GetYear: (dateValue) => {
+                var date = new Date(dateValue);
+                var year = date.getFullYear();
+
+                return year;
             }
         }
     },
