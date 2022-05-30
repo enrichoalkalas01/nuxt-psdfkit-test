@@ -111,29 +111,8 @@
         },
 
         async mounted() {
-            let config = {
-                url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
-                headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
-            }
-            
-            let saldo = await Axios(config)
-            this.saldoUser = 'Rp.' + this.$store.state.Tools.PriceFormat(saldo.data.credit_balance, 2, ',', '.')
-            // var line = document.getElementById("line")
-            // var login = document.getElementById("login")
-            // var register = document.getElementById("register")
-
-            // if (this.$store.state.Login.LoginStatus) {
-            //     line.style.visibility = "hidden";
-            //     login.style.display = "none";
-            //     register.style.display = "none";
-            // } else{
-            //     line.style.display = "block";
-            //     login.style.display = "block";
-            //     register.style.display = "block";
-            // }
+            if ( this.$store.state.Login.LoginStatus ) this.getSaldo()
         },
-
-        
 
         methods: {
             searchBar: function() {
@@ -185,9 +164,15 @@
                 }
             },
 
-            // getSaldo: async () => {
+            async getSaldo() {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
                 
-            // }
+                let saldo = await Axios(config)
+                this.saldoUser = 'Rp.' + this.$store.state.Tools.PriceFormat(saldo.data.credit_balance, 2, ',', '.')
+            }
         },
     }
 </script>
