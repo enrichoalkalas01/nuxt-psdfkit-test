@@ -119,9 +119,7 @@
 
                 console.log(getData)
 
-                if (!getData.data) {
-                    alert("Something wrong")
-                } else {
+                if (getData.data) {
                     this.$store.commit('setEncrypt', JSON.stringify(getData.data))
                     const data = this.$store.state.Login.LoginData
 
@@ -138,6 +136,10 @@
                     });
 
                     window.location.href = '/'
+                } else if (getData.response.data.message == "User/Password tidak cocok.") {
+                    alert("Username/Password tidak cocok!")
+                } else {
+                    alert("Something wrong")
                 }
             }
         }

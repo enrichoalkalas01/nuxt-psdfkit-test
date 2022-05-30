@@ -33,7 +33,7 @@
                             role="tabpanel"
                             :aria-labelledby="`buku-Tabs0${ i + 1 }`"
                         >
-                            <div class="buku-card">
+                            <div class="buku-card" v-if="bukuData.type_tab === 'Topik Hangat'">
                                 <BukuCard 
                                     v-for="buku in bukuData.data" :key="buku.id"
                                     v-bind:data="buku"
@@ -43,7 +43,31 @@
                                     v-bind:dataDesc="buku.excerpt"
                                 />
                             </div>
+
+                            <div class="buku-card" v-if="bukuData.type_tab === 'Penerbit Buku Kompas'">
+                                <BukuCard
+                                    v-for="pbk in dataBukuPBK" :key="pbk.id"
+                                    v-bind:data="pbk"
+                                    v-bind:dataId="pbk.product_id"
+                                    v-bind:dataImage="pbk.cover"
+                                    v-bind:dataTitle="pbk.title"
+                                    v-bind:dataDesc="pbk.description"
+                                />
+                            </div>
+
+                            <div class="buku-card" v-if="bukuData.type_tab === 'Perpustakaan'">
+                                <BukuCard
+                                    v-for="perpus in dataBukuPerpustakaan" :key="perpus.id"
+                                    v-bind:data="perpus"
+                                    v-bind:dataId="perpus.id"
+                                    v-bind:dataImage="`${ this.$store.state.Tools.GetUrlFile + perpus.cover }`"
+                                    v-bind:dataTitle="perpus.judul"
+                                    v-bind:dataDesc="perpus.sinopsis"
+                                />
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
 
@@ -56,6 +80,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import BukuCard from './BukuCard.vue'
 
     export default {
@@ -73,11 +98,19 @@
         data () {
             return {
                 bukus: null,
+                dataBukuPBK: [],
+                dataBukuPerpustakaan: [],
             }
         },
 
-        beforeMount() {
+        async beforeMount() {
             this.bukus = this.dataSet
+
+            let dataPBK = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/geraipbk')
+            this.dataBukuPBK = dataPBK.data
+
+            let dataPerpustakaan = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
+            this.dataBukuPerpustakaan = dataPerpustakaan.data
         },
 
         // Component Did Mounted
