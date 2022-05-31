@@ -116,8 +116,8 @@
 
                                                 <tr v-for="(data, i) in tanggalPenting" :key="i">
                                                     <section v-for="(event, j) in data.events" :key="j" >
-                                                        <td><a href="">{{ IndonesiaMonth[data.month-1] }}</a></td>
                                                         <td><a href="">{{ data.day }}</a></td>
+                                                        <td><a href="">{{ IndonesiaMonth[data.month-1] }}</a></td>
                                                         <td>&nbsp;</td>
                                                         <td>Pada tahun {{ this.$store.state.Tools.GetYear(event.date) }}, {{ event.note }}</td>
                                                     </section>
