@@ -70,9 +70,7 @@
         // Component Did Mounted
         async mounted() {
             this.statistiks = this.dataSet
-            console.log(JSON.parse(JSON.stringify(this.statistiks)));
-
-            
+            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         // Component Did Update
@@ -82,8 +80,7 @@
         },
 
         watch: {
-            $route(to, from) {
-                console.log(from)
+            $route(to) {
                 let dataHash = to.hash
                 if ( dataHash.includes('data-Tabs') ) {
                     document.querySelector('#myTab2 .nav-item .nav-link.active').classList.remove('active')

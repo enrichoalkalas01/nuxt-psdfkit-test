@@ -6,8 +6,8 @@
                     <h2 class="tag">BERITA TERKINI</h2>
                 </div>
                 <div class="col-12">
-                    <div class="row">
-                        <div v-for="berita in beritas.data" :key="berita.id" class="col-12 col-md-6 my-3">
+                    <div v-html="HTMLItems ? HTMLItems : ''" class="row"></div>
+                        <!-- <div v-for="berita in beritas.data" :key="berita.id" class="col-12 col-md-6 my-3">
                             <div class="content">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -27,8 +27,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -42,7 +42,8 @@
         ],
         data () {
             return {
-                beritas: null
+                beritas: null,
+                HTMLItems: null,
             }
         },
         beforeMount() {
@@ -50,9 +51,61 @@
         },
         mounted() {
             this.beritas = this.dataSet
+            this.getData()
         },
         updated() {
             this.beritas = this.dataSet
         },
+
+        methods: {
+            getData() {
+                fetch('https://cds.kompas.id/rss/v1/article/list/category/bebas-akses')
+                .then(response => response.text())
+                .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                .then(data => {
+                    const items = data.querySelectorAll("item");
+                    let html = ``;
+                    items.forEach((el, i) => {
+                        if ( i < 5 ) {
+                            html += `
+                                <div class="col-12 col-md-6 my-3">
+                                    <div class="content">
+                                        <div class="row">
+
+                                            <div class="col-sm-6">
+                                                <a :href="${el.querySelector("link").innerHTML}">
+                                                    <img src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="desc pt-3">
+                                                    <h3 class="subtitle"><a :href="${el.querySelector("link").innerHTML}">${el.querySelector("title").innerHTML}</a></h3>
+                                                    <p>${el.querySelector("pubDate").innerHTML}</p>
+                                                    <a :href="${el.querySelector("link").innerHTML}" class="more-btn">Baca Sekarang</a>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12 mt-3">
+                                                <p class="short-text three">${el.querySelector("description").innerHTML}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                        }
+                    })
+                    this.HTMLItems = html
+                    /*
+                    
+                        <div class="col-sm-6">
+                            <a :href="${el.querySelector("link").innerHTML}">
+                                <img :src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
+                            </a>
+                        </div>
+                    
+                    */
+                });
+            }
+        }
     }
 </script>
