@@ -66,7 +66,7 @@
                     const items = data.querySelectorAll("item");
                     let html = ``;
                     items.forEach((el, i) => {
-                        if ( i < 5 ) {
+                        if ( i < 4 ) {
                             html += `
                                 <div class="col-12 col-md-6 my-3">
                                     <div class="content">
