@@ -25,7 +25,7 @@
                                     <p>Halaman: {{ artikelDetail.published_pages[0].number }}</p>
                                     <p>Penulis: {{ artikelDetail.authors }}</p>
                                     <div class="db-price rounded">
-                                        <a href="pesan-pdf.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan PDF</a>
+                                        <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +72,7 @@
                                 </p>
                                 <!-- <div v-html="`${ artikelDetail.body }`" /> -->
                             </div>
+                            <!-- <div class="db-price rounded" v-if="artikelDetail.old_tark_id > 0"> -->
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
                                     <li>Penggunaan artikel harus mengajukan izin kepada Kompas.</li>
@@ -138,12 +139,13 @@
                 token: '',
                 ConfigApi: {
                     headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                        Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`,
                     },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
                 }
             }
         },
+
         async beforeMount() {
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
 
@@ -152,6 +154,25 @@
             } else if (dataArtikel.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&currentpage=1&orderdirection=desc'
             }
+        },
+
+        methods: {
+            async downloadPDF() {
+                console.log(this.artikelDetail)
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.published_pages[0].id.substring(3, this.artikelDetail.published_pages[0].id.length) }`,
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`
+                    }
+                }
+
+                await Axios(config).then(response => {
+                    console.log(response)
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
         }
     }
 </script>
