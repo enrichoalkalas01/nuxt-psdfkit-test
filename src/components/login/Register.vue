@@ -40,9 +40,16 @@
                             <form v-on:submit.prevent="register" class="text-start">
                                 <fieldset>
                                     <div class="form-group py-1">
-                                        <label class="form-label my-2">Nama Lengkap</label>
+                                        <label class="form-label my-2">Nama Depan</label>
                                         <div class="my-2">
-                                            <input id="firstName" type="text" placeholder="Nama Anda" class="form-control" required>
+                                            <input id="firstName" type="text" placeholder="Nama Depan Anda" class="form-control" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group py-1">
+                                        <label class="form-label my-2">Nama Belakang</label>
+                                        <div class="my-2">
+                                            <input id="lastName" type="text" placeholder="Nama Belakang Anda" class="form-control" required>
                                         </div>
                                     </div>
 
@@ -63,14 +70,14 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password (min. 6 karakter)</label>
                                         <div class="my-2">
-                                            <input id="password" type="password" placeholder="Password" class="form-control" required>
+                                            <input id="password" type="password" placeholder="Password" class="form-control" minlength="6" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Ulangi Password</label>
                                         <div class="my-2">
-                                            <input type="password" placeholder="Confirm Password" class="form-control" required>
+                                            <input id="confPassword" type="password" placeholder="Confirm Password" class="form-control" minlength="6" required>
                                         </div>
                                     </div>
 
@@ -129,33 +136,41 @@
         methods: {
             async register(){
                 var firstName = document.querySelector("#firstName").value
+                var lastName = document.querySelector("#lastName").value
                 var username = document.querySelector("#username").value
                 var password = document.querySelector("#password").value
+                var confPassword = document.querySelector("#confPassword").value
                 var email = document.querySelector("#email").value
                 var gender = document.querySelector("#gender").value
 
-                let getData = await Axios({
-                    method: 'POST',
-                    url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
-                    data: JSON.stringify({
-                        'firstName' : firstName,
-                        'username' : username,
-                        'password' : password,
-                        'email' : email,
-                        'gender' : gender,
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json' 
-                    },
-                }).then( Response => Response ).catch( Error => Error );
-
-                if (getData.data) {
-                    window.location.href = '/notification-activation'
-                } else if (getData.response.data.message === "Username or Email exist"){
-                    alert("Username atau Email sudah ada")
+                if (confPassword != password) {
+                    alert("BEDA COY")
                 } else {
-                    alert("Something went wrong!")
+                    let getData = await Axios({
+                        method: 'POST',
+                        url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
+                        data: JSON.stringify({
+                            'firstName' : firstName,
+                            'lastName' : lastName,
+                            'username' : username,
+                            'password' : password,
+                            'email' : email,
+                            'gender' : gender,
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json' 
+                        },
+                    }).then( Response => Response ).catch( Error => Error );
+    
+                    if (getData.data) {
+                        window.location.href = '/notification-activation'
+                    } else if (getData.response.data.message === "Username or Email exist"){
+                        alert("Username atau Email sudah ada")
+                    } else {
+                        alert("Something went wrong!")
+                    }
                 }
+
             }
         }
     }
