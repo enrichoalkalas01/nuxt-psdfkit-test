@@ -24,9 +24,6 @@
                                     <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail.published_pages[0].date.substring(0, 10)) }}</p>
                                     <p>Halaman: {{ artikelDetail.published_pages[0].number }}</p>
                                     <p>Penulis: {{ artikelDetail.authors }}</p>
-                                    <div class="db-price rounded" v-if="artikelDetail.old_tark_id > 0">
-                                        <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,6 +81,9 @@
                                     <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
                                 </ol>
                             </div>
+                        </div>
+                        <div class="db-price rounded" v-if="artikelDetail.old_tark_id > 0">
+                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
 
         async beforeMount() {
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-            console.log(dataArtikel)
+            
             if (dataArtikel.data) {
                 this.artikelDetail = dataArtikel.data
             } else if (dataArtikel.response.status == '401') {
