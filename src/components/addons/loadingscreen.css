@@ -1,0 +1,49 @@
+#loading-screen {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999999999;
+}
+
+#loading-screen .wrapper-lc {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(25,25,25,0.90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-screen .wrapper-lc .box-data {
+    max-width: 300px;
+    width: 100%;
+    max-height: 300px;
+    height: 100%;
+    color: inherit;
+    /* background-color: #fff; */
+    background-color: #f1f2f3;
+    border-radius: 10px;
+    padding: 2.5%;
+}
+
+#loading-screen .wrapper-lc .box-data .box-image {
+    width: 100%;
+    height: 90%;
+}
+
+#loading-screen .wrapper-lc .box-data .box-image .image {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/loading-screen-one.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#loading-screen .wrapper-lc .box-data .box-message {
+    width: 100%;
+    height: 10%;
+    font-size: 14px !important;
+    text-align: center;
+}
