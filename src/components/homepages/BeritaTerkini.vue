@@ -73,21 +73,22 @@
                                         <div class="row">
 
                                             <div class="col-sm-6">
-                                                <a :href="${el.querySelector("link").innerHTML}">
+                                                <a href="${el.querySelector("link").innerHTML}">
                                                     <img src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="desc pt-3">
-                                                    <h3 class="subtitle"><a :href="${el.querySelector("link").innerHTML}">${el.querySelector("title").innerHTML}</a></h3>
+                                                    <h3 class="subtitle"><a href="${el.querySelector("link").innerHTML}">${el.querySelector("title").innerHTML}</a></h3>
                                                     <p>${el.querySelector("pubDate").innerHTML}</p>
-                                                    <a :href="${el.querySelector("link").innerHTML}" class="more-btn">Baca Sekarang</a>
+                                                    <a href="${el.querySelector("link").innerHTML}" class="more-btn">Baca Sekarang</a>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-12 mt-3">
                                                 <p class="short-text three">${el.querySelector("description").innerHTML}</p>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -95,15 +96,6 @@
                         }
                     })
                     this.HTMLItems = html
-                    /*
-                    
-                        <div class="col-sm-6">
-                            <a :href="${el.querySelector("link").innerHTML}">
-                                <img :src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
-                            </a>
-                        </div>
-                    
-                    */
                 });
             }
         }
