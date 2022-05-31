@@ -81,13 +81,12 @@
             }
         },
         async beforeMount() {
-            try {
-                let dataInfografik = await Axios(this.ConfigApi)
-                this.infografikDetail = dataInfografik.data
+            let dataInfografik = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
 
-                console.log(this.infografikDetail);
-            } catch (error) {
-                console.log(error.message)
+            if (dataInfografik.data) {
+                this.infografikDetail = dataInfografik.data
+            } else if (dataInfografik.response.status == '401') {
+                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc'
             }
         }
     }

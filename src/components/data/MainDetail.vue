@@ -103,13 +103,12 @@
             }
         },
         async beforeMount() {
-            try {
-                let dataData = await Axios(this.ConfigApi)
-                this.dataDetail = dataData.data
+            let dataData = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
 
-                console.log(dataData);
-            } catch(error){
-                console.log(error.message);
+            if (dataData.data) {
+                this.dataDetail = dataData.data
+            } else if (dataData.response.status == '401') {
+                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc'
             }
         }
     }

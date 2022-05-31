@@ -145,18 +145,12 @@
             }
         },
         async beforeMount() {
-            try {
-                // let encryptDataToken = this.$store.state.Login.LoginData
-                // let dataToken = this.$store.commit('getEncrypt', encryptDataToken)
+            let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
 
-                // console.log(encryptDataToken);
-
-                let dataArtikel = await Axios(this.ConfigApi)
+            if (dataArtikel.data) {
                 this.artikelDetail = dataArtikel.data
-
-                console.log(this.artikelDetail);
-            } catch (error) {
-                console.log(error.message)
+            } else if (dataArtikel.response.status == '401') {
+                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&currentpage=1&orderdirection=desc'
             }
         }
     }

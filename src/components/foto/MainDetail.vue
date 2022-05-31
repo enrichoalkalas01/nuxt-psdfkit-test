@@ -205,13 +205,12 @@
             }
         },
         async beforeMount() {
-            try {
-                let dataFoto = await Axios(this.ConfigApi)
-                this.fotoDetail = dataFoto.data
+            let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
 
-                console.log(this.fotoDetail);
-            } catch (error) {
-                console.log(error.message)
+            if (dataFoto.data) {
+                this.fotoDetail = dataFoto.data
+            } else if (dataFoto.response.status == '401') {
+                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
         },
 
