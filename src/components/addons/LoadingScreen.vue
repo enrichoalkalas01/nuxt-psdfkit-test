@@ -18,7 +18,7 @@
         name: "LoadingScreen",
         data() {
             return {
-                statusScreen: true,
+                statusScreen: false,
                 textMessage: 'Loading....',
             }
         }
