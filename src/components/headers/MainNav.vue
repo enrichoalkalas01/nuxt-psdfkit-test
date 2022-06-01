@@ -39,7 +39,7 @@
                         <div class="user-box">
                             <div class="saldo" v-if="this.$store.state.Login.LoginStatus">
                                 <h6>Saldo</h6>
-                                <span>{{ saldoUser }}</span>
+                                <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
                             </div>
                             <a href="#" class="cart d-none d-md-block">
                                 <i class="fas fa-shopping-cart"></i>
@@ -103,7 +103,16 @@
             '$store.state.Search.SearchKey': function() {
                 this.searchKey !== this.$store.state.Search.SearchKey ?
                 this.searchKey = this.$store.state.Search.SearchKey : this.searchKey
-            }
+            },
+
+            // saldoUser(newVal, oldVal) {
+            //     if ( newVal !== oldVal || newVal === oldVal ) {
+            //         let saldo = this.saldoUser
+            //         this.saldoUser = saldo
+            //         console.log(this.saldoUser)
+            //         this.getSaldo()
+            //     }
+            // }
         },
 
         beforeMount() {
@@ -171,7 +180,7 @@
                 }
                 
                 let saldo = await Axios(config)
-                this.saldoUser = 'Rp.' + this.$store.state.Tools.PriceFormat(saldo.data.credit_balance, 2, ',', '.')
+                this.saldoUser = saldo.data.credit_balance
             }
         },
     }

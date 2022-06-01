@@ -262,3 +262,34 @@
     color: #0b5ed7;
     font-weight: 1000;
 } */
+
+#dashboard #dashboard-home .main-content .box-content .content {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#dashboard #dashboard-home .box-images {
+    max-width: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dashboard #dashboard-home .box-images .images {
+    width: 125px;
+    height: 125px;
+    background-color: #dedede;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+#dashboard #dashboard-home .box-text a {
+    background-color: #0b5ed7;
+}
+
+#dashboard #dashboard-home .box-text a:hover {
+    background-color: #0b5ed7;
+}

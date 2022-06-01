@@ -23,6 +23,7 @@ import Test from '../components/test/MainPage.vue'
 
 // Dashboard
 import Dashboard from '../components/dashboard/MainPage'
+import HomepageDashboard from '../components/dashboard/Dashboard.vue'
 import TopUp from '../components/payments/TopUp.vue'
 import Voucher from '../components/payments/Voucher.vue'
 import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
@@ -76,7 +77,7 @@ const routes = [
     {
         path: '/dashboard', name: 'dashboard', component: Dashboard,
         children: [
-            { path: '/dashboard', name: 'dashboard', component: TopUp },
+            { path: '/dashboard', name: 'dashboard', component: HomepageDashboard },
             { path: '/dashboard/topup', name: 'topup', component: TopUp },
             { path: '/dashboard/voucher', name: 'voucher', component: Voucher },
             { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart },
