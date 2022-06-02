@@ -1,5 +1,6 @@
 <template>
     <section>
+        <LoadingScreen :screenStatus="LoadingScreen" />
         <div
             class="wrapper-main-page"
             v-for="(mainpage, i) in MainPageData.mainpage"
@@ -32,10 +33,13 @@
     import DataStatistik from './DataStatistik.vue'
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
-
+    
+    // Addons
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
         name: 'MainPage',
         components: {
+            LoadingScreen,
             Banner,
             Pengumuman,
             SekilasInfo,
@@ -50,20 +54,14 @@
 
         data() {
             return {
+                LoadingScreen: true,
                 MainPageData: DefaultDataJSON,
-                ConfigApiMainPage: {
-                    url: 'https://dev-be.kompasdata.id/api/Configs/mainpage'
-                }
+                ConfigApiMainPage: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' }
             }
         },
 
         async beforeMount() {
-            try {
-                let Data = await Axios(this.ConfigApiMainPage)
-                this.MainPageData = JSON.parse(Data.data.value)
-            } catch (error) {
-                console.log(error.message)
-            }
+            this.getData()
         },
 
         async mounted() {
@@ -71,6 +69,17 @@
         },
 
         methods: {
+            async getData() {
+                try {
+                    let Data = await Axios(this.ConfigApiMainPage)
+                    this.MainPageData = JSON.parse(Data.data.value)
+                    this.LoadingScreen = false
+                } catch (error) {
+                    console.log(error.message)
+                    this.LoadingScreen = false
+                }
+            },
+
             setDynamicComponent(value) {
                 if (value === 'banner') return 'Banner'
                 if (value === 'pengumuman') return 'Pengumuman'

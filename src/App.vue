@@ -1,6 +1,5 @@
 <template>
     <section>
-        <LoadingScreen />
         <section>
             <TopBarReflection />
         </section>
@@ -22,18 +21,19 @@
     import TopNav from './components/headers/TopNav.vue'
     import MainNav from './components/headers/MainNav.vue'
     import Footer from './components/headers/Footer.vue'
-    
-    // Addons
-    import LoadingScreen from './components/addons/LoadingScreen.vue'
 
     export default {
         name: 'App',
-        components: { TopNav, MainNav, Footer, TopBarReflection, LoadingScreen },
+        components: { TopNav, MainNav, Footer, TopBarReflection },
     }
 </script>
 
 <style>
     @import '/assets/css/main.css';
+    
+    body {
+        overflow-x: hidden;
+    }
 
     #content-box {
         padding-top: 10%;

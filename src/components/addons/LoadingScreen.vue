@@ -16,11 +16,19 @@
 <script>
     export default {
         name: "LoadingScreen",
+        props: ['screenStatus'],
         data() {
             return {
                 statusScreen: false,
                 textMessage: 'Loading....',
             }
+        },
+        mounted() {
+            this.statusScreen = this.screenStatus
+            
+            let body = document.querySelector("body")
+            if ( this.statusScreen ) body.style.overflow = 'hidden'
+            else body.style.overflow = 'unset'
         }
     }
 </script>
