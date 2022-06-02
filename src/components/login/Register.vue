@@ -37,7 +37,9 @@
                                 <p>User Trial hanya bisa digunakan <b>selama 14 hari </b> semenjak aktivasi dan proses registrasi user berhasil.</p>
                             </div>
 
-                            <form v-on:submit.prevent="register" class="text-start">
+                            <form v-on:submit.prevent="register" class="text-start"
+                                oninput='confPassword.setCustomValidity(confPassword.value != password.value ? "Passwords must match" : "")'
+                            >
                                 <fieldset>
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Nama Depan</label>
@@ -70,14 +72,14 @@
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Password (min. 6 karakter)</label>
                                         <div class="my-2">
-                                            <input id="password" type="password" placeholder="Password" class="form-control" minlength="6" required>
+                                            <input id="password" type="password" name="password" placeholder="Password" class="form-control" minlength="6" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group py-1">
                                         <label class="form-label my-2">Ulangi Password</label>
                                         <div class="my-2">
-                                            <input id="confPassword" type="password" placeholder="Confirm Password" class="form-control" minlength="6" required>
+                                            <input id="confPassword" type="password" name="confPassword" placeholder="Confirm Password" class="form-control" minlength="6" data-bv-identical="true" data-bv-identical-field="password" data-bv-identical-message="The password and its confirm are not the same">
                                         </div>
                                     </div>
 
@@ -139,36 +141,31 @@
                 var lastName = document.querySelector("#lastName").value
                 var username = document.querySelector("#username").value
                 var password = document.querySelector("#password").value
-                var confPassword = document.querySelector("#confPassword").value
                 var email = document.querySelector("#email").value
                 var gender = document.querySelector("#gender").value
 
-                if (confPassword != password) {
-                    alert("BEDA COY")
+                let getData = await Axios({
+                    method: 'POST',
+                    url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
+                    data: JSON.stringify({
+                        'firstName' : firstName,
+                        'lastName' : lastName,
+                        'username' : username,
+                        'password' : password,
+                        'email' : email,
+                        'gender' : gender,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                }).then( Response => Response ).catch( Error => Error );
+
+                if (getData.data) {
+                    window.location.href = '/notification-activation'
+                } else if (getData.response.data.message === "Username or Email exist"){
+                    alert("Username atau Email sudah ada")
                 } else {
-                    let getData = await Axios({
-                        method: 'POST',
-                        url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
-                        data: JSON.stringify({
-                            'firstName' : firstName,
-                            'lastName' : lastName,
-                            'username' : username,
-                            'password' : password,
-                            'email' : email,
-                            'gender' : gender,
-                        }),
-                        headers: {
-                            'Content-Type': 'application/json' 
-                        },
-                    }).then( Response => Response ).catch( Error => Error );
-    
-                    if (getData.data) {
-                        window.location.href = '/notification-activation'
-                    } else if (getData.response.data.message === "Username or Email exist"){
-                        alert("Username atau Email sudah ada")
-                    } else {
-                        alert("Something went wrong!")
-                    }
+                    alert("Something went wrong!")
                 }
 
             }
