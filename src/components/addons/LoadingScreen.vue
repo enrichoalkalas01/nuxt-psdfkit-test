@@ -28,6 +28,7 @@
             console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) body.style.overflow = 'hidden'
+            else body.style.overflow = 'unset'
             body.style.overflow = 'unset'
         },
     }
