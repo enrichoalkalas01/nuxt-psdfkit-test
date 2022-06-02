@@ -51,7 +51,7 @@
                                             <!-- <img :src="Data.image_source" alt="" class="ctn-img mb-3"/> -->
                                             <h2 class="subtitle">{{ Data.title }}</h2>
                                             <p class="periode">
-                                                <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
+                                                <span class="date-time"><i class="fas fa-clock"></i> {{ this.$store.state.Tools.ChangeDateString(Data.date.substring(0, 10)) }}</span>
                                             </p>
                                         <!-- </div> -->
                                     </a>
