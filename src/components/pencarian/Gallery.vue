@@ -1,5 +1,6 @@
 <template>
     <div class="row pt-3 line-bot full">
+        <LoadingScreen />
         <div class="wrapper-gallery col-12">
             <div class="row box-gallery">
                 <div 
@@ -28,9 +29,11 @@
 
 <script>
     import Axios from 'axios'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
         name: 'Gallery',
         components: {
+            LoadingScreen
         },
         props: [],
         data() {
@@ -57,6 +60,7 @@
                 data: this.configPhotosData
             })
 
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
 
@@ -73,7 +77,7 @@
                     this.fotos = DataPhotos.data
                     this.total_search = this.fotos.total
 
-                    console.log(this.fotos);
+                    if ( DataPhotos ) this.$store.commit('setLoadingScreen', false)
                     
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'foto', total: this.fotos.total })

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <LoadingScreen :screenStatus="LoadingScreen" />
+        <LoadingScreen />
         <div
             class="wrapper-main-page"
             v-for="(mainpage, i) in MainPageData.mainpage"
@@ -61,6 +61,7 @@
         },
 
         async beforeMount() {
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
 
@@ -73,10 +74,9 @@
                 try {
                     let Data = await Axios(this.ConfigApiMainPage)
                     this.MainPageData = JSON.parse(Data.data.value)
-                    this.LoadingScreen = false
+                    this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error.message)
-                    this.LoadingScreen = false
                 }
             },
 

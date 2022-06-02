@@ -1,5 +1,6 @@
 <template>
     <div>
+        <LoadingScreen />
         <Books
             v-bind:dataBooks="books ? books.documents : null"
             v-bind:totalSearch="total_search"
@@ -10,13 +11,15 @@
 <script>
     import Axios from 'axios'
     import Books from './Book.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'MainBook',
 
         // Components
         components: {
-            Books
+            Books,
+            LoadingScreen
         },
 
         // Component State
@@ -45,6 +48,7 @@
                 data: this.configBooksData
             })
 
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
 
@@ -53,12 +57,12 @@
                 try {
                     // Get Data From API
                     let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)
-                    // console.log(this.$store.state.Search.SearchConfigBooks)
-                    // console.log(DataBooks)
                     
                     // Set Data From API
                     this.books = DataBooks.data
                     this.total_search = DataBooks.data.total
+                    
+                    if ( DataBooks ) this.$store.commit('setLoadingScreen', false)
 
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'book', total: this.books.total })

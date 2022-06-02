@@ -1,5 +1,6 @@
 <template>
     <div>
+        <LoadingScreen />
         <Statistik
             v-bind:dataStatistiks="statistiks ? statistiks.documents : null"
             v-bind:totalSearch="total_search"
@@ -10,11 +11,13 @@
 <script>
     import Axios from 'axios'
     import Statistik from './Statistik.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'MainStatistik',
         components: {
             Statistik,
+            LoadingScreen,
         },
         data() {
             return {
@@ -39,6 +42,7 @@
                 data: this.configStatistiksData
             })
 
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
         async updated() {
@@ -52,6 +56,8 @@
                     // Set Data From API
                     this.statistiks = DataStatistiks.data
                     this.total_search = DataStatistiks.data.total
+
+                    if ( DataStatistiks ) this.$store.commit('setLoadingScreen', false)
 
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'statistik', total: this.statistiks.total })

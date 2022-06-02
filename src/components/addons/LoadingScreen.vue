@@ -1,5 +1,5 @@
 <template>
-    <section id="loading-screen" v-if="statusScreen">
+    <section id="loading-screen" v-if="this.$store.state.Tools.LoadingScreenStatus">
         <div class="wrapper-lc">
             <div class="box-data">
                 <div class="box-image">
@@ -16,23 +16,23 @@
 <script>
     export default {
         name: "LoadingScreen",
-        props: ['screenStatus'],
+        props: ['status'],
         data() {
             return {
-                statusScreen: false,
+                statusScreen: this.$store.state.Tools.LoadingScreenStatus,
                 textMessage: 'Loading....',
             }
         },
         mounted() {
-            this.statusScreen = this.screenStatus
-            
+            this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
+            console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) body.style.overflow = 'hidden'
             else body.style.overflow = 'unset'
-        }
+        },
     }
 </script>
 
 <style>
-    @import './loadingscreen.css'
+    @import './loadingscreen.css';
 </style>

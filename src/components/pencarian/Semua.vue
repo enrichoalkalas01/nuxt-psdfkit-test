@@ -1,5 +1,6 @@
 <template>
     <div class="row">
+        <LoadingScreen />
         <!-- <div class="col-12 col-md-9"> -->
         <div class="col-12 col-md-12">
             <!-- Foto -->
@@ -63,9 +64,12 @@
     // import Banner from '../banner/Main.vue'
     // import Suggestion from '../suggestion/Main.vue'
 
+    import LoadingScreen from '../addons/LoadingScreen.vue'
+
     export default {
         name: 'Semua',
         components: {
+            LoadingScreen,
             Foto,
             Artikel,
             Infografik,
@@ -81,6 +85,7 @@
         ],
         data () {
             return {
+                LoadingScreenStatus: true,
                 books: null,
                 fotos: null,
                 artikels: null,
@@ -93,7 +98,15 @@
                 total_search_statistiks: 0,
             }
         },
+
+        watch: {
+            LoadingScreenStatus(old, newVal) {
+                console.log(old, newVal)
+            }
+        },
+        
         async mounted() {
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
 
@@ -106,11 +119,16 @@
             async getData() {
                 try {
                     // Get Data From API
+                    let TriggerAPI = await Axios('https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/1')
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
                     let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)
                     let DataStatistiks = await Axios(this.$store.state.Search.SearchConfigStatistiks)
                     let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
+
+                    console.log(TriggerAPI ? true : false)
+
+                    if ( DataArticles && DataPhotos && DataBooks && DataStatistiks && DataInfografiks ) this.$store.commit('setLoadingScreen', false)
 
                     // Set Data From API
                     this.fotos = DataPhotos.data.documents.filter((data, i) => { return i < 5 ? data : null })
@@ -128,6 +146,8 @@
                     // Set Total Data
                     let total_search = DataInfografiks.data.total + DataPhotos.data.total + DataArticles.data.total
                     this.$store.commit('setTotalSearch', total_search)
+                    
+                    this.LoadingScreenStatus = !this.LoadingScreenStatus
                     // this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: DataArticles.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'foto', total: DataPhotos.data.total })
                     // this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: DataInfografiks.data.total })

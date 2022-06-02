@@ -1,5 +1,6 @@
 <template>
     <div>
+        <LoadingScreen />
         <Infografik
             v-bind:dataInfografiks="infografiks ? infografiks.documents : null"
             v-bind:totalSearch="total_search"
@@ -10,11 +11,13 @@
 <script>
     import Axios from 'axios'
     import Infografik from './Infografik.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'MainInfografik',
         components: {
             Infografik,
+            LoadingScreen,
         },
         data() {
             return {
@@ -39,6 +42,7 @@
                 data: this.configInfografiksData
             })
 
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
         async updated() {
@@ -53,6 +57,7 @@
                     // Set Data From API
                     this.infografiks = DataInfografiks.data
                     this.total_search = DataInfografiks.data.total
+                    if ( DataInfografiks ) this.$store.commit('setLoadingScreen', false)
 
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: this.infografiks.total })

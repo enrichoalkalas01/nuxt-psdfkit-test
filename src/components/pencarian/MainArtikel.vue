@@ -1,5 +1,6 @@
 <template>
     <div>
+        <LoadingScreen />
         <Artikel
             v-bind:dataArtikels="artikels ? artikels.documents : null"
             v-bind:totalSearch="total_search"
@@ -10,14 +11,17 @@
 <script>
     import Axios from 'axios'
     import Artikel from './Artikel.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'MainArtikel',
         components: {
+            LoadingScreen,
             Artikel,
         },
         data() {
             return {
+                LoadingScreenStatus: true,
                 artikels: null,
                 total_search: 0,
                 configArticlesData: {
@@ -38,29 +42,26 @@
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 data: this.configArticlesData
             })
-
-            console.log(this.$store.state.Search.SearchConfigArticles)
-
+            
+            this.$store.commit('setLoadingScreen', true)
             this.getData()
         },
-        async updated() {
-            
-        },
+        
         methods: {
             async getData() {
                 try {
                     // Get Data From API
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     // let DataArticles = await Axios("https://dev-be.kompasdata.id/api/search?search=&authors=&publication=&publishedFrom=&publishedTo=&from=1&size=10&orderdirection=desc")
-                    console.log(DataArticles)
-                    
+
                     // Set Data From API
                     this.artikels = DataArticles.data
                     this.total_search = DataArticles.data.total
 
+                    if ( DataArticles ) this.$store.commit('setLoadingScreen', false)
+
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'artikel', total: this.artikels.total })
-                    
                 } catch (error) {
                     console.log(error.message)
                 }
