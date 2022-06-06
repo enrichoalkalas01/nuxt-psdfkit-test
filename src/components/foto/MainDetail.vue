@@ -82,7 +82,6 @@
                                             <h5 class="subtitle">Deskripsi</h5>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
                                     </div>
@@ -93,10 +92,11 @@
                                         <div class="px-4">
                                             <div 
                                                 v-for="(ukuran, i) in UkuranFoto" :key="i"
-                                                class="form-check"
                                             >
-                                                <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                <label class="form-check-label" :for="ukuran.name">{{ ukuran.size }}</label>
+                                                <div v-if="SizeProduct <= ukuran.sizeMax && SizeProduct >= ukuran.sizeMin" class="form-check">
+                                                    <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
+                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }}</label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -203,6 +203,7 @@
             return {
                 suggestions: dataSuggestions,
                 fotoDetail: [],
+                SizeProduct: 0,
                 ConfigApi: {
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
@@ -210,9 +211,9 @@
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
                 UkuranFoto: [
-                    { id: 1, ukuran: 'low', size: 'Low' },
-                    { id: 2, ukuran: 'medium', size: 'Medium' },
-                    { id: 3, ukuran: 'high', size: 'High' },
+                    { id: 1, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
+                    { id: 2, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
+                    { id: 3, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
                 ],
                 FormPesanClick: false,
                 TotalPayment: 0,
@@ -235,6 +236,7 @@
             console.log(dataFoto)
             if (dataFoto.data) {
                 this.fotoDetail = dataFoto.data
+                dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
             } else if (dataFoto.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
