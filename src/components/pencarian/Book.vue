@@ -4,7 +4,7 @@
             <div class="row d-flex justify-content-center">
                 <div
                     v-for="(book, i) in books" :key="i"
-                    class="col"
+                    class="col-12 col-sm-6 col-md-4 col-lg-3"
                 >
                     <div class="row buku-card">
                         <div class="col bc-inner">
