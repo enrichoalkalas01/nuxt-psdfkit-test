@@ -11,13 +11,11 @@
     "@splidejs/vue-splide": "^0.5.18",
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "crypto-js": "^4.1.1",
+    "file-saver": "^2.0.5",
     "jquery": "^3.6.0",
     "vue": "^3.0.0",
-    "vue-owl-carousel": "^2.0.3",
     "vue-router": "^4.0.12",
-    "vue-slick": "^1.1.16",
-    "vue-slick-carousel": "^1.0.6",
-    "vue-slider-component": "^4.0.0-beta.4",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

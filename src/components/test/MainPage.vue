@@ -1,5 +1,6 @@
 <template>
     <div>
+        TESTER
         <div v-html="HTML"></div>
     </div>
 </template>
@@ -23,27 +24,27 @@
             //     console.log(err)
             // })
 
-            fetch('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                console.log(data);
-                const items = data.querySelectorAll("item");
-                let html = ``;
-                items.forEach(el => {
-                    html += `
-                        <article>
-                            <h2>
-                                <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
-                                    ${el.querySelector("title").innerHTML}
-                                </a>
-                            </h2>
-                        </article>
-                    `;
-                });
-                // document.body.insertAdjacentHTML("beforeend", html);
-                this.HTML = html
-            });
+            // fetch('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/')
+            // .then(response => response.text())
+            // .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            // .then(data => {
+            //     console.log(data);
+            //     const items = data.querySelectorAll("item");
+            //     let html = ``;
+            //     items.forEach(el => {
+            //         html += `
+            //             <article>
+            //                 <h2>
+            //                     <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
+            //                         ${el.querySelector("title").innerHTML}
+            //                     </a>
+            //                 </h2>
+            //             </article>
+            //         `;
+            //     });
+            //     // document.body.insertAdjacentHTML("beforeend", html);
+            //     this.HTML = html
+            // });
         }
     }
 </script>

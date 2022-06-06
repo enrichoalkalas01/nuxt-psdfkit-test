@@ -206,7 +206,7 @@
         },
         async beforeMount() {
             let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-
+            console.log(dataFoto)
             if (dataFoto.data) {
                 this.fotoDetail = dataFoto.data
             } else if (dataFoto.response.status == '401') {

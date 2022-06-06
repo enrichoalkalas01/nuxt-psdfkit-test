@@ -20,10 +20,6 @@
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
                                 <p>{{ infografikDetail.published_caption }}</p>
-                                <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. 300.000</span>
-                                    <a href="pesan-infografik.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Infografik</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -35,6 +31,9 @@
                             <li> Poster Infografik tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan,
                                 memindahtangankan, memperjual-belikan Poster Infografik tanpa persetujuan dari Kompas.</li>
                         </ol>
+                    </div>
+                    <div class="db-price rounded">
+                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -56,6 +55,7 @@
 <script>
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
+    import FileSaver from 'file-saver'
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -88,6 +88,24 @@
             } else if (dataInfografik.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc'
             }
+        },
+
+        methods: {
+            async downloadInfografik() {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/graphics/${ this.infografikDetail.hires.split("/").join("%252F") }`,
+                    headers: {
+                        Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`,
+                    },
+                    responseType: 'blob'
+                }
+                
+                await Axios(config).then(response => {
+                    FileSaver.saveAs(response.data, `${ this.infografikDetail.title }.png`)
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
         }
     }
 </script>

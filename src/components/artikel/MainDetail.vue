@@ -15,15 +15,15 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-2 my-3">
-                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview }`" alt="" class="db-img">
+                                <img :src="`${ artikelDetail.published_pages ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="title txt-main">{{ artikelDetail.title }}</h3>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail.rubrics }}</p>
-                                    <p>{{ artikelDetail.published_pages[0].publication }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail.published_pages[0].date.substring(0, 10)) }}</p>
-                                    <p>Halaman: {{ artikelDetail.published_pages[0].number }}</p>
-                                    <p>Penulis: {{ artikelDetail.authors }}</p>
+                                    <p>{{ artikelDetail.published_pages ? artikelDetail.published_pages[0].publication : '' }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail.published_pages ? artikelDetail.published_pages[0].date.substring(0, 10) : '2020-12-12') }}</p>
+                                    <p>Halaman: {{ artikelDetail.published_pages ? artikelDetail.published_pages[0].number : '' }}</p>
+                                    <p>Penulis: {{ artikelDetail ? artikelDetail.authors : '' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -105,17 +105,14 @@
 
 <script>
     // import Flicking from "@egjs/vue3-flicking";
+    // import FileSaver from 'file-saver'
     import Axios from 'axios'
     import { Splide, SplideSlide } from '@splidejs/vue-splide'
     import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 
-    import Suggestion from '../suggestion/Main.vue'
+    import FileSaver from 'file-saver'
 
-    let dataSuggestions = [
-        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    ]
+    import Suggestion from '../suggestion/Main.vue'
 
     export default {
         name: 'Artikel',
@@ -127,7 +124,7 @@
         },
         data () {
             return {
-                suggestions: dataSuggestions,
+                suggestions: [],
                 SliderConfig: {
                     updateOnMove: true,
                     type: 'loop',
@@ -148,7 +145,6 @@
 
         async beforeMount() {
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-            
             if (dataArtikel.data) {
                 this.artikelDetail = dataArtikel.data
             } else if (dataArtikel.response.status == '401') {
@@ -158,21 +154,24 @@
 
         methods: {
             async downloadPDF() {
-                console.log(this.artikelDetail)
+                // console.log(this.sha256('!Nr15'))
+                // sha256(!Nr + oldtark) to uppercase
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.published_pages[0].id.substring(3, this.artikelDetail.published_pages[0].id.length) }`,
+                    url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
                     method: 'GET',
                     headers: {
                         Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`
-                    }
+                    },
+                    responseType: 'blob'
                 }
 
+                console.log(this.artikelDetail)
                 await Axios(config).then(response => {
-                    console.log(response)
+                    FileSaver.saveAs(response.data, `${ this.artikelDetail.title }.pdf`)
                 }).catch(err => {
                     console.log(err)
                 })
             },
-        }
+        },
     }
 </script>
