@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="db-price rounded" v-if="artikelDetail.old_tark_id > 0">
-                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
+                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ HargaBaca }` : 'Gratis' }}</a>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,8 @@
                         Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`,
                     },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
-                }
+                },
+                HargaBaca: 0
             }
         },
 
@@ -147,6 +148,15 @@
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
             if (dataArtikel.data) {
                 this.artikelDetail = dataArtikel.data
+                let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
+                let configPayment = {
+                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ this.artikelDetail.old_tark_id }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                    method: 'GET',
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+
+                let hargaBaca = await Axios(configPayment)
+                if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
             } else if (dataArtikel.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&currentpage=1&orderdirection=desc'
             }
@@ -154,18 +164,15 @@
 
         methods: {
             async downloadPDF() {
-                // console.log(this.sha256('!Nr15'))
-                // sha256(!Nr + oldtark) to uppercase
+                this.$store.commit('setLoadingScreen', true)
+
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
                     method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`
-                    },
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     responseType: 'blob'
                 }
-
-                this.$store.commit('setLoadingScreen', true)
+                
                 await Axios(config).then(response => {
                     FileSaver.saveAs(response.data, `${ this.artikelDetail.title }.pdf`)
                     this.$store.commit('setLoadingScreen', false)
