@@ -35,7 +35,8 @@
     </section>
 </template>
 
-<script>export default {
+<script>
+    export default {
         name: 'BeritaTerkini',
         props: [
             'dataSet',
@@ -51,6 +52,7 @@
         },
         mounted() {
             this.beritas = this.dataSet
+            console.log(this.$store.state.Tools.ChangeDateString('2020-12-12'))
             this.getData()
         },
         updated() {
@@ -65,6 +67,8 @@
                 .then(data => {
                     const items = data.querySelectorAll("item");
                     let html = ``;
+
+                    
                     items.forEach((el, i) => {
                         if ( i < 4 ) {
                             html += `
@@ -73,20 +77,20 @@
                                         <div class="row">
 
                                             <div class="col-sm-6">
-                                                <a href="${el.querySelector("link").innerHTML}">
+                                                <a href="${ el.querySelector("link").innerHTML }">
                                                     <img src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="desc pt-3">
-                                                    <h3 class="subtitle"><a href="${el.querySelector("link").innerHTML}">${el.querySelector("title").innerHTML}</a></h3>
-                                                    <p>${el.querySelector("pubDate").innerHTML}</p>
-                                                    <a href="${el.querySelector("link").innerHTML}" class="more-btn">Baca Sekarang</a>
+                                                    <h3 class="subtitle"><a href="${ el.querySelector("link").innerHTML }">${ el.querySelector("title").innerHTML }</a></h3>
+                                                    <p>${ this.$store.state.Tools.ChangeDateString(new Date(el.querySelector("pubDate").innerHTML)) }</p>
+                                                    <a href="${ el.querySelector("link").innerHTML }" class="more-btn">Baca Sekarang</a>
                                                 </div>
                                             </div>
                                             
                                             <div class="col-12 mt-3">
-                                                <p class="short-text three">${el.querySelector("description").innerHTML}</p>
+                                                <p class="short-text three">${ el.querySelector("description").innerHTML }</p>
                                             </div>
                                             
                                         </div>
