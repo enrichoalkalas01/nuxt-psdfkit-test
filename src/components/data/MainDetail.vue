@@ -107,6 +107,8 @@
 
             if (dataData.data) {
                 this.dataDetail = dataData.data
+
+                console.log(this.dataDetail);
             } else if (dataData.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc'
             }

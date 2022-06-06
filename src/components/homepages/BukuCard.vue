@@ -4,7 +4,8 @@
         <h3 class="subtitle short-text three" v-html="`${ title }`"></h3>
         <div class="text-start">
             <p class="short-text four">{{ desc }}</p>
-            <a :href="idBuku" class="more">Selengkapnya</a>
+            <a v-if="url != null" :href="url" class="more">Selengkapnya</a>
+            <a v-else :href="idBuku" class="more">Selengkapnya</a>
         </div>
     </div>
 </template>
@@ -18,6 +19,7 @@
             'dataImage',
             'dataTitle',
             'dataDesc',
+            'dataUrl',
         ],
         data () {
             return {
@@ -25,6 +27,7 @@
                 image: null,
                 title: null,
                 desc: null,
+                url: null,
             }
         },
 
@@ -33,6 +36,7 @@
             this.image = this.dataImage
             this.title = this.dataTitle
             this.desc = this.dataDesc
+            this.url = this.dataUrl
         },
 
         updated() {
@@ -40,6 +44,7 @@
             this.image = this.dataImage
             this.title = this.dataTitle
             this.desc = this.dataDesc
+            this.url = this.dataUrl
         },
     }
 </script>
