@@ -165,11 +165,13 @@
                     responseType: 'blob'
                 }
 
-                console.log(this.artikelDetail)
+                this.$store.commit('setLoadingScreen', true)
                 await Axios(config).then(response => {
                     FileSaver.saveAs(response.data, `${ this.artikelDetail.title }.pdf`)
+                    this.$store.commit('setLoadingScreen', false)
                 }).catch(err => {
                     console.log(err)
+                    this.$store.commit('setLoadingScreen', false)
                 })
             },
         },

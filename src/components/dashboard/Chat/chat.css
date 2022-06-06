@@ -239,12 +239,12 @@
 }
 
 
-#chatting .list-chat-box .wrapper-lcb .user-chat.left-user .wb-replay .wb-text .title,
-#chatting .list-chat-box .wrapper-lcb .user-chat.left-user .wb-replay .wb-text .message {
+#chatting .list-chat-box .wrapper-lcb .user-chat.left-user .wb-replay.left .wb-text .title,
+#chatting .list-chat-box .wrapper-lcb .user-chat.left-user .wb-replay.left .wb-text .message {
     text-align: right !important;
 }
 
-#chatting .list-chat-box .wrapper-lcb .user-chat.right-user .wb-replay .wb-text .title,
-#chatting .list-chat-box .wrapper-lcb .user-chat.right-user .wb-replay .wb-text .message {
+#chatting .list-chat-box .wrapper-lcb .user-chat.right-user .wb-replay.right .wb-text .title,
+#chatting .list-chat-box .wrapper-lcb .user-chat.right-user .wb-replay.right .wb-text .message {
     text-align: left !important;
 }

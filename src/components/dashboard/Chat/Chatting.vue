@@ -15,11 +15,12 @@
                 >  
                     <!-- Replay Chat -->
                     <div
-                        class="wb-replay"
+                        
                         v-for="(replay, j) in chat.parentChat"
                         :key="j"
                         :id="`replayedId-${ replay.id }`"
                         v-on:click="goToSelectionSection( replay.id )"
+                        :class="replay.adminId != '' ? 'wb-replay right' : 'wb-replay left'"
                     >
                         <div class="wb-chat-box">
                             <div class="wb-image" v-if="replay.adminId !== ''">
