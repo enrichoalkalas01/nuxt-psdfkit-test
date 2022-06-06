@@ -102,15 +102,41 @@
                                     </div>
                                     <div class="col-12">
                                         <div>
-                                            <h5 class="subtitle">Jenis Penggunaan</h5>
+                                            <h4 class="subtitle">Jenis Penggunaan</h4>
                                         </div>
                                         <div class="px-4">
-                                            <div 
-                                                v-for="(jenis, i) in JenisPenggunaan" :key="i"
-                                                class="form-check"
-                                            >
-                                                <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
-                                                <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                            <div class="jenis-box">
+                                                <div 
+                                                    v-for="(jenis, i) in JenisPenggunaan" :key="i"
+                                                    class="form-check"
+                                                >   
+                                                    <h5 class="subtitle" v-if="jenis.type === 1 && i === 0">Penggunaan Internal</h5>
+                                                    <div v-if="jenis.type === 1">
+                                                        <div class="option-inside">
+                                                            <input
+                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku</h5>
+                                                    <div v-if="jenis.type === 2">
+                                                        <div class="option-inside">
+                                                            <input
+                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <h5 class="subtitle" v-if="jenis.type === 3 && i === 6">Editorial</h5>
+                                                    <div v-if="jenis.type === 3">
+                                                        <div class="option-inside">
+                                                            <input
+                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>  
@@ -191,16 +217,16 @@
                 FormPesanClick: false,
                 TotalPayment: 0,
                 JenisPenggunaan: [
-                    { id: 1, name: 'individu', text: 'Individu', price: 300000 },
-                    { id: 2, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
-                    { id: 3, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
-                    { id: 4, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
-                    { id: 5, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
-                    { id: 6, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
-                    { id: 7, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
-                    { id: 8, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
-                    { id: 9, name: 'media-siar', text: 'Media Siar', price: 1000000 },
-                    { id: 10, name: 'media-online', text: 'Media Online', price: 1000000 },
+                    { id: 1, type: 1, name: 'individu', text: 'Individu', price: 300000 },
+                    { id: 2, type: 1, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
+                    { id: 3, type: 1, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
+                    { id: 4, type: 1, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
+                    { id: 5, type: 2, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
+                    { id: 6, type: 2, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
+                    { id: 7, type: 3, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
+                    { id: 8, type: 3, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
+                    { id: 9, type: 3, name: 'media-siar', text: 'Media Siar', price: 1000000 },
+                    { id: 10, type: 3, name: 'media-online', text: 'Media Online', price: 1000000 },
                 ]
             }
         },
@@ -235,5 +261,13 @@
 
     #pesan {
         background-color: #007BD2;
+    }
+
+    .option-inside {
+        padding-left: 10%;
+    }
+
+    .jenis-box .form-check {
+        padding: 0;
     }
 </style>
