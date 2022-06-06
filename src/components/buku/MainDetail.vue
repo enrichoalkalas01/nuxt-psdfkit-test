@@ -20,9 +20,9 @@
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ bukuDetail.judul }}</h3>
-                                <div class="db-price rounded">
+                                <!-- <div class="db-price rounded">
                                     <a href="pesan-buku.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Buku</a>
-                                </div>
+                                </div> -->
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
@@ -48,7 +48,12 @@
                                                     <th scope="row">Penulis </th>
                                                     <td>
                                                         <text v-for="(author, i) in bukuDetail.authors" :key="i">
-                                                            {{ author.author }}
+                                                            <text v-if="i+1 < bukuDetail.authors.length">
+                                                                {{ author.author }}; 
+                                                            </text>
+                                                            <text v-else>
+                                                                {{ author.author }}
+                                                            </text>
                                                         </text>
                                                     </td>
                                                 </tr>

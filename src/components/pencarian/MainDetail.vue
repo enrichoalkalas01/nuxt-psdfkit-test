@@ -56,8 +56,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-artikel" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -279,7 +279,7 @@
                                     <div id="surveydata">
                                         <fieldset>
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Subjek</label>
+                                                <label class="col-md-3 form-label">Kata Kunci</label>
                                                 <div class="col-md-9">
                                                     <input name="subjek-data" id="subjek-data" type="text" class="form-control" placeholder="subjek...">
                                                 </div>
@@ -381,14 +381,14 @@
                 let query = document.querySelector("#query-foto").value
                 let dateFrom = document.querySelector("#date-from-foto").value
                 let dateTo = document.querySelector("#date-to-foto").value
-                let publication = document.querySelector("#publication-foto").value
+                // let publication = document.querySelector("#publication-foto").value
                 // let page = document.querySelector("#page-foto").value
                 let author = document.querySelector("#author-foto").value
                 let size = 10
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-foto").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ '' }&typesearch=2&size=${ size }&currentpage=${ currentpage }`
             },
 
             searchLanjutBuku: () => {

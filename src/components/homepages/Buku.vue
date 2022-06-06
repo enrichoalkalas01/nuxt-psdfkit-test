@@ -52,6 +52,7 @@
                                     v-bind:dataImage="pbk.cover"
                                     v-bind:dataTitle="pbk.title"
                                     v-bind:dataDesc="pbk.description"
+                                    v-bind:dataUrl="pbk.url"
                                 />
                             </div>
 
@@ -108,6 +109,8 @@
 
             let dataPBK = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/geraipbk')
             this.dataBukuPBK = dataPBK.data
+
+            console.log(this.dataBukuPBK);
 
             let dataPerpustakaan = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
             this.dataBukuPerpustakaan = dataPerpustakaan.data
