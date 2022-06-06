@@ -22,12 +22,12 @@
                                 <div class="d-block">
                                     <p class="fw-bold">{{ dataDetail.title }}</p>
                                     <!-- <p>KOMPAS edisi Jumat 20 Agustus 2021</p> -->
-                                    <p>Halaman: 1</p>
+                                    <!-- <p>Halaman: 1</p>
                                     <p>Penulis: JOL</p>
                                     <div class="db-price rounded">
                                         <span class="price-tag">mulai dari Rp. 300.000</span>
                                         <a href="pesan-data.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Data</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                         </ul>
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                <p>{{ dataDetail.description }}</p>
+                                <p v-html="`${ dataDetail.summary }`"></p>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>

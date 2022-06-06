@@ -4,7 +4,7 @@
         <h3 class="subtitle short-text three" v-html="`${ title }`"></h3>
         <div class="text-start">
             <p class="short-text four">{{ desc }}</p>
-            <a v-if="url != null" :href="url" class="more">Selengkapnya</a>
+            <a v-if="url != null" target="__blank" :href="url" class="more">Selengkapnya</a>
             <a v-else :href="idBuku" class="more">Selengkapnya</a>
         </div>
     </div>

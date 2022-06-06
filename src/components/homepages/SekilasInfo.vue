@@ -129,10 +129,10 @@
                                             <nav aria-label="Page navigation example">
                                                 <ul class="pagination">
                                                     <li class="page-item">
-                                                        <a class="page-link prev" id="month-prev" v-on:click="prevWeek">Previous</a>
+                                                        <a class="page-link prev" id="month-prev" v-on:click="prevWeek">Sebelumnya</a>
                                                     </li>
                                                     <li class="page-item next">
-                                                        <a class="page-link" id="month-next" v-on:click="nextWeek">Next</a>
+                                                        <a class="page-link" id="month-next" v-on:click="nextWeek">Selanjutnya</a>
                                                     </li>
                                                 </ul>
                                             </nav>
