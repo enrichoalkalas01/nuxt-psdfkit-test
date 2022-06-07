@@ -138,7 +138,7 @@
                                             </nav>
                                             
                                         </div>
-                                        <div
+                                        <!-- <div
                                             v-for="(DataDay, j) in NewAgendaData" :key="j"
                                             class="col-12 col-md-4 col-lg-3 card-date"
                                         >
@@ -146,7 +146,7 @@
                                                 <label>{{ DataDay.title }}</label>
                                                 <p>Tanggal : {{ DataDay.day }} {{ IndonesiaMonth[Month] }} {{ YearData }}</p>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -175,21 +175,23 @@
                     'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
                 ],
                 YearData: new Date().getFullYear(),
-                // NewAgendaData: []
             }
         },
 
         async beforeMount() {
-            const currentMonth = new Date().getMonth();
-            this.Month = currentMonth
+            try {
+                const currentMonth = new Date().getMonth();
+                this.Month = currentMonth
+                this.Agenda = this.dataSet
 
-            this.Agenda = this.dataSet
-
-            let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
-            this.ulangTahun = dataUltah.data
-            
-            let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
-            this.tanggalPenting = dataTanggalPenting.data
+                let dataUltah = await Axios(`https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
+                this.ulangTahun = dataUltah.data
+                
+                let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                this.tanggalPenting = dataTanggalPenting.data
+            } catch (error) {
+                console.log(error)
+            }
         },
 
         mounted() {
@@ -201,11 +203,6 @@
         },
 
         methods: {
-            // async getData() {
-            //     let dataAgenda = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByMonth/${ this.Month + 1 }`)
-            //     this.NewAgendaData = dataAgenda.data
-            // },
-            
             nextMonth() {
                 if ( Number(this.Month) < 11 ) {
                     this.Month = Number(this.Month) + 1
@@ -232,22 +229,14 @@
             },
 
             nextWeek() {
-                if ( Number(this.week) < 52) {
-                    this.week = Number(this.week) + 1
-                } else {
-                    this.week = 0
-                }
-
+                if ( Number(this.week) < 52 ) this.week = Number(this.week) + 1
+                else this.week = 0
                 this.getData()
             },
 
             prevWeek() {
-                if ( Number(this.week) > -52) {
-                    this.week = Number(this.week) - 1
-                } else {
-                    this.week = 52
-                }
-
+                if ( Number(this.week) > -52 ) this.week = Number(this.week) - 1
+                else this.week = 52
                 this.getData()
             }
         }

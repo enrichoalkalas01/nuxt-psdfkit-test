@@ -87,15 +87,12 @@
     export default {
         name: 'Buku',
 
-        // Components
         components: {
             BukuCard
         },
 
-        // Component Props
         props: [ 'dataSet' ],
 
-        // Component State
         data () {
             return {
                 bukus: null,
@@ -105,40 +102,28 @@
         },
 
         async beforeMount() {
-            this.bukus = this.dataSet
-
-            let dataPBK = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/geraipbk')
-            this.dataBukuPBK = dataPBK.data
-
-            console.log(this.dataBukuPBK);
-
-            let dataPerpustakaan = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
-            this.dataBukuPerpustakaan = dataPerpustakaan.data
+            try {
+                this.bukus = this.dataSet
+                let dataPBK = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/geraipbk')
+                this.dataBukuPBK = dataPBK.data
+                
+                let dataPerpustakaan = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
+                this.dataBukuPerpustakaan = dataPerpustakaan.data
+            } catch (error) {
+                console.log(error)
+            }
         },
 
-        // Component Did Mounted
         mounted() {
             this.bukus = this.dataSet
         },
 
-        // Component Did Update
         updated() {
             this.bukus = this.dataSet
         },
 
-        methods: {
-            // Changes Tab Data
-            // ClickedTab(e) {
-            //     let ElementTabs = document.querySelector(`#komp-tab-content #${ e.target.getAttribute("id") }`)
-            //     let TabPane = document.querySelector("#komp-tab-content .tab-pane.show.active")
-            //     TabPane.classList.remove("show"); TabPane.classList.remove("active")
-            //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
-            // }
-        },
-
         watch: {
-            $route(to, from) {
-                console.log(from)
+            $route(to) {
                 let dataHash = to.hash
                 if ( dataHash.includes('buku-Tabs') ) {
                     document.querySelector('#myTab .nav-item .nav-link.active').classList.remove('active')
@@ -149,6 +134,16 @@
                     document.querySelector(dataHash.replace('-','')).classList.add('active')
                 } 
             }
+        },
+
+        methods: {
+            // Changes Tab Data
+            // ClickedTab(e) {
+            //     let ElementTabs = document.querySelector(`#komp-tab-content #${ e.target.getAttribute("id") }`)
+            //     let TabPane = document.querySelector("#komp-tab-content .tab-pane.show.active")
+            //     TabPane.classList.remove("show"); TabPane.classList.remove("active")
+            //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
+            // }
         }
     }
 </script>
