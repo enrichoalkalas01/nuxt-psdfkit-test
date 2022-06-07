@@ -52,16 +52,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Urutkan </label>
-                                                <div class="col-md-9">
-                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="sort" id="sort-artikel" class="form-control">
-                                                        <option value="asc">Terlama</option>
-                                                        <option value="desc">Terbaru</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Halaman</label>
                                                 <div class="col-md-9">
                                                     <input id="page-artikel" type="number" class="form-control" placeholder="pages from...">
@@ -83,6 +73,16 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-artikel" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-group my-3">
                                                 <a v-on:click="searchLanjutArtikel" href="#" class="btn btn-main float-end"><i class="fas fa-search"></i> Search</a>
                                             </div>
@@ -100,18 +100,6 @@
                                                     <input id="query-infografik" type="text" class="form-control" placeholder="search query ...">
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Urutkan </label>
-                                                <div class="col-md-9">
-                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="sort" id="sort-infografik" class="form-control">
-                                                        <option value="desc">Terbaru</option>
-                                                        <option value="asc">Terlama</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal </label>
                                                 <div class="col-md-9">
@@ -126,6 +114,16 @@
                                                             <input type="date" class="form-control date" id="date-to-infografik" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-infografik" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
@@ -172,18 +170,6 @@
                                                     <!-- </select>
                                                 </div>
                                             </div> -->
-
-                                            <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Urutkan </label>
-                                                <div class="col-md-9">
-                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="sort" id="sort-foto" class="form-control">
-                                                        <option value="desc">Terbaru</option>
-                                                        <option value="asc">Terlama</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal </label>
                                                 <div class="col-md-9">
@@ -198,6 +184,16 @@
                                                             <input type="date" class="form-control date" id="date-to-foto" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-foto" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
@@ -241,16 +237,6 @@
                                                     <input name="penerbit-buku" id="penerbit-buku" type="text" class="form-control" placeholder="penerbit...">
                                                 </div>
                                             </div>
-                                            <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Urutkan </label>
-                                                <div class="col-md-9">
-                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="sort" id="sort-buku" class="form-control">
-                                                        <option value="desc">Terbaru</option>
-                                                        <option value="asc">Terlama</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal</label>
                                                 <div class="col-md-9">
@@ -265,6 +251,16 @@
                                                             <input type="date" class="form-control date" id="date-to-buku" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-buku" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
@@ -290,16 +286,6 @@
                                                     <input name="query-data" id="query-data" type="text" class="form-control" placeholder="search query...">
                                                 </div>
                                             </div>
-                                            <div class="form-group row my-3">
-                                                <label class="col-md-3 form-label">Urutkan </label>
-                                                <div class="col-md-9">
-                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
-                                                    <select name="sort" id="sort-data" class="form-control">
-                                                        <option value="desc">Terbaru</option>
-                                                        <option value="asc">Terlama</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="form-group my-3 row">
                                                 <label class="form-label col-md-3">Tanggal</label>
                                                 <div class="col-md-9">
@@ -314,6 +300,16 @@
                                                             <input type="date" class="form-control date" id="date-to-data" placeholder="Tanggal Akhir">
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row my-3">
+                                                <label class="col-md-3 form-label">Urutkan </label>
+                                                <div class="col-md-9">
+                                                    <!-- <input type="text" class="form-control" placeholder=""> -->
+                                                    <select name="sort" id="sort-data" class="form-control">
+                                                        <option value="desc">Terbaru</option>
+                                                        <option value="asc">Terlama</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group my-3">
