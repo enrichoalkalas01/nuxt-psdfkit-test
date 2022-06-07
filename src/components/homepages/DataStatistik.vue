@@ -64,31 +64,35 @@
 
         async beforeMount() {
             this.statistiks = this.dataSet
-            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
-        // Component Did Mounted
         async mounted() {
             this.statistiks = this.dataSet
-            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
-        // Component Did Update
         async updated() {
             this.statistiks = this.dataSet
-            // console.log(JSON.parse(JSON.stringify(this.statistiks)));
         },
 
         watch: {
             $route(to) {
                 let dataHash = to.hash
                 if ( dataHash.includes('data-Tabs') ) {
-                    document.querySelector('#myTab2 .nav-item .nav-link.active').classList.remove('active')
-                    document.querySelector('#data-content .tab-pane').classList.remove('show')
-                    document.querySelector('#data-content .tab-pane').classList.remove('active')
-                    document.querySelector(dataHash).classList.add('active')
-                    document.querySelector(dataHash.replace('-','')).classList.add('show')
-                    document.querySelector(dataHash.replace('-','')).classList.add('active')
+                    if ( dataHash.includes('01') ) {
+                        document.querySelector('#myTab2 .nav-item .nav-link.active').classList.remove('active')
+                        document.querySelector('#dataTabs02').classList.remove('show')
+                        document.querySelector('#dataTabs02').classList.remove('active')
+                        document.querySelector(dataHash).classList.add('active')
+                        document.querySelector(dataHash.replace('-','')).classList.add('show')
+                        document.querySelector(dataHash.replace('-','')).classList.add('active')
+                    } else {
+                        document.querySelector('#myTab2 .nav-item .nav-link.active').classList.remove('active')
+                        document.querySelector('#dataTabs01').classList.remove('show')
+                        document.querySelector('#dataTabs01').classList.remove('active')
+                        document.querySelector(dataHash).classList.add('active')
+                        document.querySelector(dataHash.replace('-','')).classList.add('show')
+                        document.querySelector(dataHash.replace('-','')).classList.add('active')
+                    }
                 } 
             }
         }
