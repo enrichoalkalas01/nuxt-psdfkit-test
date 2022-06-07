@@ -53,6 +53,14 @@
                                                     <th scope="row">Credit</th>
                                                     <td>{{ fotoDetail.credit }}</td>
                                                 </tr>
+                                                <tr>
+                                                    <th scope="row">Width</th>
+                                                    <td>{{ fotoDetail.width }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Height</th>
+                                                    <td>{{ fotoDetail.height }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -94,8 +102,8 @@
                                                 v-for="(ukuran, i) in UkuranFoto" :key="i"
                                             >
                                                 <div class="form-check">
-                                                    <input :dataIndex="ukuran.apiId" :value="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `max ${ ukuran.sizeMax }` : `min ${ ukuran.sizeMin }` }} px )</label>
+                                                    <input v-on:change="changeSize" :checked="i === 0 ? true : false" :dataIndex="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
+                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel )</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +121,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 1 && i === 0">Penggunaan Internal</h5>
                                                     <div v-if="jenis.type === 1">
                                                         <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -121,7 +129,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku</h5>
                                                     <div v-if="jenis.type === 2">
                                                         <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -129,7 +137,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 3 && i === 6">Editorial</h5>
                                                     <div v-if="jenis.type === 3">
                                                         <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -184,6 +192,7 @@
 <script>
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -225,35 +234,60 @@
                     { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
                     { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
                     { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
-                ]
+                ],
+                SizeHarga: 0,
+                JenisHarga: 0,
             }
         },
         async beforeMount() {
+            this.$store.commit('setLoadingScreen', true)
             let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-            console.log(dataFoto)
             if (dataFoto.data) {
                 this.fotoDetail = dataFoto.data
                 dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
+                this.SizeHarga = 201
+                this.JenisHarga = 301
             } else if (dataFoto.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
         },
 
         methods: {
-            getHarga() {
-
-            },
-
-            FormPesan() {
-                console.log('cliciked')
-                this.FormPesanClick = !this.FormPesanClick
-                this.TotalPayment = this.JenisPenggunaan[0].price
-            },
-
+            changeSize(event) { this.SizeHarga = Number(event.target.getAttribute("dataindex")) },
+            FormPesan() { this.FormPesanClick = !this.FormPesanClick },
             BtnRadioJenis(event) {
+                this.JenisHarga = Number(event.target.getAttribute("dataId"))
                 this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price
+            },
+
+            async getHarga(opt1, opt2) {
+                let SizeFoto = this.fotoDetail.file_size
+                // let ProductId = this.fotoDetail.reference_id
+                let DocumentDate = this.fotoDetail ? this.fotoDetail.published_date.substring(0, this.fotoDetail.published_date.length - 1) : null
+                let configHarga = {
+                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
+                    method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+
+                let newHargaFromApi = await Axios(configHarga)
+                if ( newHargaFromApi ) this.TotalPayment = newHargaFromApi.data.value
+                else {
+                    console.log(newHargaFromApi)
+                }
             }
-        }
+        },
+
+        computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },
+
+        watch: {
+            async propertyAAndPropertyB(newVal, oldVal) {
+                const [oldPropertyA, oldPropertyB] = oldVal.split('|');
+                const [newPropertyA, newPropertyB] = newVal.split('|');
+                if ( newPropertyA != oldPropertyA || newPropertyB != oldPropertyB ) {
+                    this.getHarga(newPropertyA, newPropertyB)
+                }
+            },
+        },
     }
 </script>
 
