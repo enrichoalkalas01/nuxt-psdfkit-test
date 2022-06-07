@@ -28,8 +28,7 @@
                         <h2 class="tag"><em>CARA PENGGUNAAN POSTER INFOGRAFIK</em></h2>
                         <ol>
                             <li>Poster Infografik hanya tersedia dalam bentuk CETAK</li>
-                            <li>pornoaksi/ diskriminasi.</li>
-                            <li> Poster Infografik tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan,
+                            <li>Poster Infografik tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan,
                                 memindahtangankan, memperjual-belikan Poster Infografik tanpa persetujuan dari Kompas.</li>
                         </ol>
                     </div>
