@@ -301,7 +301,7 @@
                     } else {
                         console.log(PesanData)
                     }
-    
+                    window.location.href = "/dashboard/daftar-pesanan"
                 } else {
                     alert('tolong centang syarat & ketentuannya terebih dahulu..')
                 }
