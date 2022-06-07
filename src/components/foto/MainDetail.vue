@@ -93,9 +93,9 @@
                                             <div 
                                                 v-for="(ukuran, i) in UkuranFoto" :key="i"
                                             >
-                                                <div v-if="SizeProduct <= ukuran.sizeMax && SizeProduct >= ukuran.sizeMin" class="form-check">
-                                                    <input :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }}</label>
+                                                <div class="form-check">
+                                                    <input :dataIndex="ukuran.apiId" :value="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
+                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `max ${ ukuran.sizeMax }` : `min ${ ukuran.sizeMin }` }} px )</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,8 +113,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 1 && i === 0">Penggunaan Internal</h5>
                                                     <div v-if="jenis.type === 1">
                                                         <div class="option-inside">
-                                                            <input
-                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -122,8 +121,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku</h5>
                                                     <div v-if="jenis.type === 2">
                                                         <div class="option-inside">
-                                                            <input
-                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -131,8 +129,7 @@
                                                     <h5 class="subtitle" v-if="jenis.type === 3 && i === 6">Editorial</h5>
                                                     <div v-if="jenis.type === 3">
                                                         <div class="option-inside">
-                                                            <input
-                                                                :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.id" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :value="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
@@ -211,23 +208,23 @@
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
                 UkuranFoto: [
-                    { id: 1, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
-                    { id: 2, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
-                    { id: 3, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
+                    { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
+                    { id: 2, apiId: 202, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
+                    { id: 3, apiId: 203, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
                 ],
                 FormPesanClick: false,
                 TotalPayment: 0,
                 JenisPenggunaan: [
-                    { id: 1, type: 1, name: 'individu', text: 'Individu', price: 300000 },
-                    { id: 2, type: 1, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
-                    { id: 3, type: 1, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
-                    { id: 4, type: 1, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
-                    { id: 5, type: 2, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
-                    { id: 6, type: 2, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
-                    { id: 7, type: 3, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
-                    { id: 8, type: 3, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
-                    { id: 9, type: 3, name: 'media-siar', text: 'Media Siar', price: 1000000 },
-                    { id: 10, type: 3, name: 'media-online', text: 'Media Online', price: 1000000 },
+                    { id: 1, type: 1, apiId: 301, name: 'individu', text: 'Individu', price: 300000 },
+                    { id: 2, type: 1, apiId: 302, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
+                    { id: 3, type: 1, apiId: 303, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
+                    { id: 4, type: 1, apiId: 304, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
+                    { id: 5, type: 2, apiId: 305, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
+                    { id: 6, type: 2, apiId: 306, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
+                    { id: 7, type: 3, apiId: 307, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
+                    { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
+                    { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
+                    { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
                 ]
             }
         },
@@ -243,6 +240,10 @@
         },
 
         methods: {
+            getHarga() {
+
+            },
+
             FormPesan() {
                 console.log('cliciked')
                 this.FormPesanClick = !this.FormPesanClick
