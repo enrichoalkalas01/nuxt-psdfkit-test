@@ -27,10 +27,25 @@
             this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
             console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
-            if ( this.statusScreen ) body.style.overflow = 'hidden'
-            else body.style.overflow = 'unset'
-            body.style.overflow = 'unset'
+            if ( this.statusScreen ) {
+                body.style.overflow = 'hidden !important'
+            } else {
+                body.style.overflow = 'unset !important'
+                body.style.overflow = 'unset !important'
+            }
         },
+
+        updated() {
+            this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
+            console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
+            let body = document.querySelector("body")
+            if ( this.statusScreen ) {
+                body.style.overflow = 'hidden !important'
+            } else {
+                body.style.overflow = 'unset !important'
+                body.style.overflow = 'unset !important'
+            }
+        }
     }
 </script>
 
