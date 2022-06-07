@@ -69,7 +69,7 @@
                     </div>
                     <div class="wb-icon">
                         <i class="fa-solid fa-reply" v-on:click="addReplayedData(`chatId-${ chat.mainChat.id }`)"></i>
-                        <span v-on:click="addReplayedData(chat.mainChat.id)">Replay</span>
+                        <span v-on:click="addReplayedData(chat.mainChat.id)">Reply</span>
                     </div>
                 </div>
             </div>
