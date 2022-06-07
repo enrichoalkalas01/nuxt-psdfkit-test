@@ -150,7 +150,7 @@
                 this.artikelDetail = dataArtikel.data
                 let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
                 let configPayment = {
-                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ this.artikelDetail.old_tark_id }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 2 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                     method: 'GET',
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
