@@ -5,7 +5,8 @@
                 <div class="row">
                     <div class="col-sm-4 my-3">
                         <a :href="'/infografik-detail/' + infografik.document_id">
-                            <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }`" alt="" class="infografik-image w-100">
+                            <div class="images-div" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }')`"></div>
+                            <!-- <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }`" alt="" class="infografik-image w-100"> -->
                         </a>
                     </div>
                     <div class="col-sm-8 my-3">
@@ -57,3 +58,15 @@
         },
     }
 </script>
+
+<style>
+    .images-div {
+        width: 100%;
+        height: 175px;
+        background-color: #dedede;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+        border-radius: 5px;
+    }
+</style>

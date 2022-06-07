@@ -33,7 +33,7 @@
                         </ol>
                     </div>
                     <div class="db-price rounded">
-                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya Rp. 35.000</a>
+                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ HargaBaca }` : 'Gratis' }}</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -73,6 +73,7 @@
             return {
                 suggestions: dataSuggestions,
                 infografikDetail: [],
+                HargaBaca: 0,
                 ConfigApi: {
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
@@ -86,6 +87,15 @@
 
             if (dataInfografik.data) {
                 this.infografikDetail = dataInfografik.data
+                let tanggal = this.infografikDetail.creation_date.substring(0, 10)
+                let configPayment = {
+                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                    method: 'GET',
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+
+                let hargaBaca = await Axios(configPayment)
+                if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
             } else if (dataInfografik.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc'
             }
