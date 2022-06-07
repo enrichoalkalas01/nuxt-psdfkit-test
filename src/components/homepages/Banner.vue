@@ -10,7 +10,7 @@
                                     {{ banner.type_banner }}
                                 </div>
                                 <div class="  my-3">
-                                    {{ banner.date }}
+                                    {{ this.$store.state.Tools.ChangeDateString(banner.date.substring(0, 10)) }}
                                 </div>
                                 <h1 class="heading">
                                     <a :href="banner.url">
