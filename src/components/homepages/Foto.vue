@@ -19,7 +19,7 @@
                     />
                 </div>
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="arsip#AllTabs03" class="more-link">Foto Lainnya <i class="fas fa-chevron-right"></i></a>
+                    <a href="pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc" class="more-link">Foto Lainnya <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
