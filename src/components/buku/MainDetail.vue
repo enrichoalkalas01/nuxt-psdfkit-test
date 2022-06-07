@@ -49,10 +49,11 @@
                                                     <td>
                                                         <text v-for="(author, i) in bukuDetail.authors" :key="i">
                                                             <text v-if="i+1 < bukuDetail.authors.length">
-                                                                {{ author.author }}; 
+                                                                {{ author.author }} {{ author.authorroledescription }}
+                                                                <br>
                                                             </text>
                                                             <text v-else>
-                                                                {{ author.author }}
+                                                                {{ author.author }} {{ author.authorroledescription }}
                                                             </text>
                                                         </text>
                                                     </td>
@@ -104,6 +105,9 @@
                                                             <text v-else>
                                                                 {{ topic.topic }}
                                                             </text>
+                                                        </text>
+                                                        <text>
+                                                            {{ bukuDetail.subjekregional }}
                                                         </text>
                                                     </td>
                                                 </tr>
