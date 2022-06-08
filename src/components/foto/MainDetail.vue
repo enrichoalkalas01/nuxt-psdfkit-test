@@ -20,7 +20,7 @@
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail.title }}</h3>
                                 <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. 300.000</span>
+                                    <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
                                     <a v-on:click="FormPesan" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
@@ -84,6 +84,21 @@
                                 <div class="row mt-6 mb-6" v-if="FormPesanClick">
                                     <div class="col-12">
                                         <h4 class="txt-main">Formulir Penggunaan</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <h5 class="subtitle">Periode Penggunaan</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+                                                <label for="dateFrom" class="form-label">Tanggal Mulai :</label>
+                                                <input v-on:change="dateFromChange" :value="DateFrom" type="date" class="form-control" id="dateFrom">
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+                                                <label for="dateTo" class="form-label">Tanggal Selesai :</label>
+                                                <input v-on:change="dateToChange" :value="DateTo" type="date" class="form-control" id="dateTo">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <div>
@@ -210,6 +225,8 @@
                 suggestions: dataSuggestions,
                 fotoDetail: [],
                 SizeProduct: 0,
+                DateFrom: this.$store.state.Tools.DateNowString(),
+                DateTo: this.$store.state.Tools.DateNowString(),
                 ConfigApi: {
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
@@ -238,6 +255,7 @@
                 SizeHarga: 0,
                 JenisHarga: 0,
                 Aggrement: 0,
+                MulaiHarga: 0,
             }
         },
         async beforeMount() {
@@ -248,7 +266,7 @@
                 dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
                 this.SizeHarga = 201
                 this.JenisHarga = 301
-                console.log(this.fotoDetail)
+                this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
             } else if (dataFoto.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
@@ -257,7 +275,9 @@
         methods: {
             changeSize(event) { this.SizeHarga = Number(event.target.getAttribute("dataindex")) },
             FormPesan() { this.FormPesanClick = !this.FormPesanClick },
-            aggrementChange(event) { console.log(event.target.value) },
+            aggrementChange(e) { console.log(e.target.value) },
+            dateFromChange(e) { this.DateFrom = e.target.value },
+            dateToChange(e) { this.DateTo = e.target.value },
             BtnRadioJenis(event) {
                 this.JenisHarga = Number(event.target.getAttribute("dataId"))
                 this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price
@@ -272,8 +292,10 @@
                 }   
 
                 let newHargaFromApi = await Axios(configHarga)
-                if ( newHargaFromApi ) this.TotalPayment = newHargaFromApi.data.value
-                else {
+                if ( newHargaFromApi ) {
+                    this.TotalPayment = newHargaFromApi.data.value
+                    return newHargaFromApi.data.value
+                } else {
                     console.log(newHargaFromApi)
                 }
             },
@@ -291,7 +313,9 @@
                         "quality_description": this.UkuranFoto.filter(x => x.apiId === Number(this.SizeHarga))[0].text,
                         "usage": this.JenisHarga,
                         "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
-                        "price": this.TotalPayment
+                        "price": this.TotalPayment,
+                        "date1": this.DateFrom,
+                        "date2": this.DateTo, 
                     }
                 }
                 if ( this.Aggrement ) {
@@ -305,8 +329,6 @@
                 } else {
                     alert('tolong centang syarat & ketentuannya terebih dahulu..')
                 }
-
-                console.log(configPayment)
             }
         },
 

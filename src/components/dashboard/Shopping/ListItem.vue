@@ -16,8 +16,9 @@
                 <span>{{ Price }}</span>
             </div>
             <div class="wc-confirmation" v-if="Confirmation">
-                <span :class="TypeConfirmation === 0 ? `failed` : TypeConfirmation === 1 ? `success` : `waiting`">
-                    {{ TypeConfirmation === 0 ? `Gagal` : TypeConfirmation === 1 ? `Berhasil` : `Menunggu Dikonfirmasi` }}
+                <!-- <span>{{ typeof typeConfirmation }}</span> -->
+                <span :class="TypeConfirmation === 0 ? 'new' : TypeConfirmation === 1 ? 'waiting' : TypeConfirmation === 2 ? 'failed' : 'success' ">
+                    {{ Number(TypeConfirmation) === 0 ? `Baru` : Number(TypeConfirmation) === 1 ? `Disetujui` : Number(TypeConfirmation) === 2 ? 'Gagal' : 'Selesai' }}
                 </span>
             </div>
             <div class="wc-paytab" v-if="BayarStatus">
@@ -45,7 +46,7 @@
             return {
                 BayarStatus: false,
                 Confirmation: true,
-                TypeConfirmation: 2,
+                TypeConfirmation: 0,
                 Thumbnail: null,
                 Title: null,
                 Description: null,
@@ -63,13 +64,12 @@
             this.Tanggal = this.tanggal
             this.Price = 'Rp.' + this.$store.state.Tools.PriceFormat(this.price, 2, ',', '.')
             this.Quantity = 1
+            this.TypeConfirmation = this.typeConfirmation
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {
                 this.Confirmation = true
                 this.BayarStatus = false
-                if ( !this.typeConfirmation ) this.TypeConfirmation = 2
-                if ( this.typeConfirmation ) this.TypeConfirmation = Number(this.typeConfirmation)
             }
 
             if ( this.typeItem === 'bayar' ) {
