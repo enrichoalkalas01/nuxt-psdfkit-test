@@ -7,7 +7,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a href="buku.html">List buku</a></li>
+                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&currentpage=1&orderdirection=desc">List buku</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Buku</li>
                         </ol>
                     </nav>

@@ -6,7 +6,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a href="arsip.html#AllTabs03">List Foto</a></li>
+                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc">List Foto</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -20,7 +20,7 @@
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail.title }}</h3>
                                 <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. 300.000</span>
+                                    <span class="price-tag">mulai dari Rp. 150.000</span>
                                     <a v-on:click="FormPesan" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">

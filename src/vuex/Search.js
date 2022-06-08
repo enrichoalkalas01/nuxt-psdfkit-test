@@ -14,6 +14,7 @@ const Search = {
             DataToKey: null,
             SizeKey: 10,
             OrderDirectionKey: 'desc',
+            Collection: null,
 
             TypeSearch: 0,
             TotalSearch: 0,
@@ -99,6 +100,7 @@ const Search = {
                 if ( i === 'publication' ) state.PublicationKey = value[i]
                 if ( i === 'author' ) state.AuthorKey = value[i]
                 if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
+                if ( i === 'collection' ) state.CollectionKey = value[i]
                 if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
                 if ( i === 'orderdirection' ) state.OrderDirectionKey = value[i]
             }

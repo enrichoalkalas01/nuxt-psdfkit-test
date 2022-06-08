@@ -7,7 +7,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a href="arsip.html#AllTabs04">List Infografik</a></li>
+                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc">List Infografik</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Infografik</li>
                         </ol>
                     </nav>

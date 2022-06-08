@@ -29,9 +29,9 @@
                         Arsip
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="ArsipDropdown">
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&currentpage=1&orderdirection=desc">Artikel</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc">Foto</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc">Infografik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&currentpage=1&orderdirection=desc">Artikel</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&collection=&currentpage=1&orderdirection=desc">Foto</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&collection=&currentpage=1&orderdirection=desc">Infografik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -50,8 +50,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="/#data-Tabs01">Survei Kompas</a></li>
-                            <li><a class="dropdown-item" href="/#data-Tabs02">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=kompas_survey&currentpage=1&orderdirection=desc">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=kompas_statistik&currentpage=1&orderdirection=desc">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
