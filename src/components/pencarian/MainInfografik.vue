@@ -32,7 +32,8 @@
                     from: this.$store.state.Search.CurrentPageKey < 2 ? this.$store.state.Search.CurrentPageKey :
                     (Number(this.$store.state.Search.CurrentPageKey) - 1 ) * this.$store.state.Search.SizeKey + 1,
                     size: 10,
-                    orderdirection: this.$store.state.Search.OrderDirectionKey
+                    collection: this.$store.state.Search.Collection,
+                    orderdirection: this.$store.state.Search.OrderDirectionKey,
                 },
             }
         },

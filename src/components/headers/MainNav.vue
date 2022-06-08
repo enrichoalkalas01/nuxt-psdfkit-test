@@ -138,6 +138,7 @@
                 let DateFrom = this.$store.state.Search.DateFromKey ? this.$store.state.Search.DateFromKey : ''
                 let DateTo = this.$store.state.Search.DateToKey ? this.$store.state.Search.DateToKey : ''
                 let Size = this.$store.state.Search.SizeKey ? this.$store.state.Search.SizeKey : this.$store.state.Search.CurrentPageKey
+                let Collection = this.$store.state.Search.CollectionKey ? this.$store.state.Search.CollectionKey : ''
                 let CurrentPage = this.$store.state.Search.CurrentPageKey ? this.$store.state.Search.CurrentPageKey : this.$store.state.Search.CurrentPageKey
                 let OrderDirection = this.$store.state.Search.OrderDirectionKey ? this.$store.state.Search.OrderDirectionKey : this.$store.state.Search.OrderDirectionKey
                 
@@ -147,9 +148,9 @@
                 console.log(`Search Key: ${ this.$store.state.Search.SearchKey }`)
 
                 if ( urlDetection !== '/pencarian' ) {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&collection=${ Collection }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
                 } else {
-                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
+                    window.location.href = `/pencarian?query=${ SearchInput }&datefrom=${ DateFrom }&dateto=${ DateTo }&author=${ Author }&publication=${ Publication }&typesearch=${ SelectSearch }&size=${ Size }&collection=${ Collection }&currentpage=${ CurrentPage }&orderdirection=${ OrderDirection }`
                 }
             },
 
