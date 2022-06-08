@@ -78,8 +78,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-artikel" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -121,8 +121,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-infografik" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -191,8 +191,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-foto" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -258,8 +258,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-buku" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -274,12 +274,12 @@
                                     <!-- Survey Data -->
                                     <div id="surveydata">
                                         <fieldset>
-                                            <div class="form-group row my-3">
+                                            <!-- <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Kata Kunci</label>
                                                 <div class="col-md-9">
                                                     <input name="subjek-data" id="subjek-data" type="text" class="form-control" placeholder="subjek...">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Judul</label>
                                                 <div class="col-md-9">
@@ -307,8 +307,8 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-data" class="form-control">
-                                                        <option value="desc">Terbaru</option>
                                                         <option value="asc">Terlama</option>
+                                                        <option value="desc">Terbaru</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -409,14 +409,14 @@
                 let query = document.querySelector("#query-data").value
                 let dateFrom = document.querySelector("#date-from-data").value
                 let dateTo = document.querySelector("#date-to-data").value
-                let publication = document.querySelector("#penerbit-data").value
+                // let publication = document.querySelector("#penerbit-data").value
                 // let page = document.querySelector("#page-data").value
-                let author = document.querySelector("#author-data").value
+                // let author = document.querySelector("#author-data").value
                 let size = 10
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-data").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=5&size=${ size }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=5&size=${ size }&currentpage=${ currentpage }`
             }
         },
     }
