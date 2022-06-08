@@ -41,6 +41,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     export default {
         name: 'PembayaranTab',
         data() {
@@ -48,6 +49,22 @@
                 ListItem: [0,0,0,0,0,0]
             }
         },
+        mounted() {
+
+        },
+
+        methods: {
+            async getDataAll(date1, date2) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    headers: { Authorization: this.Token }
+                }
+                let AllData = await Axios(config)
+                console.log(AllData)
+                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 1 )
+                else console.log(AllData)
+            }
+        }
     }
 </script>
 

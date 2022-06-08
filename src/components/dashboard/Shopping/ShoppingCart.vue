@@ -24,6 +24,11 @@
                                 Selesai
                             </a>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pemesanan-Tabs05" data-bs-toggle="tab" href="#pemesananTabs05" aria-controls="pemesananTabs05" aria-selected="false">
+                                Gagal
+                            </a>
+                        </li>
                     </ul>
                     <div class="row py-2 tab-content komp-tab-content" id="komp-tab-content">
                         <div class="col-12 tab-pane fade show active" id="pemesananTabs01" role="tabpanel" aria-labelledby="pemesanan-Tabs01">
@@ -38,6 +43,9 @@
                         <div class="col-12 tab-pane fade" id="pemesananTabs04" role="tabpanel" aria-labelledby="pemesanan-Tabs04">
                             <TabThree />
                         </div>
+                        <div class="col-12 tab-pane fade" id="pemesananTabs05" role="tabpanel" aria-labelledby="pemesanan-Tabs04">
+                            <FailedTab />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,13 +58,16 @@
     import TabOne from './KonfirmasiTab.vue'
     import TabTwo from './PembayaranTab.vue'
     import TabThree from './StatusTab.vue'
+    import FailedTab from './FailedTab.vue'
+
     export default {
         name: 'ShoppingCart',
         components: {
             TabTwo,
             TabOne,
             TabThree,
-            TabAll
+            TabAll,
+            FailedTab
         },
 
         data() {

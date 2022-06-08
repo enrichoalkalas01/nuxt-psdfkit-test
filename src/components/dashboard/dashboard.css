@@ -306,3 +306,19 @@
 #dashboard #dashboard-home .box-text a:hover {
     background-color: #0b5ed7;
 }
+
+#cart-option.top-box {
+    margin-bottom: 20px;
+}
+
+#cart-option .box-button {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 2.5px;
+}
+
+#cart-option .box-button button {
+    /* width: 100%; */
+}

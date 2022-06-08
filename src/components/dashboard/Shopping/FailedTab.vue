@@ -38,7 +38,7 @@
     import Axios from 'axios'
     import ListItemVue from './ListItem.vue'
     export default {
-        name: 'StatusTab',
+        name: 'FailedTab',
         components: {
             ListItemVue
         },
@@ -67,7 +67,7 @@
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 3)
+                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 2)
                 else console.log(AllData)
             }
         }

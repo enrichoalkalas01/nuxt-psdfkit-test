@@ -1,6 +1,6 @@
 <template>
     <section class="row wrapper-cart" id="cart-all">
-        <div class="col-12 top-box">
+        <div class="col-12 top-box" id="cart-option">
             <div class="row">
                 <div class="col box-tanggal">
                     <label for="date-start">Tanggal Mulai :</label>
@@ -49,23 +49,12 @@
 
         data() {
             return {
-                DateFrom: new Date(),
-                DateTo: new Date(),
+                DateFrom: this.$store.state.Tools.DateNowString(),
+                DateTo: this.$store.state.Tools.DateNowString(),
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
                 ResultData: [],
             }
         },
-
-        beforeMount() {
-            let dateNow = [
-                `${ new Date().getFullYear() }`,
-                `${ (new Date().getMonth() + 1) < 10 ? '0' + (new Date().getMonth() + 1) : (new Date().getMonth() + 1) }`,
-                `${ new Date().getDate() < 10 ?  '0' + new Date().getDate() : new Date().getDate() }`
-            ].join("-")
-            this.DateFrom = dateNow
-            this.DateTo = dateNow
-        },
-
         mounted() {
             this.getDataAll(this.DateFrom, this.DateTo)            
         },
@@ -91,19 +80,5 @@
 </script>
 
 <style>
-    #cart-all .top-box {
-        margin-bottom: 20px;
-    }
-
-    #cart-all .box-button {
-        position: relative;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-end;
-        padding-bottom: 2.5px;
-    }
-
-    #cart-all .box-button button {
-        /* width: 100%; */
-    }
+    
 </style>

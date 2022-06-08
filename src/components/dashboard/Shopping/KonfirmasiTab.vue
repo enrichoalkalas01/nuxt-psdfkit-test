@@ -1,34 +1,76 @@
 <template>
     <section class="row wrapper-cart">
-        <div class="col-12 col-sm-12 card list-item" v-for="(item, i) in ListItem" :key="i">
-            <div class="images-wrapper">
-                <div class="images"></div>
+        <div class="col-12">
+
+            <div class="col-12 top-box" id="cart-option">
+                <div class="row">
+                    <div class="col box-tanggal">
+                        <label for="date-start">Tanggal Mulai :</label>
+                        <input v-on:change="dateFromChange" :value="DateFrom" name="date-start" class="form-control" type="date">
+                    </div>
+                    <div class="col box-tanggal">
+                        <label for="date-start">Tanggal Selesai :</label>
+                        <input v-on:change="dateToChange" :value="DateTo" name="date-start" class="form-control" type="date">
+                    </div>
+                    <div class="col box-button">
+                        <button v-on:click="searchData" class="form-control btn-primary">Search</button>
+                    </div>
+                </div>
             </div>
-            <div class="item-wrapper">
-                <div class="wc-item">
-                    <h4 class="title">Name File Here..</h4>
-                    <p class="desc">bla bla bla bla</p>
-                    <p class="date">Date : 17 Agustus 1945</p>
-                </div>
-                <div class="wc-price">
-                    <span>Rp. 10.000.000</span>
-                </div>
-                <div class="wc-confirmation">
-                    <span class="waiting">Menunggu Dikonfirmasi</span>
-                </div>
+
+            <div class="row" v-if="ResultData != null">
+                <ListItemVue
+                    v-for="(order, i) in ResultData" :key="i"
+                    typeItem="konfirmasi"
+                    :title="order.product.name"
+                    :typeConfirmation="order.status"
+                    :price="order.value"
+                    :qty="order.quantity"
+                    :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
+                />
             </div>
+
         </div>
     </section>
 </template>
 
 <script>
+    import Axios from 'axios'
+    import ListItemVue from './ListItem.vue'
     export default {
         name: 'KonfirmasiTab',
+        components: {
+            ListItemVue
+        },  
         data() {
             return {
-                ListItem: [0,0,0,0,0,0]
+                DateFrom: this.$store.state.Tools.DateNowString(),
+                DateTo: this.$store.state.Tools.DateNowString(),
+                Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
+                ResultData: null,
             }
         },
+
+        mounted() {
+            this.getDataAll(this.DateFrom, this.DateTo)
+        },
+
+        methods: {
+            dateFromChange(e) { this.DateFrom = e.target.value },
+            dateToChange(e) { this.DateTo = e.target.value },
+            searchData() {
+                this.getDataAll(this.DateFrom, this.DateTo)
+            },
+            async getDataAll(date1, date2) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    headers: { Authorization: this.Token }
+                }
+                let AllData = await Axios(config)
+                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 1)
+                else console.log(AllData)
+            }
+        }
     }
 </script>
 
