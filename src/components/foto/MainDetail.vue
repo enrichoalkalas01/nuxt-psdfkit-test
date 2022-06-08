@@ -6,7 +6,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc">List Foto</a></li>
+                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&collection=&currentpage=1&orderdirection=desc">List Foto</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
