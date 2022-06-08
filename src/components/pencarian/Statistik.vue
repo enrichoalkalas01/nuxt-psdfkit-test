@@ -15,7 +15,7 @@
                                 <h3 class="title">
                                     <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">{{ statistik.title }}</a>
                                 </h3>
-                                <p v-html="`${ statistik.description }`"></p>
+                                <p class="short-text two" v-html="`${ statistik.description }`"></p>
                                 <span class="date-time">
                                     <i class="fas fa-clock"></i>
                                     {{ statistik.publication }}, {{ statistik.published_date ? this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
