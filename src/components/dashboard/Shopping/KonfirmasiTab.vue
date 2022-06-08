@@ -67,7 +67,7 @@
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 1)
+                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 0)
                 else console.log(AllData)
             }
         }

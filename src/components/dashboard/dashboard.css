@@ -268,6 +268,12 @@
     border: unset;
     font-weight: 700;
     outline: none;
+    margin-right: 15px;
+    font-size: 12px;
+}
+
+#shopping-cart .order-cart .buy button:last-child {
+    background-color: rgb(67, 137, 241);
 }
 
 /* #shopping-cart .order-cart .buy button:hover {
