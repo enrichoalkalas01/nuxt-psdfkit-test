@@ -47,7 +47,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Publication</th>
-                                                    <td>{{ fotoDetail.credit }}, {{ this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.substring(0, 10)) }}</td>
+                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Credit</th>
@@ -90,7 +90,7 @@
                                             <h5 class="subtitle">Deskripsi</h5>
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea class="form-control" id="description-box" rows="3"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -155,8 +155,8 @@
                                         </div>
                                         <div class="mb-4">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                <label class="form-check-label" for="defaultCheck1">
+                                                <input class="form-check-input" type="checkbox" value="" v-model="Aggrement" id="aggrement">
+                                                <label class="form-check-label" for="aggrement">
                                                     <i>Saya setuju dengan syarat dan ketentuan yang berlaku.</i>
                                                 </label>
                                             </div>
@@ -165,7 +165,7 @@
                                             <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
                                         </div>
                                         <div class="button-box">
-                                            <button class="payment btn btn-primary" id="pesan">Pesan</button>
+                                            <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan">Pesan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -237,6 +237,7 @@
                 ],
                 SizeHarga: 0,
                 JenisHarga: 0,
+                Aggrement: 0,
             }
         },
         async beforeMount() {
@@ -247,6 +248,7 @@
                 dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
                 this.SizeHarga = 201
                 this.JenisHarga = 301
+                console.log(this.fotoDetail)
             } else if (dataFoto.response.status == '401') {
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
@@ -255,6 +257,7 @@
         methods: {
             changeSize(event) { this.SizeHarga = Number(event.target.getAttribute("dataindex")) },
             FormPesan() { this.FormPesanClick = !this.FormPesanClick },
+            aggrementChange(event) { console.log(event.target.value) },
             BtnRadioJenis(event) {
                 this.JenisHarga = Number(event.target.getAttribute("dataId"))
                 this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price
@@ -262,24 +265,57 @@
 
             async getHarga(opt1, opt2) {
                 let SizeFoto = this.fotoDetail.file_size
-                // let ProductId = this.fotoDetail.reference_id
-                let DocumentDate = this.fotoDetail ? this.fotoDetail.published_date.substring(0, this.fotoDetail.published_date.length - 1) : null
+                let DocumentDate = this.fotoDetail.published_date.replace('Z', '')
                 let configHarga = {
                     url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                }
+                }   
 
                 let newHargaFromApi = await Axios(configHarga)
                 if ( newHargaFromApi ) this.TotalPayment = newHargaFromApi.data.value
                 else {
                     console.log(newHargaFromApi)
                 }
+            },
+
+            async pesanFoto() {
+                let configPayment = {
+                    url: 'https://dev-be.kompasdata.id/api/Orders/photo',
+                    method: 'POST',
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                    data: {
+                        "id": this.fotoDetail.reference_id,
+                        "title": this.fotoDetail.title,
+                        "description": document.querySelector("#description-box").value,
+                        "quality": this.SizeHarga,
+                        "quality_description": this.UkuranFoto.filter(x => x.apiId === Number(this.SizeHarga))[0].text,
+                        "usage": this.JenisHarga,
+                        "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
+                        "price": this.TotalPayment
+                    }
+                }
+                if ( this.Aggrement ) {
+                    let PesanData = await Axios(configPayment)
+                    if ( PesanData ) {
+                        console.log(PesanData)
+                        window.location.href = "/dashboard/daftar-pesanan"
+                    } else {
+                        console.log(PesanData)
+                    }
+                } else {
+                    alert('tolong centang syarat & ketentuannya terebih dahulu..')
+                }
+
+                console.log(configPayment)
             }
         },
 
         computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },
 
         watch: {
+            Aggrement() {
+
+            },
             async propertyAAndPropertyB(newVal, oldVal) {
                 const [oldPropertyA, oldPropertyB] = oldVal.split('|');
                 const [newPropertyA, newPropertyB] = newVal.split('|');
