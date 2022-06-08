@@ -8,6 +8,7 @@
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
                 <p class="date">Date : {{ Tanggal }}</p>
+                <p class="delete" v-if="TypeConfirmation === 0">Hapus</p>
             </div>
             <div class="wc-qty-done">
                 <span>{{ Quantity }} Qty</span>
@@ -39,7 +40,8 @@
             'tanggal',
             'description',
             'images',
-            'qty'
+            'qty',
+            'delete'
         ],
 
         data() {
@@ -53,6 +55,7 @@
                 Tanggal: null,
                 Price: null,
                 Quantity: 0,
+                deletButton: null,
             }
         },
 
@@ -65,6 +68,7 @@
             this.Price = 'Rp.' + this.$store.state.Tools.PriceFormat(this.price, 2, ',', '.')
             this.Quantity = 1
             this.TypeConfirmation = this.typeConfirmation
+            this.deletButton = this.delete
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {

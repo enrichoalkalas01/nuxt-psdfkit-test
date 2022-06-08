@@ -65,6 +65,11 @@
             searchData() {
                 this.getDataAll(this.DateFrom, this.DateTo)
             },
+
+            async deleteItem() {
+                console.log(this.target)
+            },
+
             async getDataAll(date1, date2) {
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,

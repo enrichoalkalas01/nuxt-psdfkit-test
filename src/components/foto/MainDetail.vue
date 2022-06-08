@@ -1,5 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
+        <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
@@ -207,7 +208,7 @@
 <script>
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -218,7 +219,7 @@
     export default {
         name: 'Foto',
         components: {
-            Suggestion
+            Suggestion, LoadingScreen
         },
         data () {
             return {
@@ -267,7 +268,10 @@
                 this.SizeHarga = 201
                 this.JenisHarga = 301
                 this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
+                console.log(dataFoto.data)
+                this.$store.commit('setLoadingScreen', false)
             } else if (dataFoto.response.status == '401') {
+                this.$store.commit('setLoadingScreen', false)
                 window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
             }
         },
@@ -315,16 +319,22 @@
                         "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
                         "price": this.TotalPayment,
                         "date1": this.DateFrom,
-                        "date2": this.DateTo, 
+                        "date2": this.DateTo,
+                        "thumbnail": this.thumbnail,
                     }
                 }
                 if ( this.Aggrement ) {
+                    this.$store.commit('setLoadingScreen', true)
                     let PesanData = await Axios(configPayment)
                     if ( PesanData ) {
-                        console.log(PesanData)
-                        window.location.href = "/dashboard/daftar-pesanan"
+                        this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                        setTimeout(() => {
+                            window.location.href = "/dashboard/daftar-pesanan"    
+                            this.$store.commit('setLoadingScreen', false)
+                        }, 1000)
                     } else {
                         console.log(PesanData)
+                        this.$store.commit('setLoadingScreen', false)
                     }
                 } else {
                     alert('tolong centang syarat & ketentuannya terebih dahulu..')
@@ -336,7 +346,7 @@
 
         watch: {
             Aggrement() {
-
+                
             },
             async propertyAAndPropertyB(newVal, oldVal) {
                 const [oldPropertyA, oldPropertyB] = oldVal.split('|');

@@ -144,7 +144,25 @@
 
 #shopping-cart .list-item .item-wrapper .wc-item .date {
     font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-item .delete {
+    width: 30%;
+    font-size: 12px;
     margin-bottom: 0px;
+    color: #c0392b;
+    cursor: pointer;
+    text-align: center;
+    padding: 2.5px;
+    border-radius: 5px;
+    border: 0.5px solid #c0392b;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-item .delete:hover {
+    background-color: #c0392b;
+    color: #fff;
+    transition: all ease 0.5s;
 }
 
 #shopping-cart .list-item .item-wrapper .wc-qty {

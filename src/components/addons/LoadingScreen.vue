@@ -20,11 +20,24 @@
         data() {
             return {
                 statusScreen: this.$store.state.Tools.LoadingScreenStatus,
-                textMessage: 'Loading....',
+                textMessage: this.$store.state.Tools.LoadingScreenText,
             }
         },
+
+        watch: {
+            '$store.state.Tools.LoadingScreenText': function(oldValue, newValue) {
+                console.log(oldValue, newValue)
+                if ( oldValue !== this.$store.state.Tools.LoadingScreenText ) {
+                    this.textMessage = oldValue
+                } else {
+                    this.textMessage = oldValue
+                }
+            }
+        },
+
         mounted() {
             this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
+            this.textMessage = this.$store.state.Tools.LoadingScreenText
             console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) {
@@ -37,6 +50,7 @@
 
         updated() {
             this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
+            this.textMessage = this.$store.state.Tools.LoadingScreenText
             console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) {
