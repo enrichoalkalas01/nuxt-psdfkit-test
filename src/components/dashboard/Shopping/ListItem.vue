@@ -8,7 +8,7 @@
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
                 <p class="date">Date : {{ Tanggal }}</p>
-                <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1">Hapus</p>
+                <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
             </div>
             <div class="wc-qty-done">
                 <span>{{ Quantity }} Qty</span>
@@ -43,6 +43,7 @@
             'qty',
             'delete',
             'imageSource',
+            'orderId'
         ],
 
         data() {
@@ -58,6 +59,7 @@
                 Quantity: 0,
                 deletButton: null,
                 image_source: null,
+                OrderId: null,
             }
         },
 
@@ -72,8 +74,7 @@
             this.TypeConfirmation = this.typeConfirmation
             this.deletButton = this.delete
             this.image_source = this.imageSource
-
-            console.log(this.imageSource)
+            this.OrderId = this.orderId
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {

@@ -31,7 +31,7 @@
                             <h4 class="title">{{ order.product.name }}</h4>
                             <!-- <p class="desc">bla bla bla bla</p> -->
                             <p class="date">Date : {{ `${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }` }}</p>
-                            <p class="delete" v-if="order.status === 1">Hapus</p>
+                            <p class="delete" v-if="order.status === 1" v-on:click="deleteItem(order.id)">Hapus</p>
                         </div>
                         <div class="wc-qty-done">
                             <span>{{ order.quantity }} Qty</span>
@@ -67,8 +67,16 @@
         methods: {
             dateFromChange(e) { this.DateFrom = e.target.value },
             dateToChange(e) { this.DateTo = e.target.value },
-            searchData() {
-                this.getDataAll(this.DateFrom, this.DateTo)
+            searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
+            async deleteItem(e) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
+                    method: 'get', headers: { Authorization: this.Token }
+                }
+
+                let statusDelete = await Axios(config)
+                if ( statusDelete ) location.reload()
+                else console.log(statusDelete)
             },
             async getDataAll(date1, date2) {
                 let config = {

@@ -23,8 +23,10 @@
                 :typeConfirmation="order.status"
                 :price="order.value"
                 :qty="order.quantity"
+                :orderId="order.id"
                 :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
                 :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
+                @deleteClick="deleteItem"
             />
 
             <!-- <ListItemVue
@@ -68,8 +70,15 @@
                 this.getDataAll(this.DateFrom, this.DateTo)
             },
 
-            async deleteItem() {
-                console.log(this.target)
+            async deleteItem(e) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
+                    method: 'get', headers: { Authorization: this.Token }
+                }
+
+                let statusDelete = await Axios(config)
+                if ( statusDelete ) location.reload()
+                else console.log(statusDelete)
             },
 
             async getDataAll(date1, date2) {
