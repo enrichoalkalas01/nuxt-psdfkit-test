@@ -26,7 +26,7 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="pemesanan-Tabs05" data-bs-toggle="tab" href="#pemesananTabs05" aria-controls="pemesananTabs05" aria-selected="false">
-                                Gagal
+                                Ditolak
                             </a>
                         </li>
                     </ul>
