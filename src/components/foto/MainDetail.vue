@@ -320,9 +320,10 @@
                         "price": this.TotalPayment,
                         "date1": this.DateFrom,
                         "date2": this.DateTo,
-                        "thumbnail": this.thumbnail,
+                        "thumbnail": this.fotoDetail.thumbnail,
                     }
                 }
+
                 if ( this.Aggrement ) {
                     this.$store.commit('setLoadingScreen', true)
                     let PesanData = await Axios(configPayment)

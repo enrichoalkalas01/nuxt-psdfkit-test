@@ -63,11 +63,11 @@
             },
             async getDataAll(date1, date2) {
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 3)
+                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 3)
                 else console.log(AllData)
             }
         }

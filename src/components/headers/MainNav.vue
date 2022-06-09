@@ -41,7 +41,7 @@
                                 <h6>Saldo</h6>
                                 <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
                             </div>
-                            <a href="#" class="cart d-none d-md-block">
+                            <a href="/dashboard/daftar-pesanan" class="cart d-none d-md-block">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>

@@ -1,14 +1,14 @@
 <template>
     <div class="col-12 col-sm-12 card list-item">
         <div class="images-wrapper">
-            <div class="images"></div>
+            <div class="images" :style="`background-image: url('${ image_source }')`"></div>
         </div>
         <div class="item-wrapper">
             <div class="wc-item">
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
                 <p class="date">Date : {{ Tanggal }}</p>
-                <p class="delete" v-if="TypeConfirmation === 0">Hapus</p>
+                <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1">Hapus</p>
             </div>
             <div class="wc-qty-done">
                 <span>{{ Quantity }} Qty</span>
@@ -41,7 +41,8 @@
             'description',
             'images',
             'qty',
-            'delete'
+            'delete',
+            'imageSource',
         ],
 
         data() {
@@ -56,6 +57,7 @@
                 Price: null,
                 Quantity: 0,
                 deletButton: null,
+                image_source: null,
             }
         },
 
@@ -69,6 +71,9 @@
             this.Quantity = 1
             this.TypeConfirmation = this.typeConfirmation
             this.deletButton = this.delete
+            this.image_source = this.imageSource
+
+            console.log(this.imageSource)
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {

@@ -22,11 +22,12 @@
                 <ListItemVue
                     v-for="(order, i) in ResultData" :key="i"
                     typeItem="konfirmasi"
-                    :title="order.product.name"
+                    :title="order.title"
                     :typeConfirmation="order.status"
                     :price="order.value"
                     :qty="order.quantity"
                     :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
+                    :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
                 />
             </div>
 
@@ -63,11 +64,11 @@
             },
             async getDataAll(date1, date2) {
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 2)
+                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 2)
                 else console.log(AllData)
             }
         }

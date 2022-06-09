@@ -24,13 +24,14 @@
                         <input class="form-check-input" type="checkbox" :name="`flexRadioDefault${ i }`">
                     </div>
                     <div class="images-wrapper">
-                        <div class="images"></div>
+                        <div class="images" :style="`background-image: url('https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }')`"></div>
                     </div>
                     <div class="item-wrapper">
                         <div class="wc-item">
                             <h4 class="title">{{ order.product.name }}</h4>
                             <!-- <p class="desc">bla bla bla bla</p> -->
                             <p class="date">Date : {{ `${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }` }}</p>
+                            <p class="delete" v-if="order.status === 1">Hapus</p>
                         </div>
                         <div class="wc-qty-done">
                             <span>{{ order.quantity }} Qty</span>
@@ -71,11 +72,11 @@
             },
             async getDataAll(date1, date2) {
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.filter(x => x.status === 1)
+                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 1)
                 else console.log(AllData)
             }
         }
