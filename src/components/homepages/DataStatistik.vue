@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc" class="more-link">Data Lainnya <i class="fas fa-chevron-right"></i></a>
+                    <a href="pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=&currentpage=1&orderdirection=desc" class="more-link">Data Lainnya <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
