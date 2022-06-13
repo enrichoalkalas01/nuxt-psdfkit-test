@@ -162,6 +162,10 @@
             }
         },
 
+        async mounted() {
+            this.$store.commit('setReloadSaldo', true)
+        },
+
         methods: {
             async downloadPDF() {
                 this.$store.commit('setLoadingScreen', true)

@@ -70,8 +70,7 @@
                 }
                 let AllData = await Axios(config)
                 if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 3)
-                else console.log(AllData)
-                console.log(this.ResultData)
+                else console.log(this.ResultData)
             },
 
             async downloadItem(e) {
@@ -82,7 +81,8 @@
                 
                 try {
                     let download = await Axios(config)
-                    FileSaver.saveAs(download.data, `${ e.title }.png`)
+                    console.log(download)
+                    FileSaver.saveAs(download.data, `${ e.title + download.data.type.replace('image/', '.') }`)
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)

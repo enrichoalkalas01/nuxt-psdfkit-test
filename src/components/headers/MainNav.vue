@@ -91,6 +91,13 @@
                 searchKey: this.$store.state.Search.SearchKey,
                 ProfileBox: false,
                 saldoUser: 0,
+                statusSaldo: this.$store.state.Headers.ReloadSaldo,
+            }
+        },
+
+        computed: {
+            HeadersCheck() {
+                return this.$store.state.Headers
             }
         },
 
@@ -105,11 +112,15 @@
                 this.searchKey = this.$store.state.Search.SearchKey : this.searchKey
             },
 
-            '$store.state.Headers.ReloadSaldo': function(oldValue, newValue) {
-                console.log(`Old Value : ${ oldValue }`)
-                console.log(`New Value : ${ newValue }`)
-                if ( oldValue != newValue ) this.getSaldo()
+            '$store.state.Headers.ReloadSaldo': function() {
+                this.getSaldo()
+                this.$store.commit('setReloadSaldo', false)
             },
+
+            ReloadSaldo: function() {
+                this.getSaldo()
+                this.$store.commit('setReloadSaldo', false)
+            }
         },
 
         beforeMount() {
@@ -121,6 +132,7 @@
         },
 
         updated() {
+            console.log(this.$store.state.Headers.ReloadSaldo)
             this.getSaldo()
         },
 

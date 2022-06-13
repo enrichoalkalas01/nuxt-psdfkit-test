@@ -65,7 +65,7 @@
                 DateFrom: this.$store.state.Tools.DateNowString(),
                 DateTo: this.$store.state.Tools.DateNowString(),
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
-                ResultData: null,
+                ResultData: [],
                 totalPrice: 0,
             }
         },
@@ -110,8 +110,12 @@
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 1)
-                else console.log(AllData)
+                if ( AllData ) {
+                    this.ResultData = AllData.data.data.filter(x => x.status === 1)
+                    this.Selected = AllData.data.data.filter(x => x.status === 1)
+                } else {
+                    console.log(AllData)
+                }
             },
 
             async paymentSaldo() {
@@ -130,6 +134,7 @@
                         else {
                             alert(payed.data.message)
                             this.getDataAll()
+                            this.$store.commit('setReloadSaldo', true)
                         }
                     } catch (error) {
                         alert('ups, terjadi kesalahan..')

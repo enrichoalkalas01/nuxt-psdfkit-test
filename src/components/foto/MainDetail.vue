@@ -117,7 +117,7 @@
                                             <div 
                                                 v-for="(ukuran, i) in UkuranFoto" :key="i"
                                             >
-                                                <div class="form-check">
+                                                <div class="form-check" v-if="SizeProduct > ukuran.sizeMin">
                                                     <input v-on:change="changeSize" :checked="i === 0 ? true : false" :dataIndex="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
                                                     <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel )</label>
                                                 </div>

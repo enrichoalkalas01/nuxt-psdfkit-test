@@ -80,6 +80,7 @@
                 let AllData = await Axios(config)
                 if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 0)
                 else console.log(AllData)
+                console.log(this.ResultData)
             }
         }
     }

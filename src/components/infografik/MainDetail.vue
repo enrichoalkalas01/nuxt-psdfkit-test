@@ -115,7 +115,7 @@
 
                 this.$store.commit('setLoadingScreen', true)
                 await Axios(config).then(response => {
-                    FileSaver.saveAs(response.data, `${ this.infografikDetail.title }.png`)
+                    FileSaver.saveAs(response.data, `${ this.infografikDetail.title + response.data.type.replace('image/', '.') }`)
                     this.$store.commit('setLoadingScreen', false)
                     this.$store.commit('setReloadSaldo', true)
                 }).catch(err => {
