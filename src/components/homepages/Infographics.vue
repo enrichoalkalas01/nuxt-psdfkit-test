@@ -19,7 +19,7 @@
                                 <img :src="infografik.image_source" alt="">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>
-                                    <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.created_source }}, {{ infografik.created_date }}</span>
+                                    <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.created_source }}, {{ this.$store.state.Tools.ChangeDateString(infografik.created_date.substring(0, 10)) }}</span>
                                 </div>
                             </a>
                         </div>

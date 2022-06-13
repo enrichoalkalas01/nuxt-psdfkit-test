@@ -8,7 +8,7 @@
             </h2>
             <span class="date-time">
                 <i class="fas fa-clock"></i>
-                {{ created_source }}, {{ created_date }}
+                {{ created_source }}, {{ this.$store.state.Tools.ChangeDateString(created_date.substring(0, 10)) }}
             </span>
         </a>
     </div>

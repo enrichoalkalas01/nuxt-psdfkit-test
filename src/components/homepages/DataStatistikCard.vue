@@ -15,7 +15,7 @@
                 </h3>
                 <span class="date-time">
                     <i class="fas fa-clock"></i>
-                    {{ statistiks[n - 1] ? statistiks[n - 1].created_source : '' }}, {{ statistiks[n - 1] ? statistiks[n - 1].created_date : '' }}
+                    {{ statistiks[n - 1] ? statistiks[n - 1].created_source : '' }}, {{ statistiks[n - 1] ? this.$store.state.Tools.ChangeDateString(statistiks[n - 1].created_date.substring(0, 10)) : '' }}
                 </span>
             </div>
         </div>
@@ -35,7 +35,7 @@
                             </h3>
                             <span class="date-time">
                                 <i class="fas fa-clock"></i>
-                                {{ statistiks[n] ? statistiks[n].created_source : '' }}, {{ statistiks[n] ? statistiks[n].created_date : '' }}
+                                {{ statistiks[n] ? statistiks[n].created_source : '' }}, {{ statistiks[n] ? this.$store.state.Tools.ChangeDateString(statistiks[n].created_date.substring(0, 10)) : '' }}
                             </span>
                         </div>
                     </div>
