@@ -6,14 +6,14 @@
                     <h4>Order Summary</h4>
                 </div>
                 <div class="col-12 item">
-                    <span>Total Item Dipilih : {{ Selected }}</span>
+                    <span>Total Item Dipilih : {{ Selected.length }}</span>
                 </div>
                 <div class="col-12 cost">
-                    <span>Total Harga : Rp. 1.000.000</span>
+                    <span>Total Harga : Rp. {{ this.$store.state.Tools.PriceFormat(totalPrice, 2, ',', '.') }}</span>
                 </div>
                 <div class="col-12 buy">
-                    <button class="btn-primary mr-2">Bayar Dengan Saldo</button>
-                    <button class="btn-primary">Bayar Dengan Metode Lain</button>
+                    <button class="btn-primary mr-2" v-on:click="paymentSaldo">Bayar Dengan Saldo</button>
+                    <button class="btn-primary" v-on:click="paymentOther">Bayar Dengan Metode Lain</button>
                 </div>
             </div>
         </div>
@@ -21,7 +21,16 @@
             <div class="row" v-if="ResultData != null">
                 <div class="col-12 col-sm-12 card list-item" v-for="(order, i) in ResultData" :key="i">
                     <div class="select-wrapper">
-                        <input class="form-check-input" type="checkbox" :name="`flexRadioDefault${ i }`">
+                        <input
+                            v-on:change="checkedData"
+                            dataChecked="false"
+                            class="form-check-input"
+                            :id="`flexRadioDefault${ i }`"
+                            :orderId="order.id"
+                            :orderPrice="order.value"
+                            type="checkbox"
+                            :name="`flexRadioDefault${ i }`"
+                        >
                     </div>
                     <div class="images-wrapper">
                         <div class="images" :style="`background-image: url('https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }')`"></div>
@@ -52,11 +61,12 @@
         name: 'PembayaranTab',
         data() {
             return {
-                Selected: 0,
+                Selected: [],
                 DateFrom: this.$store.state.Tools.DateNowString(),
                 DateTo: this.$store.state.Tools.DateNowString(),
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
                 ResultData: null,
+                totalPrice: 0,
             }
         },
         
@@ -78,6 +88,22 @@
                 if ( statusDelete ) location.reload()
                 else console.log(statusDelete)
             },
+
+            checkedData(e) {
+                let dataId = e.target.getAttribute("id"), dataStatus = e.target.getAttribute("dataChecked"),
+                orderId = e.target.getAttribute("orderId"), orderPrice = e.target.getAttribute("orderPrice")
+
+                if ( dataStatus !== 'false' ) {
+                    document.querySelector(`#${ dataId }`).setAttribute("dataChecked", "false")
+                    this.totalPrice = this.totalPrice - this.Selected.filter(x => x.idElement === dataId )[0].price
+                    this.Selected.pop(this.Selected.filter(x => x.idElement === dataId )[0])
+                } else {
+                    document.querySelector(`#${ dataId }`).setAttribute("dataChecked", "true")
+                    this.totalPrice = this.totalPrice + Number(orderPrice)
+                    this.Selected.push({ idElement: dataId, price: Number(orderPrice), orderId: Number(orderId) })
+                }
+            },
+
             async getDataAll(date1, date2) {
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
@@ -86,7 +112,35 @@
                 let AllData = await Axios(config)
                 if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 1)
                 else console.log(AllData)
-            }
+            },
+
+            async paymentSaldo() {
+                let readyData = []
+                this.Selected.map((data, i) => readyData[i] = data.orderId)
+                let configPaySaldo = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/pay`,
+                    method: 'POST', headers: { Authorization: this.Token }, data: readyData
+                }
+                
+                if ( this.Selected.length === 0 ) alert('Pilihlah terlebih dahulu produk nya...')
+                else {
+                    try {
+                        let payed = await Axios(configPaySaldo)
+                        if ( payed.message !== 'sukses') alert(payed.message)
+                        else {
+                            alert(payed.message)
+                            this.getDataAll()
+                        }
+                    } catch (error) {
+                        alert('ups, terjadi kesalahan..')
+                        console.log(error)
+                    }
+                }
+            },
+
+            async paymentOther() {
+                console.log('bayar dengan lainnya')
+            },
         }
     }
 </script>
