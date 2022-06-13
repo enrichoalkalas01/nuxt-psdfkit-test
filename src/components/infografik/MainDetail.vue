@@ -27,9 +27,11 @@
                     <div class="d-block my-3">
                         <h2 class="tag"><em>CARA PENGGUNAAN POSTER INFOGRAFIK</em></h2>
                         <ol>
-                            <li>Poster Infografik hanya tersedia dalam bentuk CETAK</li>
-                            <li>Poster Infografik tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan,
-                                memindahtangankan, memperjual-belikan Poster Infografik tanpa persetujuan dari Kompas.</li>
+                            <li>Penggunaan infografik berita wajib mencantumkan kredit atas nama desainer grafis dengan format: ‘Kompas/Desainer Grafis’.</li>
+                            <li>Penggunaan infografik berita wajib mencantumkan sumber edisi dengan format: ‘Kompas, tanggal-bulan-tahun’.</li>
+                            <li>Infografik Berita tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ pornoaksi/ diskriminasi.</li>
+                            <li>Data/informasi yang tertera pada infografik berita valid pada waktu dipublikasikan pertama kali, jika ada perubahan atau pembaruan data oleh sumber di luar Kompas bukan tanggungjawab Kompas.</li>
+                            <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjual-belikan infografik berita tanpa persetujuan dari Kompas.</li>
                         </ol>
                     </div>
                     <div class="db-price rounded">
