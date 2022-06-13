@@ -126,9 +126,9 @@
                 else {
                     try {
                         let payed = await Axios(configPaySaldo)
-                        if ( payed.message !== 'sukses') alert(payed.message)
+                        if ( payed.data.message !== 'sukses') alert(payed.data.message)
                         else {
-                            alert(payed.message)
+                            alert(payed.data.message)
                             this.getDataAll()
                         }
                     } catch (error) {
