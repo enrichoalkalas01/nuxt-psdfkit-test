@@ -26,8 +26,10 @@
                     :typeConfirmation="order.status"
                     :price="order.value"
                     :qty="order.quantity"
+                    :orderId="order.id"
                     :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
                     :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
+                    @downloadClick="downloadItem"
                 />
             </div>
 
@@ -38,6 +40,7 @@
 <script>
     import Axios from 'axios'
     import ListItemVue from './ListItem.vue'
+    import FileSaver from 'file-saver'
     export default {
         name: 'StatusTab',
         components: {
@@ -59,9 +62,7 @@
         methods: {
             dateFromChange(e) { this.DateFrom = e.target.value },
             dateToChange(e) { this.DateTo = e.target.value },
-            searchData() {
-                this.getDataAll(this.DateFrom, this.DateTo)
-            },
+            searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async getDataAll(date1, date2) {
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
@@ -71,6 +72,22 @@
                 if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 3)
                 else console.log(AllData)
                 console.log(this.ResultData)
+            },
+
+            async downloadItem(e) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
+                    headers: { Authorization: this.Token }, responseType: 'blob'
+                }
+                
+                try {
+                    let download = await Axios(config)
+                    FileSaver.saveAs(download.data, `${ e.title }.png`)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    alert('ups, terjadi kesalahan...')
+                }
             }
         }
     }

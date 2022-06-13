@@ -9,6 +9,7 @@
                 <p class="desc">{{ Description }}</p>
                 <p class="date">Date : {{ Tanggal }}</p>
                 <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
+                <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title })">Download</p>
             </div>
             <div class="wc-qty-done">
                 <span>{{ Quantity }} Qty</span>

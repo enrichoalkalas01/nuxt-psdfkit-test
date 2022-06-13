@@ -105,14 +105,11 @@
                 this.searchKey = this.$store.state.Search.SearchKey : this.searchKey
             },
 
-            // saldoUser(newVal, oldVal) {
-            //     if ( newVal !== oldVal || newVal === oldVal ) {
-            //         let saldo = this.saldoUser
-            //         this.saldoUser = saldo
-            //         console.log(this.saldoUser)
-            //         this.getSaldo()
-            //     }
-            // }
+            '$store.state.Headers.ReloadSaldo': function(oldValue, newValue) {
+                console.log(`Old Value : ${ oldValue }`)
+                console.log(`New Value : ${ newValue }`)
+                if ( oldValue != newValue ) this.getSaldo()
+            },
         },
 
         beforeMount() {
@@ -121,6 +118,10 @@
 
         async mounted() {
             if ( this.$store.state.Login.LoginStatus ) this.getSaldo()
+        },
+
+        updated() {
+            this.getSaldo()
         },
 
         methods: {

@@ -33,7 +33,7 @@
                         </ol>
                     </div>
                     <div class="db-price rounded">
-                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ HargaBaca }` : 'Gratis' }}</a>
+                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : 'Gratis' }}</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -115,6 +115,7 @@
                 await Axios(config).then(response => {
                     FileSaver.saveAs(response.data, `${ this.infografikDetail.title }.png`)
                     this.$store.commit('setLoadingScreen', false)
+                    this.$store.commit('setReloadSaldo', true)
                 }).catch(err => {
                     console.log(err)
                     this.$store.commit('setLoadingScreen', false)

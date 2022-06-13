@@ -6,9 +6,7 @@ const Tools = {
             LoadingScreenText: 'Loading....',
             GetUrlFiles: 'https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/',
             GetUrlFile: 'https://assets.kompasdata.id/buku/cover/',
-            truncateString: (str, long) => {
-                return (str.length > long) ? str.substr(0, long-1) + '...' : str
-            },
+            truncateString: (str, long) => { return (str.length > long) ? str.substr(0, long-1) + '...' : str },
             GetQueryString: () => {
                 const urlSearchParams = new URLSearchParams(window.location.search)
                 const params = Object.fromEntries(urlSearchParams.entries())

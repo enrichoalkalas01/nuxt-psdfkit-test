@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="db-price rounded" v-if="artikelDetail.old_tark_id > 0">
-                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ HargaBaca }` : 'Gratis' }}</a>
+                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : 'Gratis' }}</a>
                         </div>
                     </div>
                 </div>

@@ -169,6 +169,24 @@
     transition: all ease 0.5s;
 }
 
+#shopping-cart .list-item .item-wrapper .wc-item .download {
+    width: 30%;
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: #0b5ed7;
+    cursor: pointer;
+    text-align: center;
+    padding: 2.5px;
+    border-radius: 5px;
+    border: 0.5px solid #0b5ed7;
+}
+
+#shopping-cart .list-item .item-wrapper .wc-item .download:hover {
+    background-color: #0b5ed7;
+    color: #fff;
+    transition: all ease 0.5s;
+}
+
 #shopping-cart .list-item .item-wrapper .wc-qty {
     max-width: 25%;
     width: 100%;

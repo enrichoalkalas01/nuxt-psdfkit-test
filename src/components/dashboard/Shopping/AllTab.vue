@@ -27,6 +27,7 @@
                 :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
                 :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
                 @deleteClick="deleteItem"
+                @downloadClick="downloadItem"
             />
 
             <!-- <ListItemVue
@@ -44,6 +45,7 @@
 
 <script>
     import ListItemVue from './ListItem.vue'
+    import FileSaver from 'file-saver'
     import Axios from 'axios'
     export default {
         name: 'AllTab',
@@ -89,6 +91,22 @@
                 let AllData = await Axios(config)
                 if ( AllData ) this.ResultData = AllData.data.data
                 else console.log(AllData)
+            },
+
+            async downloadItem(e) {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
+                    headers: { Authorization: this.Token }, responseType: 'blob'
+                }
+                
+                try {
+                    let download = await Axios(config)
+                    FileSaver.saveAs(download.data, `${ e.title }.png`)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    alert('ups, terjadi kesalahan...')
+                }
             }
         }
     }
