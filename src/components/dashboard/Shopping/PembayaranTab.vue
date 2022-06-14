@@ -112,7 +112,7 @@
                 let AllData = await Axios(config)
                 if ( AllData ) {
                     this.ResultData = AllData.data.data.filter(x => x.status === 1)
-                    this.Selected = AllData.data.data.filter(x => x.status === 1)
+                    // this.Selected = AllData.data.data.filter(x => x.status === 1)
                 } else {
                     console.log(AllData)
                 }
@@ -144,7 +144,23 @@
             },
 
             async paymentOther() {
-                console.log('bayar dengan lainnya')
+                let readyData = []
+                this.Selected.map((data, i) => readyData[i] = data.orderId)
+                let configPaySaldo = {
+                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/checkout`,
+                    method: 'POST', headers: { Authorization: this.Token }, data: readyData
+                }
+
+                if ( this.Selected.length === 0 ) alert('Pilihlah terlebih dahulu produk nya...')
+                else {
+                    try {
+                        let payed = await Axios(configPaySaldo)
+                        window.open(payed.data.data.url)
+                    } catch (error) {
+                        alert('ups, terjadi kesalahan..')
+                        console.log(error)
+                    }
+                }
             },
         }
     }
