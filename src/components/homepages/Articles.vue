@@ -41,7 +41,7 @@
                             </p>
                             <span class="date-time">
                                 <i class="fas fa-clock"></i>
-                                {{ artikel.created_source }}, {{ artikel.created_date }}
+                                {{ artikel.created_source }}, {{ this.$store.state.Tools.ChangeDateString(artikel.created_date.substring(0, 10)) }}
                                 &nbsp;
 
                                 <i class="fa-solid fa-images"></i>
