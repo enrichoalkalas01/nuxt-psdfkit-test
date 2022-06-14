@@ -17,8 +17,9 @@
                         id="order-direction"
                         :value="this.$store.state.Search.OrderDirectionKey"
                     >
-                        <option value="asc">Urutkan Terlama</option>
-                        <option value="desc">Urutkan Terbaru</option>
+                        <option value="">Relevan</option>
+                        <option value="asc">Terlama</option>
+                        <option value="desc">Terbaru</option>
                     </select>
                 </div>
                 <div class="col-12">
