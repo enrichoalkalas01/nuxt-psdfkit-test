@@ -260,7 +260,7 @@
             }
         },
         async beforeMount() {
-            this.$store.commit('setLoadingScreen', true)
+            // this.$store.commit('setLoadingScreen', true)
             let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
             if (dataFoto.data) {
                 this.fotoDetail = dataFoto.data
@@ -325,7 +325,7 @@
                 }
 
                 if ( this.Aggrement ) {
-                    this.$store.commit('setLoadingScreen', true)
+                    // this.$store.commit('setLoadingScreen', true)
                     let PesanData = await Axios(configPayment)
                     if ( PesanData ) {
                         this.$store.commit('setLoadingText', 'Pemesanan Success...')

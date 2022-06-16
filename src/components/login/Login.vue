@@ -138,6 +138,8 @@
                     window.location.href = '/'
                 } else if (getData.response.data.message == "User/Password tidak cocok.") {
                     alert("Username/Password tidak cocok!")
+                } else if (getData.response.data.message == "User belum diaktifasi.") {
+                    alert("User belum diaktifasi.")
                 } else {
                     alert("Something wrong")
                 }

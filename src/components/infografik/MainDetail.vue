@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="d-block my-3">
-                        <h2 class="tag"><em>CARA PENGGUNAAN POSTER INFOGRAFIK</em></h2>
+                        <h2 class="tag"><em>CARA PENGGUNAAN INFOGRAFIK</em></h2>
                         <ol>
                             <li>Penggunaan infografik berita wajib mencantumkan kredit atas nama desainer grafis dengan format: ‘Kompas/Desainer Grafis’.</li>
                             <li>Penggunaan infografik berita wajib mencantumkan sumber edisi dengan format: ‘Kompas, tanggal-bulan-tahun’.</li>

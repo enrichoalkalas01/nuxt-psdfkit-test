@@ -9,7 +9,7 @@
                     :class="artikel.featured_image !== '' ? 'col-12 col-sm-12 col-md-9 col-lg-9 text-wrapper' : 'col-12 col-sm-12 col-md-12 col-lg-12 text-wrapper'"
                 >
                     <h2 class="title">
-                        <a :href="'/artikel-detail/' + artikel.document_id" class="txt-main">
+                        <a @click="checkLogin" :href="'/artikel-detail/' + artikel.document_id" class="txt-main">
                             <span v-html="artikel.title"></span>
                         </a>
                     </h2>
@@ -59,6 +59,15 @@
         async updated() {
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
+        },
+
+        methods: {
+            checkLogin: function(e){
+                if (!this.$store.state.Login.LoginStatus) {
+                    e.preventDefault();
+                    alert("Anda belum Log in.")
+                }
+            },
         },
     }
 </script>

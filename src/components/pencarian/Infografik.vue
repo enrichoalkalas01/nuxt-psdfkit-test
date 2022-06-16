@@ -1,6 +1,6 @@
 <template>
-    <div class="row mt-3">
-        <div class="col-12 line-bot">
+    <div class="row line-bot full mt-3">
+        <div class="col-12">
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
