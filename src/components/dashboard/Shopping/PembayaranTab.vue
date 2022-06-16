@@ -107,7 +107,7 @@
             async getDataAll(date1, date2) {
                 console.log(date1, date2)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ '2020-06-15' }&endperiode=${ '2020-08-28' }`,
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ '2020-06-01' }&endperiode=${ '2020-08-28' }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)

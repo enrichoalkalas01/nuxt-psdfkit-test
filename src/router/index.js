@@ -79,7 +79,7 @@ const routes = [
         children: [
             { path: '/dashboard', name: 'dashboard', component: HomepageDashboard },
             { path: '/dashboard/topup', name: 'topup', component: TopUp },
-            { path: '/dashboard/voucher', name: 'voucher', component: Voucher },
+            { path: '/dashboard/kupon', name: 'voucher', component: Voucher },
             { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart },
             { path: '/dashboard/pesan', name: 'chatting', component: Chatting },
         ]
