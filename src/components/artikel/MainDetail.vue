@@ -6,8 +6,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
-                            <li v-if="this.$route.query.search" class="breadcrumb-item"><a :href="`/pencarian?query=${ this.$route.query.search }&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&currentpage=1&orderdirection=desc`">Hasil Pencarian</a></li>
-                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&currentpage=1&orderdirection=desc">List Artikel</a></li>
+                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
                         </ol>
                     </nav>
@@ -125,6 +124,7 @@
         },
         data () {
             return {
+                linkBack: null,
                 suggestions: [
                     { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
                     { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -150,6 +150,8 @@
         },
 
         async beforeMount() {
+            this.linkBack = window.location.search;
+
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
             if (dataArtikel.data.data) {
                 this.artikelDetail = dataArtikel.data.data

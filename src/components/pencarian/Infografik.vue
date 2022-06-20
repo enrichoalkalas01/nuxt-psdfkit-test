@@ -4,7 +4,7 @@
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
-                        <a :href="`/infografik-detail/${ infografik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
+                        <a :href="`/infografik-detail/${ infografik.document_id }${ linkBack }`">
                             <div class="images-div" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }')`"></div>
                             <!-- <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }`" alt="" class="infografik-image w-100"> -->
                         </a>
@@ -12,7 +12,7 @@
                     <div class="col-sm-8 my-3">
                         <div class="desc">
                             <h3 class="subtitle">
-                                <a :href="'/infografik-detail/' + infografik.document_id">
+                                <a :href="`/infografik-detail/${ infografik.document_id }${ linkBack }`">
                                     <div v-html="infografik.title"></div>
                                 </a>
                             </h3>
@@ -42,12 +42,14 @@
         ],
         data (){
             return{
+                linkBack: null,
                 infografiks: this.dataInfografiks,
                 total_search: 0,
             }
         },
         
         async mounted() {
+            this.linkBack = window.location.search
             this.infografiks = this.dataInfografiks
             this.total_search = this.totalSearch
         },

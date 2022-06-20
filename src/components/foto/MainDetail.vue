@@ -6,8 +6,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li class="breadcrumb-item"><a :href="linkBack"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a :href="linkBack">List Foto</a></li>
+                            <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
+                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -223,7 +223,7 @@
         },
         data () {
             return {
-                linkBack: window.location.search,
+                linkBack: null,
                 suggestions: dataSuggestions,
                 FormPesanClick: false,
                 fotoDetail: null,
@@ -258,6 +258,8 @@
             }
         },
         async mounted() {
+            this.linkBack = window.location.search
+            
             if ( !this.$store.state.Login.LoginStatus ) {
                 this.$store.commit('setCloseStatus', true)
                 this.$store.commit('setLoadingImage', 'failed')

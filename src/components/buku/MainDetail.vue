@@ -7,8 +7,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
                             <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
-                            <li v-if="this.$route.query.search" class="breadcrumb-item"><a :href="`/pencarian?query=${ this.$route.query.search }&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&collection=&currentpage=1&orderdirection=desc`">Hasil Pencarian</a></li>
-                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&collection=&currentpage=1&orderdirection=desc">List buku</a></li>
+                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Buku</li>
                         </ol>
                     </nav>
@@ -160,6 +159,7 @@
         },
         data () {
             return {
+                linkBack: null,
                 suggestions: dataSuggestions,
                 bukuDetail: [],
                 ConfigApi: {
@@ -171,6 +171,8 @@
             }
         },
         async beforeMount() {
+            this.linkBack = window.location.search
+
             try {
                 let dataBuku = await Axios(this.ConfigApi)
                 this.bukuDetail = dataBuku.data
