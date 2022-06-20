@@ -15,7 +15,7 @@
                             <!-- <div class="text-start"> -->
                             <div class="text-center">
                                 <p class="short-text four text-center">Tahun Terbit {{ book.penerbittahun }}</p>
-                                <a :href="`/buku-detail/${ book.id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`" class="more">Selengkapnya</a>
+                                <a :href="`/buku-detail/${ book.id }${ linkBack }`" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -37,12 +37,14 @@
         ],
         data (){
             return{
+                linkBack: null,
                 books: this.dataBooks,
                 total_search: 0,
             }
         },
 
         async mounted() {
+            this.linkBack = window.location.search
             this.books = this.dataBooks
             this.total_search = this.totalSearch
         },

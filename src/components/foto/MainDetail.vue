@@ -6,7 +6,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li class="breadcrumb-item"><a :href="linkBack ? linkBack : '/'"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
+                            <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
+                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -222,7 +223,7 @@
         },
         data () {
             return {
-                linkBack: window.location.search,
+                linkBack: null,
                 suggestions: dataSuggestions,
                 FormPesanClick: false,
                 fotoDetail: null,

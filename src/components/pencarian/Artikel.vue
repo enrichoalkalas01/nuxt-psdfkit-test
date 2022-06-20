@@ -9,7 +9,7 @@
                     :class="artikel.featured_image !== '' ? 'col-12 col-sm-12 col-md-9 col-lg-9 text-wrapper' : 'col-12 col-sm-12 col-md-12 col-lg-12 text-wrapper'"
                 >
                     <h2 class="title">
-                        <a @click="checkLogin" :href="`/artikel-detail/${ artikel.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`" class="txt-main">
+                        <a @click="checkLogin" :href="`/artikel-detail/${ artikel.document_id }${ linkBack }`" class="txt-main">
                             <span v-html="artikel.title"></span>
                         </a>
                     </h2>
@@ -46,12 +46,14 @@
         ],
         data (){
             return{
+                linkBack: null,
                 artikels: this.dataArtikels,
                 total_search: 0,
             }
         },
 
         async mounted() {
+            this.linkBack = window.location.search
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
         },

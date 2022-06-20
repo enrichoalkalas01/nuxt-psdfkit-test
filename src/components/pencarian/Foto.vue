@@ -5,7 +5,7 @@
                 v-for="(foto, i) in fotos" :key="i"
             >
                 <div class="box-image col-12 col-md-9 text-center">
-                    <a :href="`/foto-detail/${ foto.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
+                    <a :href="`/foto-detail/${ foto.document_id }${ linkBack }`">
                         <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.preview }`" class="img-square32 rounding" alt="">
                     </a>
                 </div>
@@ -32,6 +32,7 @@
         ],
         data() {
             return {
+                linkBack: null,
                 SliderConfig: {
                     updateOnMove: true,
                     type: 'loop',
@@ -46,6 +47,7 @@
         },
 
         async mounted() {
+            this.linkBack = window.location.search
             this.fotos = this.dataFotos
             this.total_search = this.totalSearch
         },

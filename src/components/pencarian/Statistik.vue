@@ -8,12 +8,12 @@
                         class="col-12 pt-2 pb-3"
                     >
                         <div class="content full-height borderless kolom2 mb-3">
-                            <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
+                            <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ linkBack }`">
                                 <img :src="`https://assets.kompasdata.id/${ statistik.thumbnail }`" alt="" class="foto-img">
                             </a>
                             <div class="desc">
                                 <h3 class="title">
-                                    <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">{{ statistik.title }}</a>
+                                    <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ linkBack }`">{{ statistik.title }}</a>
                                 </h3>
                                 <p class="short-text two" v-html="`${ statistik.description }`"></p>
                                 <span class="date-time">
@@ -40,12 +40,14 @@
         ],
         data (){
             return{
+                linkBack: null,
                 statistiks: this.dataStatistiks,
                 total_search: 0,
             }
         },
         
         async mounted() {
+            this.linkBack = window.location.search
             this.statistiks = this.dataStatistiks
             this.total_search = this.totalSearch
             console.log(this.statistiks)
