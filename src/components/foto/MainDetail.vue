@@ -6,8 +6,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a href="/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&collection=&currentpage=1&orderdirection=desc">List Foto</a></li>
+                            <li class="breadcrumb-item"><a :href="linkBack"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
+                            <li class="breadcrumb-item"><a :href="linkBack">List Foto</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -16,10 +16,10 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-12 col-6 col-md-6 col-lg-4 my-3">
-                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + fotoDetail.preview }`" alt="" class="db-img">
+                                <img :src="`${ fotoDetail ? this.$store.state.Tools.GetUrlFiles + fotoDetail.preview : '' }`" alt="" class="db-img">
                             </div>
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
-                                <h3 class="subtitle txt-main">{{ fotoDetail.title }}</h3>
+                                <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
                                     <a v-on:click="FormPesan" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
@@ -34,33 +34,33 @@
                                 </ul>
                                 <div class="tab-content komp-tab-content">
                                     <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                        <p>{{ fotoDetail.published_caption }}</p>
-                                        <p><b>{{ fotoDetail.writer }}</b></p>
+                                        <p>{{ fotoDetail ? fotoDetail.published_caption : '' }}</p>
+                                        <p><b>{{ fotoDetail ? fotoDetail.writer : '' }}</b></p>
                                         <table class="table db-table table-bordered">
                                             <tbody>
                                                 <tr>
                                                     <th scope="row">Id</th>
-                                                    <td>{{ fotoDetail.reference_id }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.reference_id : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Author</th>
-                                                    <td>{{ fotoDetail.author }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.author : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Publication</th>
-                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail.length > 0 ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.credit : '' }}, {{ fotoDetail ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Credit</th>
-                                                    <td>{{ fotoDetail.credit }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.credit : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Width</th>
-                                                    <td>{{ fotoDetail.width }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.width : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Height</th>
-                                                    <td>{{ fotoDetail.height }}</td>
+                                                    <td>{{ fotoDetail ? fotoDetail.height : '' }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -223,24 +223,26 @@
         },
         data () {
             return {
+                linkBack: window.location.search,
                 suggestions: dataSuggestions,
-                fotoDetail: [],
-                SizeProduct: 0,
+                FormPesanClick: false,
+                fotoDetail: null,
+                TotalPayment: 0, SizeProduct: 0,
+                SizeHarga: 0, JenisHarga: 0,
+                Aggrement: 0, MulaiHarga: 0,
                 DateFrom: this.$store.state.Tools.DateNowString(),
                 DateTo: this.$store.state.Tools.DateNowString(),
                 ConfigApi: {
-                    headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
-                    },
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
+
                 UkuranFoto: [
                     { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
                     { id: 2, apiId: 202, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
                     { id: 3, apiId: 203, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
                 ],
-                FormPesanClick: false,
-                TotalPayment: 0,
+                
                 JenisPenggunaan: [
                     { id: 1, type: 1, apiId: 301, name: 'individu', text: 'Individu', price: 300000 },
                     { id: 2, type: 1, apiId: 302, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
@@ -253,31 +255,16 @@
                     { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
                     { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
                 ],
-                SizeHarga: 0,
-                JenisHarga: 0,
-                Aggrement: 0,
-                MulaiHarga: 0,
             }
         },
-        async beforeMount() {
+        async mounted() {
+            console.log(window.location.search)
             if ( !this.$store.state.Login.LoginStatus ) {
                 this.$store.commit('setLoadingImage', 'failed')
                 this.$store.commit('setLoadingText',`<p>ups, harus login dahulu</p><a class="login" href="/login">Login</a>`)
                 this.$store.commit('setLoadingScreen', true)
             } else {
-                this.$store.commit('setLoadingScreen', true)
-                try {
-                    let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-                    this.fotoDetail = dataFoto.data
-                    dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
-                    this.SizeHarga = 201
-                    this.JenisHarga = 301
-                    this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
-                    this.$store.commit('setLoadingScreen', false)
-                } catch (error) {
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
-                    console.log(error)
-                }
+                this.getData()
             }
         },
 
@@ -301,6 +288,22 @@
                     this.TotalPayment = newHargaFromApi.data.value
                     return newHargaFromApi.data.value
                 } catch (error) {
+                    console.log(error)
+                }
+            },
+
+            async getData() {
+                this.$store.commit('setLoadingScreen', true)
+                try {
+                    let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
+                    this.fotoDetail = dataFoto.data
+                    dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
+                    this.SizeHarga = 201
+                    this.JenisHarga = 301
+                    this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
                     console.log(error)
                 }
             },
@@ -361,19 +364,8 @@
 </script>
 
 <style>
-    .detail-box .db-img {
-        max-width: 500px !important;
-    }
-
-    #pesan {
-        background-color: #007BD2;
-    }
-
-    .option-inside {
-        padding-left: 10%;
-    }
-
-    .jenis-box .form-check {
-        padding: 0;
-    }
+    .detail-box .db-img { max-width: 500px !important; }
+    #pesan { background-color: #007BD2; }
+    .option-inside { padding-left: 10%; }
+    .jenis-box .form-check { padding: 0; }
 </style>
