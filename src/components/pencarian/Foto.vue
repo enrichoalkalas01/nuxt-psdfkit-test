@@ -5,7 +5,7 @@
                 v-for="(foto, i) in fotos" :key="i"
             >
                 <div class="box-image col-12 col-md-9 text-center">
-                    <a :href="`/foto-detail/${ foto.document_id }`">
+                    <a :href="`/foto-detail/${ foto.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
                         <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.preview }`" class="img-square32 rounding" alt="">
                     </a>
                 </div>
