@@ -48,7 +48,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Publication</th>
-                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
+                                                    <td>{{ fotoDetail.credit }}, {{ fotoDetail.length > 0 ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Credit</th>
@@ -260,19 +260,24 @@
             }
         },
         async beforeMount() {
-            // this.$store.commit('setLoadingScreen', true)
-            let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-            if (dataFoto.data) {
-                this.fotoDetail = dataFoto.data
-                dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
-                this.SizeHarga = 201
-                this.JenisHarga = 301
-                this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
-                console.log(dataFoto.data)
-                this.$store.commit('setLoadingScreen', false)
-            } else if (dataFoto.response.status == '401') {
-                this.$store.commit('setLoadingScreen', false)
-                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&currentpage=1&orderdirection=desc'
+            if ( !this.$store.state.Login.LoginStatus ) {
+                this.$store.commit('setLoadingImage', 'failed')
+                this.$store.commit('setLoadingText',`<p>ups, harus login dahulu</p><a class="login" href="/login">Login</a>`)
+                this.$store.commit('setLoadingScreen', true)
+            } else {
+                this.$store.commit('setLoadingScreen', true)
+                try {
+                    let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
+                    this.fotoDetail = dataFoto.data
+                    dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
+                    this.SizeHarga = 201
+                    this.JenisHarga = 301
+                    this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    console.log(error)
+                }
             }
         },
 
@@ -282,11 +287,7 @@
             aggrementChange(e) { console.log(e.target.value) },
             dateFromChange(e) { this.DateFrom = e.target.value },
             dateToChange(e) { this.DateTo = e.target.value },
-            BtnRadioJenis(event) {
-                this.JenisHarga = Number(event.target.getAttribute("dataId"))
-                this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price
-            },
-
+            BtnRadioJenis(event) { this.JenisHarga = Number(event.target.getAttribute("dataId")); this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price },
             async getHarga(opt1, opt2) {
                 let SizeFoto = this.fotoDetail.file_size
                 let DocumentDate = this.fotoDetail.published_date.replace('Z', '')
@@ -295,12 +296,12 @@
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }   
 
-                let newHargaFromApi = await Axios(configHarga)
-                if ( newHargaFromApi ) {
+                try {
+                    let newHargaFromApi = await Axios(configHarga)
                     this.TotalPayment = newHargaFromApi.data.value
                     return newHargaFromApi.data.value
-                } else {
-                    console.log(newHargaFromApi)
+                } catch (error) {
+                    console.log(error)
                 }
             },
 
@@ -325,17 +326,20 @@
                 }
 
                 if ( this.Aggrement ) {
-                    // this.$store.commit('setLoadingScreen', true)
-                    let PesanData = await Axios(configPayment)
-                    if ( PesanData ) {
+                    this.$store.commit('setLoadingScreen', true)
+                    try {
+                        let PesanData = await Axios(configPayment); console.log(PesanData)
+                        this.$store.commit('setLoadingImage', 'success')
                         this.$store.commit('setLoadingText', 'Pemesanan Success...')
                         setTimeout(() => {
-                            window.location.href = "/dashboard/daftar-pesanan"    
+                            window.location.href = "/dashboard/daftar-pesanan"
                             this.$store.commit('setLoadingScreen', false)
-                        }, 1000)
-                    } else {
-                        console.log(PesanData)
-                        this.$store.commit('setLoadingScreen', false)
+                        }, 2000)
+                    } catch (error) {
+                        console.log(error)
+                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingText', 'terjadi kesalahan...')
+                        setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
                     }
                 } else {
                     alert('tolong centang syarat & ketentuannya terebih dahulu..')
@@ -344,11 +348,7 @@
         },
 
         computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },
-
         watch: {
-            Aggrement() {
-                
-            },
             async propertyAAndPropertyB(newVal, oldVal) {
                 const [oldPropertyA, oldPropertyB] = oldVal.split('|');
                 const [newPropertyA, newPropertyB] = newVal.split('|');

@@ -3,10 +3,13 @@
         <div class="wrapper-lc">
             <div class="box-data">
                 <div class="box-image">
-                    <div class="image"></div>
+                    <div class="image" v-if="this.$store.state.Tools.LoadingImage" :style="`background-image: url('${ ImageLoading }')`"></div>
+                    <div class="image" v-if="this.$store.state.Tools.LoadingFailed" :style="`background-image: url('${ ImageFailed }')`"></div>
+                    <div class="image" v-if="this.$store.state.Tools.LoadingSuccess" :style="`background-image: url('${ ImageSuccess }')`"></div>
                 </div>
                 <div class="box-message">
-                    <span>{{ textMessage }}</span>
+                    <!-- <span>{{ textMessage }}</span> -->
+                    <div v-html="textMessage"></div>
                 </div>
             </div>
         </div>
@@ -14,6 +17,10 @@
 </template>
 
 <script>
+    import LoadingImage from '../../assets/images/loading-screen-one.gif'
+    import FailedImage from '../../assets/images/failed-icon.png'
+    import SuccessImage from '../../assets/images/success-icon.png'
+
     export default {
         name: "LoadingScreen",
         props: ['status'],
@@ -21,6 +28,9 @@
             return {
                 statusScreen: this.$store.state.Tools.LoadingScreenStatus,
                 textMessage: this.$store.state.Tools.LoadingScreenText,
+                ImageLoading: LoadingImage,
+                ImageFailed: FailedImage,
+                ImageSuccess: SuccessImage
             }
         },
 
