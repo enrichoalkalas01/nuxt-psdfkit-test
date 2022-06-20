@@ -6,6 +6,7 @@ const Tools = {
             LoadingImage: true,
             LoadingSuccess: false,
             LoadingFailed: false,
+            CloseButtonStatus: false,
             LoadingScreenText: 'Loading....',
             GetUrlFiles: 'https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/',
             GetUrlFile: 'https://assets.kompasdata.id/buku/cover/',
@@ -71,6 +72,10 @@ const Tools = {
             if ( value === 'loading' ) { state.LoadingImage = true; state.LoadingFailed = false; state.LoadingSuccess = false; }
             if ( value === 'failed' ) { state.LoadingImage = false; state.LoadingFailed = true; state.LoadingSuccess = false; }
             if ( value === 'success' ) { state.LoadingImage = false; state.LoadingFailed = false; state.LoadingSuccess = true; }
+        },
+
+        setCloseStatus(state, value) {
+            state.CloseButtonStatus = value
         }
     }
 }

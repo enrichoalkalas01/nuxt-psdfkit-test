@@ -258,8 +258,8 @@
             }
         },
         async mounted() {
-            console.log(window.location.search)
             if ( !this.$store.state.Login.LoginStatus ) {
+                this.$store.commit('setCloseStatus', true)
                 this.$store.commit('setLoadingImage', 'failed')
                 this.$store.commit('setLoadingText',`<p>ups, harus login dahulu</p><a class="login" href="/login">Login</a>`)
                 this.$store.commit('setLoadingScreen', true)
