@@ -124,7 +124,11 @@
         },
         data () {
             return {
-                suggestions: [],
+                suggestions: [
+                    { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+                    { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+                    { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+                ],
                 SliderConfig: {
                     updateOnMove: true,
                     type: 'loop',
@@ -146,8 +150,8 @@
 
         async beforeMount() {
             let dataArtikel = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-            if (dataArtikel.data) {
-                this.artikelDetail = dataArtikel.data
+            if (dataArtikel.data.data) {
+                this.artikelDetail = dataArtikel.data.data
                 let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
                 let configPayment = {
                     url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 2 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
