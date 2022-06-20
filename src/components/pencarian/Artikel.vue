@@ -9,7 +9,7 @@
                     :class="artikel.featured_image !== '' ? 'col-12 col-sm-12 col-md-9 col-lg-9 text-wrapper' : 'col-12 col-sm-12 col-md-12 col-lg-12 text-wrapper'"
                 >
                     <h2 class="title">
-                        <a @click="checkLogin" :href="'/artikel-detail/' + artikel.document_id" class="txt-main">
+                        <a @click="checkLogin" :href="`/artikel-detail/${ artikel.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`" class="txt-main">
                             <span v-html="artikel.title"></span>
                         </a>
                     </h2>

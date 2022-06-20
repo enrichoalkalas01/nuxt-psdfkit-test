@@ -8,12 +8,12 @@
                         class="col-12 pt-2 pb-3"
                     >
                         <div class="content full-height borderless kolom2 mb-3">
-                            <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">
+                            <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
                                 <img :src="`https://assets.kompasdata.id/${ statistik.thumbnail }`" alt="" class="foto-img">
                             </a>
                             <div class="desc">
                                 <h3 class="title">
-                                    <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">{{ statistik.title }}</a>
+                                    <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">{{ statistik.title }}</a>
                                 </h3>
                                 <p class="short-text two" v-html="`${ statistik.description }`"></p>
                                 <span class="date-time">

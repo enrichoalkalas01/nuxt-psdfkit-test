@@ -4,7 +4,7 @@
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
-                        <a :href="'/infografik-detail/' + infografik.document_id">
+                        <a :href="`/infografik-detail/${ infografik.document_id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`">
                             <div class="images-div" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }')`"></div>
                             <!-- <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }`" alt="" class="infografik-image w-100"> -->
                         </a>

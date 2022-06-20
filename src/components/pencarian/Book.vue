@@ -15,7 +15,7 @@
                             <!-- <div class="text-start"> -->
                             <div class="text-center">
                                 <p class="short-text four text-center">Tahun Terbit {{ book.penerbittahun }}</p>
-                                <a :href="`/buku-detail/${ book.id }`" class="more">Selengkapnya</a>
+                                <a :href="`/buku-detail/${ book.id }${ this.$store.state.Search.SearchKey ? `?search=${ this.$store.state.Search.SearchKey }` : '' }`" class="more">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
