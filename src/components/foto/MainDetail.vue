@@ -6,8 +6,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li class="breadcrumb-item"><a :href="linkBack"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
-                            <li class="breadcrumb-item"><a :href="linkBack">List Foto</a></li>
+                            <li class="breadcrumb-item"><a :href="linkBack ? linkBack : '/'"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -258,19 +257,11 @@
             }
         },
         async mounted() {
-            if ( !this.$store.state.Login.LoginStatus ) {
-                this.$store.commit('setCloseStatus', true)
-                this.$store.commit('setLoadingImage', 'failed')
-                this.$store.commit('setLoadingText',`<p>ups, harus login dahulu</p><a class="login" href="/login">Login</a>`)
-                this.$store.commit('setLoadingScreen', true)
-            } else {
-                this.getData()
-            }
+            this.getData()
         },
 
         methods: {
             changeSize(event) { this.SizeHarga = Number(event.target.getAttribute("dataindex")) },
-            FormPesan() { this.FormPesanClick = !this.FormPesanClick },
             aggrementChange(e) { console.log(e.target.value) },
             dateFromChange(e) { this.DateFrom = e.target.value },
             dateToChange(e) { this.DateTo = e.target.value },
@@ -303,8 +294,8 @@
                     this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
                     console.log(error)
+                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
                 }
             },
 
@@ -328,8 +319,11 @@
                     }
                 }
 
-                if ( this.Aggrement ) {
+                if ( !this.Aggrement ) alert('tolong centang syarat & ketentuannya terebih dahulu..')
+                else {
                     this.$store.commit('setLoadingScreen', true)
+                    this.$store.commit('setLoadingImage', 'loading')
+                    this.$store.commit('setLoadingText', 'loading...')
                     try {
                         let PesanData = await Axios(configPayment); console.log(PesanData)
                         this.$store.commit('setLoadingImage', 'success')
@@ -341,13 +335,21 @@
                     } catch (error) {
                         console.log(error)
                         this.$store.commit('setLoadingImage', 'failed')
-                        this.$store.commit('setLoadingText', 'terjadi kesalahan...')
+                        this.$store.commit('setLoadingText', 'gagal memesan data...')
                         setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
                     }
-                } else {
-                    alert('tolong centang syarat & ketentuannya terebih dahulu..')
                 }
-            }
+            },
+
+            FormPesan() {
+                if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
+                else {
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setCloseStatus', true)
+                    this.$store.commit('setLoadingText',`<p>ups, anda belum login</p><a class="login" href="/login">Login</a>`)
+                    this.$store.commit('setLoadingScreen', true)
+                }
+            },
         },
 
         computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },

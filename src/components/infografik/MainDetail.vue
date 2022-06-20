@@ -78,52 +78,59 @@
                 infografikDetail: [],
                 HargaBaca: 0,
                 ConfigApi: {
-                    headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
-                    },
+                    headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
                     url: `https://dev-be.kompasdata.id/api/graphics/` + this.$route.params.id,
                 }
             }
         },
         async beforeMount() {
-            let dataInfografik = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-
-            if (dataInfografik.data) {
-                this.infografikDetail = dataInfografik.data
-                let tanggal = this.infografikDetail.creation_date.substring(0, 10)
-                let configPayment = {
-                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
-                    method: 'GET',
-                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                }
-
-                let hargaBaca = await Axios(configPayment)
-                if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
-            } else if (dataInfografik.response.status == '401') {
-                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&currentpage=1&orderdirection=desc'
-            }
+            this.getData()
         },
 
         methods: {
             async downloadInfografik() {
+                this.$store.commit('setLoadingScreen', true)
+                this.$store.commit('setLoadingImage', 'loading')
+                this.$store.commit('setLoadingText', 'loading...')
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Downloads/graphics/${ this.infografikDetail.hires.split("/").join("%252F") }`,
-                    headers: {
-                        Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`,
-                    },
-                    responseType: 'blob'
+                    url: `https://dev-be.kompasdata.id/api/Downloads/graphics/${ this.infografikDetail.reference_id }`,
+                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` }, responseType: 'blob'
                 }
 
-                this.$store.commit('setLoadingScreen', true)
-                await Axios(config).then(response => {
-                    FileSaver.saveAs(response.data, `${ this.infografikDetail.title + response.data.type.replace('image/', '.') }`)
-                    this.$store.commit('setLoadingScreen', false)
+                try {
+                    let ResultData = await Axios(config)
+                    FileSaver.saveAs(ResultData.data, `${ this.infografikDetail.title + ResultData.data.type.replace('image/', '.') }`)
+                    this.$store.commit('setLoadingImage', 'success')
+                    this.$store.commit('setLoadingText', 'Pemesanan Success...')
                     this.$store.commit('setReloadSaldo', true)
-                }).catch(err => {
-                    console.log(err)
-                    this.$store.commit('setLoadingScreen', false)
-                })
+                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', 'gagal memesan data...')
+                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
+                }
             },
+
+            async getData() {
+                this.$store.commit('setLoadingScreen', true)
+                try {
+                    let dataInfografik = await Axios(this.ConfigApi)
+                    this.infografikDetail = dataInfografik.data
+                    let tanggal = this.infografikDetail.creation_date.substring(0, 10)
+                    let configPayment = {
+                        url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                        method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                    }
+
+                    let hargaBaca = await Axios(configPayment)
+                    if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                }
+            }
         }
     }
 </script>
