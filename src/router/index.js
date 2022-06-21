@@ -29,6 +29,7 @@ import Voucher from '../components/payments/Voucher.vue'
 import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
 import Chatting from '../components/dashboard/Chat/Chatting.vue'
 import Syarat from '../components/dashboard/Syarat.vue'
+import Account from '../components/dashboard/Account.vue'
 
 const routes = [
     // Login & Register
@@ -84,6 +85,7 @@ const routes = [
             { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart },
             { path: '/dashboard/pesan', name: 'chatting', component: Chatting },
             { path: '/dashboard/syarat', name: 'syarat', component: Syarat },
+            { path: '/dashboard/akun', name: 'account', component: Account },
         ]
     },
 ]

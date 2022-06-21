@@ -368,3 +368,44 @@
 #cart-option .box-button button {
     /* width: 100%; */
 }
+
+#dashboard-account {
+    padding-top: 2.5%;
+}
+
+#dashboard-account .form-profile {
+    height: 200px;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#dashboard-account .form-profile .images-wrapper {
+    height: 100%;
+    position: relative;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .05);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    background-color: #f7f7f7;
+}
+
+#dashboard-account .form-profile .images-wrapper .image-box {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+#dashboard-account .form-profile .images-wrapper .images-circle {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: #dedede;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
