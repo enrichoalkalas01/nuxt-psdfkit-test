@@ -409,3 +409,18 @@
     background-position: center;
     background-size: cover;
 }
+
+#dashboard-home .box-lainnya .content {
+    display: flex;
+}
+
+#dashboard-home .box-lainnya .content .list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#dashboard-home .box-lainnya .content .list a {
+    color: unset;
+    text-decoration: none;
+}
