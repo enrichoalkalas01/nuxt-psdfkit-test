@@ -12,20 +12,58 @@
                         <a href="/" class="btn btn-primary">Memulai</a>
                     </div>
                 </div>
+                <div class="col-12">
 
-                <!-- <div class="col-12 content">
-
-                </div> -->
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-12 content">
+                    <h4>Prabayar</h4>
+                    <div class="box-saldo">
+                        <h6>Saldo Poin Anda</h6>
+                        <h3>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</h3>
+                        <h6>Berlaku Hingga, 01 April 2100</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row box-lainnya">
+                <div class="col-12 content">
+                    <div class="row list box-selanjutnya">
+                        <h6>Langkah Selanjutnya</h6>
+                        <a href="/dashboard/akun">Lengkapi Data Diri</a>
+                        <a href="/">Cari Data</a>
+                        <a href="/dashboard/daftar-pesanan">Data Transaksi Saya</a>
+                    </div>
+                    <div class="row list box-lainnya">
+                        <h6>Langkah Selanjutnya</h6>
+                        <a href="/dashboard/chat">Tanya Jawab</a>
+                        <a href="/dashboard/chat">Hubungi Kami</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </template>
 
 <script>
+    import Axios from 'axios'
     export default {
         name: 'Dashboard',
-        mounted() {
-            
+        data() {
+            return { saldoUser: 0 }
+        },
+
+        mounted() { this.getSaldo() },
+        methods: {
+            async getSaldo() {
+                let config = {
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+                
+                let saldo = await Axios(config)
+                this.saldoUser = saldo.data.credit_balance
+            }
         }
     }
 </script>
