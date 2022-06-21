@@ -13,7 +13,7 @@
                             </a>
                             <div class="desc">
                                 <h3 class="title">
-                                    <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ linkBack }`">{{ statistik.title }}</a>
+                                    <a class="data-title" v-html="statistik.title" :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ linkBack }`"></a>
                                 </h3>
                                 <p class="short-text two" v-html="`${ statistik.description }`"></p>
                                 <span class="date-time">
@@ -59,3 +59,9 @@
         },
     }
 </script>
+
+<style>
+    .data-title highlight{
+        background-color: #bbfe3a;
+    }
+</style>
