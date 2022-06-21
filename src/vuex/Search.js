@@ -13,7 +13,7 @@ const Search = {
             DateFromKey: null,
             DataToKey: null,
             SizeKey: 10,
-            OrderDirectionKey: 'desc',
+            OrderDirectionKey: '',
             Collection: null,
 
             TypeSearch: 0,

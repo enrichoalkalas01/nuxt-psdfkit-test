@@ -78,7 +78,7 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-artikel" class="form-control">
-                                                        <option value="">Relevan</option>
+                                                        <option value="">Relevansi</option>
                                                         <option value="asc">Terlama</option>
                                                         <option value="desc">Terbaru</option>
                                                     </select>
@@ -122,7 +122,7 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-infografik" class="form-control">
-                                                        <option value="">Relevan</option>
+                                                        <option value="">Relevansi</option>
                                                         <option value="asc">Terlama</option>
                                                         <option value="desc">Terbaru</option>
                                                     </select>
@@ -193,7 +193,7 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-foto" class="form-control">
-                                                        <option value="">Relevan</option>
+                                                        <option value="">Relevansi</option>
                                                         <option value="asc">Terlama</option>
                                                         <option value="desc">Terbaru</option>
                                                     </select>
@@ -261,7 +261,7 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-buku" class="form-control">
-                                                        <option value="">Relevan</option>
+                                                        <option value="">Relevansi</option>
                                                         <option value="asc">Terlama</option>
                                                         <option value="desc">Terbaru</option>
                                                     </select>
@@ -311,7 +311,7 @@
                                                 <div class="col-md-9">
                                                     <!-- <input type="text" class="form-control" placeholder=""> -->
                                                     <select name="sort" id="sort-data" class="form-control">
-                                                        <option value="">Relevan</option>
+                                                        <option value="">Relevansi</option>
                                                         <option value="asc">Terlama</option>
                                                         <option value="desc">Terbaru</option>
                                                     </select>

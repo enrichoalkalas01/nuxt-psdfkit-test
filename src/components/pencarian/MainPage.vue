@@ -17,7 +17,7 @@
                         id="order-direction"
                         :value="this.$store.state.Search.OrderDirectionKey"
                     >
-                        <option value="">Relevan</option>
+                        <option value="">Relevansi</option>
                         <option value="asc">Terlama</option>
                         <option value="desc">Terbaru</option>
                     </select>
