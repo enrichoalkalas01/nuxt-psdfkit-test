@@ -121,6 +121,7 @@
                     { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
                 ],
                 SliderConfig: { updateOnMove: true, type: 'loop', focus: 'center', perPage: 2, pagination: false },
+                artikelDetail: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
@@ -129,6 +130,7 @@
         },
 
         async mounted() {
+            this.linkBack = window.location.search
             this.getData()
             this.$store.commit('setReloadSaldo', true)
         },

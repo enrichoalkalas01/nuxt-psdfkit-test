@@ -258,6 +258,7 @@
             }
         },
         async mounted() {
+            this.linkBack = window.location.search
             this.getData()
         },
 

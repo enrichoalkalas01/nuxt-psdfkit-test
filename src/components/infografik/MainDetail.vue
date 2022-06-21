@@ -84,6 +84,7 @@
             }
         },
         async beforeMount() {
+            this.linkBack = window.location.search
             this.getData()
         },
 
