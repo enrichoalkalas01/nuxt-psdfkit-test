@@ -56,7 +56,6 @@
                                             <i class="fa-solid fa-user"></i>
                                         </button>
                                         <div class="dropdown-content">
-                                            <p>{{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}</p>
                                             <a href="/dashboard">Dashboard</a>
                                             <a href="/dashboard/topup">Tambah Saldo</a>
                                             <a href="/logout">Logout</a>
@@ -262,7 +261,7 @@
 
     .wrapper-loginned .user-box a {
         text-decoration: none;
-        color: inherit;
+        color: #285698;
         font-weight: 700;
     }
 
@@ -345,20 +344,10 @@
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #f1f1f1;
+        background-color: #ffffff;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
-    }
-
-    .dropdown-content p {
-        padding: 6px 10px;
-        margin-bottom: 5px;
-        border-bottom: 1px solid #828282;
-        padding-bottom: 5px;
-        font-weight: 700;
-        background-color: unset;
-        border-radius: unset;
     }
 
     .dropdown-content a {
