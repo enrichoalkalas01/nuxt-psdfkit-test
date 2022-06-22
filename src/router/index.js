@@ -7,7 +7,7 @@ import Register from '../components/login/Register.vue'
 import Notification from '../components/login/Notification.vue'
 import Activation from '../components/login/Activation.vue'
 import MainPage from '../components/homepages/MainPage.vue'
-import Arsip from '../components/arsip/MainPage.vue'
+// import Arsip from '../components/arsip/MainPage.vue'
 import ArtikelDetail from '../components/artikel/MainDetail.vue'
 import FotoDetail from '../components/foto/MainDetail.vue'
 import InfografikDetail from '../components/infografik/MainDetail.vue'
@@ -43,7 +43,7 @@ const routes = [
     { path: '/', name: 'homepages', component: MainPage },
 
     // Arsip
-    { path: '/arsip', name: 'arsip', component: Arsip },
+    // { path: '/arsip', name: 'arsip', component: Arsip },
 
     // Artikel
     { path: '/artikel-detail/:id', name: 'artikel-detail', component: ArtikelDetail },
