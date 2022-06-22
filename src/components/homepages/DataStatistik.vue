@@ -32,7 +32,13 @@
                             role="tabpanel"
                             :aria-labelledby="`data-Tabs0${ i + 1 }`"
                         >
-                            <DataStatistikCard v-bind:dataStatistik="statistik.data" />
+                            <div class="data-card" v-if="statistik.type_tab === 'Survei Kompas'">
+                                <DataStatistikCard v-bind:dataStatistik="dataSurvey"/>
+                            </div>
+                            
+                            <div class="data-card" v-if="statistik.type_tab === 'Statistik'">
+                                <DataStatistikCard v-bind:dataStatistik="dataStatistik"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,6 +51,7 @@
 </template>
 
 <script>
+    import Axios from 'axios'
     import DataStatistikCard from './DataStatistikCard.vue'
 
     export default {
@@ -59,11 +66,23 @@
         data() {
             return {
                 statistiks: null,
+                dataSurvey: [],
+                dataStatistik: [],
             }
         },
 
         async beforeMount() {
-            this.statistiks = this.dataSet
+            try {
+                this.statistiks = this.dataSet
+
+                let survey = await Axios('https://dev-be.kompasdata.id/api/Configs/mainpage/data?count=4')
+                this.dataSurvey = survey.data
+
+                let statistik = await Axios('https://dev-be.kompasdata.id/api/Configs/mainpage/statistic?count=4')
+                this.dataStatistik = statistik.data
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         async mounted() {

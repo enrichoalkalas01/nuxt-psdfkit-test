@@ -35,7 +35,7 @@
                         </ol>
                     </div>
                     <div class="db-price rounded">
-                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : 'Gratis' }}</a>
+                        <a v-on:click="downloadInfografik" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}</a>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">

@@ -19,7 +19,7 @@
                                 <i class="fas fa-clock"></i> {{ artikel.publication }}, {{ artikel.published_date ? this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) }} &nbsp;
                                 <i class="fa-solid fa-images"></i> {{ artikel.photo_count }} &nbsp;
                                 <i class="fa-solid fa-chart-line"></i> {{ artikel.infographic_count }} &nbsp;
-                                <i class="fa-solid fa-money-bill-1-wave"></i> {{ artikel.price ? artikel.price : 'Gratis' }} &nbsp;
+                                <i class="fa-solid fa-money-bill-1-wave"></i> {{ artikel.price ? artikel.price : '0' }} &nbsp;
                             </span>
                         </span>
                         <p class="short-text three">
