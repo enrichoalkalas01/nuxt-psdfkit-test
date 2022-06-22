@@ -47,10 +47,21 @@
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
                             <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
                                 <div class="user-box">
-                                    <span v-on:click="profileBoxEvent">
+                                    <!-- <span v-on:click="profileBoxEvent">
                                         <i class="fa-solid fa-user"></i>
-                                        <!-- {{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }} -->
-                                    </span>
+                                        {{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}
+                                    </span> -->
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <i class="fa-solid fa-user"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <p>{{ this.$store.state.Login.UserData ? this.$store.state.Login.UserData.username : ''  }}</p>
+                                            <a href="/dashboard">Dashboard</a>
+                                            <a href="/dashboard/topup">Tambah Saldo</a>
+                                            <a href="/logout">Logout</a>
+                                        </div>
+                                    </div>
                                     <div class="box-more" v-if="ProfileBox">
                                         <ul class="list-user-menu">
                                             <li class="profile">
@@ -318,4 +329,52 @@
             padding-left: 10px !important;
         }
     }
+    .dropbtn {
+        background-color: #ffffff;
+        color: #828282;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content p {
+        padding: 6px 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #828282;
+        padding-bottom: 5px;
+        font-weight: 700;
+        background-color: unset;
+        border-radius: unset;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 6px 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        left:auto;
+        right:0;
+    }
+
+    .dropdown:hover .dropbtn {background-color: #e9f2e9;}
 </style>
