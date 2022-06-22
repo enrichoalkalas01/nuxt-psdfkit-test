@@ -11,16 +11,16 @@
                         </ol>
                     </nav>
                 </div>
-                <div class="col-md-9 my-3">
+                <div class="col-md-12 my-3">
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img :src="dataDetail.thumbnail" alt="" class="db-img">
+                                <img :src="dataDetail ? dataDetail.thumbnail : ''" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <!-- <h3 class="subtitle txt-main">Penderita Penyakit Demam Berdarah</h3> -->
                                 <div class="d-block">
-                                    <p class="fw-bold">{{ dataDetail.title }}</p>
+                                    <p class="fw-bold">{{ dataDetail ? dataDetail.title : '' }}</p>
                                     <!-- <p>KOMPAS edisi Jumat 20 Agustus 2021</p> -->
                                     <!-- <p>Halaman: 1</p>
                                     <p>Penulis: JOL</p>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="d-block my-3">
-                        <h2 class="title txt-main">{{ dataDetail.title }}</h2>
+                        <h2 class="title txt-main">{{ dataDetail ? dataDetail.title : '' }}</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
@@ -44,7 +44,9 @@
                         </ul>
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                <p v-html="`${ dataDetail.summary }`"></p>
+                                <div class="w-100">
+                                    <p v-html="`${ dataDetail ? dataDetail.summary : '' }`"></p>
+                                </div>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
@@ -57,17 +59,29 @@
                                     <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
                                 </ol>
                             </div>
+                            <div>
+                                <!-- {{ dataDetail ? dataDetail.summary : '' }} -->
+                                <br /><br /><br /><br /><br />
+                                
+                                <!-- <div v-html="dataDetail.summary"></div> -->
+
+                                <div id="tablue-data">
+                                    <div ref="tableau"></div>
+                                    <div id="tableauViz"></div>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-12 col-md-3">
+                    
+                <!-- <div class="col-12 col-md-3"> -->
                     <!-- Banner -->
-                    <Banner />
+                    <!-- <Banner /> -->
 
                     <!-- Suggestion -->
-                    <Suggestion v-bind:dataSuggestions="suggestions" />
-                </div>
+                    <!-- <Suggestion v-bind:dataSuggestions="suggestions" /> -->
+                <!-- </div> -->
             </div>
         </div>
     </section>
@@ -75,8 +89,8 @@
 
 <script>
     import Axios from 'axios'
-    import Banner from '../banner/Main.vue'
-    import Suggestion from '../suggestion/Main.vue'
+    // import Banner from '../banner/Main.vue'
+    // import Suggestion from '../suggestion/Main.vue'
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -87,34 +101,70 @@
     export default {
         name: 'MainDetail',
         components: {
-            Banner,
-            Suggestion,
+            // Banner,
+            // Suggestion,
         },
         data () {
             return {
                 linkBack: null,
                 suggestions: dataSuggestions,
-                dataDetail: [],
+                urlTest: 'https://public.tableau.com/app/profile/litbangkompas/viz/BorobudurMarathon2021/BOMAR2021',
+                dataDetail: null,
                 ConfigApi: {
-                    headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
-                    },
+                    headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
                     url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/` + this.$route.params.collection,
                 }
             }
         },
         async beforeMount() {
+            let scriptTag = document.createElement("script")
+            scriptTag.setAttribute("src", "https://public.tableau.com/javascripts/api/viz_v1.js")
+            document.head.appendChild(scriptTag)
+
             this.linkBack = window.location.search
+        },
 
-            let dataData = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
+        async mounted() {
+            this.getData()
+        },
 
-            if (dataData.data) {
-                this.dataDetail = dataData.data
+        methods: {
+            async getData() {
+                try {
+                    let dataData = await Axios(this.ConfigApi)
+                    this.dataDetail = dataData.data
+                    console.log(this.dataDetail)
+                } catch (error) {
+                    console.log(error)
+                }
+            },
 
-                console.log(this.dataDetail);
-            } else if (dataData.response.status == '401') {
-                window.location.href = '/pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&currentpage=1&orderdirection=desc'
+            initViz() {
+                var newScript = document.createElement("script")
+                newScript.setAttribute("type", "text/javascript")
+                newScript.innerHTML = `
+                    // var placeholderDiv = document.getElementById("tableauViz");
+                    // var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
+                    // var options = {
+                    //     width: placeholderDiv.offsetWidth,
+                    //     height: placeholderDiv.offsetHeight,
+                    //     hideTabs: true,
+                    //     hideToolbar: true,
+                    //     onFirstInteractive: function () {
+                    //     workbook = viz.getWorkbook();
+                    //     activeSheet = workbook.getActiveSheet();
+                    //     }
+                    // };
+
+                    // viz = new tableau.Viz(placeholderDiv, url, options)
+                    console.log(tableau)
+                `
+                document.head.appendChild(newScript)
             }
+        },
+
+        async updated() {
+            this.initViz()
         }
     }
 </script>
