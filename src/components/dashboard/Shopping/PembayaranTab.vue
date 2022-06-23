@@ -1,5 +1,7 @@
 <template>
     <section class="row wrapper-cart">
+        <LoadingScreen />
+
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 order-cart card mb-3">
             <div class="row wrapper-order p-2">
                 <div class="col-12 title">
@@ -56,9 +58,11 @@
 </template>
 
 <script>
+    import LoadingScreen from '../../addons/LoadingScreen.vue'
     import Axios from 'axios'
     export default {
         name: 'PembayaranTab',
+        components: { LoadingScreen },
         data() {
             return {
                 Selected: [],
@@ -127,19 +131,41 @@
                     method: 'POST', headers: { Authorization: this.Token }, data: readyData
                 }
                 
-                if ( this.Selected.length === 0 ) alert('Pilihlah terlebih dahulu produk nya...')
-                else {
+                if ( this.Selected.length === 0 ) {
+                    // alert('Pilihlah terlebih dahulu produk nya...')
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'Pilihlah terlebih dahulu produk nya...');
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
+                } else {
                     try {
                         let payed = await Axios(configPaySaldo)
-                        if ( payed.data.message !== 'sukses') alert(payed.data.message)
-                        else {
-                            alert(payed.data.message)
+                        if ( payed.data.message !== 'sukses') {
+                            // alert(payed.data.message)
+                            setTimeout(() => { 
+                                this.$store.commit('setLoadingImage', 'success');
+                                this.$store.commit('setLoadingText', payed.data.message);
+                                this.$store.commit('setCloseStatus', true);
+                            }, 500)
+                        } else {
+                            // alert(payed.data.message)
+                            setTimeout(() => { 
+                                this.$store.commit('setLoadingImage', 'success');
+                                this.$store.commit('setLoadingText', payed.data.message);
+                                this.$store.commit('setCloseStatus', true);
+                            }, 500)
                             this.getDataAll()
                             this.$store.commit('setReloadSaldo', true)
                         }
                     } catch (error) {
-                        alert('ups, terjadi kesalahan..')
+                        // alert('ups, terjadi kesalahan..')
                         console.log(error)
+                        setTimeout(() => { 
+                            this.$store.commit('setLoadingImage', 'success');
+                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan..');
+                            this.$store.commit('setCloseStatus', true);
+                        }, 500)
                     }
                 }
             },

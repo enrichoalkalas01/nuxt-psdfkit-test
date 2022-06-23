@@ -321,8 +321,14 @@
                     }
                 }
 
-                if ( !this.Aggrement ) alert('tolong centang syarat & ketentuannya terebih dahulu..')
-                else {
+                if ( !this.Aggrement ) {
+                    // alert('tolong centang syarat & ketentuannya terebih dahulu..')
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
+                } else {
                     this.$store.commit('setLoadingScreen', true)
                     this.$store.commit('setLoadingImage', 'loading')
                     this.$store.commit('setLoadingText', 'loading...')
