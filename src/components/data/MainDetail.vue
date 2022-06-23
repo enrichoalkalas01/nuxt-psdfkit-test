@@ -51,6 +51,7 @@
                                         <!-- <button class="mt-2 btn btn-main active tableau-btn" id="button-open-tableau" onclick="initializeViz()">Tampilkan Infografik Data</button>
                                         <button class="mt-2 btn btn-main tableau-btn" id="button-close-tableau" onclick="closeViz()">Tutup Infografik Data</button> -->
                                     </div>
+                                    <div id="chartdiv"></div>
                                 </div>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
@@ -176,11 +177,6 @@
 </script>
 
 <style>
-    .tableau-btn {
-        display: none;
-    }
-
-    .tableau-btn.active {
-        display: block;
-    }
+    .tableau-btn { display: none; }
+    .tableau-btn.active { display: block; }
 </style>
