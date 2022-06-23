@@ -1,5 +1,6 @@
 <template>
     <section class="row wrapper-cart" id="cart-all">
+        <LoadingScreen />
         <div class="col-12 top-box" id="cart-option">
             <div class="row">
                 <div class="col box-tanggal">
@@ -44,13 +45,15 @@
 </template>
 
 <script>
+    import LoadingScreen from '../../addons/LoadingScreen.vue'
     import ListItemVue from './ListItem.vue'
     import FileSaver from 'file-saver'
     import Axios from 'axios'
     export default {
         name: 'AllTab',
         components: {
-            ListItemVue
+            ListItemVue,
+            LoadingScreen,
         },
 
         data() {
@@ -94,6 +97,8 @@
             },
 
             async downloadItem(e) {
+                this.$store.commit('setLoadingScreen', true)
+
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
@@ -105,7 +110,12 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    alert('ups, terjadi kesalahan...')
+                    // alert('ups, terjadi kesalahan...')
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
                 }
             }
         }

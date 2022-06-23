@@ -178,7 +178,13 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    // this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
+                        this.$store.commit('setCloseStatus', true);
+                        window.location.href = `${ window.location.search != '' ? `/pencarian${ window.location.search }` : '/'}`
+                    }, 500)
                 }
             }
         },

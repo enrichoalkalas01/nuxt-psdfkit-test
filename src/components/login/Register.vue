@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel   my-5">
-
+        <LoadingScreen />
         <div class="container">
             <div class="row  g-0 d-flex align-items-center">
                 <div class="col-12 col-md-6">
@@ -126,9 +126,11 @@
 
 <script>
     import Axios from 'axios'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Register',
+        components: { LoadingScreen },
         mounted() {
             if (this.$store.state.Login.LoginStatus) {
                 window.location.href = '/'
@@ -137,6 +139,8 @@
 
         methods: {
             async register(){
+                this.$store.commit('setLoadingScreen', true)
+                
                 var firstName = document.querySelector("#firstName").value
                 var lastName = document.querySelector("#lastName").value
                 var username = document.querySelector("#username").value
@@ -163,11 +167,20 @@
                 if (getData.data) {
                     window.location.href = '/notification-activation'
                 } else if (getData.response.data.message === "Username or Email exist"){
-                    alert("Username atau Email sudah ada")
+                    // alert(getData.response.data.message)
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', getData.response.data.message);
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
                 } else {
-                    alert("Something went wrong!")
+                    // alert("Something went wrong!")
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'Something went wrong!');
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
                 }
-
             }
         }
     }

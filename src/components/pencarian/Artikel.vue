@@ -1,5 +1,6 @@
 <template>
     <div class="row line-bot full">
+        <LoadingScreen />
         <div class="col-12">
             <div
                 v-for="artikel in artikels" :key="artikel.id"
@@ -39,8 +40,11 @@
 </template>
 
 <script>
+    import LoadingScreen from '../addons/LoadingScreen.vue'
+
     export default {
         name: 'Artikel',
+        components: { LoadingScreen },
         props: [
             'dataArtikels', 'totalSearch'
         ],
@@ -65,9 +69,16 @@
 
         methods: {
             checkLogin: function(e){
+                this.$store.commit('setLoadingScreen', true)
+
                 if (!this.$store.state.Login.LoginStatus) {
                     e.preventDefault();
-                    alert("Anda belum Log in.")
+                    // alert("Anda belum Log in.")
+                    setTimeout(() => { 
+                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
+                        this.$store.commit('setCloseStatus', true);
+                    }, 500)
                 }
             },
         },
