@@ -3,6 +3,7 @@ const Headers = {
         return {
             Headers: 'Headers here..',
             ReloadSaldo: false,
+            BaseUrlApi: `https://dev-be.kompasdata.id/`,
         }
     },
 

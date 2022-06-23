@@ -9,44 +9,50 @@
             <ul class="nav nav-pills flex-column px-3 mb-auto">
                 <li class="nav-item">
                     <a href="/dashboard" :class="Dashboard ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        Home
+                        <i class="fa-solid fa-house icon-text"></i>
+                        <span class="icon-sidebox">Home</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard/daftar-pesanan" :class="ShoppingCart ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                        Daftar Pesanan
+                        <i class="fa-solid fa-clipboard-list icon-text"></i>
+                        <span class="icon-sidebox">Daftar Pesanan</span>
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
+                    <a href="#" :class="HistoryTransaction ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
+                        <i class="fa-solid fa-list icon-text"></i>
+                        <span class="icon-sidebox">Daftar Transaksi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/dashboard/topup" :class="Topup ? 'nav-link text-white active' : 'nav-link text-white'">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                        Topup Saldo
+                        <i class="fa-solid fa-circle-dollar-to-slot icon-text"></i>
+                        <span class="icon-sidebox">Topup Saldo</span>
                     </a>
                 </li>
-                <li>
+                <li class="nav-item">
                     <a href="/dashboard/kupon" :class="Voucher ? 'nav-link text-white active' : 'nav-link text-white'">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                        Kupon
+                        <i class="fa-solid fa-receipt icon-text"></i>
+                        <span class="icon-sidebox">Kupon</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/dashboard/akun" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                        Akun
+                <li class="nav-item">
+                    <a href="/dashboard/akun" :class="Account ? 'nav-link text-white active' : 'nav-link text-white'">
+                        <i class="fa-solid fa-user icon-text"></i>
+                        <span class="icon-sidebox">Akun</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/dashboard/pesan" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                        Pesan
+                <li class="nav-item">
+                    <a href="/dashboard/pesan" :class="Chat ? 'nav-link text-white active' : 'nav-link text-white'">
+                        <i class="fa-solid fa-comment-dots icon-text"></i>
+                        <span class="icon-sidebox">Pesan</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/dashboard/syarat" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                        Syarat
+                <li class="nav-item">
+                    <a href="/dashboard/syarat" :class="Terms ? 'nav-link text-white active' : 'nav-link text-white'">
+                        <i class="fa-solid fa-lock icon-text"></i>
+                        <span class="icon-sidebox">Syarat</span>
                     </a>
                 </li>
             </ul>
@@ -54,8 +60,6 @@
             <div class="dropdown">
                 <a href="/logout" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <strong>Logout</strong>
-                    <!-- <img src="https://github.com/mdo.png" alt="" width="25" height="25" class="rounded-circle me-2 mr-2">
-                    <strong>{{ this.$store.state.Login.UserData.username }}</strong> -->
                 </a>
             </div>
         </div>
@@ -68,18 +72,26 @@
 
         data() {
             return {
-                Voucher: false,
+                Chat: false,
+                Terms: false,
                 Topup: false,
+                Account: false,
+                Voucher: false,
                 Dashboard: false,
-                ShoppingCart: false
+                ShoppingCart: false,
+                HistoryTransaction: false,
             }
         },
 
         mounted() {
             if ( window.location.pathname === '/dashboard' ) this.Dashboard = !this.Dashboard
             if ( window.location.pathname === '/dashboard/topup' ) this.Topup = !this.Topup
-            if ( window.location.pathname === '/dashboard/voucher' ) this.Voucher = !this.Voucher
+            if ( window.location.pathname === '/dashboard/akun' ) this.Account = !this.Account
+            if ( window.location.pathname === '/dashboard/kupon' ) this.Voucher = !this.Voucher
+            if ( window.location.pathname === '/dashboard/pesan' ) this.Chat = !this.chat
+            if ( window.location.pathname === '/dashboard/syarat' ) this.Terms = !this.Terms
             if ( window.location.pathname === '/dashboard/daftar-pesanan' ) this.ShoppingCart = !this.ShoppingCart
+            if ( window.location.pathname === '/dashboard/daftar-traksaksi' ) this.HistoryTransaction = !this.HistoryTransaction
         }
     }
 </script>

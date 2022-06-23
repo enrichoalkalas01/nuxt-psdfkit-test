@@ -126,6 +126,7 @@
 
         async mounted() {
             this.getData()
+            this.initViz()
         },
 
         methods: {
@@ -143,20 +144,20 @@
                 var newScript = document.createElement("script")
                 newScript.setAttribute("type", "text/javascript")
                 newScript.innerHTML = `
-                    // var placeholderDiv = document.getElementById("tableauViz");
-                    // var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
-                    // var options = {
-                    //     width: placeholderDiv.offsetWidth,
-                    //     height: placeholderDiv.offsetHeight,
-                    //     hideTabs: true,
-                    //     hideToolbar: true,
-                    //     onFirstInteractive: function () {
-                    //     workbook = viz.getWorkbook();
-                    //     activeSheet = workbook.getActiveSheet();
-                    //     }
-                    // };
+                    var placeholderDiv = document.getElementById("tableauViz");
+                    var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
+                    var options = {
+                        width: placeholderDiv.offsetWidth,
+                        height: placeholderDiv.offsetHeight,
+                        hideTabs: true,
+                        hideToolbar: true,
+                        onFirstInteractive: function () {
+                        workbook = viz.getWorkbook();
+                        activeSheet = workbook.getActiveSheet();
+                        }
+                    };
 
-                    // viz = new tableau.Viz(placeholderDiv, url, options)
+                    viz = new tableau.Viz(placeholderDiv, url, options)
                     console.log(tableau)
                 `
                 document.head.appendChild(newScript)
@@ -164,7 +165,7 @@
         },
 
         async updated() {
-            this.initViz()
+            
         }
     }
 </script>

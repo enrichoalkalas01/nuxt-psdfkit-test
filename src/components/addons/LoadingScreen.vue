@@ -75,6 +75,9 @@
         methods: {
             CloseButton() {
                 this.$store.commit('setLoadingScreen', false)
+                this.$store.commit('setLoadingImage', 'loading')
+                this.$store.commit('setLoadingText', 'Loading...')
+                this.$store.commit('setCloseStatus', false)
             }
         }
     }

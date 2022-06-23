@@ -1,50 +1,82 @@
 <template>
-    <div>
-        TESTER
-        <div v-html="HTML"></div>
+    <div class="box-chart">
+        <Bar
+            :chart-options="chartOptions"
+            :chart-data="chartData"
+            :chart-id="chartId"
+            :dataset-id-key="datasetIdKey"
+            :plugins="plugins"
+            :css-classes="cssClasses"
+            :styles="styles"
+            :width="'500px'"
+            :height="'100px'"
+        />
     </div>
 </template>
 
 <script>
-    // import Axios from 'axios'
+    import { Bar } from 'vue-chartjs'
+    import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+
+    ChartJS.register(Title , Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+
     export default {
         name: 'TestMain',
-        data() {
-            return {
-                HTML: null
+        components: { Bar },
+        computed: {
+            myStyles () {
+                return {
+                    height: `${ 100 }px`,
+                    position: 'relative'
+                }
             }
         },
-        async mounted() {
-            // Axios.get('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/').then(response => {
-            //     console.log(response.data)
-            //     let item = response.data.querySelector('item')
-            //     // let html = ``
-            //     console.log(item)
-            // }).catch(err => {
-            //     console.log(err)
-            // })
+        data() {
+            return {
+                chartData: {
+                    labels: [ 'January', 'February', 'March', 'Mey', 'June' ],
+                    datasets: [ { data: [40, 20, 12, 122, 123] } ]
+                },
+                chartOptions: {
+                    // responsive: false,
+                    height: `${ 200 }px !important`,
+                    position: 'relative',
+                    // width: '100%',
+                    scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'probability'
+                        }
+                    }]
+                } 
+                }
+            }
+        },
 
-            // fetch('https://gerai.kompas.id/produk-kategori/buku/penerbit-buku-kompas/feed/')
-            // .then(response => response.text())
-            // .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            // .then(data => {
-            //     console.log(data);
-            //     const items = data.querySelectorAll("item");
-            //     let html = ``;
-            //     items.forEach(el => {
-            //         html += `
-            //             <article>
-            //                 <h2>
-            //                     <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
-            //                         ${el.querySelector("title").innerHTML}
-            //                     </a>
-            //                 </h2>
-            //             </article>
-            //         `;
-            //     });
-            //     // document.body.insertAdjacentHTML("beforeend", html);
-            //     this.HTML = html
-            // });
+        mounted() {
+            let newDataSets = []
+            for ( let i = 0; i < 25; i++ ) {
+                var random = Math.abs(Math.round(Math.random() * (+1 - +10) + +1));
+                newDataSets[i] = random > 0 ? random : 1
+            }
+            
+            this.chartData.labels = newDataSets
+            this.chartData.datasets = [ { 
+                label: 'Data One',
+                data: newDataSets,
+                backgroundColor: '#f87979',
+                max: 50
+            } ]
         }
     }
 </script>
+
+<style>
+    .box-chart {
+        width: 100%;
+        /* height: 400px; */
+        position: relative;
+        padding: 5%;
+    }
+</style>

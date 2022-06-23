@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel   my-5">
-
+        <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 text-center">
@@ -77,71 +77,49 @@
 </template>
 
 <script>
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     import Axios from 'axios'
 
     export default {
         name: 'Login',
-        
-        data(){
-            return {
-                username: '',
-                password: '',
-            }
-        },
-
+        components: { LoadingScreen },
+        data() { return { username: '', password: '', }},
         mounted() {
-            // this.$store.commit('setLoginStatus', true)
-            // console.log(this.$store.commit('LoginState', true))
-            // this.$store.commit('setLoginCookies', { name: '_km_dtl_s', data: 'ini data', days: 7 })
-            // console.log(this.$store.state.Login)
-
             if (this.$store.state.Login.LoginStatus) {
-                window.location.href = '/'
+                this.$store.commit('setLoadingScreen', true)
+                this.$store.commit('setLoadingImage', 'failed');
+                this.$store.commit('setLoadingText', 'ups, anda sudah login...');
+                setTimeout(() => { window.location.href = '/' }, 1000)
             }
         },
 
         methods: {
-            async login(){
-                var username = document.querySelector("#username").value
-                var password = document.querySelector("#password").value
-
-                let getData = await Axios({
-                    method: 'post',
-                    url: 'https://dev-be.kompasdata.id/api/Login',
+            async login() {
+                this.$store.commit('setLoadingScreen', true)
+                let config = {
+                    method: 'post', url: 'https://dev-be.kompasdata.id/api/Login',
+                    headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify({
-                        'username' : username,
-                        'password' : password
+                        'username' : document.querySelector("#username").value,
+                        'password' : document.querySelector("#password").value
                     }),
-                    headers: { 
-                        'Content-Type': 'application/json' 
-                    },
-                }).then( Response => Response ).catch( Error => Error );
-
-                console.log(getData)
-
-                if (getData.data) {
+                }
+                
+                try {
+                    let getData = await Axios(config)
                     this.$store.commit('setEncrypt', JSON.stringify(getData.data))
                     const data = this.$store.state.Login.LoginData
 
-                    this.$store.commit('setLoginCookies', {
-                        'name' : '_km_dtl_d',
-                        'data': data,
-                        'days' : 1
-                    });
-                    
-                    this.$store.commit('setLoginCookies', {
-                        'name' : '_km_dtl_s',
-                        'data': true,
-                        'days' : 1
-                    });
-
-                    window.location.href = '/'
-                } else if (getData.response.data.message == "User/Password tidak cocok.") {
-                    alert("Username/Password tidak cocok!")
-                } else if (getData.response.data.message == "User belum diaktifasi.") {
-                    alert("User belum diaktifasi.")
-                } else {
-                    alert("Something wrong")
+                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
+                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingImage', 'success')
+                        this.$store.commit('setLoadingText', 'Successfull to log in')
+                        window.location.href = '/'
+                    }, 750) 
+                } catch (error) {
+                    console.log(error)
+                    setTimeout(() => { this.$store.commit('setLoadingImage', 'failed'); this.$store.commit('setLoadingText', 'username/password is not match'); this.$store.commit('setCloseStatus', true); }, 500) 
                 }
             }
         }

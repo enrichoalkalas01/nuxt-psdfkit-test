@@ -19,7 +19,6 @@
                         v-for="(replay, j) in chat.parentChat"
                         :key="j"
                         :id="`replayedId-${ replay.id }`"
-                        v-on:click="goToSelectionSection( replay.id )"
                         :class="replay.adminId != '' ? 'wb-replay right' : 'wb-replay left'"
                     >
                         <div class="wb-chat-box">
@@ -140,11 +139,16 @@
                 var headerOffset = 100;
                 var elementPosition = element.getBoundingClientRect().top;
                 var offsetPosition = elementPosition - elBox.pageYOffset + headerOffset;
-            
-                elBox.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                elBox.scrollTo({ top: offsetPosition, behavior: "smooth" })
+            },
+
+            goToChatBox() {
+                var element = document.getElementById(`ready-replay`)
+                var elBox = document.getElementById('box-cd')
+                var headerOffset = 100;
+                var elementPosition = element.getBoundingClientRect().top
+                var offsetPosition = elementPosition - elBox.pageYOffset + headerOffset
+                elBox.scrollTo({ top: offsetPosition, behavior: "smooth" })
             },
 
             addReplayedData(params) {
@@ -153,6 +157,7 @@
                 let chatData = this.ChatData.filter(x => x.mainChat.id === Number(params))[0]
                 replayedData.innerHTML = `<span>Balas Untuk : ${ chatData.mainChat.title }</span>`
                 this.ReadyReplayData = chatData
+                this.goToChatBox()
             },
 
             removeReplayedData() {

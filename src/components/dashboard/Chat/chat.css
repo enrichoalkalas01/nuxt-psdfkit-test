@@ -220,7 +220,7 @@
     border-radius: 5px;
     background-color: #e8e8e8;
     z-index: 5;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #chatting .list-chat-box .wrapper-lcb .user-chat .wb-replay .wb-image .image {
