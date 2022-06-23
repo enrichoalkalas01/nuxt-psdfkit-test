@@ -11,7 +11,7 @@
                         </ol>
                     </nav>
                 </div>
-                <div class="col-md-12 my-3">
+                <div class="col-12 col-sm-12 col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
@@ -46,6 +46,11 @@
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
                                 <div class="w-100">
                                     <p v-html="`${ dataDetail ? dataDetail.summary : '' }`"></p>
+                                    <div id="tablue-data" class="mb-2">
+                                        <div id="tableauViz"></div>
+                                        <!-- <button class="mt-2 btn btn-main active tableau-btn" id="button-open-tableau" onclick="initializeViz()">Tampilkan Infografik Data</button>
+                                        <button class="mt-2 btn btn-main tableau-btn" id="button-close-tableau" onclick="closeViz()">Tutup Infografik Data</button> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
@@ -59,29 +64,17 @@
                                     <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
                                 </ol>
                             </div>
-                            <div>
-                                <!-- {{ dataDetail ? dataDetail.summary : '' }} -->
-                                <br /><br /><br /><br /><br />
-                                
-                                <!-- <div v-html="dataDetail.summary"></div> -->
-
-                                <div id="tablue-data">
-                                    <div ref="tableau"></div>
-                                    <div id="tableauViz"></div>
-                                </div>
-                                
-                            </div>
                         </div>
                     </div>
                 </div>
                     
-                <!-- <div class="col-12 col-md-3"> -->
+                <div class="col-12 col-sm-12 col-md-3">
                     <!-- Banner -->
-                    <!-- <Banner /> -->
+                    <Banner />
 
                     <!-- Suggestion -->
-                    <!-- <Suggestion v-bind:dataSuggestions="suggestions" /> -->
-                <!-- </div> -->
+                    <Suggestion v-bind:dataSuggestions="suggestions" />
+                </div>
             </div>
         </div>
     </section>
@@ -89,8 +82,9 @@
 
 <script>
     import Axios from 'axios'
-    // import Banner from '../banner/Main.vue'
-    // import Suggestion from '../suggestion/Main.vue'
+    import Banner from '../banner/Main.vue'
+    import Suggestion from '../suggestion/Main.vue'
+    
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -101,14 +95,15 @@
     export default {
         name: 'MainDetail',
         components: {
-            // Banner,
-            // Suggestion,
+            Banner,
+            Suggestion,
         },
         data () {
             return {
                 linkBack: null,
                 suggestions: dataSuggestions,
-                urlTest: 'https://public.tableau.com/app/profile/litbangkompas/viz/BorobudurMarathon2021/BOMAR2021',
+                newSummary: null,
+                urlTest: 'https://public.tableau.com/views/SPKC2022/SebaranSampelSPKC2022?:language=en-US&:display_count=n&:origin=viz_share_link',
                 dataDetail: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
@@ -116,15 +111,13 @@
                 }
             }
         },
-        async beforeMount() {
-            let scriptTag = document.createElement("script")
-            scriptTag.setAttribute("src", "https://public.tableau.com/javascripts/api/viz_v1.js")
-            document.head.appendChild(scriptTag)
 
+        beforeMount() {
             this.linkBack = window.location.search
+            this.addScriptTableAu()
         },
 
-        async mounted() {
+        mounted() {
             this.getData()
             this.initViz()
         },
@@ -140,32 +133,54 @@
                 }
             },
 
-            initViz() {
+            async addScriptTableAu() {
+                let scriptTag2 = document.createElement("script")
+                scriptTag2.setAttribute("src", "https://public.tableau.com/javascripts/api/tableau-2.0.0.min.js")
+                document.head.appendChild(scriptTag2)
+            },
+
+            async initViz() {
+                var urlTablue = this.urlTest
                 var newScript = document.createElement("script")
                 newScript.setAttribute("type", "text/javascript")
                 newScript.innerHTML = `
-                    var placeholderDiv = document.getElementById("tableauViz");
-                    var url = "https://public.tableau.com/views/WorldIndicators/GDPpercapita";
-                    var options = {
-                        width: placeholderDiv.offsetWidth,
-                        height: placeholderDiv.offsetHeight,
-                        hideTabs: true,
-                        hideToolbar: true,
-                        onFirstInteractive: function () {
-                        workbook = viz.getWorkbook();
-                        activeSheet = workbook.getActiveSheet();
+                    var newUrlTablue = '${ urlTablue }'
+                    function initializeViz() {
+                        var placeholderDiv = document.getElementById("tableauViz")
+                        var url = newUrlTablue
+                        var options = {
+                            width: '100%', height: '500px', hideTabs: true,
+                            hideToolbar: true, onFirstInteractive: function () {
+                                workbook = viz.getWorkbook(); activeSheet = workbook.getActiveSheet();
+                            }
                         }
-                    };
+                        
+                        viz = new tableau.Viz(placeholderDiv, url, options)
+                        console.log(tableau)
+                        console.log(viz)
+                    }
 
-                    viz = new tableau.Viz(placeholderDiv, url, options)
-                    console.log(tableau)
+                    setTimeout(() => { initializeViz() }, 500)
+
+                    function closeViz() {
+                        document.querySelector("#button-close-tableau").classList.remove("active")
+                        document.querySelector("#button-open-tableau").classList.add("active")
+                        document.querySelector("#tableauViz").innerHTML = ""
+                        viz = new tableau.Viz(null, null, null)
+                    }
                 `
-                document.head.appendChild(newScript)
+                document.body.appendChild(newScript)
             }
         },
-
-        async updated() {
-            
-        }
     }
 </script>
+
+<style>
+    .tableau-btn {
+        display: none;
+    }
+
+    .tableau-btn.active {
+        display: block;
+    }
+</style>
