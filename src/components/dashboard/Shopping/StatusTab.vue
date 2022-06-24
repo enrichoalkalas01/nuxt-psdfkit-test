@@ -91,12 +91,12 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    // alert('ups, terjadi kesalahan...')
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
-                        this.$store.commit('setCloseStatus', true);
-                    }, 500)
+                    alert('ups, terjadi kesalahan...')
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'failed');
+                    //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
+                    //     this.$store.commit('setCloseStatus', true);
+                    // }, 500)
                 }
             }
         }

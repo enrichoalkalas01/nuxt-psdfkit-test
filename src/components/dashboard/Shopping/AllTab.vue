@@ -97,7 +97,7 @@
             },
 
             async downloadItem(e) {
-                this.$store.commit('setLoadingScreen', true)
+                // this.$store.commit('setLoadingScreen', true)
 
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
@@ -110,12 +110,12 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    // alert('ups, terjadi kesalahan...')
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
-                        this.$store.commit('setCloseStatus', true);
-                    }, 500)
+                    alert('ups, terjadi kesalahan...')
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'failed');
+                    //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
+                    //     this.$store.commit('setCloseStatus', true);
+                    // }, 500)
                 }
             }
         }

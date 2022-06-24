@@ -132,40 +132,40 @@
                 }
                 
                 if ( this.Selected.length === 0 ) {
-                    // alert('Pilihlah terlebih dahulu produk nya...')
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'Pilihlah terlebih dahulu produk nya...');
-                        this.$store.commit('setCloseStatus', true);
-                    }, 500)
+                    alert('Pilihlah terlebih dahulu produk nya...')
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'failed');
+                    //     this.$store.commit('setLoadingText', 'Pilihlah terlebih dahulu produk nya...');
+                    //     this.$store.commit('setCloseStatus', true);
+                    // }, 500)
                 } else {
                     try {
                         let payed = await Axios(configPaySaldo)
                         if ( payed.data.message !== 'sukses') {
-                            // alert(payed.data.message)
-                            setTimeout(() => { 
-                                this.$store.commit('setLoadingImage', 'success');
-                                this.$store.commit('setLoadingText', payed.data.message);
-                                this.$store.commit('setCloseStatus', true);
-                            }, 500)
+                            alert(payed.data.message)
+                            // setTimeout(() => { 
+                            //     this.$store.commit('setLoadingImage', 'success');
+                            //     this.$store.commit('setLoadingText', payed.data.message);
+                            //     this.$store.commit('setCloseStatus', true);
+                            // }, 500)
                         } else {
-                            // alert(payed.data.message)
-                            setTimeout(() => { 
-                                this.$store.commit('setLoadingImage', 'success');
-                                this.$store.commit('setLoadingText', payed.data.message);
-                                this.$store.commit('setCloseStatus', true);
-                            }, 500)
+                            alert(payed.data.message)
+                            // setTimeout(() => { 
+                            //     this.$store.commit('setLoadingImage', 'success');
+                            //     this.$store.commit('setLoadingText', payed.data.message);
+                            //     this.$store.commit('setCloseStatus', true);
+                            // }, 500)
                             this.getDataAll()
                             this.$store.commit('setReloadSaldo', true)
                         }
                     } catch (error) {
-                        // alert('ups, terjadi kesalahan..')
+                        alert('ups, terjadi kesalahan..')
                         console.log(error)
-                        setTimeout(() => { 
-                            this.$store.commit('setLoadingImage', 'success');
-                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan..');
-                            this.$store.commit('setCloseStatus', true);
-                        }, 500)
+                        // setTimeout(() => { 
+                        //     this.$store.commit('setLoadingImage', 'success');
+                        //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan..');
+                        //     this.$store.commit('setCloseStatus', true);
+                        // }, 500)
                     }
                 }
             },
