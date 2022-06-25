@@ -7,7 +7,7 @@
                         <div class="images-circle"></div>
                     </div>
                     <div class="text-box">
-                        <h2>{{ UserData.username }}</h2>
+                        <h2>{{ dataUser.firstName }} {{ dataUser.lastName }}</h2>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                             <span>Kompas ID</span>
                         </div>
                         <div class="col-8">
-                            <span>{{ UserData.id }}</span>
+                            <span>{{ dataUser.id }}</span>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             <span>Jenis Pelanggan</span>
                         </div>
                         <div class="col-8">
-                            <span>trial</span>
+                            <span>{{ dataUser.memberTypeName ? dataUser.memberTypeName.title : '' }}</span>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                             <span>Nama Depan</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" :value="dataUser.firstName">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <span>Nama Belakang</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" :value="dataUser.lastName">
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                             <span>Jenis Kelamin</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" :value="dataUser.gender">
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                             <span>Telepon</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" :value="dataUser.phoneNumber">
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                             <span>Alamat</span>
                         </div>
                         <div class="col-8">
-                            <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                            <textarea class="form-control" name="" id="" cols="30" rows="10" :value="dataUser.address"></textarea>
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                             <span>Kode Pos</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" value="">
+                            <input class="form-control" type="text" :value="dataUser.postCode">
                         </div>
                     </div>
                 </div>
@@ -185,16 +185,31 @@
 </template>
 
 <script>
+    import Axios from 'axios'
+
     export default {
         name: 'Account',
         data() {
             return {
-                UserData: this.$store.state.Login.LoginStatus ? this.$store.state.Login.UserData : null
+                UserData: this.$store.state.Login.LoginStatus ? this.$store.state.Login.UserData : null,
+                dataUser: [],
             }
         },
 
-        mounted() {
-            console.log(this.UserData)
+        async beforeMount() {
+            try {
+                let data = await Axios({
+                    headers: {
+                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
+                    },
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.UserData.id }`,
+                })
+                this.dataUser = data.data
+
+                console.log(this.dataUser);
+            } catch (error) {
+                console.log(error.message);
+            }
         }
     }
 </script>

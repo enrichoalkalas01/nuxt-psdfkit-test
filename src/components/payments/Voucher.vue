@@ -33,7 +33,8 @@
         components: { LoadingScreen },
         methods: {
             insertKupon: async (userdata) => {
-                this.$store.commit('setLoadingScreen', true)
+                // this.$store.commit('setLoadingScreen', true)
+
                 var voucherCode = document.querySelector("#voucher_code").value
                 let getData = await Axios({
                     url: `https://dev-be.kompasdata.id/api/Vouchers/${ voucherCode }/use?userid=${ userdata.id }`,
@@ -45,28 +46,28 @@
                 }).then( Response => Response ).catch( Error => Error );
 
                 if (getData.data) {
-                    // alert(getData.data)
-                    // window.location.href = '/dashboard/voucher'
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'success');
-                        this.$store.commit('setLoadingText', getData.data);
-                        this.$store.commit('setCloseStatus', true);
-                        window.location.href = '/dashboard/voucher'
-                    }, 500)
+                    alert(getData.data)
+                    window.location.href = '/dashboard/kupon'
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'success');
+                    //     this.$store.commit('setLoadingText', getData.data);
+                    //     this.$store.commit('setCloseStatus', true);
+                    //     window.location.href = '/dashboard/voucher'
+                    // }, 500)
                 } else if (getData.response.data.message === "Voucher number is already used."){
-                    // alert("Kode voucher sudah digunakan")
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'Kode voucher sudah digunakan');
-                        this.$store.commit('setCloseStatus', true);
-                    }, 500)
+                    alert("Kode voucher sudah digunakan")
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'failed');
+                    //     this.$store.commit('setLoadingText', 'Kode voucher sudah digunakan');
+                    //     this.$store.commit('setCloseStatus', true);
+                    // }, 500)
                 } else {
-                    // alert("Something went wrong!")
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'Something went wrong!');
-                        this.$store.commit('setCloseStatus', true);
-                    }, 500)
+                    alert("Something went wrong!")
+                    // setTimeout(() => { 
+                    //     this.$store.commit('setLoadingImage', 'failed');
+                    //     this.$store.commit('setLoadingText', 'Something went wrong!');
+                    //     this.$store.commit('setCloseStatus', true);
+                    // }, 500)
                 }
 
             },
