@@ -424,3 +424,19 @@
     color: unset;
     text-decoration: none;
 }
+
+#box-mobile-bar {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+#box-mobile-bar .bmb-burger-box .bmb-burger {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#box-mobile-bar .bmb-burger-box .bmb-burger .wrapper-burger i {
+    cursor: pointer;
+    font-size: 26px;
+}

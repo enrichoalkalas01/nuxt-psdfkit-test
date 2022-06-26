@@ -1,5 +1,12 @@
 <template>
-    <section class="col-3 box-sidebar">
+    <section
+        :class="
+            this.$store.state.Headers.SideBarStatus ?
+            `col-3 box-sidebar active-mobile` : `col-3 box-sidebar`
+        "
+        id="parent-sidebar"
+        v-on:click="closeSideBar"
+    >
         <div class="row d-flex flex-column flex-shrink-0 py-3 text-white bg-dark h-100 wrap-sb">
             <!-- <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
@@ -57,8 +64,8 @@
                 </li>
             </ul>
             <hr>
-            <div class="dropdown">
-                <a href="/logout" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="">
+                <a href="/logout" class="d-flex align-items-center text-white text-decoration-none">
                     <strong>Logout</strong>
                 </a>
             </div>
@@ -92,6 +99,15 @@
             if ( window.location.pathname === '/dashboard/syarat' ) this.Terms = !this.Terms
             if ( window.location.pathname === '/dashboard/daftar-pesanan' ) this.ShoppingCart = !this.ShoppingCart
             if ( window.location.pathname === '/dashboard/daftar-traksaksi' ) this.HistoryTransaction = !this.HistoryTransaction
+        },
+
+        methods: {
+            closeSideBar(e) {
+                if ( e.target.id === 'parent-sidebar' ) {
+                    e.target.classList.remove('active-mobile') // remove class active mobile
+                    this.$store.commit('setCloseSideBar') // set false side bar status
+                }
+            }
         }
     }
 </script>

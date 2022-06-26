@@ -4,21 +4,24 @@
             <a class="navbar-brand d-block d-md-none me-auto" href="/">
                 <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas Test">
             </a>
-            <a href="/cart" class="icon-cart mx-3 d-block d-md-none">
+            <a href="/dashboard" class="icon-cart mx-3 d-block d-md-none" style="margin-right: 0 !important;">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="/dashboard/daftar-pesanan" class="icon-cart mx-3 d-block d-md-none">
                 <i class="fas fa-shopping-cart"></i>
             </a>
             <button class="navbar-toggler my-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarMain">
                 <div class="search-box d-block d-md-none py-2">
                     <div class="input-group">
                         <select class="form-select" id="selectCari"> 
-                    <option value="1">Artikel</option>
-                    <option value="2">Gambar</option>
-                    <option value="3">Data</option>
-                </select>
+                            <option value="1">Artikel</option>
+                            <option value="2">Gambar</option>
+                            <option value="3">Data</option>
+                        </select>
                         <input type="text" class="form-control" placeholder="Masukkan teks" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <a href="/pencarian" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                     </div>
@@ -76,12 +79,22 @@
                     </li>
 
                 </ul>
-                <div class="d-block d-md-none p-3">
+                <div class="d-block d-md-none p-3" v-if="!this.$store.state.Login.LoginStatus">
                     <a href="/login" class="btn btn-line">LOGIN</a>
                     <a href="/daftar" class="btn btn-second">DAFTAR</a>
                 </div>
             </div>
 
+        </div>
+
+        <div id="box-mobile-bar" class="container active-mobile" v-on:click="sideBarActive">
+            <div class="row bmb-burger-box">
+                <div class="col-12 bmb-burger">
+                    <div class="wrapper-burger">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </nav>
@@ -91,7 +104,15 @@
     export default {
         name: 'TopNav',
         mounted() {
-            
+            if ( window.innerWidth > 650 ) document.querySelector("#box-mobile-bar").classList.remove("active-mobile")
+            else {
+                if ( window.location.pathname.includes('dashboard')) document.querySelector("#box-mobile-bar").classList.add("active-mobile")
+                else document.querySelector("#box-mobile-bar").classList.remove("active-mobile")
+            }
+        },
+
+        methods: {
+            sideBarActive() { this.$store.commit('setStatusSideBar') }
         }
     }
 </script>

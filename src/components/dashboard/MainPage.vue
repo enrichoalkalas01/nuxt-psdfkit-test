@@ -1,7 +1,7 @@
 <template>
     <section id="dashboard" class="container-fluid">
         <LoadingScreen />
-        <div class="row box-dashboard">
+        <div class="row box-dashboard" style="poisition: relative;">
             <SideBar />
             <div class="col-9 py-3 box-cd" id="box-cd">
                 <router-view></router-view>
