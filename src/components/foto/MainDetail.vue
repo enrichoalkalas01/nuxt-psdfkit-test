@@ -22,7 +22,9 @@
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
-                                    <a v-on:click="FormPesan" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
+                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 ? true : false">
+                                        <i class="fas fa-shopping-cart"></i> <span>Pesan Foto</span>
+                                    </button>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -218,9 +220,7 @@
 
     export default {
         name: 'Foto',
-        components: {
-            Suggestion, LoadingScreen
-        },
+        components: { Suggestion, LoadingScreen },
         data () {
             return {
                 linkBack: null,

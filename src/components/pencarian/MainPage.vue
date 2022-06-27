@@ -2,6 +2,16 @@
     <section class="sec-artikel pt-5">
         <div class="container pt-3">
             <div class="row d-flex justify-content-center pb-5">
+                <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ">
+                    <div class="row">
+                        <div class="col-12 status-user">
+                            <span>Tipe user : {{ this.$store.state.Search.userStatus }}</span>
+                        </div>
+                        <div class="status-message">
+                            <div v-html="this.$store.state.Search.userTextStatus"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 col-md-10 mb-3">
                     <h2 class="subtitle py-2"> Hasil Pencarian</h2>
                     <p>Kata kunci : <span class="text-bold">{{ keySearch }}</span></p>
@@ -181,6 +191,7 @@
         async mounted() {
             this.totalSearch = this.$store.state.Search.TotalSearch
             this.pagination = this.paginationFunction()
+            console.log(this.$store.state)
         },
 
         async updated() {

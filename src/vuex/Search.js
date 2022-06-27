@@ -26,6 +26,10 @@ const Search = {
             TotalData: 0,
 
             ChangeStatus: 0,
+
+            userStatus: null,
+            userTextStatus: null,
+
             SearchConfigPhotosPost: {
                 url: "https://dev-be.kompasdata.id/api/Search/photos",
                 headers: { "Content-Type": "application/json", },
@@ -243,7 +247,11 @@ const Search = {
                     state.SearchConfigStatistiks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)
                 }
             }
-        }
+        },
+
+
+        userSetStatusText(state, value) { state.userTextStatus = value },
+        userSetStatusSearch(state, value) { state.userStatus = value }
     }
 }
 

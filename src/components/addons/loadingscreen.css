@@ -81,3 +81,13 @@
     margin-top: 10px;
 }
 
+
+
+#notif-search {
+    background-color: rgba(65, 141, 247, 0.90);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    /* font-weight: 700; */
+    font-size: 14px;
+}

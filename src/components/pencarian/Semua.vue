@@ -126,8 +126,10 @@
                     let DataStatistiks = await Axios(this.$store.state.Search.SearchConfigStatistiks)
                     let DataInfografiks = await Axios(this.$store.state.Search.SearchConfigInfografiks)
 
-                    console.log(TriggerAPI ? true : false)
+                    this.$store.commit('userSetStatusText', DataArticles.data.message)
+                    this.$store.commit('userSetStatusSearch', DataArticles.data.member_type)
 
+                    console.log(TriggerAPI ? true : false)
                     if ( DataArticles && DataPhotos && DataBooks && DataStatistiks && DataInfografiks ) this.$store.commit('setLoadingScreen', false)
 
                     // Set Data From API
