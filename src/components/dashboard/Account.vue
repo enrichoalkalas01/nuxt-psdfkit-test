@@ -7,7 +7,7 @@
                         <div class="images-circle"></div>
                     </div>
                     <div class="text-box">
-                        <h2>{{ dataUser.firstName }} {{ dataUser.lastName }}</h2>
+                        <h2>{{ dataUser.firstName ? dataUser.firstName : '' }} {{ dataUser.lastName ? dataUser.lastName : '' }}</h2>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                             <span>Kompas ID</span>
                         </div>
                         <div class="col-8">
-                            <span>{{ dataUser.id }}</span>
+                            <span>{{ dataUser.id ? dataUser.id : '' }}</span>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,11 @@
                             <span>Jenis Kelamin</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" :value="dataUser.gender">
+                            <select name="gender" id="gender" class="form-control" v-model="dataUser.gender">
+                                <option v-for="gender in genders" :value="gender.value" :key="gender">
+                                    {{ gender.text ? gender.text : '' }}
+                                </option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -92,8 +96,10 @@
                             <span>Pekerjaan</span>
                         </div>
                         <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
+                            <select name="job" id="job" class="form-control" v-model="userJobId">
+                                <option v-for="job in dataJobs" :value="job.id" :key="job">
+                                    {{ job.title ? job.title : '' }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -104,7 +110,7 @@
                             <span>Telepon</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" :value="dataUser.phoneNumber">
+                            <input class="form-control" type="number" :value="dataUser.phoneNumber">
                         </div>
                     </div>
                 </div>
@@ -124,8 +130,10 @@
                             <span>Negara</span>
                         </div>
                         <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
+                            <select name="country" id="country" class="form-control" v-model="userCountryId">
+                                <option v-for="country in dataCountries" :value="country.id" :key="country">
+                                    {{ country.name ? country.name : '' }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -136,8 +144,10 @@
                             <span>Provinsi</span>
                         </div>
                         <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
+                            <select name="province" id="province" class="form-control" v-model="userProvinceId" @change="getCities(userProvinceId); getVillages();">
+                                <option v-for="province in dataProvinces" :value="province.id" :key="province">
+                                    {{ province.name ? province.name : '' }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -148,8 +158,10 @@
                             <span>Kabupaten/Kota</span>
                         </div>
                         <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
+                            <select name="city" id="city" class="form-control" v-model="userCityId" @change="getVillages(userCityId)">
+                                <option v-for="city in dataCities" :value="city.id" :key="city">
+                                    {{ city.name ? city.name : '' }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -160,8 +172,10 @@
                             <span>Kecamatan</span>
                         </div>
                         <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value=""></option>
+                            <select name="village" id="village" class="form-control" v-model="userVillageId">
+                                <option v-for="village in dataVillages" :value="village.id" :key="village">
+                                    {{ village.name ? village.name : '' }}
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -193,22 +207,125 @@
             return {
                 UserData: this.$store.state.Login.LoginStatus ? this.$store.state.Login.UserData : null,
                 dataUser: [],
+                dataJobs: [],
+                userJobId: null,
+                dataCountries : [],
+                userCountryId: null,
+                dataProvinces: [],
+                userProvinceId: null,
+                dataCities: [],
+                userCityId: null,
+                dataVillages: [],
+                userVillageId: null,
+                genders: [
+                    { value: 'm', text: 'Laki-laki' },
+                    { value: 'f', text: 'Perempuan' }
+                ],
             }
         },
 
         async beforeMount() {
             try {
-                let data = await Axios({
-                    headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
-                    },
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.UserData.id }`,
-                })
-                this.dataUser = data.data
-
-                console.log(this.dataUser);
+                this.getDataUser();
+                this.getJobs();
             } catch (error) {
                 console.log(error.message);
+            }
+        },
+
+        methods: {
+            async getDataUser(){
+                try {
+                    let data = await Axios({
+                        headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                        url: `https://dev-be.kompasdata.id/api/Users/${ this.UserData.id }`,
+                    })
+                    this.dataUser = data.data
+                    console.log(this.dataUser);
+
+                    // Set User Job Id
+                    this.userJobId = this.dataUser.job.id;
+
+                    // get User Country
+                    this.getCountries();
+
+                    // get User Province & set user country id
+                    this.userCountryId = this.dataUser.country.id;
+                    this.getProvinces(this.userCountryId);
+
+                    // get User City & set user province id
+                    this.userProvinceId = this.dataUser.province.id;
+                    this.getVillages(this.userProvinceId);
+
+                    // set user village id
+                    this.userVillageId = this.dataUser.village.id;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            async getJobs(){
+                try {
+                    let jobs = await Axios({
+                        headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                        url: 'https://dev-be.kompasdata.id/api/Jobs',
+                    })
+    
+                    this.dataJobs = jobs.data;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            async getCountries(){
+                try {
+                    let countries = await Axios({
+                        headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                        url: 'https://dev-be.kompasdata.id/api/Countries',
+                    })
+
+                    this.dataCountries = countries.data;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            async getProvinces(countryId){
+                try {
+                    let provinces = await Axios({
+                        headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                        url: `https://dev-be.kompasdata.id/api/Provinces?countryid=${ countryId }`,
+                    })
+
+                    this.dataProvinces = provinces.data;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            async getCities(provinceId){
+                try {
+                    let cities = await Axios({
+                        headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                        url: `https://dev-be.kompasdata.id/api/Cities?countryid=-1&provinceid=${ provinceId }`,
+                    })
+
+                    this.dataCities = cities.data;
+                } catch (error) {
+                    console.log(error.message);
+                }
+            },
+            async getVillages(cityId){
+                try {
+                    if (cityId != null) {
+                        let villages = await Axios({
+                            headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
+                            url: `https://dev-be.kompasdata.id/api/Cities/${ cityId }`,
+                        })
+    
+                        this.dataVillages = villages.data.villages;
+                    } else {
+                        this.dataVillages = [];
+                    }
+                } catch (error) {
+                    console.log(error.message);
+                }
             }
         }
     }
