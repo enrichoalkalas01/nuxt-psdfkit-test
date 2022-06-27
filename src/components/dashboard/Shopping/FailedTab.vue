@@ -63,13 +63,27 @@
                 this.getDataAll(this.DateFrom, this.DateTo)
             },
             async getDataAll(date1, date2) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
-                let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 2)
-                else console.log(AllData)
+
+                try {
+                    let AllData = await Axios(config)
+                    this.ResultData = AllData.data.data.filter(x => x.status === 2)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
+                }
             }
         }
     }

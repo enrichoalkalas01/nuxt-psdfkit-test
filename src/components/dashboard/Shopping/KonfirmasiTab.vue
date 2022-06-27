@@ -67,20 +67,34 @@
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
-
-                let statusDelete = await Axios(config)
-                if ( statusDelete ) location.reload()
-                else console.log(statusDelete)
+                try {
+                    await Axios(config)
+                    location.reload()
+                } catch (error) {
+                    console.log(error)
+                }
             },
             async getDataAll(date1, date2) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
-                let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 0)
-                else console.log(AllData)
-                console.log(this.ResultData)
+                try {
+                    let AllData = await Axios(config)
+                    this.ResultData = AllData.data.data.filter(x => x.status === 0)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
+                }
             }
         }
     }

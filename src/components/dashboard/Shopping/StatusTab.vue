@@ -66,24 +66,34 @@
             dateToChange(e) { this.DateTo = e.target.value },
             searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async getDataAll(date1, date2) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
-                let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.data.filter(x => x.status === 3)
-                else console.log(this.ResultData)
-                console.log(AllData)
+                try {
+                    let AllData = await Axios(config)
+                    this.ResultData = AllData.data.data.filter(x => x.status === 3)
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
+                }
             },
 
             async downloadItem(e) {
                 this.$store.commit('setLoadingScreen', true)
-
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
                 }
-                
                 try {
                     let download = await Axios(config)
                     console.log(download)
@@ -91,12 +101,14 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    alert('ups, terjadi kesalahan...')
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
                 }
             }
         }

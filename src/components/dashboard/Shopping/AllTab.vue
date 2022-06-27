@@ -70,17 +70,18 @@
             dateToChange(e) { this.DateTo = e.target.value },
             searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async deleteItem(e) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
                 
                 try {
-                    let statusDelete = await Axios(config)
-                    console.log(statusDelete)
+                    await Axios(config)
                     location.reload()
                 } catch (error) {
-                    console.log(error)   
+                    console.log(error)
+                    this.$store.commit('setLoadingScreen', false)
                 }
             },
 
@@ -92,9 +93,8 @@
                 }
                 try {
                     let AllData = await Axios(config)
-                    console.log(AllData)
                     this.ResultData = AllData.data.data
-                    this.$store.commit('setLoadingScreen', false)
+                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 500)
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingScreen', false)
@@ -102,6 +102,7 @@
             },
 
             async downloadItem(e) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
@@ -113,12 +114,14 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    alert('ups, terjadi kesalahan...')
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
                 }
             }
         }
