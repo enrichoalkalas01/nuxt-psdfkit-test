@@ -38,7 +38,7 @@
                         <button
                             v-on:click="downloadInfografik"
                             class="btn btn-main"
-                            :disabled="this.$store.state.Login.UserData.memberType === 0 ? true : false"
+                            :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false"
                         >
                             Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}
                         </button>

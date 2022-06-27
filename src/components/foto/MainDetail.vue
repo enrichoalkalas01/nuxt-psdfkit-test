@@ -22,7 +22,7 @@
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
-                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 ? true : false">
+                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">
                                         <i class="fas fa-shopping-cart"></i> <span>Pesan Foto</span>
                                     </button>
                                 </div>
