@@ -34,8 +34,11 @@
             }
         },
 
-        methods: {
+        mounted() {
+            console.log(this.$store.state)
+        },
 
+        methods: {
         }
     }
 </script>
