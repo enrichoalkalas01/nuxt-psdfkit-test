@@ -38,7 +38,6 @@
                 tanggal="17 Agustus 1945"
                 description="test dong.."
                 typeConfirmation="0"
-                
             /> -->
         </div>
     </section>
@@ -51,54 +50,58 @@
     import Axios from 'axios'
     export default {
         name: 'AllTab',
-        components: {
-            ListItemVue,
-            LoadingScreen,
-        },
-
+        components: { ListItemVue, LoadingScreen, },
         data() {
             return {
                 DateFrom: this.$store.state.Tools.DateNowString(),
-                DateTo: this.$store.state.Tools.DateNowString(),
+                DateTo: this.$store.state.Tools.DateTomorrowString(),
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
                 ResultData: [],
             }
         },
+        
         mounted() {
+            console.log(this.$store.state.Tools.DateTomorrowString())
             this.getDataAll(this.DateFrom, this.DateTo)            
         },
 
         methods: {
             dateFromChange(e) { this.DateFrom = e.target.value },
             dateToChange(e) { this.DateTo = e.target.value },
-            searchData() {
-                this.getDataAll(this.DateFrom, this.DateTo)
-            },
-
+            searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async deleteItem(e) {
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
-
-                let statusDelete = await Axios(config)
-                if ( statusDelete ) location.reload()
-                else console.log(statusDelete)
+                
+                try {
+                    let statusDelete = await Axios(config)
+                    console.log(statusDelete)
+                    location.reload()
+                } catch (error) {
+                    console.log(error)   
+                }
             },
 
             async getDataAll(date1, date2) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
-                let AllData = await Axios(config)
-                if ( AllData ) this.ResultData = AllData.data.data
-                else console.log(AllData)
+                try {
+                    let AllData = await Axios(config)
+                    console.log(AllData)
+                    this.ResultData = AllData.data.data
+                    this.$store.commit('setLoadingScreen', false)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingScreen', false)
+                }
             },
 
             async downloadItem(e) {
-                // this.$store.commit('setLoadingScreen', true)
-
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'

@@ -30,6 +30,7 @@ import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
 import Chatting from '../components/dashboard/Chat/Chatting.vue'
 import Syarat from '../components/dashboard/Syarat.vue'
 import Account from '../components/dashboard/Account.vue'
+import History from '../components/dashboard/History/MainPage.vue'
 
 const routes = [
     // Login & Register
@@ -83,6 +84,7 @@ const routes = [
             { path: '/dashboard/topup', name: 'topup', component: TopUp },
             { path: '/dashboard/kupon', name: 'voucher', component: Voucher },
             { path: '/dashboard/daftar-pesanan', name: 'daftar-pesanan', component: ShoppingCart },
+            { path: '/dashboard/daftar-transaksi', name: 'daftar-transaksi', component: History },
             { path: '/dashboard/pesan', name: 'chatting', component: Chatting },
             { path: '/dashboard/syarat', name: 'syarat', component: Syarat },
             { path: '/dashboard/akun', name: 'account', component: Account },

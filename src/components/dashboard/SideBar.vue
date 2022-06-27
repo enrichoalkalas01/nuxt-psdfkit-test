@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" :class="HistoryTransaction ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
+                    <a href="/dashboard/daftar-transaksi" :class="HistoryTransaction ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
                         <i class="fa-solid fa-list icon-text"></i>
                         <span class="icon-sidebox">Daftar Transaksi</span>
                     </a>

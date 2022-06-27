@@ -19,6 +19,7 @@
     background-color: #23282d;
     color: #fff;
     height: 100%;
+    position: relative;
 }
 
 #dashboard #box-cd {
@@ -439,4 +440,20 @@
 #box-mobile-bar .bmb-burger-box .bmb-burger .wrapper-burger i {
     cursor: pointer;
     font-size: 26px;
+}
+
+.active-move_sidebar {
+    animation: move_sidebar 2s;
+}
+
+@keyframes move_sidebar {
+    0% {
+        transition: 3s;
+        left: -100%;
+    }
+
+    100% {
+        transition: 3s;
+        left: 0%;
+    }
 }
