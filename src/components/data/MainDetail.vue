@@ -143,37 +143,40 @@
             },
 
             async initViz() {
-                var urlTablue = this.urlTest
-                console.log(this.dataDetail ? this.dataDetail.url_infographic : null)
-                var newScript = document.createElement("script")
-                newScript.setAttribute("type", "text/javascript")
-                newScript.innerHTML = `
-                    var newUrlTablue = '${ urlTablue }'
-                    function initializeViz() {
-                        var placeholderDiv = document.getElementById("tableauViz")
-                        var url = newUrlTablue
-                        var options = {
-                            width: '100%', height: '500px', hideTabs: true,
-                            hideToolbar: true, onFirstInteractive: function () {
-                                workbook = viz.getWorkbook(); activeSheet = workbook.getActiveSheet();
+                if ( !this.dataDetail ) console.log('waiting for data...')
+                else {
+                    var urlTablue = this.urlTest
+                    console.log(this.dataDetail ? this.dataDetail.url_infographic : null)
+                    var newScript = document.createElement("script")
+                    newScript.setAttribute("type", "text/javascript")
+                    newScript.innerHTML = `
+                        var newUrlTablue = '${ urlTablue }'
+                        function initializeViz() {
+                            var placeholderDiv = document.getElementById("tableauViz")
+                            var url = newUrlTablue
+                            var options = {
+                                width: '100%', height: '500px', hideTabs: true,
+                                hideToolbar: true, onFirstInteractive: function () {
+                                    workbook = viz.getWorkbook(); activeSheet = workbook.getActiveSheet();
+                                }
                             }
+                            
+                            viz = new tableau.Viz(placeholderDiv, url, options)
+                            console.log(tableau)
+                            console.log(viz)
                         }
-                        
-                        viz = new tableau.Viz(placeholderDiv, url, options)
-                        console.log(tableau)
-                        console.log(viz)
-                    }
 
-                    setTimeout(() => { initializeViz() }, 500)
+                        setTimeout(() => { initializeViz() }, 500)
 
-                    function closeViz() {
-                        document.querySelector("#button-close-tableau").classList.remove("active")
-                        document.querySelector("#button-open-tableau").classList.add("active")
-                        document.querySelector("#tableauViz").innerHTML = ""
-                        viz = new tableau.Viz(null, null, null)
-                    }
-                `
-                document.body.appendChild(newScript)
+                        function closeViz() {
+                            document.querySelector("#button-close-tableau").classList.remove("active")
+                            document.querySelector("#button-open-tableau").classList.add("active")
+                            document.querySelector("#tableauViz").innerHTML = ""
+                            viz = new tableau.Viz(null, null, null)
+                        }
+                    `
+                    document.body.appendChild(newScript)
+                }
             }
         },
     }
