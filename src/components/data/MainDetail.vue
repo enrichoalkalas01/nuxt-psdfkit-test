@@ -46,6 +46,7 @@
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
                                 <div class="w-100">
                                     <p v-html="`${ dataDetail ? dataDetail.summary : '' }`"></p>
+                                    <div id="tableau_url" style="display: none;" :tableauUrl="dataDetail ? dataDetail.url_infographic : null">{{ dataDetail ? dataDetail.url_infographic : null  }}</div>
                                     <div id="tablue-data" class="mb-2">
                                         <div id="tableauViz"></div>
                                         <!-- <button class="mt-2 btn btn-main active tableau-btn" id="button-open-tableau" onclick="initializeViz()">Tampilkan Infografik Data</button>
@@ -116,11 +117,11 @@
         beforeMount() {
             this.linkBack = window.location.search
             this.addScriptTableAu()
+            console.log(this.urlTest)
         },
 
         mounted() {
             this.getData()
-            this.initViz()
         },
 
         methods: {
@@ -128,7 +129,8 @@
                 try {
                     let dataData = await Axios(this.ConfigApi)
                     this.dataDetail = dataData.data
-                    console.log(this.dataDetail)
+                    this.urlTest = this.dataDetail.url_infographic
+                    this.initViz()
                 } catch (error) {
                     console.log(error)
                 }
@@ -142,6 +144,7 @@
 
             async initViz() {
                 var urlTablue = this.urlTest
+                console.log(this.dataDetail ? this.dataDetail.url_infographic : null)
                 var newScript = document.createElement("script")
                 newScript.setAttribute("type", "text/javascript")
                 newScript.innerHTML = `
