@@ -39,7 +39,7 @@
                     </div>
                     <div class="item-wrapper">
                         <div class="wc-item">
-                            <h4 class="title">{{ order.product.name }}</h4>
+                            <h4 class="title">{{ order.title }}</h4>
                             <!-- <p class="desc">bla bla bla bla</p> -->
                             <p class="date">Date : {{ `${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }` }}</p>
                             <p class="delete" v-if="order.status === 1" v-on:click="deleteItem(order.id)">Hapus</p>
@@ -117,6 +117,7 @@
                 let AllData = await Axios(config)
                 if ( AllData ) {
                     this.ResultData = AllData.data.data.filter(x => x.status === 1)
+                    console.log(this.ResultData)
                     // this.Selected = AllData.data.data.filter(x => x.status === 1)
                 } else {
                     console.log(AllData)
