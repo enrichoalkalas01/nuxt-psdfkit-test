@@ -64,6 +64,9 @@
                                 <a href="#" class="btn btn-main d-block"><i class="fab fa-facebook-f"></i> Masuk dengan Facebook</a>
                             </div>
                             <div class="py-2">
+                                <button class="btn btn-main d-block" v-on:click="loginGoogle">Masuk dengan Google</button>
+                            </div>
+                            <div class="py-2">
                                 <a href="#" class="btn btn-main d-block">Masuk dengan Kompas.com / Kompasprint</a>
                             </div>
 
@@ -121,6 +124,21 @@
                     console.log(error)
                     setTimeout(() => { this.$store.commit('setLoadingImage', 'failed'); this.$store.commit('setLoadingText', 'username/password is not match'); this.$store.commit('setCloseStatus', true); }, 500) 
                 }
+            },
+
+            async loginGoogle() {
+                this.$gAuth.signIn().then(GoogleUser => {
+                    console.log("GoogleUser", GoogleUser);
+                    console.log("getId", GoogleUser.getId());
+                    console.log("getBasicProfile", GoogleUser.getBasicProfile());
+                    console.log("getAuthResponse", GoogleUser.getAuthResponse());
+                    console.log(
+                        "getAuthResponse", this.$gAuth.GoogleAuth.currentUser.get().getAuthResponse()
+                    );
+                    this.isSignIn = this.$gAuth.isAuthorized;
+                }).catch(error => {
+                    console.log(error)
+                });
             }
         }
     }
