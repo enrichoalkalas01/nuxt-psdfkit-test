@@ -23,10 +23,10 @@
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
                         <div class="col-4">
-                            <span>Kompas ID</span>
+                            <span>Username</span>
                         </div>
                         <div class="col-8">
-                            <span>{{ dataUser.id ? dataUser.id : '' }}</span>
+                            <span>{{ dataUser.username ? dataUser.username : '' }}</span>
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                             <span>Provinsi</span>
                         </div>
                         <div class="col-8">
-                            <select name="province" id="province" class="form-control" v-model="userProvinceId" @change="getCities(userProvinceId); getVillages();">
+                            <select name="province" id="province" class="form-control" v-model="userProvinceId" @change="getCities(userProvinceId); getVillages(0);">
                                 <option v-for="province in dataProvinces" :value="province.id" :key="province">
                                     {{ province.name ? province.name : '' }}
                                 </option>
@@ -208,15 +208,15 @@
                 UserData: this.$store.state.Login.LoginStatus ? this.$store.state.Login.UserData : null,
                 dataUser: [],
                 dataJobs: [],
-                userJobId: null,
+                userJobId: 0,
                 dataCountries : [],
-                userCountryId: null,
+                userCountryId: 0,
                 dataProvinces: [],
-                userProvinceId: null,
+                userProvinceId: 0,
                 dataCities: [],
-                userCityId: null,
+                userCityId: 0,
                 dataVillages: [],
-                userVillageId: null,
+                userVillageId: 0,
                 genders: [
                     { value: 'm', text: 'Laki-laki' },
                     { value: 'f', text: 'Perempuan' }
@@ -255,7 +255,11 @@
 
                     // get User City & set user province id
                     this.userProvinceId = this.dataUser.province.id;
-                    this.getVillages(this.userProvinceId);
+                    this.getCities(this.userProvinceId);
+
+                    // get User Village & set user city id
+                    this.userCityId = this.dataUser.city.id;
+                    this.getVillages(this.userCityId);
 
                     // set user village id
                     this.userVillageId = this.dataUser.village.id;
@@ -313,7 +317,7 @@
             },
             async getVillages(cityId){
                 try {
-                    if (cityId != null) {
+                    if (cityId != 0) {
                         let villages = await Axios({
                             headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
                             url: `https://dev-be.kompasdata.id/api/Cities/${ cityId }`,
