@@ -63,12 +63,6 @@
                     </a>
                 </li>
             </ul>
-            <hr>
-            <div class="">
-                <a href="/logout" class="d-flex align-items-center text-white text-decoration-none">
-                    <strong>Logout</strong>
-                </a>
-            </div>
         </div>
     </section>
 </template>

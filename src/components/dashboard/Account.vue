@@ -130,7 +130,7 @@
                             <span>Negara</span>
                         </div>
                         <div class="col-8">
-                            <select name="country" id="country" class="form-control" v-model="userCountryId">
+                            <select name="country" id="country" class="form-control" v-model="userCountryId" @change="getProvinces(userCountryId); getCities(0); getVillages(0);">
                                 <option v-for="country in dataCountries" :value="country.id" :key="country">
                                     {{ country.name ? country.name : '' }}
                                 </option>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                    <button v-on:click="updateData()" class="form-control">Simpan</button>
+                    <button v-on:click="updateData()" class="form-control btn-primary">Simpan</button>
                 </div>
             </div>
         </div>
@@ -332,19 +332,6 @@
                 }
             },
             async updateData(){
-                let genderSelect = document.getElementById("gender");
-                let genderValue = genderSelect.options[genderSelect.selectedIndex].value;
-                let jobSelect = document.getElementById("job");
-                let jobValue = jobSelect.options[jobSelect.selectedIndex].value;
-                let countrySelect = document.getElementById("country");
-                let countryValue = countrySelect.options[countrySelect.selectedIndex].value;
-                let provinceSelect = document.getElementById("province");
-                let provinceValue = provinceSelect.options[provinceSelect.selectedIndex].value;
-                let citySelect = document.getElementById("city");
-                let cityValue = citySelect.options[citySelect.selectedIndex].value;
-                let villageSelect = document.getElementById("village");
-                let villageValue = villageSelect.options[villageSelect.selectedIndex].value;
-
                 let configAccount = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
                     method: 'PUT',
@@ -357,14 +344,14 @@
                         "lastName": document.querySelector("#lastName").value,
                         "email": this.dataUser.email,
                         "billingEmail": "",
-                        "gender": genderValue,
-                        "jobId": jobValue,
+                        "gender": document.getElementById("gender").options[document.getElementById("gender").selectedIndex].value,
+                        "jobId": document.getElementById("job").options[document.getElementById("job").selectedIndex].value,
                         "phoneNumber": document.querySelector("#phoneNumber").value,
                         "address": document.querySelector("#address").value,
-                        "countryId": countryValue,
-                        "provinceId": provinceValue,
-                        "cityId": cityValue,
-                        "villageId": villageValue,
+                        "countryId": document.getElementById("country").options[document.getElementById("country").selectedIndex].value,
+                        "provinceId": document.getElementById("province").options[document.getElementById("province").selectedIndex].value,
+                        "cityId": document.getElementById("city").options[document.getElementById("city").selectedIndex].value,
+                        "villageId": document.getElementById("village").options[document.getElementById("village").selectedIndex].value,
                         "postCode": document.querySelector("#postCode").value,
                         "institutionName": "",
                         "institutionAddress": "",
