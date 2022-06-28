@@ -62,7 +62,7 @@
                             <span>Nama Depan</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" :value="dataUser.firstName">
+                            <input id="firstName" class="form-control" type="text" :value="dataUser.firstName">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <span>Nama Belakang</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" :value="dataUser.lastName">
+                            <input id="lastName" class="form-control" type="text" :value="dataUser.lastName">
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                             <span>Telepon</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="number" :value="dataUser.phoneNumber">
+                            <input id="phoneNumber" class="form-control" type="number" :value="dataUser.phoneNumber">
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                             <span>Alamat</span>
                         </div>
                         <div class="col-8">
-                            <textarea class="form-control" name="" id="" cols="30" rows="10" :value="dataUser.address"></textarea>
+                            <textarea id="address" name="address" class="form-control" cols="30" rows="10" :value="dataUser.address"></textarea>
                         </div>
                     </div>
                 </div>
@@ -186,12 +186,12 @@
                             <span>Kode Pos</span>
                         </div>
                         <div class="col-8">
-                            <input class="form-control" type="text" :value="dataUser.postCode">
+                            <input id="postCode" class="form-control" type="text" :value="dataUser.postCode">
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
-                    <button class="form-control">Simpan</button>
+                    <button v-on:click="updateData()" class="form-control">Simpan</button>
                 </div>
             </div>
         </div>
@@ -330,6 +330,68 @@
                 } catch (error) {
                     console.log(error.message);
                 }
+            },
+            async updateData(){
+                let genderSelect = document.getElementById("gender");
+                let genderValue = genderSelect.options[genderSelect.selectedIndex].value;
+                let jobSelect = document.getElementById("job");
+                let jobValue = jobSelect.options[jobSelect.selectedIndex].value;
+                let countrySelect = document.getElementById("country");
+                let countryValue = countrySelect.options[countrySelect.selectedIndex].value;
+                let provinceSelect = document.getElementById("province");
+                let provinceValue = provinceSelect.options[provinceSelect.selectedIndex].value;
+                let citySelect = document.getElementById("city");
+                let cityValue = citySelect.options[citySelect.selectedIndex].value;
+                let villageSelect = document.getElementById("village");
+                let villageValue = villageSelect.options[villageSelect.selectedIndex].value;
+
+                let configAccount = {
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
+                        'Content-Type': 'application/json',
+                    },
+                    data: JSON.stringify({
+                        "firstName": document.querySelector("#firstName").value,
+                        "lastName": document.querySelector("#lastName").value,
+                        "email": this.dataUser.email,
+                        "billingEmail": "",
+                        "gender": genderValue,
+                        "jobId": jobValue,
+                        "phoneNumber": document.querySelector("#phoneNumber").value,
+                        "address": document.querySelector("#address").value,
+                        "countryId": countryValue,
+                        "provinceId": provinceValue,
+                        "cityId": cityValue,
+                        "villageId": villageValue,
+                        "postCode": document.querySelector("#postCode").value,
+                        "institutionName": "",
+                        "institutionAddress": "",
+                        "institutionBillingAddress": "",
+                        "institutionProvinceId": 0,
+                        "institutionCityId": 0,
+                        "institutionVillageId": 0,
+                        "institutionPhoneNumber": "",
+                        "institutionPosition": "",
+                        "taxPayerName": "",
+                        "taxPayerAddress": "",
+                        "taxNumber": "",
+                        "isTaxableEmployers": 0,
+                        "idType": 0,
+                        "idNumber": "",
+                        "idAttachmentURL": "",
+                        "profileAttachmentURL": "",
+                        "isPrintBilling": 0,
+                    })
+                }
+
+                await Axios(configAccount).then(response => {
+                    console.log(response);
+                    window.location.href = '/dashboard/akun'
+                }).catch(err => {
+                    console.log(err);
+                })
             }
         }
     }
