@@ -103,7 +103,7 @@
                                                                 {{ topic.topic }}, 
                                                             </text>
                                                             <text v-else>
-                                                                {{ topic.topic }}
+                                                                {{ topic.topic }}<br>
                                                             </text>
                                                         </text>
                                                         <text>

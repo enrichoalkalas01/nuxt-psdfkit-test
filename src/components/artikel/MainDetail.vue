@@ -126,6 +126,7 @@
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
                 },
+                HargaBaca: 0,
             }
         },
 
