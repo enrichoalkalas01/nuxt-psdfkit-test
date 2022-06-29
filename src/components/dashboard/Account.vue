@@ -62,7 +62,7 @@
                             <span>Nama Depan</span>
                         </div>
                         <div class="col-8">
-                            <input id="firstName" class="form-control" type="text" :value="dataUser.firstName">
+                            <input id="firstName" class="form-control" type="text" v-model="dataUser.firstName">
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <span>Nama Belakang</span>
                         </div>
                         <div class="col-8">
-                            <input id="lastName" class="form-control" type="text" :value="dataUser.lastName">
+                            <input id="lastName" class="form-control" type="text" v-model="dataUser.lastName">
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                             <span>Telepon</span>
                         </div>
                         <div class="col-8">
-                            <input id="phoneNumber" class="form-control" type="number" :value="dataUser.phoneNumber">
+                            <input id="phoneNumber" class="form-control" type="text" pattern="[0-9]" v-model="dataUser.phoneNumber">
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                             <span>Alamat</span>
                         </div>
                         <div class="col-8">
-                            <textarea id="address" name="address" class="form-control" cols="30" rows="10" :value="dataUser.address"></textarea>
+                            <textarea id="address" name="address" class="form-control" cols="30" rows="10" v-model="dataUser.address"></textarea>
                         </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
                         <div class="col-8">
                             <select name="city" id="city" class="form-control" v-model="userCityId" @change="getVillages(userCityId)">
                                 <option v-for="city in dataCities" :value="city.id" :key="city">
-                                    {{ city.name ? city.name : '' }}
+                                    {{ city.fullName ? city.fullName : '' }}
                                 </option>
                             </select>
                         </div>
@@ -186,7 +186,7 @@
                             <span>Kode Pos</span>
                         </div>
                         <div class="col-8">
-                            <input id="postCode" class="form-control" type="text" :value="dataUser.postCode">
+                            <input id="postCode" class="form-control" type="text" v-model="dataUser.postCode">
                         </div>
                     </div>
                 </div>
