@@ -1,36 +1,13 @@
 <template>
     <section class="sec-artikel pt-5">
-        <div class="container pt-3">
+        <div class="container">
             <div class="row d-flex justify-content-center pb-5">
-                <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus">
-                    <div class="row">
-                        <div class="col-12 status-user">
-                            <span>Tipe user : {{ this.$store.state.Search.userStatus }}</span>
-                        </div>
-                        <div class="status-message">
-                            <div v-html="this.$store.state.Search.userTextStatus"></div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-12 col-md-10 mb-3">
                     <h2 class="subtitle py-2"> Hasil Pencarian</h2>
-                    <p>Kata kunci : <span class="text-bold">{{ keySearch }}</span></p>
-                    <p class="f14">
-                        <!-- Total Search : <span class="f14">{{ totalSearch }} data</span> -->
-                    </p>
+                    <p>Kata kunci : <span class="text-bold">Covid 19</span></p>
                 </div>
-                <div class="col col-md-2 align-items-end d-flex">
+                <div class="col col-md-2">
                     <!-- <p class="text-md-right">Pencarian Lanjut</p> -->
-                    <select
-                        v-on:change="orderDirectionData"
-                        class="form-control"
-                        id="order-direction"
-                        :value="this.$store.state.Search.OrderDirectionKey"
-                    >
-                        <option value="">Relevansi</option>
-                        <option value="asc">Terlama</option>
-                        <option value="desc">Terbaru</option>
-                    </select>
                 </div>
                 <div class="col-12">
                     <!-- Mini Menu -->
@@ -39,103 +16,31 @@
                     <!-- Search -->
                     <div class="tab-content komp-tab-content">
                         <!-- Semua -->
-                        <div 
-                            :class="this.$store.state.Search.TypeSearch === '0' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs01"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs01"
-                        >
-                            <Semua />
+                        <div class="tab-pane fade show active" id="AllTabs01" role="tabpanel" aria-labelledby="All-Tabs01">
+                            <Semua v-bind:dataArtikels="artikels" :dataFotos="fotos" :dataInfografiks="infografiks" />
                         </div>
 
                         <!-- Artikel -->
-                        <div 
-                            :class="this.$store.state.Search.TypeSearch === '1' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs02"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs02"
-                        >
-                            <Artikel v-bind:dataArtikels="artikels ? artikels.documents : null" />
+                        <div class="tab-pane fade show" id="AllTabs02" role="tabpanel" aria-labelledby="All-Tabs02">
+                            <Artikel v-bind:dataArtikels="artikels" />
                         </div>
                         
                         <!-- Foto -->
-                        <div 
-                            :class="this.$store.state.Search.TypeSearch === '2' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs03"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs03"
-                        >
-                            <Gallery v-bind:dataFotos="fotos ? fotos.documents : null" />
+                        <div class="tab-pane fade show" id="AllTabs03" role="tabpanel" aria-labelledby="All-Tabs03">
+                            <Foto v-bind:dataFotos="fotos" />
                         </div>
 
                         <!-- Infografik -->
-                        <div
-                            :class="this.$store.state.Search.TypeSearch === '3' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs04"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs04"
-                        >
-                            <Infografik v-bind:dataInfografiks="infografiks ? infografiks.documents : null" />
+                        <div class="tab-pane fade show" id="AllTabs04" role="tabpanel" aria-labelledby="All-Tabs04">
+                            <Infografik v-bind:dataInfografiks="infografiks" />
                         </div>
 
                         <!-- Buku -->
-                        <div 
-                            :class="this.$store.state.Search.TypeSearch === '4' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs05"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs05"
-                        >
-                            <Buku />
+                        <div class="tab-pane fade show" id="AllTabs05" role="tabpanel" aria-labelledby="All-Tabs05">
                         </div>
 
                         <!-- Data -->
-                        <div 
-                            :class="this.$store.state.Search.TypeSearch === '5' ? 'tab-pane fade show active' : 'tab-pane fade'"
-                            id="AllTabs06"
-                            role="tabpanel"
-                            aria-labelledby="All-Tabs06"
-                        >
-                            <Statistik />
-                        </div>
-                    </div>
-
-                    <!-- Pagination -->
-                    <div>
-                        <div class="col-12 my-3 text-center">
-                            <ul class="pagination cst-pagin d-flex justify-content-center">
-                                <li 
-                                    :class="pagination[0].page > 1 ? 'page-item' : 'page-item disabled'">
-                                    <a 
-                                        class="page-link" 
-                                        :href="
-                                            pagination[0].page > 0 ?
-                                                pagination[0].url.replace(
-                                                    `currentpage=${ pagination[0].url.substring(pagination[0].url.length - 1) }`,
-                                                    `currentpage=${ Number(pagination[0].url.substring(pagination[0].url.length - 1)) - 1 }`
-                                                )
-                                            : ''
-                                        "
-                                    >
-                                        Sebelumnya
-                                    </a>
-                                </li>
-                                <li 
-                                    v-for="(pageData, i) in pagination" :key="i"
-                                    :class="i == 0 ? 'page-item active' : 'page-item'"
-                                >
-                                    <a class="page-link" :href="pageData.url">
-                                        {{ pageData.page }}
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a 
-                                        class="page-link" 
-                                        :href="pagination[1].url"
-                                    >
-                                        Selanjutnya
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="tab-pane fade show" id="AllTabs06" role="tabpanel" aria-labelledby="All-Tabs06">
                         </div>
                     </div>
                 </div>
@@ -147,117 +52,60 @@
 <script>
     import MiniMenu from './MiniMenu.vue'
     import Semua from './Semua.vue'
-    import Artikel from './MainArtikel.vue'
-    import Infografik from './MainInfografik.vue'
-    import Gallery from './Gallery.vue'
-    import Buku from './MainBook.vue'
-    import Statistik from './MainStatistik.vue'
+    import Artikel from '../artikel/MainPage.vue'
+    import Foto from '../foto/MainPage.vue'
+    import Infografik from '../infografik/MainPage.vue'
+
+    let dataArtikels = [
+        { id: 1, images: '/assets/static/banner/banner1.jpg', title: 'Rimbunnya Anggur di Kota Tangsel', desc: 'Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.', source: 'Kompas, 14 Jan 2022'},
+        { id: 2, images: '/assets/static/banner/banner2.jpg', title: 'Terpikat Raja Ampat', desc: 'Cantiknya gugusan pulau karang, lembut pasir putih, sungai jernih berair biru, dan bentangan Galaksi Bima Sakti di langit malam hampir selalu tersaji di Raja Ampat.', source: 'Kompas, 15 Jan 2022'},
+        { id: 3, images: '/assets/static/banner/banner3.jpg', title: 'Kompetensi, Wajah Kemerdekaan Pers', desc: '(2) Wartawan Indonesia menempuh cara-cara yang profesional dalam melaksanakan tugas jurnalistik. (3) Wartawan Indonesia selalu menguji informasi, memberitakan secara berimbang, tidak mencampurkan fakta dan opini yang menghakimi, serta menerapkan asas praduga tak bersalah. (Pasal 2 dan 3 Kode Etik Jurnalistik, 2006)', source: 'Kompas, 17 Jan 2022'},
+        { id: 4, images: '/assets/static/banner/banner4.jpg', title: 'Obat Covid-19 Siap Diproduksi di Dalam Negeri', desc: 'Selain mengembangkan vaksin Covid-19 sendiri, Indonesia bersiap memproduksi sendiri obat Covid-19. Harapannya, Indonesia tidak terlalu bergantung pada impor.', source: 'Kompas, 15 Jan 2022'},
+        { id: 5, images: '/assets/static/banner/banner5.jpg', title: 'Sesajen Semeru dan Beda Pemaknaan Manusia', desc: 'Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.', source: 'Kompas, 17 Jan 2022'},
+    ]
+
+    let dataFotos = [
+        { id: 1, images: 'assets/static/foto/foto1.JPG', title: 'Sekolah Bersiasat Gelar Pembelajaran', source: 'Kompas, 29 Desember 2021'},
+        { id: 2, images: 'assets/static/foto/foto2.JPG', title: 'Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama', source: 'Kompas Epaper, 04 Januari 2022'},
+        { id: 3, images: 'assets/static/foto/foto3.JPG', title: 'Lava Pijar Gunung Semeru', source: 'Kompas Epaper, 08 Desember 2021'},
+        { id: 4, images: 'assets/static/foto/foto4.JPG', title: 'Tes Antigen Cepat Pengendara Sepeda Motor', source: 'Kompas, 08 Juni 2021'},
+        { id: 5, images: 'assets/static/foto/foto5.JPG', title: 'Geliat di Pelabuhan Sunda Kelapa di tahun 2022', source: 'Kompas Epaper, 03 Januari 2022'},
+        { id: 6, images: 'assets/static/foto/foto6.JPG', title: 'Lanskap Tol Solo-Ngawi', source: 'Kompas, 20 Desember 2021'},
+        { id: 7, images: 'assets/static/foto/foto7.JPG', title: 'Banjir di Jalan Thamrin, Jakarta', source: 'Kompas, 05 Maret 1976'},
+        { id: 8, images: 'assets/static/foto/foto8.JPG', title: 'Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala', source: 'Kompaspedia, 28 April 2021'},
+        { id: 9, images: 'assets/static/foto/foto9.JPG', title: 'Chrisjon Pertahankan Gelar', source: 'Kompas, 5 Maret 2006'},
+    ]
+
+    let dataInfografiks = [
+        { id: 1, images: '/assets/static/infografik/info1.jpg', title: 'Prestasi Indonesia Di Ajang Olimpiade', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 10 Juli 2021'},
+        { id: 2, images: '/assets/static/infografik/info2.jpg', title: 'Pemain Terbaik Liga Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 4 November 2021'},
+        { id: 3, images: '/assets/static/infografik/info3.jpg', title: 'Suaka Margasatwa Terkecil Berada di Jakarta', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 16 November 2021'},
+        { id: 4, images: '/assets/static/infografik/info4.jpg', title: 'Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas Epaper, 18 November 2021'},
+        { id: 5, images: '/assets/static/infografik/info5.jpg', title: 'Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas Epaper, 18 November 2021'},
+        { id: 6, images: '/assets/static/infografik/info6.jpg', title: 'Komposisi Konsumsi BBM di Indonesia', desc: 'Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.', source: 'Kompas, 26 November 2021'},
+    ]
 
     export default {
         name: 'MainPage',
         components: {
             MiniMenu,
-            Semua,
             Artikel,
-            // Foto,
+            Semua,
+            Foto,
             Infografik,
-            Gallery,
-            Buku,
-            Statistik
         },
-        props: { },
-        
-        data() {
+        props: {
+            dataArtikels,
+            dataFotos,
+            dataInfografiks,
+        },
+        data () {
             return {
-                pageOfItems: [],
-                artikels: null,
-                fotos: null,
-                infografiks: null,
-                statistiks: null,
-                pagination: [{ page: 1, url: '' }, { page: 1, url: '' }, { page: 2, url: '' }, { page: 3, url: '' }, { page: 3, url: '' }],
-                keySearch: this.$store.state.Search.SearchKey,
-                totalSearch: this.$store.state.Search.TotalSearch,
-                ChangeStatus: 0,
+                artikels: dataArtikels,
+                fotos: dataFotos,
+                infografiks: dataInfografiks,
             }
-        },
+        }
 
-        watch: {
-            '$store.state.Search.SearchKey': function() {
-                this.keySearch !== this.$store.state.Search.SearchKey ?
-                this.keySearch = this.$store.state.Search.SearchKey : this.keySearch
-            }
-        },
-
-        async mounted() {
-            this.totalSearch = this.$store.state.Search.TotalSearch
-            this.pagination = this.paginationFunction()
-            console.log(this.$store.state)
-        },
-
-        async updated() {
-            this.totalSearch = this.$store.state.Search.TotalSearch
-            if ( this.ChangeStatus !== this.$store.state.Search.ChangeStatus ) {
-                this.$store.commit('setSearchStatus')
-                // this.getData()
-            }
-        },
-
-        methods: {
-            queryStringFunction: function() {
-                const urlSearchParams = new URLSearchParams(window.location.search)
-                const params = Object.fromEntries(urlSearchParams.entries())
-                return params
-            },
-
-            paginationFunction: function() {
-                let queryStringUrl = this.queryStringFunction()
-                let newUrlPassing = `/pencarian?query=${ queryStringUrl.query }&orderdirection=${ queryStringUrl.orderdirection }&datefrom=${ queryStringUrl.datefrom }&dateto=${ queryStringUrl.dateto }&author=${ queryStringUrl.author }&publication=${ queryStringUrl.publication }&typesearch=${ queryStringUrl.typesearch }&size=${ queryStringUrl.size }&collection=${ queryStringUrl.collection }`
-                let newArrPage = []
-                for( let i = 0; i < 3; i++ ) {
-                    newArrPage[i] = {
-                        page: Number(queryStringUrl.currentpage) + i,
-                        url: newUrlPassing + `&currentpage=${ Number(queryStringUrl.currentpage) + i }`
-                    }
-                }
-
-                return newArrPage
-            },
-
-            orderDirectionData: function(e) {
-                let queryString = this.queryStringFunction(), urlString = `${ window.location.pathname }?`
-                for ( let i in queryString ) {
-                    if ( i === 'orderdirection' ) {
-                        urlString = urlString + `${ i }=${ e.target.value }&`
-                    } else {
-                        urlString = urlString + `${ i }=${ queryString[i] }&`
-                    }
-                }
-
-                window.location.href = urlString
-                this.$store.commit('setOrderDirection', e.target.value)
-            }
-        },
     }
-
-    /*
-
-        let url = https://dev-be.kompasdata.id/api/search?search&authors&publication&page&publishedfrom&publishedto&orderdirection&from=1&size=2
-
-        - search (kata kunci)
-        - authors (penulis)
-        - publication (media)
-        - page (halaman)
-        - publishedfrom (tanggal awal)
-        - publishedto (tanggal akhir)
-        - orderdirection (urutan)
-        - from (default=1, record hasil pencarian)
-        - size (default=30, jumlah hasil pencarian per halaman)
-
-    */
 </script>
-
-<style>
-    .f14 {
-        font-size: 14px;
-    }
-</style>

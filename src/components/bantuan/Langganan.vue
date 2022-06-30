@@ -31,8 +31,12 @@
                         </div>
                         <div class="desc text-center">
                             <div class="icon"><img src="/assets/images/icon-wallet.svg" alt=""></div>
+
                             <b>Pilih Metode Pembayaran</b>
-                            <p class="text-start">Paket langganan dengan saldo poin sesuai kebutuhan Anda.</p>
+                            <ol class="list-num text-start">
+                                <li>Pascabayar: Paket langganan dengan abonemen dan pemakaian bulanan.</li>
+                                <li> Prabayar: Paket langganan dengan saldo poin sesuai kebutuhan Anda.</li>
+                            </ol>
                         </div>
                     </div>
                     <div class="item">

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="content borderless mb-4">
+        <div class="content borderless mb-2 line-bot2">
             <img :src="image" class="rounding w-100" alt="">
             <h3 class="subtitle my-2">
                 <a href="#">

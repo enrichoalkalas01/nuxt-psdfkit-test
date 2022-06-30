@@ -10,7 +10,7 @@
                 <Riset />
 
                 <!-- Informasi -->
-                <Konten />
+                <Informasi />
 
                 <!-- Penerbit -->
                 <Penerbit />
@@ -21,14 +21,14 @@
 
 <script>
 import Riset from './Riset.vue'
-import Konten from './Konten.vue'
+import Informasi from './Informasi.vue'
 import Penerbit from './Penerbit.vue'
 
 export default {
     name: 'MainPage',
     components: {
         Riset,
-        Konten,
+        Informasi,
         Penerbit,
     }
 }
