@@ -1,13 +1,13 @@
 <template>
-    <section class="sec-artikel my-5">
+    <section class="sec-artikel">
         <div class="container">
             <div class="row d-flex justify-content-center">
 
                 <div class="col-12 ">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
-                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
+                            <li class="breadcrumb-item"><a href="buku.html">List buku</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Buku</li>
                         </ol>
                     </nav>
@@ -16,13 +16,14 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img :src="`${ this.$store.state.Tools.GetUrlFile + bukuDetail.cover }`" alt="" class="db-img">
+                                <img src="/assets/images/buku/image 24.png" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">{{ bukuDetail.judul }}</h3>
-                                <!-- <div class="db-price rounded">
+                                <h3 class="subtitle txt-main">Bapak Tionghoa Nusantara: Gus Dur, politik minoritas, dan strategi kebudayaan</h3>
+                                <div class="db-price rounded">
+                                    <span class="price-tag">mulai dari Rp. 300.000</span>
                                     <a href="pesan-buku.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Buku</a>
-                                </div> -->
+                                </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
@@ -33,42 +34,34 @@
                                 </ul>
                                 <div class="tab-content komp-tab-content">
                                     <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                        <p>{{ bukuDetail.sinopsis }}</p>
+                                        <p>Berisi studi tentang bagaimana Gus Dur membela kelompok minoritas, khususnya Tionghoa di Indonesia. Selain itu, buku ini juga menganalisis konteks dan dinamika sosial politik komunitas Tionghoa dalam pasang surut
+                                            politik kebangsaan-keindonesiaan. Selain itu, buku ini menghadirkan gagasan, tindakan, dan kebijakan Gus Dur sebagai jiwa untuk pergerakan serta perjuangan kemanusiaan pada masa kini dan mendatang.
+                                        </p>
                                         <table class="table db-table table-bordered">
                                             <tbody>
-                                                <!-- <tr>
+                                                <tr>
                                                     <th scope="row">No. Id </th>
                                                     <td>w 929:321.15(=581)(594) AZI b</td>
-                                                </tr> -->
+                                                </tr>
                                                 <tr>
                                                     <th scope="row">Judul</th>
-                                                    <td>{{ bukuDetail.judul }}</td>
+                                                    <td>Bapak Tionghoa Nusantara : Gus Dur, Politik minoritas, dan strategi kebudayaan</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Penulis </th>
-                                                    <td>
-                                                        <text v-for="(author, i) in bukuDetail.authors" :key="i">
-                                                            <text v-if="i+1 < bukuDetail.authors.length">
-                                                                {{ author.author }} {{ author.authorroledescription }}
-                                                                <br>
-                                                            </text>
-                                                            <text v-else>
-                                                                {{ author.author }} {{ author.authorroledescription }}
-                                                            </text>
-                                                        </text>
-                                                    </td>
+                                                    <td>Aziz, Munawir Nugroho, RBE Agung (ed.)</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Terbit </th>
-                                                    <td>{{ bukuDetail.penerbittempat }}</td>
+                                                    <td>Jakarta</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Penerbit </th>
-                                                    <td>{{ bukuDetail.penerbit }}</td>
+                                                    <td>Penerbit Buku Kompas</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Tahun Terbit</th>
-                                                    <td>{{ bukuDetail.penerbittahun }}</td>
+                                                    <td>2021</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Edisi</th>
@@ -76,40 +69,19 @@
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Kolasi </th>
-                                                    <td>{{ bukuDetail.kolasi }}</td>
+                                                    <td>xxiv, 280 p:21 (2copies).</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">ISBN </th>
-                                                    <td>{{ bukuDetail.isbn }}</td>
+                                                    <td>978-623-241-494-5</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Bahasa </th>
-                                                    <td>
-                                                        <text v-for="(language, i) in bukuDetail.languages" :key="i">
-                                                            <text v-if="i+1 < bukuDetail.languages.length">
-                                                                {{ language.language }}, 
-                                                            </text>
-                                                            <text v-else>
-                                                                {{ language.language }}
-                                                            </text>
-                                                        </text>
-                                                    </td>
+                                                    <td>Ind</td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">Subjek </th>
-                                                    <td>
-                                                        <text v-for="(topic, i) in bukuDetail.topics" :key="i">
-                                                            <text v-if="i+1 < bukuDetail.topics.length">
-                                                                {{ topic.topic }}, 
-                                                            </text>
-                                                            <text v-else>
-                                                                {{ topic.topic }}<br>
-                                                            </text>
-                                                        </text>
-                                                        <text>
-                                                            {{ bukuDetail.subjekregional }}
-                                                        </text>
-                                                    </td>
+                                                    <td>Biografi, Politik, Minoritas etnis, Keturunan Tionghoa, Tolerasi Indonesia, Wahid, Abdurrahman, Gus Dur</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -141,7 +113,6 @@
 </template>
 
 <script>
-    import Axios from 'axios'
     import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
@@ -159,27 +130,7 @@
         },
         data () {
             return {
-                linkBack: null,
-                suggestions: dataSuggestions,
-                bukuDetail: [],
-                ConfigApi: {
-                    headers: {
-                        Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
-                    },
-                    url: `https://dev-be.kompasdata.id/api/books/` + this.$route.params.id,
-                }
-            }
-        },
-        async beforeMount() {
-            this.linkBack = window.location.search
-
-            try {
-                let dataBuku = await Axios(this.ConfigApi)
-                this.bukuDetail = dataBuku.data
-
-                console.log(this.bukuDetail);
-            } catch (error) {
-                console.log(error.message);
+                suggestions: dataSuggestions
             }
         }
     }

@@ -23,29 +23,14 @@ const setCookie = (name, value, days) => {
     document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-const encrypData = (value = {}) => {
-    let results = Buffer.from(value).toString('base64')
-    return results
-}
-
-const decryptData = (value = '') => {
-    let results = Buffer.from(value, 'base64').toString('ascii')
-    return results
-}
-
-const GetLoginStatusData = () => {
-    let DataUser = ( GetCookies('kompas._token_refresh') !== undefined || GetCookies('kompas._token_refresh') !== null ) ? GetCookies('kompas._token_refresh') : null
-    if ( !DataUser ) return false
-    else return JSON.parse(decryptData(DataUser))
-}
+console.log(GetCookies('_km_dtl_s'))
 
 const Login = {
     state () {
         return {
             LoginStatus: GetCookies('_km_dtl_s') !== null ? true : false,
-            UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
-            MutationUsed: 0,
-            LoginData: null
+            UserData: GetCookies('_km_dtl_d') !== null ? GetCookies('_km_dtl_d') : false,
+            MutationUsed: 0
         }
     },
 
@@ -63,18 +48,8 @@ const Login = {
             deleteCookies('_km_dtl_s')
             deleteCookies('_km_dtl_d')
             state.LoginStatus = false
-        },
-
-        setEncrypt(state, value) {
-            state.LoginData = encrypData(value)
-        },
-
-        getEncrypt(value) {
-            let results = decryptData(value)
-            return results
         }
     }
 }
 
-export { GetCookies, decryptData, GetLoginStatusData }
 export default Login

@@ -1,13 +1,12 @@
 <template>
-    <section class="sec-artikel my-5">
-        <LoadingScreen />
+    <section class="sec-artikel">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
-                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
+                            <li class="breadcrumb-item"><a href="arsip.html#AllTabs03">List Foto</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Foto</li>
                         </ol>
                     </nav>
@@ -15,16 +14,14 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            <div class="col-12 col-6 col-md-6 col-lg-4 my-3">
-                                <img :src="`${ fotoDetail ? this.$store.state.Tools.GetUrlFiles + fotoDetail.preview : '' }`" alt="" class="db-img">
+                            <div class="col-sm-4 my-3">
+                                <img src="/assets/static/foto/foto1.JPG" alt="" class="db-img">
                             </div>
-                            <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
-                                <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
+                            <div class="col-sm-8 my-3">
+                                <h3 class="subtitle txt-main">Sekolah Bersiasat Gelar Pembelajaran</h3>
                                 <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
-                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">
-                                        <i class="fas fa-shopping-cart"></i> <span>Pesan Foto</span>
-                                    </button>
+                                    <span class="price-tag">mulai dari Rp. 300.000</span>
+                                    <a href="pesan-foto.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Foto</a>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
@@ -36,33 +33,55 @@
                                 </ul>
                                 <div class="tab-content komp-tab-content">
                                     <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
-                                        <p>{{ fotoDetail ? fotoDetail.published_caption : '' }}</p>
-                                        <p><b>{{ fotoDetail ? fotoDetail.writer : '' }}</b></p>
+                                        <p>Siswa bersiap menjalani vaksinasi Covid-19 di GOR Ranggajati, Kabupaten Cirebon, Jawa Barat, Kamis (5/8/2021). Pemerintah daerah setempat menargetkan 3.000 anak usia 12-17 tahun menjalani vaksinasi dalam sepekan
+                                            ke depan.
+                                        </p>
+                                        <p><b>KOMPAS/ABDULLAH FIKRI ASHRI (IKI)</b></p>
                                         <table class="table db-table table-bordered">
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">Id</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.reference_id : '' }}</td>
+                                                    <th scope="row">No. Id </th>
+                                                    <td>w 929:321.15(=581)(594) AZI b</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Author</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.author : '' }}</td>
+                                                    <th scope="row">Judul</th>
+                                                    <td>Bapak Tionghoa Nusantara : Gus Dur, Politik minoritas, dan strategi kebudayaan</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Publication</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.credit : '' }}, {{ fotoDetail ? this.$store.state.Tools.ChangeDateString(fotoDetail.published_date.replace('Z', '')) : '' }}</td>
+                                                    <th scope="row">Fotografer </th>
+                                                    <td>Aziz, Munawir Nugroho, RBE Agung (ed.)</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Credit</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.credit : '' }}</td>
+                                                    <th scope="row">Terbit </th>
+                                                    <td>Jakarta</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Width</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.width : '' }}</td>
+                                                    <th scope="row">Penerbit </th>
+                                                    <td>Penerbit Buku Kompas</td>
                                                 </tr>
                                                 <tr>
-                                                    <th scope="row">Height</th>
-                                                    <td>{{ fotoDetail ? fotoDetail.height : '' }}</td>
+                                                    <th scope="row">Tahun Terbit</th>
+                                                    <td>2021</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Edisi</th>
+                                                    <td>-</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Kolasi </th>
+                                                    <td>xxiv, 280 p:21 (2copies).</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">ISBN </th>
+                                                    <td>978-623-241-494-5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Bahasa </th>
+                                                    <td>Ind</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Subjek </th>
+                                                    <td>Biografi, Politik, Minoritas etnis, Keturunan Tionghoa, Tolerasi Indonesia, Wahid, Abdurrahman, Gus Dur</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -82,111 +101,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Formulir -->
-                                <div class="row mt-6 mb-6" v-if="FormPesanClick">
-                                    <div class="col-12">
-                                        <h4 class="txt-main">Formulir Penggunaan</h4>
-                                    </div>
-                                    <div class="col-12">
-                                        <div>
-                                            <h5 class="subtitle">Periode Penggunaan</h5>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
-                                                <label for="dateFrom" class="form-label">Tanggal Mulai :</label>
-                                                <input v-on:change="dateFromChange" :value="DateFrom" type="date" class="form-control" id="dateFrom">
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
-                                                <label for="dateTo" class="form-label">Tanggal Selesai :</label>
-                                                <input v-on:change="dateToChange" :value="DateTo" type="date" class="form-control" id="dateTo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div>
-                                            <h5 class="subtitle">Deskripsi</h5>
-                                        </div>
-                                        <div class="mb-3">
-                                            <textarea class="form-control" id="description-box" rows="3"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div>
-                                            <h5 class="subtitle">Ukuran Foto</h5>
-                                        </div>
-                                        <div class="px-4">
-                                            <div 
-                                                v-for="(ukuran, i) in UkuranFoto" :key="i"
-                                            >
-                                                <div class="form-check" v-if="SizeProduct > ukuran.sizeMin">
-                                                    <input v-on:change="changeSize" :checked="i === 0 ? true : false" :dataIndex="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel )</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div>
-                                            <h4 class="subtitle">Jenis Penggunaan</h4>
-                                        </div>
-                                        <div class="px-4">
-                                            <div class="jenis-box">
-                                                <div 
-                                                    v-for="(jenis, i) in JenisPenggunaan" :key="i"
-                                                    class="form-check"
-                                                >   
-                                                    <h5 class="subtitle" v-if="jenis.type === 1 && i === 0">Penggunaan Internal</h5>
-                                                    <div v-if="jenis.type === 1">
-                                                        <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
-                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku</h5>
-                                                    <div v-if="jenis.type === 2">
-                                                        <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
-                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <h5 class="subtitle" v-if="jenis.type === 3 && i === 6">Editorial</h5>
-                                                    <div v-if="jenis.type === 3">
-                                                        <div class="option-inside">
-                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
-                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                    <div class="col-12">
-                                        <h5 class="subtitle">Informasi Persetujuan</h5>
-                                        <div class="mb-2">
-                                            <b>
-                                                <label for="">Foto lebih dari satu jenis penggunaan, silahkan mengisi form lagi sesuai kebutuhan yang lain.</label>
-                                                <label for="">Untuk pengunaan diluar pilihan silahkan hubungi kami.</label>
-                                            </b>
-                                        </div>
-                                        <div class="mb-4">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" v-model="Aggrement" id="aggrement">
-                                                <label class="form-check-label" for="aggrement">
-                                                    <i>Saya setuju dengan syarat dan ketentuan yang berlaku.</i>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="total-harga" id="total-harga">
-                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
-                                        </div>
-                                        <div class="button-box">
-                                            <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan">Pesan</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -208,9 +123,7 @@
 </template>
 
 <script>
-    import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     let dataSuggestions = [
         { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
@@ -220,162 +133,13 @@
 
     export default {
         name: 'Foto',
-        components: { Suggestion, LoadingScreen },
+        components: {
+            Suggestion
+        },
         data () {
             return {
-                linkBack: null,
-                suggestions: dataSuggestions,
-                FormPesanClick: false,
-                fotoDetail: null,
-                TotalPayment: 0, SizeProduct: 0,
-                SizeHarga: 0, JenisHarga: 0,
-                Aggrement: 0, MulaiHarga: 0,
-                DateFrom: this.$store.state.Tools.DateNowString(),
-                DateTo: this.$store.state.Tools.DateNowString(),
-                ConfigApi: {
-                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
-                },
-
-                UkuranFoto: [
-                    { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
-                    { id: 2, apiId: 202, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
-                    { id: 3, apiId: 203, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
-                ],
-                
-                JenisPenggunaan: [
-                    { id: 1, type: 1, apiId: 301, name: 'individu', text: 'Individu', price: 300000 },
-                    { id: 2, type: 1, apiId: 302, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
-                    { id: 3, type: 1, apiId: 303, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
-                    { id: 4, type: 1, apiId: 304, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
-                    { id: 5, type: 2, apiId: 305, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
-                    { id: 6, type: 2, apiId: 306, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
-                    { id: 7, type: 3, apiId: 307, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
-                    { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
-                    { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
-                    { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
-                ],
+                suggestions: dataSuggestions
             }
-        },
-        async mounted() {
-            this.linkBack = window.location.search
-            this.getData()
-        },
-
-        methods: {
-            changeSize(event) { this.SizeHarga = Number(event.target.getAttribute("dataindex")) },
-            aggrementChange(e) { console.log(e.target.value) },
-            dateFromChange(e) { this.DateFrom = e.target.value },
-            dateToChange(e) { this.DateTo = e.target.value },
-            BtnRadioJenis(event) { this.JenisHarga = Number(event.target.getAttribute("dataId")); this.TotalPayment = this.JenisPenggunaan[event.target.getAttribute('dataIndex')].price },
-            async getHarga(opt1, opt2) {
-                let SizeFoto = this.fotoDetail.file_size
-                let DocumentDate = this.fotoDetail.published_date.replace('Z', '')
-                let configHarga = {
-                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
-                    method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                }   
-
-                try {
-                    let newHargaFromApi = await Axios(configHarga)
-                    this.TotalPayment = newHargaFromApi.data.value
-                    return newHargaFromApi.data.value
-                } catch (error) {
-                    console.log(error)
-                }
-            },
-
-            async getData() {
-                this.$store.commit('setLoadingScreen', true)
-                try {
-                    let dataFoto = await Axios(this.ConfigApi).then( Response => Response).catch( Error => Error)
-                    this.fotoDetail = dataFoto.data
-                    dataFoto.data.width > dataFoto.data.height ? this.SizeProduct = dataFoto.data.width : this.SizeProduct = dataFoto.data.height
-                    this.SizeHarga = 201
-                    this.JenisHarga = 301
-                    this.MulaiHarga = await this.getHarga(this.SizeHarga, this.JenisHarga)
-                    this.$store.commit('setLoadingScreen', false)
-                } catch (error) {
-                    console.log(error)
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
-                }
-            },
-
-            async pesanFoto() {
-                let configPayment = {
-                    url: 'https://dev-be.kompasdata.id/api/Orders/photo',
-                    method: 'POST',
-                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    data: {
-                        "id": this.fotoDetail.reference_id,
-                        "title": this.fotoDetail.title,
-                        "description": document.querySelector("#description-box").value,
-                        "quality": this.SizeHarga,
-                        "quality_description": this.UkuranFoto.filter(x => x.apiId === Number(this.SizeHarga))[0].text,
-                        "usage": this.JenisHarga,
-                        "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
-                        "price": this.TotalPayment,
-                        "date1": this.DateFrom,
-                        "date2": this.DateTo,
-                        "thumbnail": this.fotoDetail.thumbnail,
-                    }
-                }
-
-                if ( !this.Aggrement ) {
-                    alert('tolong centang syarat & ketentuannya terebih dahulu..')
-                    // setTimeout(() => {
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
-                } else {
-                    this.$store.commit('setLoadingScreen', true)
-                    this.$store.commit('setLoadingImage', 'loading')
-                    this.$store.commit('setLoadingText', 'loading...')
-                    try {
-                        let PesanData = await Axios(configPayment); console.log(PesanData)
-                        this.$store.commit('setLoadingImage', 'success')
-                        this.$store.commit('setLoadingText', 'Pemesanan Success...')
-                        setTimeout(() => {
-                            window.location.href = "/dashboard/daftar-pesanan"
-                            this.$store.commit('setLoadingScreen', false)
-                        }, 2000)
-                    } catch (error) {
-                        console.log(error)
-                        this.$store.commit('setLoadingImage', 'failed')
-                        this.$store.commit('setLoadingText', 'gagal memesan data...')
-                        setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
-                    }
-                }
-            },
-
-            FormPesan() {
-                if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
-                else {
-                    this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setCloseStatus', true)
-                    this.$store.commit('setLoadingText',`<p>ups, anda belum login</p><a class="login" href="/login">Login</a>`)
-                    this.$store.commit('setLoadingScreen', true)
-                }
-            },
-        },
-
-        computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },
-        watch: {
-            async propertyAAndPropertyB(newVal, oldVal) {
-                const [oldPropertyA, oldPropertyB] = oldVal.split('|');
-                const [newPropertyA, newPropertyB] = newVal.split('|');
-                if ( newPropertyA != oldPropertyA || newPropertyB != oldPropertyB ) {
-                    this.getHarga(newPropertyA, newPropertyB)
-                }
-            },
-        },
+        }
     }
 </script>
-
-<style>
-    .detail-box .db-img { max-width: 500px !important; }
-    #pesan { background-color: #007BD2; }
-    .option-inside { padding-left: 10%; }
-    .jenis-box .form-check { padding: 0; }
-</style>
