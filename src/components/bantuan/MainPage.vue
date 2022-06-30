@@ -13,7 +13,7 @@
                     <Langganan />
 
                     <!-- Harga -->
-                    <!-- <Harga /> -->
+                    <Harga />
                 </div>
             </div>
         </div>
@@ -24,14 +24,14 @@
 <script>
 import Tentang from './Tentang.vue'
 import Langganan from './Langganan.vue'
-// import Harga from './Harga.vue'
+import Harga from './Harga.vue'
 
 export default {
     name: 'MainPage',
     components: {
         Tentang,
         Langganan,
-        // Harga,
+        Harga,
     }
 }
 </script>

@@ -1,13 +1,12 @@
 <template>
-    <section class="sec-artikel my-5">
-        <LoadingScreen />
+  <section class="sec-artikel">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">
-                            <li><i class="fas fa-chevron-left"></i>&nbsp;</li>
-                            <li class="breadcrumb-item"><a :href="linkBack != '' ? `/pencarian${ linkBack }` : '/'">Hasil Pencarian</a></li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-chevron-left"></i>  Hasil Pencarian </a></li>
+                            <li class="breadcrumb-item"><a href="arsip.html#AllTabs02">List Artikel</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Detail Artikel</li>
                         </ol>
                     </nav>
@@ -16,44 +15,28 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-2 my-3">
-                                <img :src="`${  artikelDetail ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" alt="" class="db-img">
+                                <img src="/assets/static/artikel/artikel-detail.png" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h3>
+                                <!-- <h3 class="subtitle txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h3> -->
                                 <div class="d-block">
-                                    <p class="fw-bold">{{ artikelDetail ? artikelDetail.rubrics : '' }}</p>
-                                    <p>{{ artikelDetail ? artikelDetail.published_pages[0].publication : '' }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail ? artikelDetail.published_pages[0].date.substring(0, 10) : '2020-12-12') }}</p>
-                                    <p>Halaman: {{ artikelDetail ? artikelDetail.published_pages[0].number : '' }}</p>
-                                    <p>Penulis: {{ artikelDetail ? artikelDetail.authors : '' }}</p>
+                                    <p class="fw-bold">FASILITAS KEPALA DAERAH</p>
+                                    <p>KOMPAS edisi Jumat 20 Agustus 2021</p>
+                                    <p>Halaman: 11</p>
+                                    <p>Penulis: JOL</p>
+                                    <div class="db-price rounded">
+                                        <a href="pesan-pdf.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan PDF</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Photo Slider -->
-                    <div v-if="artikelDetail ? artikelDetail.images.length > 0 : false" class="row py-3">
-                        <div class="col-9 mx-auto">
-                            <div class="row">
-                                <Splide :options="SliderConfig">
-                                    <SplideSlide
-                                        v-for="(foto, i) in artikelDetail.images" :key="i"
-                                    >
-                                        <div class="col-12 col-md-9 text-center">
-                                            <a v-if="`${ foto.kind }` === 'Foto'" :href="`/foto-detail/` + foto.id">
-                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
-                                            </a>
-                                            <a v-if="`${ foto.kind }` === 'Infografis'" :href="`/infografik-detail/` + foto.id">
-                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding" alt="">
-                                            </a>
-                                        </div>
-                                    </SplideSlide>
-                                </Splide>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <div class="d-block my-3">
-                        <h2 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h2>
+                        <h2 class="title txt-main">Fasilitas Kepala Daerah: Gubernur Sumbar Serahkan Mobil Dinas Baru untuk Operasional Satgas Covid-19</h2>
                         <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Detail</a>
@@ -65,8 +48,16 @@
                         <div class="tab-content komp-tab-content">
                             <div class="tab-pane fade show active" id="dbTabs01" role="tabpanel" aria-labelledby="db-Tabs01">
                                 <p>
-                                    <text v-html="`${ artikelDetail ? artikelDetail.body : '' }`"></text>
+                                    <b>PADANG, KOMPAS</b> — Gubernur Sumatera Barat Mahyeldi meminta maaf atas polemik yang muncul dari pembelian mobil dinas baru senilai total Rp 2 miliar untuk gubernur dan wakil gubernur di tengah krisis pandemi Covid-19.
+                                    Mahyeldi menyerahkan mobil dinasnya ke Satuan Tugas Covid-19 Sumbar untuk operasional, yang juga diikuti oleh Wakil Gubernur Sumbar Audy Joinaldy.
                                 </p>
+                                <p>
+
+                                    Mahyeldi menyampaikan itu di Istana Gubernur Sumbar, Padang, Kamis (19/8/2021) siang. ”Atas nama pribadi dan pemerintah terlebih dahulu menyampaikan permohonan maaf kepada kita semua karena telah menimbulkan keresahan dan jadi pembicaraan publik,” ujarnya.
+                                </p>
+                                <p>
+                                    Mahyeldi kemudian menyerahkan mobil dinas baru kepada Sekretaris Badan Penanggulangan Bencana Daerah (BPBD) Sumbar Mulyadi di halaman Istana Gubernur Sumbar. Mobil tersebut menjadi kendaraan operasional penanganan Covid-19. Adapun mobil dinas lama Gubernur
+                                    Sumbar, Toyota Fortuner, juga segera dilelang sehingga uangnya bisa dialokasikan untuk penanggulangan Covid-19. </p>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
@@ -79,9 +70,6 @@
                                     <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
                                 </ol>
                             </div>
-                        </div>
-                        <div class="db-price rounded" v-if="artikelDetail ? artikelDetail.old_tark_id > 0 : false">
-                            <a v-on:click="downloadPDF" class="btn btn-main">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}</a>
                         </div>
                     </div>
                 </div>
@@ -102,92 +90,25 @@
 </template>
 
 <script>
-    import Axios from 'axios'
-    import { Splide, SplideSlide } from '@splidejs/vue-splide'
-    import '@splidejs/splide/dist/css/themes/splide-default.min.css'
-    import FileSaver from 'file-saver'
+    // import Flicking from "@egjs/vue3-flicking";
     import Suggestion from '../suggestion/Main.vue'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+
+    let dataSuggestions = [
+        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
+    ]
 
     export default {
         name: 'Artikel',
-        components: { Splide, SplideSlide, Suggestion, LoadingScreen },
+        components: {
+            // Flicking,
+            Suggestion
+        },
         data () {
             return {
-                linkBack: null,
-                suggestions: [
-                    { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                    { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                    { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                ],
-                SliderConfig: { updateOnMove: true, type: 'loop', focus: 'center', perPage: 2, pagination: false },
-                artikelDetail: null,
-                ConfigApi: {
-                    headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
-                    url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
-                },
-                HargaBaca: 0,
+                suggestions: dataSuggestions
             }
-        },
-
-        async mounted() {
-            this.linkBack = window.location.search
-            this.getData()
-            this.$store.commit('setReloadSaldo', true)
-        },
-
-        methods: {
-            async downloadPDF() {
-                this.$store.commit('setLoadingScreen', true)
-                this.$store.commit('setLoadingImage', 'loading')
-                this.$store.commit('setLoadingText', 'loading...')
-                let config = {
-                    url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
-                    method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` }, responseType: 'blob'
-                }
-
-                try {
-                    let Result = await Axios(config)
-                    FileSaver.saveAs(Result.data, `${ this.artikelDetail.title }.pdf`)
-                    this.$store.commit('setLoadingImage', 'success')
-                    this.$store.commit('setLoadingText', 'Pemesanan Success...')
-                    this.$store.commit('setReloadSaldo', true)
-                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
-                } catch (error) {
-                    console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', 'gagal memesan data...')
-                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
-                }
-            },
-
-            async getData() {
-                this.$store.commit('setLoadingScreen', true)
-                try {
-                    let dataArtikel = await Axios(this.ConfigApi)
-                    this.artikelDetail = dataArtikel.data.data
-                    let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
-                    let configPayment = {
-                        url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
-                        method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    }
-
-                    console.log()
-
-                    let hargaBaca = await Axios(configPayment)
-                    if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
-                    this.$store.commit('setLoadingScreen', false)
-                } catch (error) {
-                    console.log(error)
-                    // this.$store.commit('setLoadingText', 'terjadi kesalahan')
-                    setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
-                        this.$store.commit('setCloseStatus', true);
-                        window.location.href = `${ window.location.search != '' ? `/pencarian${ window.location.search }` : '/'}`
-                    }, 500)
-                }
-            }
-        },
+        }
     }
 </script>

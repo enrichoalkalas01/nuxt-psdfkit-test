@@ -116,8 +116,7 @@ body {
 
 .img-square32 {
     width: 100%;
-    /* aspect-ratio: 3/2; */
-    aspect-ratio: 2/1;
+    aspect-ratio: 3/2;
     object-fit: cover;
 }
 
@@ -637,7 +636,7 @@ section {
 .date-time {
     display: block;
     font-size: .8rem;
-    color: #828282;
+    color: #BDBDBD;
 }
 
 .line-bot2 {
@@ -797,7 +796,7 @@ section {
 
 .content.kolom2 {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: stretch;
     flex-flow: nowrap row;
     gap: 1rem;
