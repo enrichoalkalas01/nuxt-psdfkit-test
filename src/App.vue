@@ -25,6 +25,9 @@
     export default {
         name: 'App',
         components: { TopNav, MainNav, Footer, TopBarReflection },
+        mounted() {
+            console.log(this.$store.state)
+        },
     }
 </script>
 

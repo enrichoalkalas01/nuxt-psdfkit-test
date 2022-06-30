@@ -34,7 +34,7 @@ const decryptData = (value = '') => {
 }
 
 const GetLoginStatusData = () => {
-    let DataUser = ( GetCookies('_km_dtl_d') !== undefined || GetCookies('_km_dtl_d') !== null ) ? GetCookies('_km_dtl_d') : null
+    let DataUser = ( GetCookies('kompas._token_refresh') !== undefined || GetCookies('kompas._token_refresh') !== null ) ? GetCookies('kompas._token_refresh') : null
     if ( !DataUser ) return false
     else return JSON.parse(decryptData(DataUser))
 }
