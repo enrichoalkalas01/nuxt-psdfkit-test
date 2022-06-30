@@ -1,0 +1,158 @@
+{
+    "mainpage": [
+        {
+            "name_component": "banner",
+            "data": [
+                
+            ]
+        },
+        {
+            "name_component": "pengumuman",
+            "data": "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+        },
+        {
+            "name_component": "sekilas_info",
+            "data": {
+                "title_section": "Informasi seputar tanggal penting, ulang tahun dan agenda Kompas",    
+                "data": [
+                    {
+                        "type_tab": "Agenda",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Ulang Tahun",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Tanggal Penting",
+                        "data": [
+                            
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "artikel",
+            "data": {
+                "title_section": "Kumpulan berita dan artikel Kompas sejak tahun 1965",
+                "data": [
+                    
+                ]
+            }
+        },
+        {
+            "name_component": "infografik",
+            "data": {
+                "title_section": "Koleksi data Kompas dalam bentuk visual grafis",
+                "data": [
+                   
+                ]
+            }
+        },
+        {
+            "name_component": "foto",
+            "data": {
+                "title_section": "Foto wartawan dan pewarta foto Kompas",
+                "data": [
+                    
+                ]
+            }
+        },
+        {
+            "name_component": "berita_terkini",
+            "data": {
+                "title_section": "",
+                "data": [
+                    {
+                        "id": 1,
+                        "image_source": "/assets/images/image 34.png",
+                        "title": "Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan",
+                        "excerpt": "Pemberlakuan Pembatasan Kegiatan Masyarakat Darurat telah berjalan hampir dua minggu tapi kasus Covid-19 masih tinggi. Seberapa besar korban dan dampak sosial ekonomi ke depan sangat tergantung langkah kita saat ini.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/images/image 37.png",
+                        "title": "Ikhtiar Melindungi Generasi Penerus dari Pandemi",
+                        "excerpt": "Di tengah kondisi Sumatera Selatan yang kian kritis, anak menjadi kelompok yang cukup rentan tertular atau menulari virus Covid-19. Terbukti, jumlah anak yang terkonfirmasi positif di Sumsel melonjak cukup signifikan.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "layanan",
+            "data": {
+                "title_section": "Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik anda",
+                "data": [
+                    
+                ]
+            }
+        },
+        {
+            "name_component": "buku",
+            "data": {
+                "title_section": "Referensi perpustakaan dan publikasi terbitan Kompas",
+                "data": [
+                    {
+                        "type_tab": "Topik Hangat",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Penerbit Buku Kompas",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Perpustakaan",
+                        "data": [
+                           
+                        ]
+                    },
+                    {
+                        "type_tab": "Buku Elektronik",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Laporan",
+                        "data": [
+                            
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "data_statistik",
+            "data": {
+                "title_section": "Koleksi data survei dan jajak pendapat Kompas serta olahan data statistik",
+                "data": [
+                    {
+                        "type_tab": "Survei Kompas",
+                        "data": [
+                            
+                        ]
+                    },
+                    {
+                        "type_tab": "Statistik",
+                        "data": [
+                            
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

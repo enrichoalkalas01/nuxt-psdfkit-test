@@ -1,0 +1,644 @@
+{
+    "mainpage": [
+        {
+            "name_component": "banner",
+            "data": [
+                {
+                    "id": 1,
+                    "title": "Rimbunnya Anggur di Kota Tangsel",
+                    "date": "JANUARI 14, 2022",
+                    "image_source": "/assets/static/banner/banner1.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                
+                {
+                    "id": 2,
+                    "title": "Terpikat Raja Ampat",
+                    "date": "JANUARI 15, 2022",
+                    "image_source": "/assets/static/banner/banner2.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 3,
+                    "title": "Kompetensi, Wajah Kemerdekaan Pers",
+                    "date": "JANUARI 17, 2022",
+                    "image_source": "/assets/static/banner/banner3.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 4,
+                    "title": "Obat Covid-19 Siap Diproduksi di Dalam Negeri",
+                    "date": "JANUARI 15, 2022",
+                    "image_source": "/assets/static/banner/banner4.jpg",
+                    "type_banner": "Arsip Artikel"
+                },
+                {
+                    "id": 5,
+                    "title": "Sesajen Semeru dan Beda Pemaknaan Manusia",
+                    "date": "JANUARI 15, 2022", 
+                    "image_source": "/assets/static/banner/banner5.jpg",
+                    "type_banner": "Arsip Artikel"
+                }
+            ]
+        },
+        {
+            "name_component": "pengumuman",
+            "data": "Kompasdata melayani kunjungan setiap hari Senin-Jumat, pukul 09.00-14.00 WIB, melalui reservasi email kompasdata@kompas.id"
+        },
+        {
+            "name_component": "sekilas_info",
+            "data": {
+                "title_section": "Informasi seputar tanggal penting, ulang tahun dan agenda Kompas",    
+                "data": [
+                    {
+                        "type_tab": "Agenda",
+                        "data": [
+                            {
+                                "id": 1,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "21 Juni 1961",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            },
+                            {
+                                "id": 2,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info2.png"
+                            },
+                            {
+                                "id": 3,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Ulang Tahun",
+                        "data": [
+                            {
+                                "id": 1,
+                                "title": "Joko Widodo",
+                                "excerpt": "",
+                                "date": "21 Juni 1961",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            },
+                            {
+                                "id": 2,
+                                "title": "BJ Habibie",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info2.png"
+                            },
+                            {
+                                "id": 3,
+                                "title": "",
+                                "excerpt": "",
+                                "date": "25 Juni 1936",
+                                "source_created": "Bandung",
+                                "image_source": "/assets/static/sekilasinfo/info1.png"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Tanggal Penting",
+                        "data": [
+                            {
+                                "month": "Januari",
+                                "data_tanggal": [
+                                    {
+                                        "id": 1,
+                                        "title": "1 Januari",
+                                        "detail": "Tahun Baru Nasional",
+                                        "date": "1 Januari 2022"
+                                    },
+                                    {
+                                        "id": 2,
+                                        "title": "3 Januari",
+                                        "detail": "Hari Departemen Agama Republik Indonesia",
+                                        "date": "3 Januari 2022"
+                                    },
+                                    {
+                                        "id": 3,
+                                        "title": "5 Januari",
+                                        "detail": "Hari Korps Wanita Angkatan Laut",
+                                        "date": "5 Januari 2022"
+                                    },
+                                    {
+                                        "id": 4,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Gerakan Satu Juta Pohon",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 5,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Tritura",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 6,
+                                        "title": "10 Januari",
+                                        "detail": "Hari Lingkungan Hidup Indonesia",
+                                        "date": "10 Januari 2022"
+                                    },
+                                    {
+                                        "id": 7,
+                                        "title": "15 Januari",
+                                        "detail": "Hari Peristiwa Laut dan Samudera atau Hari Dharma Samudera",
+                                        "date": "15 Januari 2022"
+                                    },
+                                    {
+                                        "id": 8,
+                                        "title": "25 Januari",
+                                        "detail": "Hari Gizi Nasional",
+                                        "date": "25 Januari 2022"
+                                    },
+                                    {
+                                        "id": 9,
+                                        "title": "25 Januari",
+                                        "detail": "Hari Kusta Internasional",
+                                        "date": "25 Januari 2022"
+                                    },
+                                    {
+                                        "id": 10,
+                                        "title": "26 Januari",
+                                        "detail": "Hari Kepabeanan Internasional",
+                                        "date": "25 Januari 2022"
+                                    }
+                                ]
+                            },
+                            {
+                                "month": "Februari",
+                                "data_tanggal": [
+                                    {
+                                        "id": 1,
+                                        "title": "14 Februari",
+                                        "detail": "Hari Valentine",
+                                        "date": "1 Februari 2022"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "artikel",
+            "data": {
+                "title_section": "Kumpulan berita dan artikel Kompas sejak tahun 1965",
+                "data": [
+                    {
+                        "id": 1,
+                        "image_source": "/assets/static/banner/banner1.jpg",
+                        "title": "Rimbunnya Anggur di Kota Tangsel",
+                        "excerpt": "Keterbatasan lahan tidak menyurutkan insting petani warga Tangerang Selatan, Banten. Selama pandemi Covid-19, benih dan bibit hortikultura tumbuh subur. Salah satunya melalui komunitas pembudidaya tanaman anggur.",
+                        "created_source": "Kompas",
+                        "created_date": "14 Jan 2022"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/static/banner/banner2.jpg",
+                        "title": "Terpikat Raja Ampat",
+                        "excerpt": "Cantiknya gugusan pulau karang, lembut pasir putih, sungai jernih berair biru, dan bentangan Galaksi Bima Sakti di langit malam hampir selalu tersaji di Raja Ampat.",
+                        "created_source": "Kompas",
+                        "created_date": "15 Jan 2022"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "/assets/static/banner/banner3.jpg",
+                        "title": "Kompetensi, Wajah Kemerdekaan Pers",
+                        "excerpt": "(2) Wartawan Indonesia menempuh cara-cara yang profesional dalam melaksanakan tugas jurnalistik. (3) Wartawan Indonesia selalu menguji informasi, memberitakan secara berimbang, tidak mencampurkan fakta dan opini yang menghakimi, serta menerapkan asas praduga tak bersalah. (Pasal 2 dan 3 Kode Etik Jurnalistik, 2006)",
+                        "created_source": "Kompas",
+                        "created_date": "17 Jan 2022"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "/assets/static/banner/banner4.jpg",
+                        "title": "Obat Covid-19 Siap Diproduksi di Dalam Negeri",
+                        "excerpt": "Selain mengembangkan vaksin Covid-19 sendiri, Indonesia bersiap memproduksi sendiri obat Covid-19. Harapannya, Indonesia tidak terlalu bergantung pada impor.",
+                        "created_source": "Kompas",
+                        "created_date": "15 Jan 2022"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "/assets/static/banner/banner5.jpg",
+                        "title": "Sesajen Semeru dan Beda Pemaknaan Manusia",
+                        "excerpt": "Peristiwa seorang pria menendang sesajen (sesaji) di Pronojiwo, Lumajang, Jawa Timur, viral dan menyita perhatian publik. Sebagian kecil mendukung aksi tersebut, tetapi lebih banyak yang menolak. Pemerintah Kabupaten Lumajang mengibarkan bendera perang atas aksi itu, yang dinilai mencederai keberagaman. Hal ini menjadi bukti bahwa pemahaman dan pemaknaan manusia atas segala sesuatu bisa berbeda-beda.",
+                        "created_source": "Kompas",
+                        "created_date": "17 Jan 2022"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "infografik",
+            "data": {
+                "title_section": "Koleksi data Kompas dalam bentuk visual grafis",
+                "data": [
+                    {
+                        "id": 1,
+                        "image_source": "/assets/static/infografik/info1.jpg",
+                        "title": "Prestasi Indonesia Di Ajang Olimpiade",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "10 Juli 2021"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/static/infografik/info2.jpg",
+                        "title": "Pemain Terbaik Liga Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "4 November 2021"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "/assets/static/infografik/info3.jpg",
+                        "title": "Suaka Margasatwa Terkecil Berada di Jakarta",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "16 November 2021"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "/assets/static/infografik/info4.jpg",
+                        "title": "Cakupan Vaksin Covid-19 Dosis 1 dan 2 di Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "18 November 2021"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "/assets/static/infografik/info5.jpg",
+                        "title": "Jumlah Kebutuhan Pejabat Kepada Daerah Tahun 2022-2023",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "18 November 2021"
+                    },
+                    {
+                        "id": 6,
+                        "image_source": "/assets/static/infografik/info6.jpg",
+                        "title": "Komposisi Konsumsi BBM di Indonesia",
+                        "excerpt": "Perjalanan hidup Bung Karno (6 Juni 1901-21 Juni 1970) adalah perjalanan hidup negarabangsa-rakyat Indonesia. Melihat Soekarno berarti melihat Indonesia. Soekarno adalah fenomena sejarah perjalanan bangsa dan rakyat ini mencapai dan mengisi kemerdekaan.",
+                        "created_source": "Kompas",
+                        "created_date": "26 November 2021"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "foto",
+            "data": {
+                "title_section": "Foto wartawan dan pewarta foto Kompas",
+                "data": [
+                    {
+                        "id": 1,
+                        "image_source": "assets/static/foto/foto1.JPG",
+                        "title": "Sekolah Bersiasat Gelar Pembelajaran",
+                        "created_source": "Kompas",
+                        "created_date": "29 Desember 2021"
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "assets/static/foto/foto2.JPG",
+                        "title": "Toprak Razgatlioglu Raih Juara Dunia lewat Balapan Pertama",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "04 Januari 2022"
+                    },
+                    {
+                        "id": 3,
+                        "image_source": "assets/static/foto/foto3.JPG",
+                        "title": "Lava Pijar Gunung Semeru",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "08 Desember 2021"
+                    },
+                    {
+                        "id": 4,
+                        "image_source": "assets/static/foto/foto4.JPG",
+                        "title": "Tes Antigen Cepat Pengendara Sepeda Motor",
+                        "created_source": "Kompas",
+                        "created_date": "08 Juni 2021"
+                    },
+                    {
+                        "id": 5,
+                        "image_source": "assets/static/foto/foto5.JPG",
+                        "title": "Geliat di Pelabuhan Sunda Kelapa di tahun 2022",
+                        "created_source": "Kompas Epaper",
+                        "created_date": "03 Januari 2022"
+                    },
+                    {
+                        "id": 6,
+                        "image_source": "assets/static/foto/foto6.JPG",
+                        "title": "Lanskap Tol Solo-Ngawi",
+                        "created_source": "Kompas",
+                        "created_date": "20 Desember 2021"
+                    },
+                    {
+                        "id": 7,
+                        "image_source": "assets/static/foto/foto7.JPG",
+                        "title": "Banjir di Jalan Thamrin, Jakarta",
+                        "created_source": "Kompas",
+                        "created_date": "05 Maret 1976"
+                    },
+                    {
+                        "id": 8,
+                        "image_source": "assets/static/foto/foto8.JPG",
+                        "title": "Penghargaan Bintang Jalasena Utama di Atas Kapal Selam KRI Nanggala",
+                        "created_source": "Kompaspedia",
+                        "created_date": "28 April 2021"
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "berita_terkini",
+            "data": {
+                "title_section": "",
+                "data": [
+                    {
+                        "id": 1,
+                        "image_source": "/assets/images/image 34.png",
+                        "title": "Cemas Melihat Arah Kurva Pandemi Indonesia ke Depan",
+                        "excerpt": "Pemberlakuan Pembatasan Kegiatan Masyarakat Darurat telah berjalan hampir dua minggu tapi kasus Covid-19 masih tinggi. Seberapa besar korban dan dampak sosial ekonomi ke depan sangat tergantung langkah kita saat ini.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
+                    },
+                    {
+                        "id": 2,
+                        "image_source": "/assets/images/image 37.png",
+                        "title": "Ikhtiar Melindungi Generasi Penerus dari Pandemi",
+                        "excerpt": "Di tengah kondisi Sumatera Selatan yang kian kritis, anak menjadi kelompok yang cukup rentan tertular atau menulari virus Covid-19. Terbukti, jumlah anak yang terkonfirmasi positif di Sumsel melonjak cukup signifikan.",
+                        "text_update": "Berita Terupdate hari ini",
+                        "date": ""
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "layanan",
+            "data": {
+                "title_section": "Layanan kami dirancang khusus untuk memenuhi kebutuhan spesifik anda",
+                "data": [
+                    {
+                        "id": 1,
+                        "hashtag_url": "#riset",
+                        "title": "Jasa Riset",
+                        "icon": "/assets/images/Search.png",
+                        "text": "KompasData menawarkan berbagai layanan riset untuk Anda, termasuk analisis mendalam dan komprehensif, dilengkapi dengan hasil grafik visual yang mudah dipahami."
+                    },
+                    {
+                        "id": 2,
+                        "hashtag_url": "#informasi",
+                        "title": "Konten Kreatif",
+                        "icon": "/assets/images/Chart.png",
+                        "text": "Dengan pengalaman bekerja dengan data, fakta, dan analisis, Litbang Kompas memiliki keunggulan menyajikan kembali informasi dalam bentuk yang lebih mudah dipahami berupa teks, visual grafis, audio maupun video sesuai kebutuhan.."
+                    },
+                    {
+                        "id": 3,
+                        "hashtag_url": "#penerbit",
+                        "title": "Penerbitan Buku",
+                        "icon": "/assets/images/Paper.png",
+                        "text": "KompasData menawarkan layanan untuk menerbitkan buku Anda. Yang akan memudahkan Anda untuk menerbikan tulisan-tulisan Anda dalam bentuk buku."
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "buku",
+            "data": {
+                "title_section": "Referensi perpustakaan dan publikasi terbitan Kompas",
+                "data": [
+                    {
+                        "type_tab": "Topik Hangat",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Penerbit Buku Kompas",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Perpustakaan",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Buku Elektronik",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Laporan",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "/assets/static/buku/topikhangat/buku1.jpeg",
+                                "title": "How To Avoid a Climate Disaster: Solusi Yang Kita Miliki Dan Terobosan Yang Kita Perlukan",
+                                "excerpt": "Menjelaskan tentang berbagi upaya yang harus segera diambil untuk mengurangi emisi gas karbon. Dampak pemanasan global yang makin terasa membuat penulis mulai mengajukan",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "/assets/static/buku/topikhangat/buku2.jpeg",
+                                "title": "Bumi Yang Tak Dapat Dihuni: Kisah Tentang Masa Depan",
+                                "excerpt": "Mengungkapkan tentang masa depan dunia yang akan dilanda sejumlah bencana dahsyat karena terjadinya perubahan iklim. Beberapa malapetaka yang diceritakan dalam buku",
+                                "date": ""
+                                
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "/assets/static/buku/topikhangat/buku3.jpeg",
+                                "title": "This Changes Everything: Capitalism Vs The Climate",
+                                "excerpt": "Menurut Klein, kebenaran yang menyakitkan berkaitan dengan pemanasan global bukanlah soal karbon, tapi kapitalisme. Perang model ekonomi terhadap kehidupan di bumi.",
+                                "date": ""
+                                
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name_component": "data_statistik",
+            "data": {
+                "title_section": "Koleksi data survei dan jajak pendapat Kompas serta olahan data statistik",
+                "data": [
+                    {
+                        "type_tab": "Survei Kompas",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "assets/images/image 28.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "assets/images/image 29.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 4,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            }
+                        ]
+                    },
+                    {
+                        "type_tab": "Statistik",
+                        "data": [
+                            {
+                                "id": 1,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 2,
+                                "image_source": "assets/images/image 28.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 3,
+                                "image_source": "assets/images/image 29.png",
+                                "title": "Terdampak Pandemi Angka Kemiskinan Naik Lagi",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            },
+                            {
+                                "id": 4,
+                                "image_source": "assets/images/image 27.png",
+                                "title": "Mau Jalan-jalan ke Ruang Angkasa? Cukup Bayar Rp 6,5 Miliar",
+                                "created_source":"Survei",
+                                "created_date": "April 2003"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
