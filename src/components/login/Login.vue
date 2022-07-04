@@ -103,6 +103,7 @@
         name: 'Login',
         components: { LoadingScreen },
         data() { return { username: '', password: '', }},
+        beforeMount() { window.location.href = '/' },
         mounted() {
             if (this.$store.state.Login.LoginStatus) {
                 this.$store.commit('setLoadingScreen', true)
@@ -112,45 +113,45 @@
             }
 
 
-            let scriptFacebook = document.createElement("script")
-            scriptFacebook.setAttribute("src", "https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v14.0&appId=987638111930027&autoLogAppEvents=1")
-            scriptFacebook.setAttribute("crossorigin", "anonymous")
-            scriptFacebook.defer = true
-            /*
-                'async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v14.0&appId=987638111930027&autoLogAppEvents=1" nonce="7WioLZI2"'
-            */
+            // let scriptFacebook = document.createElement("script")
+            // scriptFacebook.setAttribute("src", "https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v14.0&appId=987638111930027&autoLogAppEvents=1")
+            // scriptFacebook.setAttribute("crossorigin", "anonymous")
+            // scriptFacebook.defer = true
+            // /*
+            //     'async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v14.0&appId=987638111930027&autoLogAppEvents=1" nonce="7WioLZI2"'
+            // */
 
-            let scriptGoogle = document.createElement("script")
-            scriptGoogle.setAttribute("src", "https://accounts.google.com/gsi/client")
-            scriptGoogle.defer = true
-            scriptGoogle.async = true
+            // let scriptGoogle = document.createElement("script")
+            // scriptGoogle.setAttribute("src", "https://accounts.google.com/gsi/client")
+            // scriptGoogle.defer = true
+            // scriptGoogle.async = true
 
-            let scriptGoogleFunction = document.createElement("script")
-            scriptGoogleFunction.innerHTML = `
-                function parseJwt (token) {
-                    var base64Url = token.split('.')[1];
-                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                    }).join(''));
+            // let scriptGoogleFunction = document.createElement("script")
+            // scriptGoogleFunction.innerHTML = `
+            //     function parseJwt (token) {
+            //         var base64Url = token.split('.')[1];
+            //         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            //         var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            //             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            //         }).join(''));
 
-                    return JSON.parse(jsonPayload);
-                }
+            //         return JSON.parse(jsonPayload);
+            //     }
 
-                function handleCredentialResponse(response) {
-                    const responsePayload = parseJwt(response.credential);
-                    console.log("ID: " + responsePayload.sub);
-                    console.log('Full Name: ' + responsePayload.name);
-                    console.log('Given Name: ' + responsePayload.given_name);
-                    console.log('Family Name: ' + responsePayload.family_name);
-                    console.log("Image URL: " + responsePayload.picture);
-                    console.log("Email: " + responsePayload.email);
-                }
-            `
+            //     function handleCredentialResponse(response) {
+            //         const responsePayload = parseJwt(response.credential);
+            //         console.log("ID: " + responsePayload.sub);
+            //         console.log('Full Name: ' + responsePayload.name);
+            //         console.log('Given Name: ' + responsePayload.given_name);
+            //         console.log('Family Name: ' + responsePayload.family_name);
+            //         console.log("Image URL: " + responsePayload.picture);
+            //         console.log("Email: " + responsePayload.email);
+            //     }
+            // `
 
-            document.head.appendChild(scriptGoogle)
-            document.head.appendChild(scriptFacebook)
-            document.head.appendChild(scriptGoogleFunction)
+            // document.head.appendChild(scriptGoogle)
+            // document.head.appendChild(scriptFacebook)
+            // document.head.appendChild(scriptGoogleFunction)
         },
 
         methods: {

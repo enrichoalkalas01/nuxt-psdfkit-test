@@ -14,6 +14,8 @@
         <div id="hello" class="hello" ref="chartdiv" style="width: 100%; height: 500px;">
             
         </div>
+
+        <button v-on:click="testRefreshToken">Cek API</button>
     </div>
 </template>
 
@@ -25,6 +27,8 @@
     import * as am5 from '@amcharts/amcharts5';
     import * as am5xy from '@amcharts/amcharts5/xy';
     import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
+
+    import Axios from 'axios'
 
     export default {
         name: 'TestMain',
@@ -79,6 +83,15 @@
         },
 
         methods: {
+            async testRefreshToken() {
+                let config = { url:  `https://data-api-dev.kompas.id/api/login/kompas-token-refresh` }
+                try {
+                    let token = await Axios(config)
+                    console.log(token)
+                } catch (error) {
+                    console.log(error)
+                }
+            },
             amChartHere() {
                 let root = am5.Root.new(this.$refs.chartdiv);
                 root.setThemes([am5themes_Animated.new(root)]);
