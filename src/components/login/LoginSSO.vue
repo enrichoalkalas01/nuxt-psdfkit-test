@@ -18,14 +18,12 @@
             async testUserData() {
                 let config = {
                     method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
-                    headers: {
-                        'Authorization': `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }`
-                    }
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
                 }
 
                 try {
                     let dataResponse = await Axios(config)
-                    console.log(dataResponse)
+                    console.log(dataResponse.data)
                 } catch(err) {
                     console.log(err)
                 }
