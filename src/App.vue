@@ -27,12 +27,17 @@
         name: 'App',
         components: { TopNav, MainNav, Footer, TopBarReflection },
         beforeMount() {
+            this.$store.commit('LogOut')
             this.getDataUser()
         },
         mounted() {
             console.log(this.$store.state)
         },
         methods: {
+            encrypData(value = {}) {
+                let results = Buffer.from(value).toString('base64')
+                return results
+            }, 
             async getDataUser() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
@@ -58,17 +63,16 @@
 
                     try {
                         // Get data user profile after get token
-                        this.$store.commit('LogOut')
                         let getData = await Axios(config)
                         let configData = getData.data
                         
                         // set encryption for data
                         configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                         console.log(configData)
-                        this.$store.commit('setEncrypt', JSON.stringify(getData))
-                        const data = this.$store.state.Login.LoginData
-                        console.log(data)
-                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
+                        this.$store.commit('setEncrypt', JSON.stringify(configData))
+                        console.log(this.encrypData(configData.data))
+                        // const data = this.$store.state.Login.LoginData
+                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': this.encrypData(configData.data), 'days' : 1 });                    
                         this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
                     } catch(err) {
                         console.log(err)
@@ -90,9 +94,11 @@
                             let getData = await fetch(`https://data-api-dev.kompas.id/api/Login/user-info`, {
                                 method: 'get', headers: { 'Authorization': `Bearer ${ GetCookies('kompas._token') }` }
                             }).then(response => response.json())
-
-                            getData.token = GetCookies('kompas._token')
-                            console.log(Buffer.from(JSON.stringify(getData)).toString('base64'))
+                            getData.token = 'asdajsd'
+                            console.log(getData)
+                            // for( let i in getData ) {
+                            //     console.log(i)
+                            // }
                             
                         } catch(err) {
                             console.log(err)
