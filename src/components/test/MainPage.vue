@@ -89,6 +89,7 @@
                     method: 'post',
                     url: `https://data-api-dev.kompas.id/api/Login/kompas-token-refresh`
                 }
+                
                 try {
                     let refresh = await Axios(configRefresh)
                     console.log(refresh)
@@ -98,7 +99,10 @@
             },
 
             async testToken() {
-                console.log(this.$store.state.Tools.GetCookies('kompas._token'))
+                fetch('https://data-api-dev.kompas.id/api/Login/user-info', { headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` } })
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(err => console.log(err))
                 // try {
                 //     let configToken = {
                 //         method: 'get', url: 'https://data-api-dev.kompas.id/api/Login/user-info',
