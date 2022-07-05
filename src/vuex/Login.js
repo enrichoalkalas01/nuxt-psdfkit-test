@@ -34,7 +34,7 @@ const decryptData = (value = '') => {
 }
 
 const GetLoginStatusData = () => {
-    let DataUser = ( GetCookies('_km_dtl_s') !== undefined || GetCookies('_km_dtl_s') !== null ) ? GetCookies('_km_dtl_s') : null
+    let DataUser = ( GetCookies('_km_dtl_d') !== undefined || GetCookies('_km_dtl_d') !== null ) ? GetCookies('_km_dtl_d') : null
     if ( !DataUser ) return false
     else return JSON.parse(decryptData(DataUser))
 }
