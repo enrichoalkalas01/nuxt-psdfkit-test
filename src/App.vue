@@ -26,6 +26,9 @@
     export default {
         name: 'App',
         components: { TopNav, MainNav, Footer, TopBarReflection },
+        beforeMount() {
+            this.getDataUser()
+        },
         mounted() {
             console.log(this.$store.state)
         },
@@ -44,8 +47,10 @@
                         // Get data user profile after get token
                         let getData = await Axios(config)
                         // set encryption for data
+                        console.log(getData)
                         this.$store.commit('setEncrypt', JSON.stringify({ UserData: getData.data, token: this.$store.state.Tools.GetCookies('kompas._token') }))
                         const data = this.$store.state.Login.LoginData
+                        console.log(data)
                         this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
                         this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
                     } catch(err) {
