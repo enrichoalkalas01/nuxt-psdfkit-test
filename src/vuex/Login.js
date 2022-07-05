@@ -45,7 +45,7 @@ const Login = {
             LoginStatus: GetCookies('_km_dtl_s') !== null ? true : false,
             UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
             MutationUsed: 0,
-            LoginData: null
+            LoginData: null,
         }
     },
 

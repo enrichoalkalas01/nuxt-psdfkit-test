@@ -34,10 +34,21 @@
             console.log(this.$store.state)
         },
         methods: {
-            encrypData(value = {}) {
+            async encrypData(value = {}) {
                 let results = Buffer.from(value).toString('base64')
                 return results
             }, 
+
+            async setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days*24*60*60*1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+            },
+
             async getDataUser() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
@@ -69,10 +80,10 @@
                         // set encryption for data
                         configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                         console.log(configData)
-                        this.$store.commit('setEncrypt', JSON.stringify(configData))
-                        const data = this.$store.state.Login.LoginData
+                        const data = this.encrypData(JSON.stringify(configData))
                         console.log(data)
                         // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': this.encrypData(configData.data), 'days' : 1 });                    
+                        this.setCookie('_km_dtl_s', true, 1)
                         // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
                     } catch(err) {
                         console.log(err)
