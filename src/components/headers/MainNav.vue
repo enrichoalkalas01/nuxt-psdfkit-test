@@ -81,7 +81,7 @@
                             </div>
                             <div class="wrapper-user" v-if="!this.$store.state.Login.LoginStatus">
                                 <!-- <a href="https://account.kompas.id/login?next=http://data-dev.kompas.id/test" class="btn btn-line m-2" id="login">LOGIN</a> -->
-                                <!-- <a href="https://account.kompas.id/login?next=http://data-dev.kompas.id/login-sso" class="btn btn-line m-2" id="login">LOGIN</a> -->
+                                <a href="https://account.kompas.id/login?next=http://data-dev.kompas.id/login-sso" class="btn btn-line m-2" id="login">LOGIN</a>
                                 <!-- <a href="/login" class="btn btn-line m-2" id="login">LOGIN</a> -->
                                 <a href="/daftar" class="btn btn-second" id="register">DAFTAR</a>
                             </div>
