@@ -58,10 +58,13 @@
 
                     try {
                         // Get data user profile after get token
-                        let getData = await Axios(config).data
-                        console.log(getData)
+                        this.$store.commit('LogOut')
+                        let getData = await Axios(config)
+                        let configData = getData.data
+                        
                         // set encryption for data
-                        getData.token = this.$store.state.Tools.GetCookies('kompas._token')
+                        configData.token = this.$store.state.Tools.GetCookies('kompas._token')
+                        console.log(configData)
                         this.$store.commit('setEncrypt', JSON.stringify(getData))
                         const data = this.$store.state.Login.LoginData
                         console.log(data)
