@@ -84,7 +84,10 @@
 
         methods: {
             async testRefreshToken() {
-                let config = { url:  `https://data-api-dev.kompas.id/api/login/kompas-token-refresh` }
+                let config = {
+                    method: 'post',
+                    url:  `https://data-api-dev.kompas.id/api/login/kompas-token-refresh`
+                }
                 try {
                     let token = await Axios(config)
                     console.log(token)
