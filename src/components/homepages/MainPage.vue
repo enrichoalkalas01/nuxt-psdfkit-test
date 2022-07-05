@@ -67,7 +67,6 @@
         },
 
         async mounted() {
-            // console.log(this.$store.state.Tools.GetCookies('kompas._token'))
             console.log(document.cookie.split(';'))
         },
 

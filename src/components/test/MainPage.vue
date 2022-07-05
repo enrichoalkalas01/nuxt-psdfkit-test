@@ -16,6 +16,7 @@
         </div>
 
         <button v-on:click="testRefreshToken">Cek API</button>
+        <button v-on:click="testToken">Ceh Token</button>
     </div>
 </template>
 
@@ -28,7 +29,7 @@
     import * as am5xy from '@amcharts/amcharts5/xy';
     import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
-    // import Axios from 'axios'
+    import Axios from 'axios'
 
     export default {
         name: 'TestMain',
@@ -84,8 +85,32 @@
 
         methods: {
             async testRefreshToken() {
-                
+                let configRefresh = {
+                    method: 'post',
+                    url: `https://data-api-dev.kompas.id/api/Login/kompas-token-refresh`
+                }
+                try {
+                    let refresh = await Axios(configRefresh)
+                    console.log(refresh)
+                } catch (err) {
+                    console.log(err)
+                }
             },
+
+            async testToken() {
+                console.log(this.$store.state.Tools.GetCookies('kompas._token'))
+                // try {
+                //     let configToken = {
+                //         method: 'get', url: 'https://data-api-dev.kompas.id/api/Login/user-info',
+                //         headers: { Authorization: `Bearer ${}` }
+                //     }
+                //     let token = await Axios('https://data-api-dev.kompas.id/api/Login/user-info')
+                //     console.log(token)
+                // } catch (err) {
+                //     console.log(err)
+                // }
+            },
+
             amChartHere() {
                 let root = am5.Root.new(this.$refs.chartdiv);
                 root.setThemes([am5themes_Animated.new(root)]);
