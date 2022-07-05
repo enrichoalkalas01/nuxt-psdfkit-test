@@ -63,10 +63,16 @@
         async beforeMount() {
             this.$store.commit('setLoadingScreen', true)
             this.getData()
+            console.log(document.cookie.split(';'))
         },
 
         async mounted() {
-            
+            // console.log(this.$store.state.Tools.GetCookies('kompas._token'))
+            console.log(document.cookie.split(';'))
+        },
+
+        updated() {
+            console.log(document.cookie.split(';'))
         },
 
         methods: {

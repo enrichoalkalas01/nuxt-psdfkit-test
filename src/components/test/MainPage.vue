@@ -28,7 +28,7 @@
     import * as am5xy from '@amcharts/amcharts5/xy';
     import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
 
-    import Axios from 'axios'
+    // import Axios from 'axios'
 
     export default {
         name: 'TestMain',
@@ -84,16 +84,7 @@
 
         methods: {
             async testRefreshToken() {
-                let config = {
-                    method: 'post',
-                    url:  `https://data-api-dev.kompas.id/api/login/kompas-token-refresh`
-                }
-                try {
-                    let token = await Axios(config)
-                    console.log(token)
-                } catch (error) {
-                    console.log(error)
-                }
+                
             },
             amChartHere() {
                 let root = am5.Root.new(this.$refs.chartdiv);
