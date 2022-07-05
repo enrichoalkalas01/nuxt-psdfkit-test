@@ -20,7 +20,7 @@ const setCookie = (name, value, days) => {
         date.setTime(date.getTime() + (days*24*60*60*1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/;secure";
 }
 
 const encrypData = (value = {}) => {
@@ -42,7 +42,7 @@ const GetLoginStatusData = () => {
 const Login = {
     state () {
         return {
-            LoginStatus: sessionStorage.getItem("_km_dtl_s") !== null ? true : false,
+            LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
             UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
             MutationUsed: 0,
             LoginData: null,
