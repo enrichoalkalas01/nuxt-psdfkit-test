@@ -42,7 +42,7 @@ const GetLoginStatusData = () => {
 const Login = {
     state () {
         return {
-            LoginStatus: GetCookies('_km_dtl_s') !== null ? true : false,
+            LoginStatus: sessionStorage.getItem("_km_dtl_s") !== null ? true : false,
             UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
             MutationUsed: 0,
             LoginData: null,

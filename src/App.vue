@@ -34,21 +34,6 @@
             console.log(this.$store.state)
         },
         methods: {
-            async encrypData(value = {}) {
-                let results = Buffer.from(value).toString('base64')
-                return results
-            }, 
-
-            async setCookie(name, value, days) {
-                var expires = "";
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime() + (days*24*60*60*1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-            },
-
             async getDataUser() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
@@ -82,9 +67,7 @@
                         console.log(configData)
                         const data = this.encrypData(JSON.stringify(configData))
                         console.log(data)
-                        // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': this.encrypData(configData.data), 'days' : 1 });                    
-                        this.setCookie('_km_dtl_s', true, 1)
-                        // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
+                        sessionStorage.setItem("_km_dtl_s", true)
                     } catch(err) {
                         console.log(err)
                     }   
