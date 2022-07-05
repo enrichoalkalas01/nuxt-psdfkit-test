@@ -63,15 +63,12 @@
         async beforeMount() {
             this.$store.commit('setLoadingScreen', true)
             this.getData()
-            console.log(document.cookie.split(';'))
         },
 
         async mounted() {
-            console.log(document.cookie.split(';'))
         },
 
         updated() {
-            console.log(document.cookie.split(';'))
         },
 
         methods: {

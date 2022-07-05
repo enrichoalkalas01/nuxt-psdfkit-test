@@ -99,22 +99,7 @@
             },
 
             async testToken() {
-                // fetch('https://data-api-dev.kompas.id/api/Login/user-info', {
-                //     // headers: { Authorization: `Bearer ${ GetCookies('kompas._token') }` }
-                //     headers: { Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2ODg1MzcwMDIsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjU3MDAzODkyLCJpYXQiOjE2NTcwMDI5OTIsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.xOt7iaagb7O76-zxL0gyq_Jsh0Daakuq8TedqqEvn2EsTrMObIjNhUVLvmizvpuLGC6tBADrvkGXJv-M6qcek_AoEowMlkZohuQLpWmO144NuQeos2aH8TI1EWKbuXnx1wXzyuG85u4nPTX31W22yE3aIF0quoggohfaHB4-1gc` }
-                // }).then(response => response.text())
-                // .then(result => console.log(result))
-                // .catch(err => console.log(err))
-                let configToken = {
-                    method: 'get', url: 'https://data-api-dev.kompas.id/api/Login/user-info',
-                    headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
-                }
-                try {
-                    let token = await Axios(configToken)
-                    console.log(token)
-                } catch (err) {
-                    console.log(err)
-                }
+                
             },
 
             amChartHere() {
