@@ -37,6 +37,19 @@
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
                     console.log('token kompas is not found..', 'trying to get token again...')
+                    // let dataToken
+                    try {
+                        let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
+                        console.log(getRefreshTokenFromCookie)
+                    } catch(err) {
+                        console.log(err)
+                    }
+                    // let configRefresh = {
+                    //     method: 'post', url: `https://api.kompas.id/account/api/v1/tokens/refresh`
+                    //     data: JSON.stringify({
+                    //         refreshToken: 
+                    //     })
+                    // }
                 } else {
                     let config = {
                         method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
