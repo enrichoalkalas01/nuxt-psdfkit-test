@@ -70,10 +70,10 @@
                         configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                         console.log(configData)
                         this.$store.commit('setEncrypt', JSON.stringify(configData))
-                        console.log(this.encrypData(configData.data))
-                        // const data = this.$store.state.Login.LoginData
-                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': this.encrypData(configData.data), 'days' : 1 });                    
-                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
+                        const data = this.$store.state.Login.LoginData
+                        console.log(data)
+                        // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': this.encrypData(configData.data), 'days' : 1 });                    
+                        // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
                     } catch(err) {
                         console.log(err)
                     }   
