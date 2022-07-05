@@ -27,13 +27,14 @@
         name: 'App',
         components: { TopNav, MainNav, Footer, TopBarReflection },
         beforeMount() {
-            this.$store.commit('LogOut')
-            this.getDataUser()
+            console.log(this.$store.GetCookies('_km_dtl_s'))
         },
         mounted() {
+            this.getDataUser()
             console.log(this.$store.state)
         },
         methods: {
+            
             async getDataUser() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
