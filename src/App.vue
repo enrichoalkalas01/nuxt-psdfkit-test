@@ -79,7 +79,8 @@
                     configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                     console.log({ NewToken: configData })
                     this.setCookiesLoginUser(configData)
-                    // window.location.href = '/'
+
+                    if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') ) window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }  
