@@ -105,11 +105,14 @@
                         // "note": document.querySelector("#catatan-payment").value
                     })
                 }
-
-                let Payment = await Axios(config)
-                if ( Payment ) {
+                
+                try {
+                    let Payment = await Axios(config)
+                    console.log(Payment)
                     window.open(Payment.data.data.url)
                     window.close()
+                } catch (error) {
+                    console.log(error)
                 }
             },
 

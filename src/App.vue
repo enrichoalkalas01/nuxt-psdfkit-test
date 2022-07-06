@@ -36,7 +36,7 @@
         },
 
         beforeMount() {
-            this.checkingCookies()
+            // this.checkingCookies()
         },
         mounted() {
             // this.getDataUser()
