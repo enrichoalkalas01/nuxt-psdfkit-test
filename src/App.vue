@@ -81,7 +81,7 @@
                     const data = this.$store.state.Login.LoginData
                     this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
                     this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
-                    window.location.href = '/'
+                    // window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }  
