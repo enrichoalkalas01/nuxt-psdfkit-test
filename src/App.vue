@@ -69,7 +69,7 @@
                         this.$store.commit('setEncrypt', JSON.stringify(getData))
                         const data = this.$store.state.Login.LoginData
                         console.log(data)
-                        // this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
+                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
                         this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
                     } catch(err) {
                         console.log(err)
