@@ -13,14 +13,26 @@ const deleteCookies = (name = null) => {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-const setCookie = (name, value, days) => {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
+// const setCookie = (name, value, days) => {
+//     var expires = "";
+//     if (days) {
+//         var date = new Date();
+//         date.setTime(date.getTime() + (days*24*60*60*1000));
+//         expires = "; expires=" + date.toUTCString();
+//     }
+//     document.cookie = name + "=" + (value || "")  + expires + "; path=/;secure";
+// }
+
+const setCookieMinutes = (name, value, minutes) => {
+    let expires, date
+    if (minutes) {
+        date = new Date();
+        date.setTime(date.getTime()+(minutes*60*1000));
+        expires = "; expires="+date.toGMTString();
+    } else {
+        expires = "";
     }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/;secure";
+    document.cookie = name+"="+value+expires+"; path=/;secure";
 }
 
 const encrypData = (value = {}) => {
@@ -65,8 +77,8 @@ const Login = {
             state.LoginStatus = value
         },
 
-        setLoginCookies(state, value = { name: false, data: false, days: 0}) {
-            setCookie(value.name, value.data, value.days)
+        setLoginCookies(state, value = { name: false, data: false, minutes: 0}) {
+            setCookieMinutes(value.name, value.data, value.minutes)
         },
 
         LogOut(state) {

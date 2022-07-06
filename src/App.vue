@@ -88,8 +88,8 @@
             async setCookiesLoginUser(newUserData) {
                 this.$store.commit('setEncrypt', JSON.stringify(newUserData))
                 const data = this.$store.state.Login.LoginData
-                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
-                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
+                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
+                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
             },
 
             async getTokenKompas() {
