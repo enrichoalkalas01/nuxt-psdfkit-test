@@ -26,82 +26,73 @@
     export default {
         name: 'App',
         components: { TopNav, MainNav, Footer, TopBarReflection },
+        data() {
+            return {
+                configToken: {
+                    method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
+                },
+            }
+        },
+
         beforeMount() {
-            console.log(this.$store.state.Tools.GetCookies('_km_dtl_s'))
-            console.log(this.$store.state.Tools.GetCookies('_km_dtl_d'))
+            this.checkingCookies()
         },
         mounted() {
             // this.getDataUser()
             console.log(this.$store.state.Login)
         },
         methods: {
-            async getDataUser() {
-                if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
-                    // if token kompas is not found
-                    console.log('token kompas is not found..', 'trying to get token again...')
-                    // let dataToken
-                    try {
-                        let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
-                        console.log(getRefreshTokenFromCookie)
-                    } catch(err) {
-                        console.log(err)
-                    }
-                    // let configRefresh = {
-                    //     method: 'post', url: `https://api.kompas.id/account/api/v1/tokens/refresh`
-                    //     data: JSON.stringify({
-                    //         refreshToken: 
-                    //     })
-                    // }
+            async checkingCookies() {
+                if ( !this.$store.state.Tools.GetCookies('_km_dtl_d') ) {
+                    console.log('cookies data is not detected !')
+                    console.log(this.$store.state.Tools.GetCookies('_km_dtl_s'))
+                    console.log(this.$store.state.Tools.GetCookies('_km_dtl_d'))
+
+                    this.checkTokenKompas()
                 } else {
-                    let config = {
-                        method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
-                        headers: { 'Authorization': `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
-                    }
+                    console.log('success to get cookies data !')
+                    console.log(this.$store.state.Tools.GetCookies('_km_dtl_s'))
+                    console.log(this.$store.state.Tools.GetCookies('_km_dtl_d'))
 
-                    try {
-                        // Get data user profile after get token
-                        let getData = await Axios(config)
-                        let configData = getData.data
-                        
-                        // set encryption for data
-                        configData.token = this.$store.state.Tools.GetCookies('kompas._token')
-                        console.log(configData)
-                        this.$store.commit('setEncrypt', JSON.stringify(configData))
-                        const data = this.$store.state.Login.LoginData
-                        console.log(data)
-                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 });                    
-                        this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 });
-                    } catch(err) {
-                        console.log(err)
-                    }   
+                    this.checkTokenKompas()
+                }
+            },
 
-                    /*
-                        const GetCookies = (name) => {
-                            var nameEQ = name + "=";
-                            var ca = document.cookie.split(';');
-                            for(var i=0;i < ca.length;i++) {
-                                var c = ca[i];
-                                while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-                            }
-                            return null;
-                        }
-                        
-                        try {
-                            let getData = await fetch(`https://data-api-dev.kompas.id/api/Login/user-info`, {
-                                method: 'get', headers: { 'Authorization': `Bearer ${ GetCookies('kompas._token') }` }
-                            }).then(response => response.json())
-                            getData.token = 'asdajsd'
-                            console.log(getData)
-                            // for( let i in getData ) {
-                            //     console.log(i)
-                            // }
-                            
-                        } catch(err) {
-                            console.log(err)
-                        }
+            async checkTokenKompas() {
+                if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
+                    console.log('token kompas is not found..', 'trying to get token again...')
+                } else {
+                    console.log('success to get token kompas')
+                    this.getUserData()
+                }
+            },
+            
+            async getUserData() {
+                try {
+                    // Get data user profile after get token
+                    let getData = await Axios(this.configToken)
+                    let configData = getData.data
                     
-                    */
+                    // set encryption for data
+                    configData.token = this.$store.state.Tools.GetCookies('kompas._token')
+                    console.log(configData)
+                    this.$store.commit('setEncrypt', JSON.stringify(configData))
+                    const data = this.$store.state.Login.LoginData
+                    console.log(data)
+                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
+                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
+                } catch(err) {
+                    console.log(err)
+                }  
+            },
+
+            async getTokenKompas() {
+                try {
+                    let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
+                    console.log(getRefreshTokenFromCookie)
+                } catch(err) {
+                    console.log(err)
                 }
             }
         }
