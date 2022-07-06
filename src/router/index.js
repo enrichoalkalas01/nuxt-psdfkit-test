@@ -2,7 +2,7 @@
 import { createWebHistory, createRouter } from "vue-router"
 // import Store from '../vuex/Store'
 // import Login from '../components/login/Login.vue'
-import LoginSSO from '../components/login/LoginSSO.vue'
+// import LoginSSO from '../components/login/LoginSSO.vue'
 import Logout from '../components/login/Logout.vue'
 import Register from '../components/login/Register.vue'
 import Notification from '../components/login/Notification.vue'
@@ -36,7 +36,7 @@ import History from '../components/dashboard/History/MainPage.vue'
 const routes = [
     // Login & Register
     // { path: '/login', name: 'login', component: Login },
-    { path: '/login-sso',  name: 'login-sso', component: LoginSSO },
+    // { path: '/login-sso',  name: 'login-sso', component: LoginSSO },
     { path: '/logout', name: 'logout', component: Logout },
     { path: '/daftar', name: 'daftar', component: Register },
     { path: '/notification-activation', name: 'notification', component: Notification },

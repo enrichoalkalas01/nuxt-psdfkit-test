@@ -58,7 +58,7 @@
                                         <div class="dropdown-content">
                                             <a href="/dashboard">Dashboard</a>
                                             <a href="/dashboard/topup">Tambah Saldo</a>
-                                            <a href="/logout">Logout</a>
+                                            <a href="https://account.kompas.id/logout">Logout</a>
                                         </div>
                                     </div>
                                     <div class="box-more" v-if="ProfileBox">
@@ -73,7 +73,7 @@
                                                 <a href="/dashboard/topup">Tambah Saldo</a>
                                             </li>
                                             <li>
-                                                <a href="/logout">Logout</a>
+                                                <a href="https://account.kompas.id/logout">Logout</a>
                                             </li>
                                         </ul>
                                     </div>

@@ -89,7 +89,7 @@
     export default {
         name: 'TopUp',
         methods: {
-            topup: async (userdata) => {
+            async topup(userdata){
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/CreditTopups?userid=${ userdata.id }`,
                     method: 'POST',
@@ -113,6 +113,10 @@
                     window.close()
                 } catch (error) {
                     console.log(error)
+                    this.$store.commit('setLoadingScreen', true)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', 'ups, anda harus melengkapi profil terlebih dahulu...')
+                    this.$store.commit('setCloseStatus', true)
                 }
             },
 

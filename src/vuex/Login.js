@@ -46,13 +46,13 @@ const Login = {
             UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
             // LoginStatus: true,
             // UserData: {
-            //     "id": 9143,
+            //     "id": 9155,
             //     "firstName": "",
             //     "lastName": "",
-            //     "username": "enrichoalkalas.kompas@gmail.com",
+            //     "username": "febriantif1@gmail.com",
             //     "memberType": 0,
-            //     "trialExpiration": "2022-07-06T07:57:11",
-            //     "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2ODg2NDExMzUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjU3MTA2ODc4LCJpYXQiOjE2NTcxMDU5NzgsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.UiyAMdriwu3mTyMt6Hi-I8JIUufWphabU0jmcLEdOu4AV6tEkLAjKBPWqygezb8AkVKFpWl6XkQVgOvnMSqv9REvrJjI0melecqpmxO-FksswZGGxHhLswo8WrpAMQYWXQpAK6LS8WpEzTOTu0bKWJDBLXF5a5y7IwuOn46i4-w",
+            //     "trialExpiration": "2022-07-07T20:06:54",
+            //     "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZmVicmlhbnRpZjFAZ21haWwuY29tIiwiaWQiOiI2ZTY2ZTc3NC0wNTk2LTQxZjMtOWJlMC03NzgwMjBkYzZmZDgiLCJydCI6MTY4ODY3Mzk3OSwic2NvcGUiOlsicmVhZC1hcnRpY2xlIiwicmVhZC1wcm9maWxlIl19LCJleHAiOjE2NTcxMzg5MDYsImlhdCI6MTY1NzEzODAwNiwiaXNzIjoiaHR0cHM6Ly93d3cua29tcGFzLmlkIn0.UHZ2Hd7HJbROVcEShVA7W2xw1dIhufZ-wLRxZVoFqgf_nvjrSXcgKRPeR_kvXqO3nQvFsfx1eS5Hbyp0QwKnKoIF4jZSjVpg8VDJ4NbaoiumlV4DyxWk4spW7g3mjdtqlG9uTHZhmWm9S6SNJJ6ir6zCEXzUeIZAH1zCvFUIdrs",
             //     "refreshToken": ""
             // },
             MutationUsed: 0,
