@@ -31,11 +31,10 @@
             console.log(this.$store.state.Tools.GetCookies('_km_dtl_d'))
         },
         mounted() {
-            this.getDataUser()
-            console.log(this.$store.state)
+            // this.getDataUser()
+            console.log(this.$store.state.Login)
         },
         methods: {
-            
             async getDataUser() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     // if token kompas is not found
