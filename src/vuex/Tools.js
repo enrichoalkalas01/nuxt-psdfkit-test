@@ -1,7 +1,7 @@
-const encrypData = (value = {}) => {
-    let results = Buffer.from(value).toString('base64')
-    return results
-}
+// const encrypData = (value = {}) => {
+//     let results = Buffer.from(value).toString('base64')
+//     return results
+// }
 
 // const decryptData = (value = '') => {
 //     let results = Buffer.from(value, 'base64').toString('ascii')
@@ -104,7 +104,7 @@ const Tools = {
                 } else {
                     expires = "";
                 }
-                document.cookie = name+"="+encrypData(value)+expires+"; path=/;secure";
+                document.cookie = name+"="+value+expires+"; path=/;secure";
             },
         }
     },
