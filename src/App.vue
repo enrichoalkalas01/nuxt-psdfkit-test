@@ -102,16 +102,13 @@
             async getRefreshTokenData() {
                 try {
                     let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    console.log(getRefreshTokenFromCookie)
-                    console.log(getRefreshTokenFromCookie.data)
-                    console.log(getRefreshTokenFromCookie.status)
-                    if (
-                        getRefreshTokenFromCookie.data != '' ||
-                        getRefreshTokenFromCookie.data != null ||
-                        getRefreshTokenFromCookie.data != undefined ||
-                        getRefreshTokenFromCookie.status != 200
-                    ) return getRefreshTokenFromCookie.data
-                    else return false
+                    if ( getRefreshTokenFromCookie.status === 204 ) {
+                        console.log(getRefreshTokenFromCookie)
+                        return false
+                    } else {
+                        console.log(getRefreshTokenFromCookie)
+                        return getRefreshTokenFromCookie.data
+                    }
                 } catch(err) {
                     console.log(err)
                     return false
