@@ -172,7 +172,7 @@
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
 
-                    console.log()
+                    console.log(this.artikelDetail)
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value

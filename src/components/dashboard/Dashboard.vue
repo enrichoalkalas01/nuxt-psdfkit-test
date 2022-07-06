@@ -7,7 +7,7 @@
                         <div class="images" style="background-image: url('https://www.kompasdata.id/Content/img/icons/man.png')"></div>
                     </div>
                     <div class="box-text">
-                        <h4>Hi {{ this.$store.state.Login.UserData.firstName }}, selamat datang di KompasData</h4>
+                        <h4>Hi {{ userFirstName }}, selamat datang di KompasData</h4>
                         <p>Kami merekomendasikan beberapa pilihan tautan yang dapat membantu anda dalam menjelajahi KompasData</p>
                         <a href="/" class="btn btn-primary">Memulai</a>
                     </div>
@@ -50,11 +50,26 @@
     export default {
         name: 'Dashboard',
         data() {
-            return { saldoUser: 0 }
+            return { 
+                saldoUser: 0,
+                userFirstName: null,
+            }
         },
 
-        mounted() { this.getSaldo() },
+        mounted() { 
+            this.getUserFirstName()
+            this.getSaldo()
+        },
         methods: {
+            async getUserFirstName() {
+                let config = {
+                    method: 'GET',
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }`,
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+                 let user = await Axios(config)
+                 this.userFirstName = user.data.firstName
+            },
             async getSaldo() {
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',

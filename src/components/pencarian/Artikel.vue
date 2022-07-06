@@ -69,12 +69,11 @@
 
         methods: {
             checkLogin: function(e){
-                this.$store.commit('setLoadingScreen', true)
-
+                
                 if (!this.$store.state.Login.LoginStatus) {
                     e.preventDefault();
-                    // alert("Anda belum Log in.")
                     setTimeout(() => { 
+                        this.$store.commit('setLoadingScreen', true)
                         this.$store.commit('setLoadingImage', 'failed');
                         this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
                         this.$store.commit('setCloseStatus', true);

@@ -40,16 +40,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 mb-3">
-                    <div class="row wrapper">
-                        <div class="col-4">
-                            <span>Kata Sandi</span>
-                        </div>
-                        <div class="col-8">
-                            <a href="#">Ubah Kata Sandi</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row form-informasi">
