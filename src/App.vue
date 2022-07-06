@@ -89,11 +89,16 @@
 
             async getTokenKompas() {
                 try {
-                    let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
+                    let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
                     console.log(getRefreshTokenFromCookie)
                 } catch(err) {
                     console.log(err)
                 }
+
+                // fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
+                // .then(response => response.text())
+                // .then(result => console.log(result))
+                // .catch(err => console.log(err))
             }
         }
     }
