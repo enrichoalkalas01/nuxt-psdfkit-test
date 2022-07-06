@@ -28,6 +28,7 @@
         components: { TopNav, MainNav, Footer, TopBarReflection },
         beforeMount() {
             console.log(this.$store.state.Tools.GetCookies('_km_dtl_s'))
+            console.log(this.$store.state.Tools.GetCookies('_km_dtl_d'))
         },
         mounted() {
             this.getDataUser()
