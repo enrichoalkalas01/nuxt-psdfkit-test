@@ -79,14 +79,18 @@
                     // set encryption for data
                     configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                     console.log({ NewToken: configData })
-                    this.$store.commit('setEncrypt', JSON.stringify(configData))
-                    const data = this.$store.state.Login.LoginData
-                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
-                    this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
+                    this.setCookiesLoginUser(configData)
                     // window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }  
+            },
+
+            async setCookiesLoginUser(newUserData) {
+                this.$store.commit('setEncrypt', JSON.stringify(newUserData))
+                const data = this.$store.state.Login.LoginData
+                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
+                this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
             },
 
             async getTokenKompas() {
@@ -99,6 +103,12 @@
 
                     this.configToken.headers.Authorization = getAccessToken.data.data.accessToken
                     let getDataUser = await Axios(this.configToken)
+
+                    let configData = getDataUser.data
+                    configData.token = getAccessToken.data.data.accessToken
+                    
+                    this.$store.state.Tools.createCookieMinute('kompas._token', )
+                    this.setCookiesLoginUser(configData)
 
                     console.log(getRefreshTokenFromCookie)
                     console.log(getAccessToken)

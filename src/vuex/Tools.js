@@ -1,3 +1,13 @@
+const encrypData = (value = {}) => {
+    let results = Buffer.from(value).toString('base64')
+    return results
+}
+
+// const decryptData = (value = '') => {
+//     let results = Buffer.from(value, 'base64').toString('ascii')
+//     return results
+// }
+
 const Tools = {
     state () {
         return {
@@ -83,6 +93,18 @@ const Tools = {
                     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
                 }
                 return null;
+            },
+
+            createCookieMinute(name, value, minutes) {
+                let expires, date
+                if (minutes) {
+                    date = new Date();
+                    date.setTime(date.getTime()+(minutes*60*1000));
+                    expires = "; expires="+date.toGMTString();
+                } else {
+                    expires = "";
+                }
+                document.cookie = name+"="+encrypData(value)+expires+"; path=/;secure";
             },
         }
     },
