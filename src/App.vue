@@ -104,7 +104,7 @@
                 const data = this.$store.state.Login.LoginData
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
-                return true
+                console.log(this.$store.state.Tools.GetQueryString())
             },
 
             async getTokenKompas(refreshTokenValue) {
@@ -125,9 +125,6 @@
                     console.log(refreshTokenValue)
                     console.log(getAccessToken)
                     console.log(getDataUser)
-
-                    if ( this.setCookiesLoginUser(configData) ) window.location.href = '/'
-                    else console.log('something wrong with set cookies')
                 } catch(err) {
                     console.log(err)
                 }
