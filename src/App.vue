@@ -113,6 +113,8 @@
                     console.log(getRefreshTokenFromCookie)
                     console.log(getAccessToken)
                     console.log(getDataUser)
+
+                    window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }
