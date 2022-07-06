@@ -59,13 +59,19 @@
             },
 
             async checkTokenKompas() {
-                if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
-                    console.log('token kompas is not found..', 'trying to get token again...')
+                if ( !this.getRefreshTokenData() ) {
+                    console.log('refresh token not detected!')
                     this.$store.commit('LogOut')
-                    this.getTokenKompas()
                 } else {
-                    console.log('success to get token kompas')
-                    this.getUserData()
+                    console.log('refresh token is detected!')
+                    if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
+                        console.log('token kompas is not found..', 'trying to get token again...')
+                        this.$store.commit('LogOut')
+                        this.getTokenKompas(this.getRefreshTokenData())
+                    } else {
+                        console.log('success to get token kompas')
+                        this.getUserData()
+                    }
                 }
             },
             
@@ -93,12 +99,21 @@
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
             },
 
-            async getTokenKompas() {
+            async getRefreshTokenData() {
                 try {
                     let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
+                    return getRefreshTokenFromCookie.data
+                } catch(err) {
+                    console.log(err)
+                    return false
+                }
+            },
+
+            async getTokenKompas(refreshTokenValue) {
+                try {
                     let getAccessToken = await Axios({
                         method: 'post', url: 'https://api.kompas.id/account/api/v1/tokens/refresh',
-                        data: JSON.stringify({ refreshToken: getRefreshTokenFromCookie.data })
+                        data: JSON.stringify({ refreshToken: refreshTokenValue })
                     })
 
                     this.configToken.headers.Authorization = getAccessToken.data.data.accessToken
@@ -110,7 +125,7 @@
                     this.$store.state.Tools.createCookieMinute('kompas._token', getAccessToken.data.data.accessToken, 10)
                     this.setCookiesLoginUser(configData)
 
-                    console.log(getRefreshTokenFromCookie)
+                    console.log(refreshTokenValue)
                     console.log(getAccessToken)
                     console.log(getDataUser)
 
