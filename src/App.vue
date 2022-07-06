@@ -30,7 +30,7 @@
             return {
                 configToken: {
                     method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
-                    headers: { 'Authorization': `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
+                    headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
                 },
             }
         },
@@ -73,8 +73,8 @@
             async getUserData() {
                 try {
                     // Get data user profile after get token
-                    let getData = await Axios(this.configToken)
-                    let configData = getData.data
+                    let getDataUser = await Axios(this.configToken)
+                    let configData = getDataUser.data
                     
                     // set encryption for data
                     configData.token = this.$store.state.Tools.GetCookies('kompas._token')
@@ -96,8 +96,13 @@
                         method: 'post', url: 'https://api.kompas.id/account/api/v1/tokens/refresh',
                         data: JSON.stringify({ refreshToken: getRefreshTokenFromCookie.data })
                     })
+
+                    this.configToken.headers.Authorization = getAccessToken.data.data.accessToken
+                    let getDataUser = await Axios(this.configToken)
+
                     console.log(getRefreshTokenFromCookie)
                     console.log(getAccessToken)
+                    console.log(getDataUser)
                 } catch(err) {
                     console.log(err)
                 }
