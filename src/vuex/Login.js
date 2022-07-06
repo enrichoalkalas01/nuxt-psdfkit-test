@@ -42,19 +42,19 @@ const GetLoginStatusData = () => {
 const Login = {
     state () {
         return {
-            // LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
-            // UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
-            LoginStatus: true,
-            UserData: {
-                "id": 9143,
-                "firstName": "",
-                "lastName": "",
-                "username": "enrichoalkalas.kompas@gmail.com",
-                "memberType": 0,
-                "trialExpiration": "2022-07-06T07:57:11",
-                "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2ODg2NDExMzUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjU3MTA2ODc4LCJpYXQiOjE2NTcxMDU5NzgsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.UiyAMdriwu3mTyMt6Hi-I8JIUufWphabU0jmcLEdOu4AV6tEkLAjKBPWqygezb8AkVKFpWl6XkQVgOvnMSqv9REvrJjI0melecqpmxO-FksswZGGxHhLswo8WrpAMQYWXQpAK6LS8WpEzTOTu0bKWJDBLXF5a5y7IwuOn46i4-w",
-                "refreshToken": ""
-            },
+            LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
+            UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
+            // LoginStatus: true,
+            // UserData: {
+            //     "id": 9143,
+            //     "firstName": "",
+            //     "lastName": "",
+            //     "username": "enrichoalkalas.kompas@gmail.com",
+            //     "memberType": 0,
+            //     "trialExpiration": "2022-07-06T07:57:11",
+            //     "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2ODg2NDExMzUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjU3MTA2ODc4LCJpYXQiOjE2NTcxMDU5NzgsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.UiyAMdriwu3mTyMt6Hi-I8JIUufWphabU0jmcLEdOu4AV6tEkLAjKBPWqygezb8AkVKFpWl6XkQVgOvnMSqv9REvrJjI0melecqpmxO-FksswZGGxHhLswo8WrpAMQYWXQpAK6LS8WpEzTOTu0bKWJDBLXF5a5y7IwuOn46i4-w",
+            //     "refreshToken": ""
+            // },
             MutationUsed: 0,
             LoginData: null,
         }

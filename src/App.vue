@@ -36,10 +36,9 @@
         },
 
         beforeMount() {
-            // this.checkingCookies()
+            this.checkingCookies()
         },
         mounted() {
-            // this.getDataUser()
             console.log(this.$store.state.Login)
         },
         methods: {
