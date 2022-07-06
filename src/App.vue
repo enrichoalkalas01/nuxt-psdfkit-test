@@ -104,7 +104,7 @@
                 const data = this.$store.state.Login.LoginData
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
-                console.log(this.$store.state.Tools.GetQueryString())
+                if ( this.$store.state.Tools.GetQueryString().status === "sukses_login" ) window.location.href = '/'
             },
 
             async getTokenKompas(refreshTokenValue) {
