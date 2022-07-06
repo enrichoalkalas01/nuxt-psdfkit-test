@@ -59,6 +59,7 @@
             },
 
             async checkTokenKompas() {
+                console.log(this.getRefreshTokenData())
                 if ( !this.getRefreshTokenData() ) {
                     console.log('refresh token not detected!')
                     this.$store.commit('LogOut')
@@ -102,13 +103,7 @@
             async getRefreshTokenData() {
                 try {
                     let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    if ( getRefreshTokenFromCookie.status === 204 ) {
-                        console.log(getRefreshTokenFromCookie)
-                        return false
-                    } else {
-                        console.log(getRefreshTokenFromCookie)
-                        return getRefreshTokenFromCookie.data
-                    }
+                    return getRefreshTokenFromCookie
                 } catch(err) {
                     console.log(err)
                     return false
