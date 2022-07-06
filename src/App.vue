@@ -104,7 +104,7 @@
                 const data = this.$store.state.Login.LoginData
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
-                setTimeout(() => window.location.href = '/', 1000)
+                return true
             },
 
             async getTokenKompas(refreshTokenValue) {
@@ -121,16 +121,15 @@
                     configData.token = getAccessToken.data.data.accessToken
                     
                     this.$store.state.Tools.createCookieMinute('kompas._token', getAccessToken.data.data.accessToken, 10)
-                    this.setCookiesLoginUser(configData)
 
                     console.log(refreshTokenValue)
                     console.log(getAccessToken)
                     console.log(getDataUser)
 
-                    window.location.href = '/'
+                    if ( this.setCookiesLoginUser(configData) ) window.location.href = '/'
+                    else console.log('something wrong with set cookies')
                 } catch(err) {
                     console.log(err)
-                    setTimeout(() => window.location.href = '/', 2500)
                 }
 
                 // fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { credentials: 'include'})
