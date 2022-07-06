@@ -76,12 +76,12 @@
                     
                     // set encryption for data
                     configData.token = this.$store.state.Tools.GetCookies('kompas._token')
-                    console.log(configData)
+                    console.log({ NewToken: configData })
                     this.$store.commit('setEncrypt', JSON.stringify(configData))
                     const data = this.$store.state.Login.LoginData
-                    console.log(data)
                     this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'days' : 1 })
                     this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'days' : 1 })
+                    window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }  
