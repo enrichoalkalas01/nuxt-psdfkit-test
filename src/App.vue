@@ -62,6 +62,8 @@
             async checkTokenKompas() {
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
                     console.log('token kompas is not found..', 'trying to get token again...')
+                    this.$store.commit('LogOut')
+                    this.getTokenKompas()
                 } else {
                     console.log('success to get token kompas')
                     this.getUserData()
