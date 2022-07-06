@@ -59,20 +59,27 @@
             },
 
             async checkTokenKompas() {
-                console.log(this.getRefreshTokenData())
-                if ( !this.getRefreshTokenData() ) {
+                try {
+                    let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
+                    console.log(getRefreshTokenFromCookie)
+                    if ( getRefreshTokenFromCookie.data !== '' || getRefreshTokenFromCookie.status !== 200 ) {
+                        console.log('refresh token is detected!')
+                        if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
+                            console.log('token kompas is not found..', 'trying to get token again...')
+                            this.$store.commit('LogOut')
+                            this.getTokenKompas(getRefreshTokenFromCookie.data)
+                        } else {
+                            console.log('success to get token kompas')
+                            this.getUserData()
+                        }
+                    } else {
+                        console.log('refresh token not detected!')
+                        this.$store.commit('LogOut')
+                    }
+                } catch(err) {
+                    console.log(err)
                     console.log('refresh token not detected!')
                     this.$store.commit('LogOut')
-                } else {
-                    console.log('refresh token is detected!')
-                    if ( !this.$store.state.Tools.GetCookies('kompas._token') ) {
-                        console.log('token kompas is not found..', 'trying to get token again...')
-                        this.$store.commit('LogOut')
-                        this.getTokenKompas(this.getRefreshTokenData())
-                    } else {
-                        console.log('success to get token kompas')
-                        this.getUserData()
-                    }
                 }
             },
             
@@ -98,16 +105,6 @@
                 const data = this.$store.state.Login.LoginData
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
-            },
-
-            async getRefreshTokenData() {
-                try {
-                    let getRefreshTokenFromCookie = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    return getRefreshTokenFromCookie
-                } catch(err) {
-                    console.log(err)
-                    return false
-                }
             },
 
             async getTokenKompas(refreshTokenValue) {
