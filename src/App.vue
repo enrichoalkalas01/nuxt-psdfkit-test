@@ -107,7 +107,7 @@
                     let configData = getDataUser.data
                     configData.token = getAccessToken.data.data.accessToken
                     
-                    this.$store.state.Tools.createCookieMinute('kompas._token', )
+                    this.$store.state.Tools.createCookieMinute('kompas._token', getAccessToken.data.data.accessToken, 10)
                     this.setCookiesLoginUser(configData)
 
                     console.log(getRefreshTokenFromCookie)
