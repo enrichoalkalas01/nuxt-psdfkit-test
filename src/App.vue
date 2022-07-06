@@ -119,7 +119,7 @@
                     console.log(err)
                 }
 
-                // fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh')
+                // fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { credentials: 'include'})
                 // .then(response => response.text())
                 // .then(result => console.log(result))
                 // .catch(err => console.log(err))
