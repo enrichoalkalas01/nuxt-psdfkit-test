@@ -84,6 +84,7 @@ const Login = {
         LogOut(state) {
             deleteCookies('_km_dtl_s')
             deleteCookies('_km_dtl_d')
+            deleteCookies('_km_dtl_ok')
             deleteCookies('kompas._token')
             deleteCookies('kompas._token_refresh')
             state.MutationUsed += 1
