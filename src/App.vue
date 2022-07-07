@@ -66,6 +66,7 @@
                             console.log('access token : ', tokenCookies)
                             
                             let userData = await this.getUserData(tokenCookies)
+                            userData.token = tokenCookies
                             console.log(userData)
                         }
                     }
