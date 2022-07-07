@@ -55,7 +55,7 @@
                             if ( !newAccessToken ) setTimeout(() => window.location.href = '/', 1500)
                             else {
                                 // set new token cookies & reload the page
-                                this.$store.state.Tools.deleteCookies('kompas._token'); this.$store.state.Tools.deleteCookies('_km_dtl_s'); this.$store.state.Tools.deleteCookies('_km_dtl_d')
+                                this.deleteLoginData()
                                 this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.accessToken, 10)
                                 window.location.href = "/"
                             }
@@ -68,6 +68,7 @@
                             let userData = await this.getUserData(tokenCookies)
                             userData.token = tokenCookies
                             console.log(userData)
+                            this.setCookiesLogin(userData)
                         }
                     }
                 } catch (error) {
@@ -123,6 +124,17 @@
                     console.log('failed to get user data', error)
                     return false
                 }
+            },
+
+            async setCookiesLogin(userData) {
+                this.deleteLoginData()
+                this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(userData).toString('base64'), 10)
+                this.$store.state.Tools.createCookieMinute('_km_dtl_s', Buffer.from(userData).toString('base64'), 10)
+                if ( !this.$store.state.Tools.GetCookies('kompas._token') || !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d')) setTimeout(() => window.location.href = '/', 1500)
+            },
+
+            async deleteLoginData() {
+                this.$store.state.Tools.deleteCookies('kompas._token'); this.$store.state.Tools.deleteCookies('_km_dtl_s'); this.$store.state.Tools.deleteCookies('_km_dtl_d')
             }
         }
     }
