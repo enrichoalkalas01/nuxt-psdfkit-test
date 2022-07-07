@@ -64,11 +64,8 @@
                             console.log('access token has detected', 'trying to get user data')
                             console.log('refresh token : ', refreshTokenCookies)
                             console.log('access token : ', tokenCookies)
-                            let userData = await Axios({
-                                url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get',
-                                headers: { 'Authorization': `Bearer ${ tokenCookies }` }
-                            })
                             
+                            let userData = await this.getUserData(tokenCookies)
                             console.log(userData)
                         }
                     }
@@ -115,8 +112,16 @@
                 }
             },
 
-            async getUserData() {
-
+            async getUserData(tokenCookies) {
+                try {
+                    let userData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ tokenCookies }` } })
+                    console.log('successfull to get user data!')
+                    if ( userData.status !== 200 ) return false
+                    else return userData.data
+                } catch (error) {
+                    console.log('failed to get user data', error)
+                    return false
+                }
             }
         }
     }
