@@ -38,10 +38,15 @@
         beforeMount() {
             console.log(this.$store.state.Login)
         },
-        mounted() {
+        async mounted() {
             console.log(this.$store.state.Login)
             this.checkingRefreshToken()
-            console.log(this.checkTokenKompas())
+            try {
+                let testas = await this.checkTokenKompas()
+                console.log(testas)
+            } catch (error) {
+                console.log(error)
+            }
         },
         methods: {
             async autoLoginSSO() {
