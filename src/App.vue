@@ -39,18 +39,18 @@
             console.log(this.$store.state.Login)
         },
         async mounted() {
-            console.log(this.$store.state.Login)
-            this.checkingRefreshToken()
-            try {
-                let testas = await this.checkTokenKompas()
-                console.log(testas)
-            } catch (error) {
-                console.log(error)
-            }
+            this.autoLoginSSO()
         },
         methods: {
             async autoLoginSSO() {
-
+                try {
+                    let refreshTokenCookies = await this.checkingRefreshToken()
+                    let tokenCookies = await this.checkTokenKompas()
+                    console.log(refreshTokenCookies)
+                    console.log(tokenCookies)
+                } catch (error) {
+                    console.log(error)
+                }
             },
 
             async checkingRefreshToken() {
@@ -60,14 +60,17 @@
                         // if refresh token has not detected
                         console.log('refresh token has not detected!')
                         this.$store.commit('LogOut')
+                        return false
                     } else {
                         // if refresh token has detected
+                        console.log('refresh token has detected!')
                         let refreshTokenData = secretRefreshTokenCookies.data
-                        console.log(refreshTokenData)
+                        return refreshTokenData
                     }
                 } catch (error) {
                     console.log(error)
                     console.log('something error from getting a refresh token!')
+                    return false
                 }
             },
 
