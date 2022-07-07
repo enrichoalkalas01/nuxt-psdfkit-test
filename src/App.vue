@@ -46,8 +46,20 @@
                 try {
                     let refreshTokenCookies = await this.checkingRefreshToken()
                     let tokenCookies = await this.checkTokenKompas()
-                    console.log(refreshTokenCookies)
-                    console.log(tokenCookies)
+                    if ( !refreshTokenCookies ) console.log('refresh token has not detected!')
+                    else {
+                        if ( !tokenCookies ) {
+                            // if access token is not detected
+                            console.log('u dont have an access token !', 'trying to get access token...')
+                            let newAccessToken = await this.getTokenKompasId(refreshTokenCookies)
+                            console.log(newAccessToken)
+                        } else {
+                            // if access token has detected
+                            console.log('access token has detected', 'trying to get user data')
+                            console.log('refresh token : ', refreshTokenCookies)
+                            console.log('access token : ', tokenCookies)
+                        }
+                    }
                 } catch (error) {
                     console.log(error)
                 }
@@ -77,6 +89,19 @@
             async checkTokenKompas() {
                 if ( !this.$store.state.Tools.GetCookies("kompas._token") ) return false
                 else return this.$store.state.Tools.GetCookies("kompas._token")
+            },
+
+            async getTokenKompasId(refreshToken) {
+                try {
+                    let tokenData = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
+                    console.log('Successfull to getting new access token')
+                    console.log(tokenData)
+                    return tokenData.data
+                } catch (error) {
+                    console.log('error from getting new access token')
+                    console.log(error)
+                    return false
+                }
             }
         }
     }
