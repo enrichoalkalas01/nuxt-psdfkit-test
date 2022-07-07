@@ -41,6 +41,7 @@
         mounted() {
             console.log(this.$store.state.Login)
             this.checkingRefreshToken()
+            console.log(this.checkTokenKompas())
         },
         methods: {
             async autoLoginSSO() {
@@ -50,10 +51,24 @@
             async checkingRefreshToken() {
                 try {
                     let secretRefreshTokenCookies = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    console.log(secretRefreshTokenCookies)
+                    if ( secretRefreshTokenCookies.status !== 200 ) {
+                        // if refresh token has not detected
+                        console.log('refresh token has not detected!')
+                        this.$store.commit('LogOut')
+                    } else {
+                        // if refresh token has detected
+                        let refreshTokenData = secretRefreshTokenCookies.data
+                        console.log(refreshTokenData)
+                    }
                 } catch (error) {
                     console.log(error)
+                    console.log('something error from getting a refresh token!')
                 }
+            },
+
+            async checkTokenKompas() {
+                if ( !this.$store.state.Tools.GetCookies("kompas._token") ) return false
+                else return this.$store.state.Tools.GetCookies("kompas._token")
             }
         }
     }

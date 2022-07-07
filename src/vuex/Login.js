@@ -82,10 +82,11 @@ const Login = {
         },
 
         LogOut(state) {
-            state.MutationUsed += 1
             deleteCookies('_km_dtl_s')
             deleteCookies('_km_dtl_d')
             deleteCookies('kompas._token')
+            deleteCookies('kompas._token_refresh')
+            state.MutationUsed += 1
             state.LoginStatus = false
         },
 
