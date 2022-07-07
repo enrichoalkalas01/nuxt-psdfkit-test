@@ -127,7 +127,7 @@
             },
 
             async setCookiesLogin(userData) {
-                if ( !this.$store.state.Tools.GetCookies('kompas._token') || !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d')) {
+                if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') ) {
                     this.deleteLoginData()
                     this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(userData)).toString('base64'), 10)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10)
@@ -135,13 +135,10 @@
                 } else {
                     console.log('successfull to login sso')
                 }
-                
-                
-                
             },
 
             async deleteLoginData() {
-                this.$store.state.Tools.deleteCookies('kompas._token'); this.$store.state.Tools.deleteCookies('_km_dtl_s'); this.$store.state.Tools.deleteCookies('_km_dtl_d')
+                this.$store.state.Tools.deleteCookies('kompas._token'); this.$store.state.Tools.deleteCookies('_km_dtl_d')
             }
         }
     }
