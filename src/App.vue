@@ -55,15 +55,21 @@
                             if ( !newAccessToken ) setTimeout(() => window.location.href = '/', 1500)
                             else {
                                 // set new token cookies & reload the page
-                                this.$store.state.Tools.deleteCookies('kompas._token')
+                                this.$store.state.Tools.deleteCookies('kompas._token'); this.$store.state.Tools.deleteCookies('_km_dtl_s'); this.$store.state.Tools.deleteCookies('_km_dtl_d')
                                 this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.accessToken, 10)
                                 window.location.href = "/"
                             }
                         } else {
-                            // if access token has detected
+                            // if access token has detected, try to getting user data
                             console.log('access token has detected', 'trying to get user data')
                             console.log('refresh token : ', refreshTokenCookies)
                             console.log('access token : ', tokenCookies)
+                            let userData = await Axios({
+                                url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get',
+                                headers: { 'Authorization': `Bearer ${ tokenCookies }` }
+                            })
+                            
+                            console.log(userData)
                         }
                     }
                 } catch (error) {
@@ -107,6 +113,10 @@
                     console.log(error)
                     return false
                 }
+            },
+
+            async getUserData() {
+
             }
         }
     }
