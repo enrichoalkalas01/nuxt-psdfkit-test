@@ -52,7 +52,13 @@
                             // if access token is not detected
                             console.log('u dont have an access token !', 'trying to get access token...')
                             let newAccessToken = await this.getTokenKompasId(refreshTokenCookies)
-                            console.log(newAccessToken)
+                            if ( !newAccessToken ) setTimeout(() => window.location.href = '/', 1500)
+                            else {
+                                // set new token cookies & reload the page
+                                this.$store.state.Tools.deleteCookies('kompas._token')
+                                this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.accessToken, 10)
+                                window.location.href = "/"
+                            }
                         } else {
                             // if access token has detected
                             console.log('access token has detected', 'trying to get user data')
@@ -95,10 +101,9 @@
                 try {
                     let tokenData = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
                     console.log('Successfull to getting new access token')
-                    console.log(tokenData)
                     return tokenData.data
                 } catch (error) {
-                    console.log('error from getting new access token')
+                    console.log('failed to getting new access token')
                     console.log(error)
                     return false
                 }
