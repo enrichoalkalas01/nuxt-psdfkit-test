@@ -72,6 +72,7 @@
                             this.getTokenKompas(getRefreshTokenFromCookie.data)
                         } else {
                             console.log('success to get token kompas')
+                            this.$store.commit('LogOut')
                             this.getUserData()
                         }
                     }
@@ -92,8 +93,6 @@
                     configData.token = this.$store.state.Tools.GetCookies('kompas._token')
                     console.log({ NewToken: configData })
                     this.setCookiesLoginUser(configData)
-
-                    if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }  
@@ -104,9 +103,7 @@
                 const data = this.$store.state.Login.LoginData
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_d', 'data': data, 'minutes' : 5 })
                 this.$store.commit('setLoginCookies', { 'name' : '_km_dtl_s', 'data': true, 'minutes' : 5 })
-                if ( this.$store.state.Tools.GetQueryString().status === "sukses_login" ) window.location.href = '/'
-                if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) window.location.href = '/'
-                if ( !this.$store.state.Tools.GetCookies('kompas._token') ) window.location.href = '/'
+                this.checkCookiesData()
             },
 
             async getTokenKompas(refreshTokenValue) {
@@ -128,8 +125,7 @@
                     console.log(getAccessToken)
                     console.log(getDataUser)
 
-                    if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) window.location.href = '/'
-                    if ( !this.$store.state.Tools.GetCookies('kompas._token') ) window.location.href = '/'
+                    
                 } catch(err) {
                     console.log(err)
                 }
@@ -138,6 +134,12 @@
                 // .then(response => response.text())
                 // .then(result => console.log(result))
                 // .catch(err => console.log(err))
+            },
+
+            async checkCookiesData() {
+                if ( this.$store.state.Tools.GetQueryString().status === "sukses_login" ) window.location.href = '/'
+                if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) window.location.href = '/'
+                if ( !this.$store.state.Tools.GetCookies('kompas._token') ) window.location.href = '/'
             }
         }
     }
