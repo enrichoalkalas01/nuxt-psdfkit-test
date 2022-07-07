@@ -127,7 +127,7 @@
             },
 
             async setCookiesLogin(userData) {
-                if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') ) {
+                if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) {
                     this.deleteLoginData()
                     this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(userData)).toString('base64'), 10)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10)
