@@ -228,7 +228,7 @@
                 try {
                     let data = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://dev-be.kompasdata.id/api/Users/${ this.UserData.id }`,
+                        url: `https://data-api-dev.kompas.id/api/Users/${ this.UserData.id }`,
                     })
                     this.dataUser = data.data
                     console.log(this.dataUser);
@@ -261,7 +261,7 @@
                 try {
                     let jobs = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: 'https://dev-be.kompasdata.id/api/Jobs',
+                        url: 'https://data-api-dev.kompas.id/api/Jobs',
                     })
     
                     this.dataJobs = jobs.data;
@@ -273,7 +273,7 @@
                 try {
                     let countries = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: 'https://dev-be.kompasdata.id/api/Countries',
+                        url: 'https://data-api-dev.kompas.id/api/Countries',
                     })
 
                     this.dataCountries = countries.data;
@@ -285,7 +285,7 @@
                 try {
                     let provinces = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://dev-be.kompasdata.id/api/Provinces?countryid=${ countryId }`,
+                        url: `https://data-api-dev.kompas.id/api/Provinces?countryid=${ countryId }`,
                     })
 
                     this.dataProvinces = provinces.data;
@@ -297,7 +297,7 @@
                 try {
                     let cities = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://dev-be.kompasdata.id/api/Cities?countryid=-1&provinceid=${ provinceId }`,
+                        url: `https://data-api-dev.kompas.id/api/Cities?countryid=-1&provinceid=${ provinceId }`,
                     })
 
                     this.dataCities = cities.data;
@@ -310,7 +310,7 @@
                     if (cityId != 0) {
                         let villages = await Axios({
                             headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                            url: `https://dev-be.kompasdata.id/api/Cities/${ cityId }`,
+                            url: `https://data-api-dev.kompas.id/api/Cities/${ cityId }`,
                         })
     
                         this.dataVillages = villages.data.villages;
@@ -323,7 +323,7 @@
             },
             async updateData(){
                 let configAccount = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
                     method: 'PUT',
                     headers: {
                         'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
@@ -334,14 +334,14 @@
                         "lastName": document.querySelector("#lastName").value,
                         "email": this.dataUser.email,
                         "billingEmail": "",
-                        "gender": document.getElementById("gender").options[document.getElementById("gender").selectedIndex].value,
-                        "jobId": document.getElementById("job").options[document.getElementById("job").selectedIndex].value,
+                        "gender": document.getElementById("gender").value ? document.getElementById("gender").value : "",
+                        "jobId": document.getElementById("job").value ? document.getElementById("job").value : 0,
                         "phoneNumber": document.querySelector("#phoneNumber").value,
                         "address": document.querySelector("#address").value,
-                        "countryId": document.getElementById("country").options[document.getElementById("country").selectedIndex].value,
-                        "provinceId": document.getElementById("province").options[document.getElementById("province").selectedIndex].value,
-                        "cityId": document.getElementById("city").options[document.getElementById("city").selectedIndex].value,
-                        "villageId": document.getElementById("village").options[document.getElementById("village").selectedIndex].value,
+                        "countryId": document.getElementById("country").value ? document.getElementById("country").value : 0,
+                        "provinceId": document.getElementById("province").value ? document.getElementById("province").value : 0,
+                        "cityId": document.getElementById("city").value ? document.getElementById("city").value : 0,
+                        "villageId": document.getElementById("village").value ? document.getElementById("village").value : 0,
                         "postCode": document.querySelector("#postCode").value,
                         "institutionName": "",
                         "institutionAddress": "",
