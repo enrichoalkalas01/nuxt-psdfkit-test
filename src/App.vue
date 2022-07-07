@@ -128,8 +128,8 @@
 
             async setCookiesLogin(userData) {
                 this.deleteLoginData()
-                this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(userData).toString('base64'), 10)
-                this.$store.state.Tools.createCookieMinute('_km_dtl_s', Buffer.from(userData).toString('base64'), 10)
+                this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(userData)).toString('base64'), 10)
+                this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10)
                 if ( !this.$store.state.Tools.GetCookies('kompas._token') || !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d')) setTimeout(() => window.location.href = '/', 1500)
             },
 
