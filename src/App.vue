@@ -125,6 +125,8 @@
                     console.log(refreshTokenValue)
                     console.log(getAccessToken)
                     console.log(getDataUser)
+
+                    if ( !this.$store.state.Tools.GetCookies('_km_dtl_s') || !this.$store.state.Tools.GetCookies('_km_dtl_d') ) window.location.href = '/'
                 } catch(err) {
                     console.log(err)
                 }
