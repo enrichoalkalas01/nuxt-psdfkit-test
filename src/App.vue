@@ -72,7 +72,6 @@
                             this.getTokenKompas(getRefreshTokenFromCookie.data)
                         } else {
                             console.log('success to get token kompas')
-                            this.$store.commit('LogOut')
                             this.getUserData()
                         }
                     }
