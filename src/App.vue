@@ -132,7 +132,8 @@
                     this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(userData)).toString('base64'), 8)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 8)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_ok', true, 8)
-                    setTimeout(() => window.location.href = '/', 1500)
+                    window.location.href = '/'
+                    // setTimeout(() => window.location.href = '/', 1500)
                 } else {
                     console.log('successfull to login sso')
                 }
