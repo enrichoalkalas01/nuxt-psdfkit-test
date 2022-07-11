@@ -36,7 +36,7 @@
         },
 
         async mounted() {
-            // this.autoLoginSSO()
+            this.autoLoginSSO()
             /*
                 async function testRefresh() {
                     fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { credentials: "same-origin" })
