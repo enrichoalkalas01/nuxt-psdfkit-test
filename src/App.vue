@@ -47,23 +47,25 @@
                         if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
                             this.getTokenKompasId(newVal)
                         } else {
+                            this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
                             console.log(this.$store.state.Tools.GetCookies("kompas._token"))
+                            console.log(this.$store.state)
                         }
                     }
                 }
             },
 
-            // '$store.state.Login.TokenData': async function(newVal, oldVal) {
-            //     if ( oldVal != newVal ) {
-            //         console.log(oldVal, newVal)
-            //         if ( newVal === '' || newVal === null ) {
-            //             this.getRefreshToken()
-            //             setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
-            //         } else {
-            //             console.log(newVal)
-            //         }
-            //     }
-            // },
+            '$store.state.Login.TokenData': async function(newVal, oldVal) {
+                if ( oldVal != newVal ) {
+                    console.log(oldVal, newVal)
+                    if ( newVal === '' || newVal === null ) {
+                        this.getRefreshToken()
+                        setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
+                    } else {
+                        console.log(newVal)
+                    }
+                }
+            },
         },
 
         async mounted() {
@@ -147,13 +149,11 @@
                 try {
                     let tokenData = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
                     console.log('Successfull to getting new access token')
-                    console.log(tokenData.data)
                     this.$store.state.Tools.deleteCookies('kompas._token')
                     this.$store.state.Tools.createCookieMinute('kompas._token', tokenData.data.data.accessToken, 8)
                 } catch (error) {
                     console.log('failed to getting new access token')
                     console.log(error)
-                    // return false
                     this.$store.state.Tools.deleteCookies('kompas._token')
                 }
             },

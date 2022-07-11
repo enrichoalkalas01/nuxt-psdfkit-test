@@ -104,11 +104,11 @@ const Tools = {
                 } else {
                     expires = "";
                 }
-                document.cookie = name+"="+value+expires+"; path=/;secure";
+                document.cookie = name+"="+value+expires+"; domain=.kompas.id; path=/;secure";
             },
 
             deleteCookies(name) {
-                document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                document.cookie = name +'=; domain=.kompas.id; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             },
         }
     },
