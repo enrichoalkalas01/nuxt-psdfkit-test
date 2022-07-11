@@ -44,7 +44,11 @@
                         setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
                     } else {
                         console.log(newVal)
-                        console.log(this.$store.state.Tools.GetCookies("kompas._token"))
+                        if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
+                            this.getTokenKompasId(newVal)
+                        } else {
+                            console.log(this.$store.state.Tools.GetCookies("kompas._token"))
+                        }
                     }
                 }
             },
