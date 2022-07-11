@@ -67,12 +67,22 @@ const Login = {
             //     "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZmVicmlhbnRpZjFAZ21haWwuY29tIiwiaWQiOiI2ZTY2ZTc3NC0wNTk2LTQxZjMtOWJlMC03NzgwMjBkYzZmZDgiLCJydCI6MTY4ODY3Mzk3OSwic2NvcGUiOlsicmVhZC1hcnRpY2xlIiwicmVhZC1wcm9maWxlIl19LCJleHAiOjE2NTcxMzg5MDYsImlhdCI6MTY1NzEzODAwNiwiaXNzIjoiaHR0cHM6Ly93d3cua29tcGFzLmlkIn0.UHZ2Hd7HJbROVcEShVA7W2xw1dIhufZ-wLRxZVoFqgf_nvjrSXcgKRPeR_kvXqO3nQvFsfx1eS5Hbyp0QwKnKoIF4jZSjVpg8VDJ4NbaoiumlV4DyxWk4spW7g3mjdtqlG9uTHZhmWm9S6SNJJ6ir6zCEXzUeIZAH1zCvFUIdrs",
             //     "refreshToken": ""
             // },
+            TokenData: null,
+            RefreshToken: null,
             MutationUsed: 0,
             LoginData: null,
         }
     },
 
     mutations: {
+        setTokenAccess(state, value) {
+            state.TokenData = value
+        },
+
+        setRefreshToken(state, value) {
+            state.RefreshToken = value
+        },
+
         setLoginStatus(state, value) {
             state.LoginStatus = value
         },

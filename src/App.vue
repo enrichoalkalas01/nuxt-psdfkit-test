@@ -32,20 +32,45 @@
                     method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
                     headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
                 },
+                token: this.$store.state.Tools.GetCookies('kompas._token'),
+                refreshTokenData: null
+            }
+        },
+        
+        computed: {
+            testerLog() {
+                console.log(this.getRefreshToken())
+                return this.getRefreshToken()
             }
         },
 
-        async mounted() {
-            this.autoLoginSSO()
-            /*
-                async function testRefresh() {
-                    fetch('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { credentials: "same-origin" })
-                    .then(response => response.text())
-                    .then(data => console.log(data))
-                    .catch(err => console.log(err))
+        watch: {
+            '$store.state.Login.RefreshToken': async function(newVal, oldVal) {
+                if ( oldVal != newVal ) {
+                    console.log(oldVal, newVal)
+                    if ( newVal === '' || newVal === null ) {
+                        this.getRefreshToken()
+                        setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
+                    } else {
+                        console.log(newVal)
+                    }
                 }
-            */
+            },
+
+            // '$store.state.Login.TokenData': async function(newVal, oldVal) {
+            //     if ( oldVal != newVal ) {
+            //         console.log(oldVal, newVal)
+            //         this.getRefreshToken()
+            //         setTimeout(() => this.$store.commit('setTokenAccess', null), 5000)
+            //     }
+            // },
         },
+
+        async mounted() {
+            this.getRefreshToken()
+            // this.autoLoginSSO()
+        },
+
         methods: {
             async autoLoginSSO() {
                 try {
@@ -98,6 +123,17 @@
                 } catch (error) {
                     console.log(error)
                     console.log('something error from getting a refresh token!')
+                    return false
+                }
+            },
+
+            async getRefreshToken() {
+                try {
+                    let secretRefreshTokenCookies = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
+                    this.$store.commit('setRefreshToken', secretRefreshTokenCookies.data)
+                    return secretRefreshTokenCookies
+                } catch (error) {
+                    console.log(error)
                     return false
                 }
             },
