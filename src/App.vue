@@ -62,7 +62,7 @@
                     } else {
                         // if token acces is detected
                         try {
-                            let dataUser = this.getUserData(newVal)
+                            let dataUser = await this.getUserData(newVal)
                             console.log(dataUser)
                         } catch (error) {
                             console.log(error)
