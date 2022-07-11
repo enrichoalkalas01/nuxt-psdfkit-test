@@ -48,8 +48,6 @@
                             this.getTokenKompasId(newVal)
                         } else {
                             this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
-                            console.log(this.$store.state.Tools.GetCookies("kompas._token"))
-                            console.log(this.$store.state)
                         }
                     }
                 }
@@ -60,9 +58,15 @@
                     console.log(oldVal, newVal)
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
-                        setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
+                        setTimeout(() => this.$store.commit('setTokenAccess', null), 5000)
                     } else {
-                        console.log(newVal)
+                        // if token acces is detected
+                        try {
+                            let dataUser = this.getUserData(newVal)
+                            console.log(dataUser)
+                        } catch (error) {
+                            console.log(error)
+                        }
                     }
                 }
             },
