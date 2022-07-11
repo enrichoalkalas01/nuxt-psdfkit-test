@@ -66,7 +66,8 @@
                             dataUser.token = newVal
                             this.$store.commit('setLoginStatus', true)
                             this.$store.commit('setUserData', dataUser)
-                            console.log(dataUser)
+                            this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 8)
+                            this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(dataUser)).toString('base64'), 8)
                         } catch (error) {
                             console.log(error)
                         }
