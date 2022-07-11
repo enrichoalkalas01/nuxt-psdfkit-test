@@ -131,63 +131,89 @@
                 }
                 
                 if ( this.Selected.length === 0 ) {
-                    alert('Pilihlah terlebih dahulu produk nya...')
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'Pilihlah terlebih dahulu produk nya...');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
+                    // alert('Mohon pilih terlebih dahulu produk nya...')
+                    this.setFailedLoadingScreen()
                 } else {
                     try {
                         let payed = await Axios(configPaySaldo)
                         if ( payed.data.message !== 'sukses') {
-                            alert(payed.data.message)
-                            // setTimeout(() => { 
-                            //     this.$store.commit('setLoadingImage', 'success');
-                            //     this.$store.commit('setLoadingText', payed.data.message);
-                            //     this.$store.commit('setCloseStatus', true);
-                            // }, 500)
+                            setTimeout(() => { 
+                                this.$store.commit('setLoadingScreen', true)
+                                this.$store.commit('setLoadingImage', 'success');
+                                this.$store.commit('setLoadingText', payed.data.message);
+                                this.$store.commit('setCloseStatus', true);
+
+                                setTimeout(() => window.location.href = '/dashboard/daftar-pesanan', 1500)
+                            }, 500)
                         } else {
-                            alert(payed.data.message)
-                            // setTimeout(() => { 
-                            //     this.$store.commit('setLoadingImage', 'success');
-                            //     this.$store.commit('setLoadingText', payed.data.message);
-                            //     this.$store.commit('setCloseStatus', true);
-                            // }, 500)
-                            this.getDataAll()
-                            this.$store.commit('setReloadSaldo', true)
+                            setTimeout(() => { 
+                                this.$store.commit('setLoadingScreen', true)
+                                this.$store.commit('setLoadingImage', 'success');
+                                this.$store.commit('setLoadingText', payed.data.message);
+                                this.$store.commit('setCloseStatus', true);
+                                this.$store.commit('setReloadSaldo', true)
+                                this.getDataAll()
+                                setTimeout(() => window.location.href = '/dashboard/daftar-pesanan', 1500)
+                            }, 500)
                         }
                     } catch (error) {
-                        alert('ups, terjadi kesalahan..')
+                        // alert('ups, terjadi kesalahan..')
                         console.log(error)
-                        // setTimeout(() => { 
-                        //     this.$store.commit('setLoadingImage', 'success');
-                        //     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan..');
-                        //     this.$store.commit('setCloseStatus', true);
-                        // }, 500)
+                        setTimeout(() => { 
+                            this.$store.commit('setLoadingScreen', true)
+                            this.$store.commit('setLoadingImage', 'failed');
+                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan, coba cek saldo anda..');
+                            this.$store.commit('setCloseStatus', true);
+                            setTimeout(() => this.setDefaultLoadingScreen(), 2000)
+                        }, 500)
                     }
                 }
             },
 
             async paymentOther() {
-                let readyData = []
-                this.Selected.map((data, i) => readyData[i] = data.orderId)
                 let configPaySaldo = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/checkout`,
-                    method: 'POST', headers: { Authorization: this.Token }, data: readyData
+                    method: 'POST', headers: { Authorization: this.Token }, data: this.Selected
                 }
 
-                if ( this.Selected.length === 0 ) alert('Pilihlah terlebih dahulu produk nya...')
+                if ( this.Selected.length === 0 ) this.setFailedLoadingScreen() // alert('Pilihlah terlebih dahulu produk nya...')
                 else {
                     try {
                         let payed = await Axios(configPaySaldo)
                         window.open(payed.data.data.url)
+                        window.location.href = '/'
                     } catch (error) {
-                        alert('ups, terjadi kesalahan..')
                         console.log(error)
+                        setTimeout(() => { 
+                            this.$store.commit('setLoadingScreen', true)
+                            this.$store.commit('setLoadingImage', 'failed');
+                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan, coba cek saldo anda..');
+                            this.$store.commit('setCloseStatus', true);
+                            setTimeout(() => this.setDefaultLoadingScreen(), 2000)
+                        }, 500)
                     }
                 }
             },
+
+            async setFailedLoadingScreen() {
+                setTimeout(() => { 
+                    this.$store.commit('setLoadingScreen', true)
+                    this.$store.commit('setLoadingImage', 'failed');
+                    this.$store.commit('setLoadingText', 'Mohon pilih terlebih dahulu produk nya...');
+                    this.$store.commit('setCloseStatus', true);
+
+                    setTimeout(() => {
+                        this.setDefaultLoadingScreen()
+                    }, 2500)
+                }, 500)
+            },
+
+            async setDefaultLoadingScreen() {
+                this.$store.commit('setLoadingScreen', false)
+                this.$store.commit('setLoadingImage', 'loading');
+                this.$store.commit('setLoadingText', 'loading...');
+                this.$store.commit('setCloseStatus', false);
+            }
         }
     }
 </script>
