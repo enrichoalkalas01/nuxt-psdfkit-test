@@ -83,6 +83,10 @@ const Login = {
             state.RefreshToken = value
         },
 
+        setUserData(state, value) {
+            state.UserData = value
+        },
+
         setLoginStatus(state, value) {
             state.LoginStatus = value
         },

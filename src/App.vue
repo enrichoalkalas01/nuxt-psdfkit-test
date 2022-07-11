@@ -63,6 +63,9 @@
                         // if token acces is detected
                         try {
                             let dataUser = await this.getUserData(newVal)
+                            dataUser.token = newVal
+                            this.$store.commit('setLoginStatus', true)
+                            this.$store.commit('setUserData', dataUser)
                             console.log(dataUser)
                         } catch (error) {
                             console.log(error)
