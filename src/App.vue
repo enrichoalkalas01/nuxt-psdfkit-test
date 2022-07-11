@@ -32,15 +32,6 @@
                     method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
                     headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
                 },
-                token: this.$store.state.Tools.GetCookies('kompas._token'),
-                refreshTokenData: null
-            }
-        },
-        
-        computed: {
-            testerLog() {
-                console.log(this.getRefreshToken())
-                return this.getRefreshToken()
             }
         },
 
@@ -53,6 +44,7 @@
                         setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
                     } else {
                         console.log(newVal)
+                        console.log(this.checkTokenKompas())
                     }
                 }
             },
@@ -60,8 +52,12 @@
             // '$store.state.Login.TokenData': async function(newVal, oldVal) {
             //     if ( oldVal != newVal ) {
             //         console.log(oldVal, newVal)
-            //         this.getRefreshToken()
-            //         setTimeout(() => this.$store.commit('setTokenAccess', null), 5000)
+            //         if ( newVal === '' || newVal === null ) {
+            //             this.getRefreshToken()
+            //             setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
+            //         } else {
+            //             console.log(newVal)
+            //         }
             //     }
             // },
         },
