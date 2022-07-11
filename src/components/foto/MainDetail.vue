@@ -22,7 +22,7 @@
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
-                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">
+                                    <button v-on:click="FormPesan" class="btn btn-main">
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
                                     </button>
                                 </div>
@@ -84,7 +84,7 @@
                                 </div>
 
                                 <!-- Formulir -->
-                                <div class="row mt-6 mb-6" v-if="FormPesanClick">
+                                <div class="row mt-6 mb-6" v-if="FormPesanClick" id="formInput">
                                     <div class="col-12">
                                         <h4 class="txt-main">Formulir Penggunaan</h4>
                                     </div>
@@ -144,16 +144,32 @@
                                                         </div>
                                                     </div>
 
-                                                    <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku</h5>
+                                                    <h5 class="subtitle" v-if="jenis.type === 2 && i === 4">Buku Cetak</h5>
                                                     <div v-if="jenis.type === 2">
                                                         <div class="option-inside">
                                                             <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <h5 class="subtitle" v-if="jenis.type === 3 && i === 6">Editorial</h5>
+
+                                                    <h5 class="subtitle" v-if="jenis.type === 3 && i === 7">Buku Digital</h5>
                                                     <div v-if="jenis.type === 3">
+                                                        <div class="option-inside">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <h5 class="subtitle" v-if="jenis.type === 4 && i === 10">Buku Cetak dan Digital</h5>
+                                                    <div v-if="jenis.type === 4">
+                                                        <div class="option-inside">
+                                                            <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
+                                                            <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <h5 class="subtitle" v-if="jenis.type === 5 && i === 13">Editorial</h5>
+                                                    <div v-if="jenis.type === 5">
                                                         <div class="option-inside">
                                                             <input :checked="i === 0 ? true : false" v-on:change="BtnRadioJenis($event)" :dataId="jenis.apiId" :dataIndex="i" class="form-check-input" type="radio" name="flexRadioDefault" :id="jenis.name">
                                                             <label class="form-check-label" :for="jenis.name">{{ jenis.text }}</label>
@@ -244,16 +260,28 @@
                 ],
                 
                 JenisPenggunaan: [
+                    // Internal
                     { id: 1, type: 1, apiId: 301, name: 'individu', text: 'Individu', price: 300000 },
                     { id: 2, type: 1, apiId: 302, name: 'lembaga-masyarakat', text: 'Lembaga Masyarakat', price: 300000 },
                     { id: 3, type: 1, apiId: 303, name: 'lembaga-nirlaba', text: 'Lembaga Nirlaba', price: 300000 },
-                    { id: 4, type: 1, apiId: 304, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah Swasta', price: 300000 },
-                    { id: 5, type: 2, apiId: 305, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
-                    { id: 6, type: 2, apiId: 306, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
-                    { id: 7, type: 3, apiId: 307, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
-                    { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Cetak Asing', price: 1000000 },
-                    { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
-                    { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
+                    { id: 4, type: 1, apiId: 304, name: 'instansi-pemerintah-swasta', text: 'Instansi Pemerintah/Swasta', price: 300000 },
+                    // Buku Cetak
+                    { id: 5, type: 2, apiId: 305, name: 'buku-cetak-halaman-dalam', text: 'Buku Cetak - Halaman Dalam', price: 300000 },
+                    { id: 6, type: 2, apiId: 306, name: 'buku-cetak-cover', text: 'Buku Cetak - Cover', price: 1000000 },
+                    { id: 7, type: 2, apiId: 307, name: 'buku-cetak-cover-halaman-dalam', text: 'Buku Cetak - Cover dan Halaman Dalam', price: 1300000 },
+                    // Buku Digital
+                    { id: 8, type: 3, apiId: 308, name: 'buku-digital-halaman-dalam', text: 'Buku Digital - Halaman Dalam', price: 300000 },
+                    { id: 9, type: 3, apiId: 309, name: 'buku-digital-cover', text: 'Buku Digital - Cover', price: 1000000 },
+                    { id: 10, type: 3, apiId: 310, name: 'buku-digital-cover-halaman-dalam', text: 'Buku Digital - Cover dan Halaman Dalam', price: 1300000 },
+                    // Buku Cetak dan Digital
+                    { id: 11, type: 4, apiId: 311, name: 'buku-cetak-digital-halaman-dalam', text: 'Buku Cetak dan Digital - Halaman Dalam', price: 600000 },
+                    { id: 12, type: 4, apiId: 312, name: 'buku-cetak-digital-cover', text: 'Buku Cetak dan Digital - Cover', price: 2000000 },
+                    { id: 13, type: 4, apiId: 313, name: 'buku-cetak-digital-cover-halaman-dalam', text: 'Buku Cetak dan Digital - Cover dan Halaman Dalam', price: 2600000 },
+                    // Editorial
+                    { id: 14, type: 5, apiId: 314, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 500000 },
+                    { id: 15, type: 5, apiId: 315, name: 'media-catak-asing', text: 'Media Cetak Asing', price: 1000000 },
+                    { id: 16, type: 5, apiId: 316, name: 'media-siar', text: 'Media Siar', price: 1000000 },
+                    { id: 17, type: 5, apiId: 317, name: 'media-online', text: 'Media Online', price: 500000 },
                 ],
             }
         },
@@ -349,9 +377,17 @@
                 }
             },
 
-            FormPesan() {
-                this.FormPesanClick = !this.FormPesanClick
-                
+            async FormPesan() {
+                this.FormPesanClick = !this.FormPesanClick;
+
+                await this.$nextTick();
+
+                window.scrollTo({
+                    top: document.getElementById("formInput").offsetTop,
+                    left: 0,
+                    behavior: 'smooth',
+                });
+
                 // if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
                 // else {
                 //     this.$store.commit('setLoadingImage', 'failed')
