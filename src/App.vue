@@ -38,12 +38,11 @@
         watch: {
             '$store.state.Login.RefreshToken': async function(newVal, oldVal) {
                 if ( oldVal != newVal ) {
-                    console.log(oldVal, newVal)
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
+                        this.detectCookiesStatusData()
                         setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
                     } else {
-                        console.log(newVal)
                         if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
                             this.getTokenKompasId(newVal)
                         } else {
@@ -55,9 +54,9 @@
 
             '$store.state.Login.TokenData': async function(newVal, oldVal) {
                 if ( oldVal != newVal ) {
-                    console.log(oldVal, newVal)
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
+                        this.detectCookiesStatusData()
                         setTimeout(() => this.$store.commit('setTokenAccess', null), 5000)
                     } else {
                         // if token acces is detected
@@ -196,7 +195,9 @@
             },
             
             async detectCookiesStatusData() {
-
+                this.$store.state.Tools.deleteCookies('kompas._token')
+                this.$store.state.Tools.deleteCookies('_km_dtl_s')
+                this.$store.state.Tools.deleteCookies('_km_dtl_d')
             }
         }
     }
