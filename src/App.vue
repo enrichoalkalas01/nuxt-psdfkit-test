@@ -57,12 +57,12 @@
                             // if access token is not detected
                             console.log('u dont have an access token !', 'trying to get access token...')
                             let newAccessToken = await this.getTokenKompasId(refreshTokenCookies)
-                            if ( !newAccessToken ) setTimeout(() => window.location.href = '/', 1500)
+                            if ( !newAccessToken ) setTimeout(() => window.location.reload(), 1500)
                             else {
                                 // set new token cookies & reload the page
                                 this.deleteLoginData()
                                 this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.accessToken, 10)
-                                window.location.href = "/"
+                                window.location.reload()
                             }
                         } else {
                             // if access token has detected, try to getting user data
@@ -137,8 +137,8 @@
                     this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(userData)).toString('base64'), 8)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 8)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_ok', true, 8)
-                    window.location.href = '/'
-                    // setTimeout(() => window.location.href = '/', 1500)
+                    window.location.reload()
+                    // setTimeout(() => window.location.reload(), 1500)
                 } else {
                     console.log('successfull to login sso')
                 }

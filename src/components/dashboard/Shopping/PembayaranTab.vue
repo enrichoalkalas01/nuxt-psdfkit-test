@@ -131,7 +131,7 @@
                 }
                 
                 if ( this.Selected.length === 0 ) {
-                    // alert('Mohon pilih terlebih dahulu produk nya...')
+                    // alert('Mohon pilih produk terlebih dahulu...')
                     this.setFailedLoadingScreen()
                 } else {
                     try {
@@ -199,7 +199,7 @@
                 setTimeout(() => { 
                     this.$store.commit('setLoadingScreen', true)
                     this.$store.commit('setLoadingImage', 'failed');
-                    this.$store.commit('setLoadingText', 'Mohon pilih terlebih dahulu produk nya...');
+                    this.$store.commit('setLoadingText', 'Mohon pilih produk terlebih dahulu...');
                     this.$store.commit('setCloseStatus', true);
 
                     setTimeout(() => {
