@@ -22,8 +22,8 @@
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
                                     <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
-                                    <button v-on:click="FormPesan" class="btn btn-main" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">
-                                        <i class="fas fa-shopping-cart"></i> <span>Pesan Foto</span>
+                                    <button v-on:click="FormPesan" class="btn btn-main">
+                                        <i class="fas fa-shopping-cart"></i> <span>Cek Harga</span>
                                     </button>
                                 </div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
@@ -121,7 +121,7 @@
                                             >
                                                 <div class="form-check" v-if="SizeProduct > ukuran.sizeMin">
                                                     <input v-on:change="changeSize" :checked="i === 0 ? true : false" :dataIndex="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel )</label>
+                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel / maksimum {{ ukuran.dpiMax }} dpi )</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -183,7 +183,7 @@
                                             <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
                                         </div>
                                         <div class="button-box">
-                                            <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan">Pesan</button>
+                                            <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">Pesan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -238,9 +238,9 @@
                 },
 
                 UkuranFoto: [
-                    { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640 },
-                    { id: 2, apiId: 202, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080 },
-                    { id: 3, apiId: 203, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000 },
+                    { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640, dpiMax: 72 },
+                    { id: 2, apiId: 202, ukuran: 'medium', text: 'Medium', sizeMin: 641, sizeMax: 1080, dpiMax: 300 },
+                    { id: 3, apiId: 203, ukuran: 'high', text: 'High', sizeMin: 1081, sizeMax: 100000000000, dpiMax: 300 },
                 ],
                 
                 JenisPenggunaan: [
@@ -251,7 +251,7 @@
                     { id: 5, type: 2, apiId: 305, name: 'buku-halaman-dalam', text: 'Buku Halaman Dalam', price: 300000 },
                     { id: 6, type: 2, apiId: 306, name: 'buku-cover', text: 'Buku Cover', price: 1000000 },
                     { id: 7, type: 3, apiId: 307, name: 'media-cetak-lokal', text: 'Media Cetak Lokal', price: 1000000 },
-                    { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Catak Asing', price: 1000000 },
+                    { id: 8, type: 3, apiId: 308, name: 'media-catak-asing', text: 'Media Cetak Asing', price: 1000000 },
                     { id: 9, type: 3, apiId: 309, name: 'media-siar', text: 'Media Siar', price: 1000000 },
                     { id: 10, type: 3, apiId: 310, name: 'media-online', text: 'Media Online', price: 1000000 },
                 ],
@@ -350,13 +350,15 @@
             },
 
             FormPesan() {
-                if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
-                else {
-                    this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setCloseStatus', true)
-                    this.$store.commit('setLoadingText',`<p>ups, anda belum login</p><a class="login" href="/login">Login</a>`)
-                    this.$store.commit('setLoadingScreen', true)
-                }
+                this.FormPesanClick = !this.FormPesanClick
+                
+                // if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
+                // else {
+                //     this.$store.commit('setLoadingImage', 'failed')
+                //     this.$store.commit('setCloseStatus', true)
+                //     this.$store.commit('setLoadingText',`<p>ups, anda belum login</p><a class="login" href="/login">Login</a>`)
+                //     this.$store.commit('setLoadingScreen', true)
+                // }
             },
         },
 

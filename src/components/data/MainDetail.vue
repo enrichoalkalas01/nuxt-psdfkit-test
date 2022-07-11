@@ -20,7 +20,7 @@
                             <div class="col-sm-8 my-3">
                                 <!-- <h3 class="subtitle txt-main">Penderita Penyakit Demam Berdarah</h3> -->
                                 <div class="d-block">
-                                    <p class="fw-bold">{{ dataDetail ? dataDetail.title : '' }}</p>
+                                    <p class="fw-bold">{{ dataDetail ? dataDetail.dataset_title : '' }}</p>
                                     <!-- <p>KOMPAS edisi Jumat 20 Agustus 2021</p> -->
                                     <!-- <p>Halaman: 1</p>
                                     <p>Penulis: JOL</p>
