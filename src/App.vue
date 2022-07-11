@@ -210,6 +210,8 @@
                     this.$store.state.Tools.deleteCookies('kompas._token')
                     this.$store.state.Tools.deleteCookies('_km_dtl_s')
                     this.$store.state.Tools.deleteCookies('_km_dtl_d')
+                    this.$store.commit('setLoginStatus', false)
+                    this.$store.commit('setUserData', null)
                 }
             }
         }
