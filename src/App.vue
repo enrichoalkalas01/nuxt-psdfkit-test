@@ -42,7 +42,11 @@
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
                         this.detectCookiesStatusData()
-                        setTimeout(() => this.$store.commit('setRefreshToken', null), 5000)
+                        if ( this.$store.state.Tools.GetCookies("_km_dtl_cookies") === 'true' ) 
+                        setTimeout(() => {
+                            this.$store.commit('setRefreshToken', null)
+                            this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
+                        }, 5000)
                     } else {
                         if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
                             this.getTokenKompasId(newVal)
@@ -59,7 +63,10 @@
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
                         this.detectCookiesStatusData()
-                        setTimeout(() => this.$store.commit('setTokenAccess', null), 5000)
+                        setTimeout(() => {
+                            this.$store.commit('setTokenAccess', null)
+                            this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
+                        }, 5000)
                     } else {
                         // if token acces is detected
                         try {
@@ -199,12 +206,10 @@
             async detectCookiesStatusData() {
                 console.log(this.$store.state.Tools.GetCookies("_km_dtl_cookies"))
                 if ( !this.$store.state.Tools.GetCookies("_km_dtl_cookies") || this.$store.state.Tools.GetCookies("_km_dtl_cookies") === 'false' ) {
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', true, 25)
                     this.$store.state.Tools.deleteCookies('kompas._token')
                     this.$store.state.Tools.deleteCookies('_km_dtl_s')
                     this.$store.state.Tools.deleteCookies('_km_dtl_d')
-                } else {
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', true, 25)
                 }
             }
         }
