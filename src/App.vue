@@ -147,11 +147,13 @@
                 try {
                     let tokenData = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
                     console.log('Successfull to getting new access token')
-                    return tokenData.data
+                    this.$store.state.Tools.deleteCookies('kompas._token')
+                    this.$store.state.Tools.createCookieMinute('kompas._token', tokenData.data.accessToken, 8)
                 } catch (error) {
                     console.log('failed to getting new access token')
                     console.log(error)
-                    return false
+                    // return false
+                    this.$store.state.Tools.deleteCookies('kompas._token')
                 }
             },
 
