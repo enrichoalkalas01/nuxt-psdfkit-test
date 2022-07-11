@@ -35,11 +35,8 @@
             }
         },
 
-        beforeMount() {
-            console.log(this.$store.state.Login)
-        },
         async mounted() {
-            this.autoLoginSSO()
+            // this.autoLoginSSO()
         },
         methods: {
             async autoLoginSSO() {

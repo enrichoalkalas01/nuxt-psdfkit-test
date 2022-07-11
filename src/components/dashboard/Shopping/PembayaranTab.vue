@@ -8,7 +8,7 @@
                     <h4>Order Summary</h4>
                 </div>
                 <div class="col-12 item">
-                    <span>Total Item Dipilih : {{ Selected.length }}</span>
+                    <span>Total Item Dipilih : {{ totalSelected }}</span>
                 </div>
                 <div class="col-12 cost">
                     <span>Total Harga : Rp. {{ this.$store.state.Tools.PriceFormat(totalPrice, 2, ',', '.') }}</span>
@@ -71,6 +71,7 @@
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
                 ResultData: [],
                 totalPrice: 0,
+                totalSelected: 0,
             }
         },
         
@@ -94,17 +95,17 @@
             },
 
             checkedData(e) {
-                let dataId = e.target.getAttribute("id"), dataStatus = e.target.getAttribute("dataChecked"),
-                orderId = e.target.getAttribute("orderId"), orderPrice = e.target.getAttribute("orderPrice")
+                let orderPrice = e.target.getAttribute("orderPrice"), dataChecked = e.target.getAttribute("datachecked"), orderId = e.target.getAttribute("orderId")
+                console.log(orderPrice, dataChecked, orderId)
 
-                if ( dataStatus !== 'false' ) {
-                    document.querySelector(`#${ dataId }`).setAttribute("dataChecked", "false")
-                    this.totalPrice = this.totalPrice - this.Selected.filter(x => x.idElement === dataId )[0].price
-                    this.Selected.pop(this.Selected.filter(x => x.idElement === dataId )[0])
+                if ( dataChecked === 'false' ) {
+                    this.Selected.push(orderId)
+                    this.totalSelected += 1; this.totalPrice += Number(e.target.getAttribute("orderPrice"))
+                    e.target.setAttribute('datachecked', 'true')
                 } else {
-                    document.querySelector(`#${ dataId }`).setAttribute("dataChecked", "true")
-                    this.totalPrice = this.totalPrice + Number(orderPrice)
-                    this.Selected.push({ idElement: dataId, price: Number(orderPrice), orderId: Number(orderId) })
+                    this.Selected.pop(orderId)
+                    this.totalSelected -= 1; this.totalPrice -= Number(e.target.getAttribute("orderPrice"))
+                    e.target.setAttribute('datachecked', 'false')
                 }
             },
 
@@ -118,18 +119,15 @@
                 if ( AllData ) {
                     this.ResultData = AllData.data.data.filter(x => x.status === 1)
                     console.log(this.ResultData)
-                    // this.Selected = AllData.data.data.filter(x => x.status === 1)
                 } else {
                     console.log(AllData)
                 }
             },
 
             async paymentSaldo() {
-                let readyData = []
-                this.Selected.map((data, i) => readyData[i] = data.orderId)
                 let configPaySaldo = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/pay`,
-                    method: 'POST', headers: { Authorization: this.Token }, data: readyData
+                    method: 'POST', headers: { Authorization: this.Token }, data: this.Selected
                 }
                 
                 if ( this.Selected.length === 0 ) {
