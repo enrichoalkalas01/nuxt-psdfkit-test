@@ -36,7 +36,7 @@
         },
 
         async mounted() {
-            // this.autoLoginSSO()
+            this.autoLoginSSO()
         },
         methods: {
             async autoLoginSSO() {
