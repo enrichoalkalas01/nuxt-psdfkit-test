@@ -115,7 +115,7 @@
                     console.log(error)
                     this.$store.commit('setLoadingScreen', true)
                     this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', 'ups, anda harus melengkapi profil terlebih dahulu...')
+                    this.$store.commit('setLoadingText', 'Mohon lengkapi data diri anda pada menu “akun” terlebih dahulu.')
                     this.$store.commit('setCloseStatus', true)
                 }
             },

@@ -53,7 +53,7 @@
                                         <button class="mt-2 btn btn-main tableau-btn" id="button-close-tableau" onclick="closeViz()">Tutup Infografik Data</button> -->
                                     </div>
                                     <div id="chartdiv"></div>
-                                    <p>Credit : {{ dataDetail ? dataDetail.credit : '' }}</p>
+                                    <p>{{ dataDetail ? dataDetail.credit ? `Credit : ${ dataDetail.credit }` : '' : '' }}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
