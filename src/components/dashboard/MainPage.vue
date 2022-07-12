@@ -21,7 +21,7 @@
                 this.$store.commit('setLoadingScreen', true)
                 this.$store.commit('setLoadingImage', 'failed');
                 this.$store.commit('setLoadingText', 'ups, anda belum login...');
-                setTimeout(() => { window.location.href = '/login' }, 1000)
+                setTimeout(() => { window.location.href = '/' }, 1000)
             }
         }
     }
