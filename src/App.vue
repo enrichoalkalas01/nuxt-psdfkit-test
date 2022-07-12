@@ -77,7 +77,7 @@
                 }
             },
 
-            '$store.state.Login.TokenData': async function(newVal) {
+            '$store.state.Login.LoginStatus': async function(newVal) {
                 if ( newVal === false ) {
                     this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
                 } else {
