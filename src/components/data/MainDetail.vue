@@ -53,6 +53,7 @@
                                         <button class="mt-2 btn btn-main tableau-btn" id="button-close-tableau" onclick="closeViz()">Tutup Infografik Data</button> -->
                                     </div>
                                     <div id="chartdiv"></div>
+                                    <p>Credit : {{ dataDetail ? dataDetail.credit : '' }}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
@@ -129,6 +130,9 @@
                 try {
                     let dataData = await Axios(this.ConfigApi)
                     this.dataDetail = dataData.data
+
+                    console.log(this.dataDetail);
+
                     this.urlTest = this.dataDetail.url_infographic
                     this.initViz()
                 } catch (error) {

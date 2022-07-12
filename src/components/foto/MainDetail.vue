@@ -363,7 +363,7 @@
                     try {
                         let PesanData = await Axios(configPayment); console.log(PesanData)
                         this.$store.commit('setLoadingImage', 'success')
-                        this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                        this.$store.commit('setLoadingText', 'Pemesanan Berhasil...')
                         setTimeout(() => {
                             window.location.href = "/dashboard/daftar-pesanan"
                             this.$store.commit('setLoadingScreen', false)

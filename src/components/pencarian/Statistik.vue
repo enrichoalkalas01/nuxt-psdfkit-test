@@ -9,7 +9,8 @@
                     >
                         <div class="content full-height borderless kolom2 mb-3">
                             <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }${ linkBack }`">
-                                <img :src="`https://assets.kompasdata.id/${ statistik.thumbnail }`" alt="" class="foto-img">
+                                <div class="images-div" :style="`background-image: url('https://assets.kompasdata.id/${ statistik.thumbnail }')`"></div>
+                                <!-- <img :src="`https://assets.kompasdata.id/${ statistik.thumbnail }`" alt="" class="foto-img"> -->
                             </a>
                             <div class="desc">
                                 <h3 class="title">
@@ -63,5 +64,15 @@
 <style>
     .data-title highlight{
         background-color: #bbfe3a;
+    }
+
+    .images-div {
+        width: 100%;
+        height: 175px;
+        background-color: #dedede;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+        border-radius: 5px;
     }
 </style>
