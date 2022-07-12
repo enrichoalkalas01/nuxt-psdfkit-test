@@ -43,10 +43,7 @@
                         this.getRefreshToken()
                         this.detectCookiesStatusData()
                         if ( this.$store.state.Tools.GetCookies("_km_dtl_cookies") === 'true' ) 
-                        setTimeout(() => {
-                            this.$store.commit('setRefreshToken', null)
-                            this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
-                        }, 5000)
+                        setTimeout(() => this.$store.commit('setRefreshToken', null), 1500)
                     } else {
                         if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
                             this.getTokenKompasId(newVal)
@@ -63,10 +60,7 @@
                     if ( newVal === '' || newVal === null ) {
                         this.getRefreshToken()
                         this.detectCookiesStatusData()
-                        setTimeout(() => {
-                            this.$store.commit('setTokenAccess', null)
-                            this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
-                        }, 5000)
+                        setTimeout(() => this.$store.commit('setTokenAccess', null), 1500)
                     } else {
                         // if token acces is detected
                         try {
@@ -76,12 +70,20 @@
                             this.$store.commit('setUserData', dataUser)
                             this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 8)
                             this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(dataUser)).toString('base64'), 8)
-                        } catch (error) {
+                        } catch (error) { 
                             console.log(error)
                         }
                     }
                 }
             },
+
+            '$store.state.Login.TokenData': async function(newVal) {
+                if ( newVal === false ) {
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', false, 25)
+                } else {
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', true, 25)
+                }
+            }
         },
 
         async mounted() {
@@ -205,7 +207,7 @@
             
             async detectCookiesStatusData() {
                 console.log(this.$store.state.Tools.GetCookies("_km_dtl_cookies"))
-                if ( !this.$store.state.Tools.GetCookies("_km_dtl_cookies") || this.$store.state.Tools.GetCookies("_km_dtl_cookies") === 'false' ) {
+                if ( this.$store.state.Tools.GetCookies("_km_dtl_cookies") || this.$store.state.Tools.GetCookies("_km_dtl_cookies") === 'false' ) {
                     this.$store.state.Tools.createCookieMinute('_km_dtl_cookies', true, 25)
                     this.$store.state.Tools.deleteCookies('kompas._token')
                     this.$store.state.Tools.deleteCookies('_km_dtl_s')
