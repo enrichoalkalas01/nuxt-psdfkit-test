@@ -55,6 +55,7 @@
                 } catch (error) {
                     console.log(error.message)
                     console.log('failed to get refresh token, reload / refresh the page !')
+                    this.deleteCookiesData()
                 }
             },
 
@@ -80,10 +81,10 @@
             },
 
             async getUserData(accessToken) {
+                console.log(accessToken)
                 try {
                     let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
                     newUserData.data.token = accessToken // change new access token
-                    console.log(newUserData.data)
                     this.$store.commit('setUserData', newUserData.data)
                     this.$store.commit('setLoginStatus', true)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
@@ -97,6 +98,7 @@
             },
 
             async deleteCookiesData() {
+                this.$store.commit('setLoginStatus', false)
                 this.$store.state.Tools.deleteCookies('kompas._token') // delete token status if exist
                 this.$store.state.Tools.deleteCookies('_km_dtl_s') // delete cookies status
                 this.$store.state.Tools.deleteCookies('_km_dtl_d') // delete cookies data
