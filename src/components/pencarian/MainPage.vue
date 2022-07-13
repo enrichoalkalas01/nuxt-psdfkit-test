@@ -103,7 +103,7 @@
                     <div class="pagination">
                         <VPagination
                             v-model="page"
-                            :pages="Number(this.$store.state.Search.SizeKey)"
+                            :pages="Number(1000)"
                             :range-size="1"
                             active-color="#DCEDFF"
                             @update:modelValue="updatePagination"
@@ -166,7 +166,6 @@
         async mounted() {
             this.totalSearch = this.$store.state.Search.TotalSearch
             this.pagination = this.paginationFunction()
-            console.log(this.$store.state)
         },
 
         async updated() {
@@ -213,11 +212,9 @@
             },
 
             async updatePagination(currPage) {
-                console.log(currPage)
                 let queryStringUrl = this.queryStringFunction()
                 let stringUrl = '', i = 0
                 for ( let queryData in queryStringUrl) {
-                    console.log(queryData, queryStringUrl[queryData])
                     stringUrl = stringUrl + `${ queryData === 'currentpage' ? queryData : queryData }=${ queryData === 'currentpage' ? currPage : queryStringUrl[queryData] }&`
                     i = i + 1
                 }

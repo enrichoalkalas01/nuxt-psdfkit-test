@@ -2,7 +2,10 @@
     <div class="row line-bot full  mt-3">
         <div class="col-12">
             <div class="content borderless">
-                <div class="row">
+                <div class="row" v-if="statistiks ? statistiks.length <= 0 : null">
+                    <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
+                </div>
+                <div class="row" v-if="statistiks ? statistiks.length > 0 : null">
                     <div
                         v-for="(statistik, i) in statistiks" :key="i"
                         class="col-12 pt-2 pb-3"
@@ -42,16 +45,21 @@
         data (){
             return{
                 linkBack: null,
-                statistiks: this.dataStatistiks,
+                statistiks: [],
                 total_search: 0,
             }
+        },
+
+        async beforeMount() {
+            this.linkBack = window.location.search
+            this.statistiks = this.dataStatistiks
+            this.total_search = this.totalSearch
         },
         
         async mounted() {
             this.linkBack = window.location.search
             this.statistiks = this.dataStatistiks
             this.total_search = this.totalSearch
-            console.log(this.statistiks)
         },
 
         async updated() {

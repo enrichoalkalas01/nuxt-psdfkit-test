@@ -1,7 +1,10 @@
 <template>
     <div class="row line-bot full">
         <LoadingScreen />
-        <div class="col-12">
+        <div class="col-12" v-if="artikels ? artikels.length <= 0 : null">
+            <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
+        </div>
+        <div class="col-12" v-if="artikels ? artikels.length > 0 : null">
             <div
                 v-for="artikel in artikels" :key="artikel.id"
                 class="row artikels content borderless my-3"
@@ -51,9 +54,15 @@
         data (){
             return{
                 linkBack: null,
-                artikels: this.dataArtikels,
+                artikels: [],
                 total_search: 0,
             }
+        },
+        
+        async beforeMount() {
+            this.linkBack = window.location.search
+            this.artikels = this.dataArtikels
+            this.total_search = this.totalSearch
         },
 
         async mounted() {

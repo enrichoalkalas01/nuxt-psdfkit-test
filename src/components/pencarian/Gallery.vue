@@ -2,7 +2,10 @@
     <div class="row pt-3 line-bot full">
         <LoadingScreen />
         <div class="wrapper-gallery col-12">
-            <div class="row box-gallery">
+            <div class="row" v-if="dataFotos ? dataFotos.length <= 0 : null">
+                <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
+            </div>
+            <div class="row box-gallery" v-if="dataFotos ? dataFotos.length > 0 : null">
                 <div 
                     v-for="(foto, i) in fotos ? fotos.documents : null" :key="i"
                     class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 text-center"
@@ -39,6 +42,7 @@
         data() {
             return {
                 linkBack: null,
+                dataFotos: [],
                 fotos: null,
                 total_search: 0,
                 configPhotosData: {
@@ -77,6 +81,7 @@
                     // Get Data From API
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
                     // Set Data From API
+                    this.dataFotos = DataPhotos.data.documents
                     this.fotos = DataPhotos.data
                     this.total_search = this.fotos.total
 

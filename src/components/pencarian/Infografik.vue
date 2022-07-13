@@ -1,6 +1,9 @@
 <template>
     <div class="row line-bot full mt-3">
-        <div class="col-12">
+        <div class="col-12" v-if="infografiksData ? infografiksData.length <= 0 : null">
+            <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
+        </div>
+        <div class="col-12" v-if="infografiksData ? infografiksData.length > 0 : null">
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
@@ -44,18 +47,28 @@
             return{
                 linkBack: null,
                 infografiks: this.dataInfografiks,
+                infografiksData: [],
                 total_search: 0,
             }
+        },
+
+        async beforeMount() {
+            this.linkBack = window.location.search
+            this.infografiks = this.dataInfografiks
+            this.infografiksData = this.dataInfografiks
+            this.total_search = this.totalSearch
         },
         
         async mounted() {
             this.linkBack = window.location.search
             this.infografiks = this.dataInfografiks
+            this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
         },
 
         async updated() {
             this.infografiks = this.dataInfografiks
+            this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
         },
     }

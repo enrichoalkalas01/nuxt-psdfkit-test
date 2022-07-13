@@ -239,7 +239,6 @@ const Search = {
                 if ( config === 'url' ) state.SearchConfigStatistiks.url = value[config]
                 if ( config === 'data' ) {
                     for ( let queryData in value[config] ) {
-                        console.log(queryData, value[config][queryData])
                         stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
                         i = i + 1
                     }

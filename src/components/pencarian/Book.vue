@@ -1,6 +1,9 @@
 <template>
     <div class="row line-bot full">
-        <div class="col-12">
+        <div class="col-12" v-if="booksData ? booksData.length <= 0 : null">
+            <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
+        </div>
+        <div class="col-12" v-if="booksData ? booksData.length > 0 : null">
             <div class="row d-flex justify-content-center">
                 <div
                     v-for="(book, i) in books" :key="i"
@@ -39,18 +42,28 @@
             return{
                 linkBack: null,
                 books: this.dataBooks,
+                booksData: [],
                 total_search: 0,
             }
+        },
+
+        async beforeMount() {
+            this.linkBack = window.location.search
+            this.books = this.dataBooks
+            this.booksData = this.dataBooks
+            this.total_search = this.totalSearch
         },
 
         async mounted() {
             this.linkBack = window.location.search
             this.books = this.dataBooks
+            this.booksData = this.dataBooks
             this.total_search = this.totalSearch
         },
 
         async updated() {
             this.books = this.dataBooks
+            this.booksData = this.dataBooks
             this.total_search = this.totalSearch
         },
     }
