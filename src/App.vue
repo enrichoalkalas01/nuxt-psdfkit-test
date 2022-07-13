@@ -47,10 +47,9 @@
                     if ( refreshToken.status === 204 || refreshToken.data === '' ) {
                         // if refresh token is not detected, delete all cookies status & data
                         console.log('refresh token is not detected !')
-                        this.$store.state.Tools.deleteCookies('kompas._token') // delete token status if exist
-                        this.$store.state.Tools.deleteCookies('_km_dtl_s') // delete cookies status
+                        this.deleteCookiesData()
                     } else {
-                        console.log('refresh token is not detected !')
+                        console.log('refresh token is detected !')
                         this.checkAndGetAccessToken(refreshToken.data)
                     }
                 } catch (error) {
@@ -71,10 +70,11 @@
                         let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
                         this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
                         this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
-                        this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
+                        
                     } catch (error) {
                         console.log(error.message)
                         console.log('failed to get new access token, reload / refresh the page !')
+                        this.deleteCookiesData()
                     }
                 }
             },
@@ -86,13 +86,20 @@
                     console.log(newUserData.data)
                     this.$store.commit('setUserData', newUserData.data)
                     this.$store.commit('setLoginStatus', true)
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(newUserData.data)).toString('base64'), 8) // set status login data
                     console.log(this.$store.state)
                 } catch (error) {
                     console.log(error.message)
                     console.log('failed to get new user data, reload / refresh the page !')
-                    this.$store.state.Tools.deleteCookies('kompas._token') // delete token status if exist
-                    this.$store.state.Tools.deleteCookies('_km_dtl_s') // delete cookies status
+                    this.deleteCookiesData()
                 }
+            },
+
+            async deleteCookiesData() {
+                this.$store.state.Tools.deleteCookies('kompas._token') // delete token status if exist
+                this.$store.state.Tools.deleteCookies('_km_dtl_s') // delete cookies status
+                this.$store.state.Tools.deleteCookies('_km_dtl_d') // delete cookies data
             }
         }
     }
