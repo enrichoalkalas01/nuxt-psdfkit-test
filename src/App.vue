@@ -46,9 +46,17 @@
                         this.checkRefreshToken()
                         setTimeout(() => this.$store.commit('setRefreshToken', newVal))
                     }
-                } else {
+                }
+            },
+
+            '$store.state.Login.TokenData': async function(newVal, oldVal) {
+                if ( oldVal != newVal ) {
                     console.log(oldVal, newVal)
-                    setTimeout(() => this.$store.commit('setRefreshToken', newVal))
+                    if ( newVal === '' || newVal === null ) {
+                        setTimeout(() => this.$store.commit('setTokenAccess', null))
+                    } else {
+                        console.log(oldVal, newVal)
+                    }
                 }
             },
         },
