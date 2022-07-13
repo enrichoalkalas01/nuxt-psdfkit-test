@@ -44,9 +44,11 @@
                         setTimeout(() => this.$store.commit('setRefreshToken', null))
                     } else {
                         this.checkRefreshToken()
+                        setTimeout(() => this.$store.commit('setRefreshToken', newVal))
                     }
                 } else {
                     console.log(oldVal, newVal)
+                    setTimeout(() => this.$store.commit('setRefreshToken', newVal))
                 }
             },
         },
