@@ -43,15 +43,16 @@
                         this.checkRefreshToken()
                         setTimeout(() => this.$store.commit('setRefreshToken', null))
                     } else {
-                        this.checkRefreshToken()
-                        setTimeout(() => this.$store.commit('setRefreshToken', newVal))
+                        // if refresh token is detected !
+                        this.checkTokenKompas(newVal)
                     }
                 }
             },
 
             '$store.state.Login.TokenData': async function(newVal, oldVal) {
+                console.log(oldVal, newVal)
                 if ( oldVal != newVal ) {
-                    console.log(oldVal, newVal)
+                    
                     if ( newVal === '' || newVal === null ) {
                         setTimeout(() => this.$store.commit('setTokenAccess', null))
                     } else {
@@ -78,9 +79,20 @@
                 }
             },
 
-            async checkTokenKompas() {
-                if ( this.$store.state.Tools.GetCookies("kompas._token") ) return false
-                
+            async checkTokenKompas(refreshToken) {
+                if ( this.$store.state.Tools.GetCookies("kompas._token") ) {
+                    this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
+                    return this.$store.state.Tools.GetCookies("kompas._token")
+                } else { this.getNewTokenKompas(refreshToken); return false }
+            },
+
+            async getNewTokenKompas(refreshToken) {
+                try {
+                    let tokenAccessKompas = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
+                    console.log(tokenAccessKompas)
+                } catch (error) {
+                    console.log('error')
+                }
             }
         }
     }
