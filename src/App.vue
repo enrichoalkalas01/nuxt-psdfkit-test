@@ -57,7 +57,7 @@
             async checkRefreshToken() {
                 try {
                     let refreshTokenKompasId = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    console.log(refreshTokenKompasId)
+                    this.$store.commit('setRefreshToken', refreshTokenKompasId.data)
                     return refreshTokenKompasId
                 } catch (error) {
                     console.log(error)
