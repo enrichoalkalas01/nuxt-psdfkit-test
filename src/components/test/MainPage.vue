@@ -1,6 +1,6 @@
 <template>
     <div class="box-chart">
-        <Bar
+        <!-- <Bar
             :chart-options="chartOptions"
             :chart-data="chartData"
             :chart-id="chartId"
@@ -11,39 +11,67 @@
             :width="'500px'"
             :height="'100px'"
         />
-        <div id="hello" class="hello" ref="chartdiv" style="width: 100%; height: 500px;">
-            
-        </div>
-
+        <div id="hello" class="hello" ref="chartdiv" style="width: 100%; height: 500px;"></div> -->
+<!-- 
         <button v-on:click="testRefreshToken">Cek API</button>
-        <button v-on:click="testToken">Ceh Token</button>
+        <button v-on:click="testToken">Ceh Token</button> -->
+
+        <div>
+            <!-- <Paginate
+                :page-count="20"
+                :page-range="3"
+                :margin-pages="2"
+                :click-handler="updateHandler"
+                :prev-text="'Prev'"
+                :next-text="'Next'"
+                :container-class="'pagination'"
+                :page-class="'page-item'"
+            /> -->
+
+            <v-pagination
+                v-model="page"
+                :pages="10"
+                :range-size="1"
+                active-color="#DCEDFF"
+                @update:modelValue="updateHandler"
+            />
+        </div>
     </div>
 </template>
 
 <script>
-    import { Bar } from 'vue-chartjs'
-    import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+    // import { Bar } from 'vue-chartjs'
+    // import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
-    ChartJS.register(Title , Tooltip, Legend, BarElement, CategoryScale, LinearScale)
-    import * as am5 from '@amcharts/amcharts5';
-    import * as am5xy from '@amcharts/amcharts5/xy';
-    import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
+    // ChartJS.register(Title , Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+    // import * as am5 from '@amcharts/amcharts5';
+    // import * as am5xy from '@amcharts/amcharts5/xy';
+    // import am5themes_Animated from '@amcharts/amcharts5/themes/Animated';
+
+    // import Paginate from 'vuejs-paginate-next';
+
+    import VPagination from "@hennge/vue3-pagination";
+    import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
     import Axios from 'axios'
 
     export default {
         name: 'TestMain',
-        components: { Bar },
-        computed: {
-            myStyles () {
-                return {
-                    height: `${ 100 }px`,
-                    position: 'relative'
-                }
-            }
+        components: {
+            // Paginate
+            VPagination
         },
+        // computed: {
+        //     myStyles () {
+        //         return {
+        //             height: `${ 100 }px`,
+        //             position: 'relative'
+        //         }
+        //     }
+        // },
         data() {
             return {
+                page: 4,
                 chartData: {
                     labels: [ 'January', 'February', 'March', 'Mey', 'June' ],
                     datasets: [ { data: [40, 20, 12, 122, 123] } ]
@@ -65,25 +93,28 @@
             }
         },
 
-        mounted() {
-            let newDataSets = []
-            for ( let i = 0; i < 25; i++ ) {
-                var random = Math.abs(Math.round(Math.random() * (+1 - +10) + +1));
-                newDataSets[i] = random > 0 ? random : 1
-            }
+        // mounted() {
+        //     let newDataSets = []
+        //     for ( let i = 0; i < 25; i++ ) {
+        //         var random = Math.abs(Math.round(Math.random() * (+1 - +10) + +1));
+        //         newDataSets[i] = random > 0 ? random : 1
+        //     }
             
-            this.chartData.labels = newDataSets
-            this.chartData.datasets = [{ 
-                label: 'Data One',
-                data: newDataSets,
-                backgroundColor: '#f87979',
-                max: 50
-            }]
+        //     this.chartData.labels = newDataSets
+        //     this.chartData.datasets = [{ 
+        //         label: 'Data One',
+        //         data: newDataSets,
+        //         backgroundColor: '#f87979',
+        //         max: 50
+        //     }]
 
-            this.amChartHere()
-        },
+        //     this.amChartHere()
+        // },
 
         methods: {
+            async updateHandler(e) {
+                console.log(e)
+            },
             async testRefreshToken() {
                 let configRefresh = {
                     method: 'post',
@@ -102,50 +133,50 @@
                 
             },
 
-            amChartHere() {
-                let root = am5.Root.new(this.$refs.chartdiv);
-                root.setThemes([am5themes_Animated.new(root)]);
-                let chart = root.container.children.push(
-                    am5xy.XYChart.new(root, { panY: false, layout: root.verticalLayout })
-                );
-                let data = [{
-                    category: "Research",
-                    value1: 1000,
-                    value2: 588
-                },{
-                    category: "Marketing",
-                    value1: 1200,
-                    value2: 1800
-                },{
-                    category: "Sales",
-                    value1: 850,
-                    value2: 1230
-                }]
+            // amChartHere() {
+            //     let root = am5.Root.new(this.$refs.chartdiv);
+            //     root.setThemes([am5themes_Animated.new(root)]);
+            //     let chart = root.container.children.push(
+            //         am5xy.XYChart.new(root, { panY: false, layout: root.verticalLayout })
+            //     );
+            //     let data = [{
+            //         category: "Research",
+            //         value1: 1000,
+            //         value2: 588
+            //     },{
+            //         category: "Marketing",
+            //         value1: 1200,
+            //         value2: 1800
+            //     },{
+            //         category: "Sales",
+            //         value1: 850,
+            //         value2: 1230
+            //     }]
 
-                let yAxis = chart.yAxes.push(
-                    am5xy.ValueAxis.new(root, { renderer: am5xy.AxisRendererY.new(root, {}) })
-                )
+            //     let yAxis = chart.yAxes.push(
+            //         am5xy.ValueAxis.new(root, { renderer: am5xy.AxisRendererY.new(root, {}) })
+            //     )
 
-                let xAxis = chart.xAxes.push(
-                    am5xy.CategoryAxis.new(root, { renderer: am5xy.AxisRendererX.new(root, {}), categoryField: "category" })
-                )
+            //     let xAxis = chart.xAxes.push(
+            //         am5xy.CategoryAxis.new(root, { renderer: am5xy.AxisRendererX.new(root, {}), categoryField: "category" })
+            //     )
 
-                xAxis.data.setAll(data)
-                let series1 = chart.series.push(
-                    am5xy.ColumnSeries.new(root, {name: "Series", xAxis: xAxis, yAxis: yAxis, valueYField: "value1", categoryXField: "category" })
-                )
-                series1.data.setAll(data)
-                let series2 = chart.series.push(
-                    am5xy.ColumnSeries.new(root, { name: "Series", xAxis: xAxis, yAxis: yAxis, valueYField: "value2", categoryXField: "category" })
-                )
-                series2.data.setAll(data)
+            //     xAxis.data.setAll(data)
+            //     let series1 = chart.series.push(
+            //         am5xy.ColumnSeries.new(root, {name: "Series", xAxis: xAxis, yAxis: yAxis, valueYField: "value1", categoryXField: "category" })
+            //     )
+            //     series1.data.setAll(data)
+            //     let series2 = chart.series.push(
+            //         am5xy.ColumnSeries.new(root, { name: "Series", xAxis: xAxis, yAxis: yAxis, valueYField: "value2", categoryXField: "category" })
+            //     )
+            //     series2.data.setAll(data)
 
-                let legend = chart.children.push(am5.Legend.new(root, {}));
-                legend.data.setAll(chart.series.values)
+            //     let legend = chart.children.push(am5.Legend.new(root, {}));
+            //     legend.data.setAll(chart.series.values)
 
-                chart.set("cursor", am5xy.XYCursor.new(root, {}));
-                this.root = root;
-            }
+            //     chart.set("cursor", am5xy.XYCursor.new(root, {}));
+            //     this.root = root;
+            // }
         },
         beforeUnmount() { if (this.root) { this.root.dispose() } }
     }

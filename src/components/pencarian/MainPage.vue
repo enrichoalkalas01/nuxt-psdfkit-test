@@ -100,43 +100,14 @@
                     </div>
 
                     <!-- Pagination -->
-                    <div>
-                        <div class="col-12 my-3 text-center">
-                            <ul class="pagination cst-pagin d-flex justify-content-center">
-                                <li 
-                                    :class="pagination[0].page > 1 ? 'page-item' : 'page-item disabled'">
-                                    <a 
-                                        class="page-link" 
-                                        :href="
-                                            pagination[0].page > 0 ?
-                                                pagination[0].url.replace(
-                                                    `currentpage=${ pagination[0].url.substring(pagination[0].url.length - 1) }`,
-                                                    `currentpage=${ Number(pagination[0].url.substring(pagination[0].url.length - 1)) - 1 }`
-                                                )
-                                            : ''
-                                        "
-                                    >
-                                        Sebelumnya
-                                    </a>
-                                </li>
-                                <li 
-                                    v-for="(pageData, i) in pagination" :key="i"
-                                    :class="i == 0 ? 'page-item active' : 'page-item'"
-                                >
-                                    <a class="page-link" :href="pageData.url">
-                                        {{ pageData.page }}
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a 
-                                        class="page-link" 
-                                        :href="pagination[1].url"
-                                    >
-                                        Selanjutnya
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="pagination">
+                        <VPagination
+                            v-model="page"
+                            :pages="Number(this.$store.state.Search.SizeKey)"
+                            :range-size="1"
+                            active-color="#DCEDFF"
+                            @update:modelValue="updatePagination"
+                        />
                     </div>
                 </div>
             </div>
@@ -153,6 +124,9 @@
     import Buku from './MainBook.vue'
     import Statistik from './MainStatistik.vue'
 
+    import VPagination from "@hennge/vue3-pagination"
+    import "@hennge/vue3-pagination/dist/vue3-pagination.css"
+
     export default {
         name: 'MainPage',
         components: {
@@ -163,18 +137,19 @@
             Infografik,
             Gallery,
             Buku,
-            Statistik
+            Statistik,
+            VPagination
         },
         props: { },
         
         data() {
             return {
+                page: Number(this.$store.state.Search.CurrentPageKey),
                 pageOfItems: [],
                 artikels: null,
                 fotos: null,
                 infografiks: null,
                 statistiks: null,
-                pagination: [{ page: 1, url: '' }, { page: 1, url: '' }, { page: 2, url: '' }, { page: 3, url: '' }, { page: 3, url: '' }],
                 keySearch: this.$store.state.Search.SearchKey,
                 totalSearch: this.$store.state.Search.TotalSearch,
                 ChangeStatus: 0,
@@ -235,7 +210,20 @@
 
                 window.location.href = urlString
                 this.$store.commit('setOrderDirection', e.target.value)
-            }
+            },
+
+            async updatePagination(currPage) {
+                console.log(currPage)
+                let queryStringUrl = this.queryStringFunction()
+                let stringUrl = '', i = 0
+                for ( let queryData in queryStringUrl) {
+                    console.log(queryData, queryStringUrl[queryData])
+                    stringUrl = stringUrl + `${ queryData === 'currentpage' ? queryData : queryData }=${ queryData === 'currentpage' ? currPage : queryStringUrl[queryData] }&`
+                    i = i + 1
+                }
+
+                window.location.href = `/pencarian?${ stringUrl.substring(0, stringUrl.length - 1) }`
+            },
         },
     }
 
@@ -259,5 +247,14 @@
 <style>
     .f14 {
         font-size: 14px;
+    }
+
+    .Page {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .Page-active {
+        font-size: 16px !important;
     }
 </style>

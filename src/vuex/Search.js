@@ -6,7 +6,7 @@ const Search = {
         return {
             Search: null,
             SearchKey: null,
-
+                
             AuthorKey: null,            
             CurrentPageKey: 1,
             PublicationKey: null,
@@ -238,8 +238,8 @@ const Search = {
                 if ( config === 'method' ) state.SearchConfigStatistiks.method = value[config]
                 if ( config === 'url' ) state.SearchConfigStatistiks.url = value[config]
                 if ( config === 'data' ) {
-                    
                     for ( let queryData in value[config] ) {
+                        console.log(queryData, value[config][queryData])
                         stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
                         i = i + 1
                     }
@@ -248,7 +248,6 @@ const Search = {
                 }
             }
         },
-
 
         userSetStatusText(state, value) { state.userTextStatus = value },
         userSetStatusSearch(state, value) { state.userStatus = value }
