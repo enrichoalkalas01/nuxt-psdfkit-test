@@ -71,13 +71,13 @@
                                         <div class="d-block my-3">
                                             <!-- <h2 class="tag"><em> CARA PENGGUNAAN FOTO</em></h2> -->
                                             <ol>
-                                                <li>Penggunaan foto harus mengajukan izin kepada Kompas.</li>
                                                 <li>Penggunaan foto wajib mencantumkan kredit atas nama fotografer dengan format: ‘Kompas/Fotografer’.</li>
                                                 <li>Foto tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ pornoaksi/ diskriminasi.</li>
                                                 <li>Penggunaan foto untuk kepentingan komersial silahkan hubungi kami</li>
                                                 <li>Penggunaan foto tokoh/sosok/properti untuk kepentingan komersial wajib mendapat persetujuan secara tertulis dari yang bersangkutan.</li>
                                                 <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan foto tanpa persetujuan dari Kompas.</li>
                                                 <li>Untuk pembelian foto tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
+                                                <li>Harga tertera berlaku untuk satu kali cetak.</li>
                                             </ol>
                                         </div>
                                     </div>
@@ -192,12 +192,12 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" v-model="Aggrement" id="aggrement">
                                                 <label class="form-check-label" for="aggrement">
-                                                    <i>Saya setuju dengan syarat dan ketentuan yang berlaku.</i>
+                                                    <i>Saya setuju dengan <a href="#dbTabs02">syarat dan ketentuan</a> yang berlaku.</i>
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="total-harga" id="total-harga">
-                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }} (Harga tertera berlaku untuk 1x cetak/publikasi)</h4>
+                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
                                         </div>
                                         <div class="button-box">
                                             <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">Pesan</button>

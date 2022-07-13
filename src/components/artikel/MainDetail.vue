@@ -3,6 +3,13 @@
         <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
+                <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0">
+                    <div class="row">
+                        <div class="status-message">
+                            <div v-html="this.$store.state.Search.userTextStatus"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb komp-breadcrumb">

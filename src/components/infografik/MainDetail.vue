@@ -24,12 +24,8 @@
                                 <table class="table db-table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <th>Id</th>
-                                            <td>{{ infografikDetail ? infografikDetail.reference_id : '' }}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Author</th>
-                                            <td>{{ infografikDetail ? infografikDetail.author : '' }}</td>
+                                            <td>{{ infografikDetail ? infografikDetail.author != '' ? infografikDetail.author : '-' : '' }}</td>
                                         </tr>
                                         <tr>
                                             <th>Publication</th>
