@@ -28,6 +28,7 @@
         components: { TopNav, MainNav, Footer, TopBarReflection },
         data() {
             return {
+                configRefreshToken:{ method: 'get', url: `https://data-api-dev.kompas.id/api/Login/kompas-token-refresh`, withCredentials: true },
                 configToken: {
                     method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
                     headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
@@ -36,11 +37,25 @@
         },
 
         async mounted() {
-            
+            this.autoLoginSSOFixed()
         },
 
         methods: {
-            
+            async autoLoginSSOFixed() {
+                this.checkAndGetRefreshToken()
+            },
+
+            async checkAndGetRefreshToken() {
+                try {
+                    let refreshToken = await Axios(this.configRefreshToken)
+                    if ( refreshToken.status === 204 || refreshToken.data === '' ) console.log('refresh token is not detected !')
+                    else {
+                        console.log(refreshToken.data)
+                    }
+                } catch (error) {
+                    console.log(error)
+                }
+            }
         }
     }
 </script>
