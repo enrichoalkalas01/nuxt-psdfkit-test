@@ -45,6 +45,8 @@
                     } else {
                         this.checkRefreshToken()
                     }
+                } else {
+                    console.log(oldVal, newVal)
                 }
             },
         },
@@ -60,9 +62,15 @@
                     this.$store.commit('setRefreshToken', refreshTokenKompasId.data)
                     return refreshTokenKompasId
                 } catch (error) {
+                    this.$store.commit('setRefreshToken', null)
                     console.log(error)
                     return false
                 }
+            },
+
+            async checkTokenKompas() {
+                if ( this.$store.state.Tools.GetCookies("kompas._token") ) return false
+                
             }
         }
     }
