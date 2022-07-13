@@ -54,10 +54,14 @@
                 if ( oldVal != newVal ) {
                     
                     if ( newVal === '' || newVal === null ) {
-                        this.$store.commit('setTokenAccess', '')
-                        setTimeout(() => this.$store.commit('setTokenAccess', null))
+                        if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
+                            this.$store.commit('setTokenAccess', '')
+                            setTimeout(() => this.$store.commit('setTokenAccess', null))
+                        } else {
+                            this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
+                        }
                     } else {
-                        console.log(oldVal, newVal)
+                        console.log(oldVal, `Token-${ newVal }`)
                     }
                 }
             },
@@ -65,7 +69,7 @@
 
         async mounted() {
             console.log(this.$store.state)
-            setTimeout(() => this.$store.commit('setTokenAccess', ''))
+            this.$store.commit('setTokenAccess', '')
             this.checkRefreshToken()
         },
 
