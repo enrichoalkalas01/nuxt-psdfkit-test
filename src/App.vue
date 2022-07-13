@@ -36,9 +36,13 @@
             }
         },
 
-        async mounted() {
+        async beforeMount() {
             this.autoLoginSSOFixed()
         },
+
+        // async mounted() {
+        //     this.autoLoginSSOFixed()
+        // },
 
         methods: {
             async autoLoginSSOFixed() {
@@ -54,7 +58,6 @@
                         this.checkAndGetAccessToken(refreshToken.data)
                     }
                     else {
-                        console.log(refreshToken.data)
                         this.checkAndGetAccessToken(refreshToken.data)
                     }
                 } catch (error) {
@@ -65,7 +68,8 @@
             async checkAndGetAccessToken(refreshToken) {
                 // refreshToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2ODkxMjE5ODcsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.bmLGf8F5KVFBoCnroApL048QPlW4KYSD63WHISxB4WEIKanB5h5FrJDtTjQIkBBOohj3AHMov6Gy-wDiwMPQKc5rcEO2GwKf20w57CihDkl9g1AFGQPnBOYaaIR9f0QFzUohAkZa2E3uUXLVYEbMjXeTsrOYlCJFmHKJYiSH1JY'
                 if ( this.$store.state.Tools.GetCookies("kompas._token") ) {
-                    console.log(this.$store.state.Tools.GetCookies("kompas._token"))
+                    console.log('token data is detected !')
+                    this.getUserData(this.$store.state.Tools.GetCookies("kompas._token"))
                 } else {
                     console.log('token acccess is not detected!')
                     try {
