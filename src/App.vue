@@ -35,72 +35,12 @@
             }
         },
 
-        watch: {
-            '$store.state.Login.RefreshToken': async function(newVal, oldVal) {
-                if ( oldVal != newVal ) {
-                    console.log(oldVal, newVal)
-                    if ( newVal === '' || newVal === null ) {
-                        this.checkRefreshToken()
-                        setTimeout(() => this.$store.commit('setRefreshToken', null))
-                    } else {
-                        // if refresh token is detected !
-                        this.checkTokenKompas(newVal)
-                    }
-                }
-            },
-
-            '$store.state.Login.TokenData': async function(newVal, oldVal) {
-                console.log(oldVal, newVal)
-                if ( oldVal != newVal ) {
-                    
-                    if ( newVal === '' || newVal === null ) {
-                        if ( !this.$store.state.Tools.GetCookies("kompas._token") ) {
-                            this.$store.commit('setTokenAccess', '')
-                            setTimeout(() => this.$store.commit('setTokenAccess', null))
-                        } else {
-                            this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
-                        }
-                    } else {
-                        console.log(oldVal, `Token-${ newVal }`)
-                    }
-                }
-            },
-        },
-
         async mounted() {
-            console.log(this.$store.state)
-            this.$store.commit('setTokenAccess', '')
-            this.checkRefreshToken()
+            
         },
 
         methods: {
-            async checkRefreshToken() {
-                try {
-                    let refreshTokenKompasId = await Axios('https://data-api-dev.kompas.id/api/Login/kompas-token-refresh', { withCredentials: true })
-                    this.$store.commit('setRefreshToken', refreshTokenKompasId.data)
-                    return refreshTokenKompasId
-                } catch (error) {
-                    this.$store.commit('setRefreshToken', null)
-                    console.log(error)
-                    return false
-                }
-            },
-
-            async checkTokenKompas(refreshToken) {
-                if ( this.$store.state.Tools.GetCookies("kompas._token") ) {
-                    this.$store.commit('setTokenAccess', this.$store.state.Tools.GetCookies("kompas._token"))
-                    return this.$store.state.Tools.GetCookies("kompas._token")
-                } else { this.getNewTokenKompas(refreshToken); return false }
-            },
-
-            async getNewTokenKompas(refreshToken) {
-                try {
-                    let tokenAccessKompas = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
-                    console.log(tokenAccessKompas.data.data)
-                } catch (error) {
-                    console.log('error')
-                }
-            }
+            
         }
     }
 </script>
