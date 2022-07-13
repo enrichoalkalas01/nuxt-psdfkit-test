@@ -63,6 +63,7 @@
         },
 
         async mounted() {
+            console.log(this.$store.state)
             this.checkRefreshToken()
         },
 
@@ -89,7 +90,7 @@
             async getNewTokenKompas(refreshToken) {
                 try {
                     let tokenAccessKompas = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
-                    console.log(tokenAccessKompas)
+                    console.log(tokenAccessKompas.data.data)
                 } catch (error) {
                     console.log('error')
                 }
