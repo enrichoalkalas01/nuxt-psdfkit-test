@@ -4,10 +4,8 @@
             <div class="row d-flex justify-content-center pb-5">
                 <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus">
                     <div class="row">
-                        <div class="col-12 status-user">
-                            <span>Tipe user : {{ this.$store.state.Search.userStatus }}</span>
-                        </div>
                         <div class="status-message">
+                            <div>Tipe user : {{ this.$store.state.Search.userStatus }}</div>
                             <div v-html="this.$store.state.Search.userTextStatus"></div>
                         </div>
                     </div>
