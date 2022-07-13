@@ -48,12 +48,45 @@
             async checkAndGetRefreshToken() {
                 try {
                     let refreshToken = await Axios(this.configRefreshToken)
-                    if ( refreshToken.status === 204 || refreshToken.data === '' ) console.log('refresh token is not detected !')
+                    if ( refreshToken.status === 204 || refreshToken.data === '' ) {
+                        // if refresh token is not detected, delete all cookies status & data
+                        console.log('refresh token is not detected !')
+                        this.checkAndGetAccessToken(refreshToken.data)
+                    }
                     else {
                         console.log(refreshToken.data)
+                        this.checkAndGetAccessToken(refreshToken.data)
                     }
                 } catch (error) {
                     console.log(error)
+                }
+            },
+
+            async checkAndGetAccessToken(refreshToken) {
+                // refreshToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2ODkxMjE5ODcsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.bmLGf8F5KVFBoCnroApL048QPlW4KYSD63WHISxB4WEIKanB5h5FrJDtTjQIkBBOohj3AHMov6Gy-wDiwMPQKc5rcEO2GwKf20w57CihDkl9g1AFGQPnBOYaaIR9f0QFzUohAkZa2E3uUXLVYEbMjXeTsrOYlCJFmHKJYiSH1JY'
+                if ( this.$store.state.Tools.GetCookies("kompas._token") ) {
+                    console.log(this.$store.state.Tools.GetCookies("kompas._token"))
+                } else {
+                    console.log('token acccess is not detected!')
+                    try {
+                        let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
+                        this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
+                        this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
+                    } catch (error) {
+                        console.log(error)
+                        console.log('failed to get new access token, reload / refresh the page !')
+                    }
+                }
+            },
+
+            async getUserData(accessToken) {
+                try {
+                    let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
+                    newUserData.data.token = accessToken // change new access token
+                    console.log(newUserData)
+                } catch (error) {
+                    console.log(error)
+                    console.log('failed to get new user data, reload / refresh the page !')
                 }
             }
         }
