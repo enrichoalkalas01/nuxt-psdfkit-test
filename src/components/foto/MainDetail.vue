@@ -180,12 +180,13 @@
                                         </div>
                                     </div>  
                                     <div class="col-12">
-                                        <h5 class="subtitle">Informasi Persetujuan</h5>
-                                        <div class="mb-2">
-                                            <b>
-                                                <label for="">Foto lebih dari satu jenis penggunaan, silahkan mengisi form lagi sesuai kebutuhan yang lain.</label>
-                                                <label for="">Untuk pengunaan diluar pilihan silahkan hubungi kami.</label>
-                                            </b>
+                                        <div class="my-2">
+                                            <h5 class="subtitle">Catatan Penggunaan</h5>
+                                            <ol>
+                                                <li>Mohon membaca Ketentuan Penggunaan Foto pada tab “Ketentuan Penggunaan” terlebih dahulu.</li>
+                                                <li>Silakan melakukan pemesanan kembali jika foto hendak digunakan pada lebih dari 1 jenis penggunaan.</li>
+                                                <li>Jika jenis penggunaan tidak tercantum dalam pilihan di atas, mohon hubungi kami melalui e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
+                                            </ol>
                                         </div>
                                         <div class="mb-4">
                                             <div class="form-check">
@@ -196,7 +197,7 @@
                                             </div>
                                         </div>
                                         <div class="total-harga" id="total-harga">
-                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }}</h4>
+                                            <h4>Rp. {{ this.$store.state.Tools.PriceFormat(TotalPayment, 2, ',', '.') }} (Harga tertera berlaku untuk 1x cetak/publikasi)</h4>
                                         </div>
                                         <div class="button-box">
                                             <button v-on:click="pesanFoto" class="payment btn btn-primary" id="pesan" :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false">Pesan</button>

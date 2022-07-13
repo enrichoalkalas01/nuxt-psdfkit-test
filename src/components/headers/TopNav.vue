@@ -74,7 +74,6 @@
                         <ul class="dropdown-menu" aria-labelledby="bantuanDropdown">
                             <li><a class="dropdown-item" href="/bantuan#tentang">Tentang</a></li>
                             <li><a class="dropdown-item" href="/bantuan#langganan">Cara Berlangganan</a></li>
-                            <li><a class="dropdown-item" href="/bantuan#harga">Harga</a></li>
                         </ul>
                     </li>
 

@@ -70,13 +70,11 @@
                             </div>
                             <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                 <ol>
-                                    <li>Penggunaan artikel harus mengajukan izin kepada Kompas.</li>
-                                    <li>Penggunaan artikel wajib mencantumkan kredit atas nama Penulis dengan format: ‘Kompas/Penulis.</li>
+                                    <li>Penggunaan artikel wajib mencantumkan kredit atas nama penulis dengan format: ‘Kompas/Penulis Artikel’.</li>
+                                    <li>Penggunaan artikel wajib mencantumkan sumber edisi dengan format: ‘Kompas, tanggal-bulan-tahun’.</li>
+                                    <li>Artikel yang digunakan oleh pelanggan untuk kepentingan komersial harus mendapatkan persetujuan dari Kompas.</li>
                                     <li>Artikel tidak boleh digunakan sebagai sarana/materi kegiatan atau tindakan yang melanggar norma hukum, sosial, SARA, dan mengandung unsur pelecehan/ pornografi/ pornoaksi/ diskriminasi.</li>
-                                    <li>Penggunaan artikel untuk kepentingan komersial silahkan hubungi kami</li>
-                                    <li>Penggunaan artikel tokoh/sosok/properti untuk kepentingan komersial wajib mendapat persetujuan secara tertulis dari yang bersangkutan.</li>
-                                    <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan foto tanpa persetujuan dari Kompas.</li>
-                                    <li>Untuk pembelian artikel tokoh, mohon untuk konfirmasi terlebih dahulu sebelum melakukan transaksi ke alamat e-mail <a href="mailto:kompasdata@kompas.id">kompasdata@kompas.id</a></li>
+                                    <li>Pelanggan tidak boleh mengubah, memperbanyak, mengalihwujudkan, memindahtangankan, memperjualbelikan artikel tanpa persetujuan dari Kompas.</li>
                                 </ol>
                             </div>
                         </div>

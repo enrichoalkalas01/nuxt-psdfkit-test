@@ -21,6 +21,26 @@
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
                                 <p>{{ infografikDetail.published_caption }}</p>
+                                <table class="table db-table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th>Id</th>
+                                            <td>{{ infografikDetail ? infografikDetail.reference_id : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Author</th>
+                                            <td>{{ infografikDetail ? infografikDetail.author : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Publication</th>
+                                            <td>{{ infografikDetail ? infografikDetail.publication : '' }}, {{ infografikDetail ? this.$store.state.Tools.ChangeDateString(infografikDetail.published_date) : '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Credit</th>
+                                            <td>{{ infografikDetail ? infografikDetail.credit : '' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
