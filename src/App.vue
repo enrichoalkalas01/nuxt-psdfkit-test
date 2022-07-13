@@ -29,10 +29,6 @@
         data() {
             return {
                 configRefreshToken:{ method: 'get', url: `https://data-api-dev.kompas.id/api/Login/kompas-token-refresh`, withCredentials: true },
-                configToken: {
-                    method: 'get', url: `https://data-api-dev.kompas.id/api/Login/user-info`,
-                    headers: { Authorization: `Bearer ${ this.$store.state.Tools.GetCookies('kompas._token') }` }
-                },
             }
         },
 
@@ -77,7 +73,7 @@
                         this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
                         this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
                     } catch (error) {
-                        console.log(error)
+                        console.log(error.message)
                         console.log('failed to get new access token, reload / refresh the page !')
                     }
                 }
@@ -87,9 +83,12 @@
                 try {
                     let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
                     newUserData.data.token = accessToken // change new access token
-                    console.log(newUserData)
+                    console.log(newUserData.data)
+                    this.$store.commit('setUserData', newUserData.data)
+                    this.$store.commit('setLoginStatus', true)
+                    console.log(this.$store.state)
                 } catch (error) {
-                    console.log(error)
+                    console.log(error.message)
                     console.log('failed to get new user data, reload / refresh the page !')
                 }
             }
