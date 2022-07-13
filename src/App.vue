@@ -75,7 +75,7 @@
                     } catch (error) {
                         console.log(error.message)
                         console.log('failed to get new access token, reload / refresh the page !')
-                        this.deleteCookiesData()
+                        // this.deleteCookiesData()
                     }
                 }
             },
@@ -93,7 +93,6 @@
                 } catch (error) {
                     console.log(error.message)
                     console.log('failed to get new user data, reload / refresh the page !')
-                    this.deleteCookiesData()
                 }
             },
 
