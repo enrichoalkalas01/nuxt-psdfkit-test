@@ -54,8 +54,8 @@
                 if ( oldVal != newVal ) {
                     
                     if ( newVal === '' || newVal === null ) {
-                        this.$store.commit('setTokenAccess', 'from-token')
-                        setTimeout(() => this.$store.commit('setTokenAccess', 'from-token-2'))
+                        this.$store.commit('setTokenAccess', '')
+                        setTimeout(() => this.$store.commit('setTokenAccess', null))
                     } else {
                         console.log(oldVal, newVal)
                     }
@@ -65,7 +65,7 @@
 
         async mounted() {
             console.log(this.$store.state)
-            setTimeout(() => this.$store.commit('setTokenAccess', 'from-token'))
+            setTimeout(() => this.$store.commit('setTokenAccess', ''))
             this.checkRefreshToken()
         },
 
