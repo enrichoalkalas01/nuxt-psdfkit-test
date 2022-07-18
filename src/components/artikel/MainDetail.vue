@@ -6,7 +6,7 @@
                 <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0">
                     <div class="row">
                         <div class="status-message">
-                            <div v-html="this.$store.state.Search.userTextStatus"></div>
+                            <p>{{ artikelMessage ? artikelMessage : '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -127,6 +127,7 @@
                 ],
                 SliderConfig: { updateOnMove: true, type: 'loop', focus: 'center', perPage: 2, pagination: false },
                 artikelDetail: null,
+                artikelMessage: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
@@ -171,6 +172,8 @@
                 try {
                     let dataArtikel = await Axios(this.ConfigApi)
                     this.artikelDetail = dataArtikel.data.data
+                    this.artikelMessage = dataArtikel.data.message
+
                     let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
                     let configPayment = {
                         url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
@@ -178,6 +181,7 @@
                     }
 
                     console.log(this.artikelDetail)
+                    console.log(this.artikelMessage);
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
