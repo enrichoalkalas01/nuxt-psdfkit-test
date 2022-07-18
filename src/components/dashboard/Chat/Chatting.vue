@@ -209,16 +209,21 @@
                     }
                 }
 
-                await Axios(configSendChat).then(response => {
-                    if ( response ) {
-                        titleChat.value = ''
-                        messageChat.value = ''
-                        this.removeReplayedData()
-                        this.getChat()
-                    }
-                }).catch(err => {
-                    console.log(err)
-                })
+                if ( titleChat.value === '' || messageChat.value === '' ) {
+                    alert('ups, title atau text pesan tidak boleh kosong...')
+                } else {
+                    await Axios(configSendChat).then(response => {
+                        if ( response ) {
+                            titleChat.value = ''
+                            messageChat.value = ''
+                            this.removeReplayedData()
+                            this.getChat()
+                        }
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }
+                
             }
         }
     }
