@@ -119,7 +119,7 @@
                     // console.log(this.getReplayChat(response.data))
                     // this.ChatData = response.data
                     this.ChatData = this.getReplayChat(response.data)
-                    
+                    this.scrollToBottomViewChat()
                 }).catch(err => {
                     console.log(err)
                 })
@@ -158,6 +158,11 @@
                 replayedData.innerHTML = `<span>Balas Untuk : ${ chatData.mainChat.title }</span>`
                 this.ReadyReplayData = chatData
                 this.goToChatBox()
+            },
+
+            scrollToBottomViewChat() {
+                var objDiv = document.querySelector("#chatting .list-chat-box")
+                setTimeout(() => objDiv.scrollTop = objDiv.scrollHeight, 50)
             },
 
             removeReplayedData() {

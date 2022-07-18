@@ -2,6 +2,8 @@
     max-height: 100%;
     height: 100%;
     position: relative;
+    overflow-y: hidden;
+    flex-direction: column;
 }
 
 #box-cd {
@@ -52,7 +54,9 @@
 }
 
 #chatting .send-chat-box .wrapper-scb textarea {
-    height: 100%;
+    /* height: 100%; */
+    /* height: 45%; */
+    height: 100px;
     resize: none;
     position: relative;
     overflow: hidden;
@@ -87,7 +91,8 @@
 #chatting .list-chat-box {
     /* max-height: 80%;
     height: 100%; */
-    height: auto;
+    /* height: auto; */
+    height: 350px;
     position: relative;
     padding-left: 2.5%;
     padding-right: 2.5%;
