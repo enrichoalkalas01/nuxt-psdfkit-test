@@ -162,7 +162,7 @@
                         setTimeout(() => { 
                             this.$store.commit('setLoadingScreen', true)
                             this.$store.commit('setLoadingImage', 'failed');
-                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan, coba cek saldo anda..');
+                            this.$store.commit('setLoadingText', 'Saldo Anda Tidak Cukup..');
                             this.$store.commit('setCloseStatus', true);
                             setTimeout(() => this.setDefaultLoadingScreen(), 2000)
                         }, 500)
