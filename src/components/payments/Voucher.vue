@@ -32,45 +32,40 @@
         name: 'Voucher',
         components: { LoadingScreen },
         methods: {
-            insertKupon: async (userdata) => {
-                // this.$store.commit('setLoadingScreen', true)
-
+            async insertKupon(userdata) {
                 var voucherCode = document.querySelector("#voucher_code").value
-                let getData = await Axios({
+                this.$store.commit('setLoadingScreen', true)
+                await Axios({
                     url: `https://dev-be.kompasdata.id/api/Vouchers/${ voucherCode }/use?userid=${ userdata.id }`,
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${ userdata.token }`,
-                        'Content-Type': 'application/json'
-                    },
-                }).then( Response => Response ).catch( Error => Error );
-
-                if (getData.data) {
-                    alert(getData.data)
-                    window.location.href = '/dashboard/kupon'
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'success');
-                    //     this.$store.commit('setLoadingText', getData.data);
-                    //     this.$store.commit('setCloseStatus', true);
-                    //     window.location.href = '/dashboard/voucher'
-                    // }, 500)
-                } else if (getData.response.data.message === "Voucher number is already used."){
-                    alert("Kode voucher sudah digunakan")
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'Kode voucher sudah digunakan');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
-                } else {
-                    alert("Something went wrong!")
-                    // setTimeout(() => { 
-                    //     this.$store.commit('setLoadingImage', 'failed');
-                    //     this.$store.commit('setLoadingText', 'Something went wrong!');
-                    //     this.$store.commit('setCloseStatus', true);
-                    // }, 500)
-                }
-
+                    method: 'GET', headers: { 'Authorization': `Bearer ${ userdata.token }`, 'Content-Type': 'application/json' },
+                }).then(response => {
+                    if ( response.data === 'sukses' ) {
+                        this.$store.commit('setLoadingImage', 'success')
+                        this.$store.commit('setLoadingText', 'Sukses melakukan topup voucher')
+                        this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                        this.$store.commit('setReloadSaldo', true)
+                        this.setNormalLoadingScreen()
+                    }
+                }).catch(err => {
+                    this.setFailedLoadingScreen(err.response.data.message)
+                })
             },
+
+            async setFailedLoadingScreen(textScreen) {
+                this.$store.commit('setLoadingImage', 'failed')
+                this.$store.commit('setLoadingText', textScreen)
+                this.$store.commit('setCloseStatus', true)
+                this.setNormalLoadingScreen()
+            },
+
+            async setNormalLoadingScreen() {
+                setTimeout(() => {
+                    this.$store.commit('setLoadingScreen', false)
+                    this.$store.commit('setLoadingImage', 'loading')
+                    this.$store.commit('setLoadingText', 'loading...')
+                    this.$store.commit('setCloseStatus', false)
+                }, 2000)
+            }
         }
     }
 </script>
