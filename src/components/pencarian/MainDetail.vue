@@ -54,7 +54,7 @@
                                             <div class="form-group row my-3">
                                                 <label class="col-md-3 form-label">Halaman</label>
                                                 <div class="col-md-9">
-                                                    <input id="page-artikel" type="number" class="form-control" placeholder="pages from...">
+                                                    <input id="page-artikel" type="text" class="form-control" placeholder="pages from...">
                                                 </div>
                                             </div>
                                             <div class="form-group my-3 row">
@@ -357,7 +357,6 @@
                 let size = 10
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-artikel").value
-                
 
                 window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&collection=${ '' }&currentpage=${ currentpage }&page=${ page }`
             },

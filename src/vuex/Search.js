@@ -15,6 +15,7 @@ const Search = {
             SizeKey: 10,
             OrderDirectionKey: '',
             Collection: null,
+            PageKey: null,
 
             TypeSearch: 0,
             TotalSearch: 0,
@@ -65,7 +66,7 @@ const Search = {
             },
 
             SearchConfigArticles: {
-                url: "https://dev-be.kompasdata.id/api/search?",
+                url: "https://data-api-dev.kompas.id/api/search?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
@@ -106,6 +107,7 @@ const Search = {
                 if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
                 if ( i === 'collection' ) state.CollectionKey = value[i]
                 if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
+                if ( i === 'page' ) state.PageKey = value[i]
                 if ( i === 'orderdirection' ) state.OrderDirectionKey = value[i]
             }
         },
