@@ -29,6 +29,7 @@
                 total_search: 0,
                 configBooksData: {
                     search: this.$store.state.Search.SearchKey,
+                    subject: this.$store.state.Search.SubjectKey,
                     authors: this.$store.state.Search.AuthorKey,
                     publication: this.$store.state.Search.PublicationKey,
                     publishedFrom: `${ this.$store.state.Search.DateFromKey }`,

@@ -392,7 +392,7 @@
             },
 
             searchLanjutBuku: () => {
-                // let subjek = document.querySelector("#subjek-buku").value
+                let subject = document.querySelector("#subjek-buku").value
                 // let serial = document.querySelector("#serial-buku").value
                 let query = document.querySelector("#query-buku").value
                 let dateFrom = document.querySelector("#date-from-buku").value
@@ -404,7 +404,7 @@
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-buku").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&subject=${ subject }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
             },
 
             searchLanjutData: () => {

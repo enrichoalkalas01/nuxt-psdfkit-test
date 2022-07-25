@@ -6,18 +6,19 @@ const Search = {
         return {
             Search: null,
             SearchKey: null,
-                
-            AuthorKey: null,            
-            CurrentPageKey: 1,
-            PublicationKey: null,
+            
+            SubjectKey: null,
             DateFromKey: null,
             DataToKey: null,
+            AuthorKey: null,            
+            PublicationKey: null,
+            TypeSearch: 0,
             SizeKey: 10,
-            OrderDirectionKey: '',
             Collection: null,
             PageKey: null,
+            CurrentPageKey: 1,
+            OrderDirectionKey: '',
 
-            TypeSearch: 0,
             TotalSearch: 0,
             TotalArtikel: 0,
             TotalFoto: 0,
@@ -78,7 +79,7 @@ const Search = {
             },
 
             SearchConfigBooks: {
-                url: "https://dev-be.kompasdata.id/api/booksearch?",
+                url: "https://data-api-dev.kompas.id/api/booksearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
@@ -99,15 +100,16 @@ const Search = {
         setSearchKey(state, value = {}) {
             for ( let i in value ) {
                 if ( i === 'query' ) state.SearchKey = value[i]
-                if ( i === 'typesearch' ) state.TypeSearch = value[i]
+                if ( i === 'subject' ) state.SubjectKey = value[i]
                 if ( i === 'datefrom' ) state.DateFromKey = value[i]
                 if ( i === 'dateto' ) state.DateToKey = value[i]
-                if ( i === 'publication' ) state.PublicationKey = value[i]
                 if ( i === 'author' ) state.AuthorKey = value[i]
+                if ( i === 'publication' ) state.PublicationKey = value[i]
+                if ( i === 'typesearch' ) state.TypeSearch = value[i]
                 if ( i === 'size' ) state.SizeKey = value[i] ? value[i] : 5
                 if ( i === 'collection' ) state.CollectionKey = value[i]
-                if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
                 if ( i === 'page' ) state.PageKey = value[i]
+                if ( i === 'currentpage' ) state.CurrentPageKey = value[i] // state.CurrentPageKey = ( value[i] * value.size )
                 if ( i === 'orderdirection' ) state.OrderDirectionKey = value[i]
             }
         },

@@ -26,14 +26,14 @@
                 total_search: 0,
                 configArticlesData: {
                     search: this.$store.state.Search.SearchKey,
-                    authors: this.$store.state.Search.AuthorKey,
-                    publication: this.$store.state.Search.PublicationKey,
                     publishedFrom: `${ this.$store.state.Search.DateFromKey }`,
                     publishedTo: `${ this.$store.state.Search.DateToKey }`,
+                    authors: this.$store.state.Search.AuthorKey,
+                    publication: this.$store.state.Search.PublicationKey,
+                    size: 10,
                     page: `${ this.$store.state.Search.PageKey }`,
                     from: this.$store.state.Search.CurrentPageKey < 2 ? this.$store.state.Search.CurrentPageKey :
                     (Number(this.$store.state.Search.CurrentPageKey) - 1 ) * this.$store.state.Search.SizeKey + 1,
-                    size: 10,
                     orderdirection: this.$store.state.Search.OrderDirectionKey
                 },
             }
