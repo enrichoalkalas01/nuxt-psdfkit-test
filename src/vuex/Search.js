@@ -226,8 +226,16 @@ const Search = {
                 if ( config === 'data' ) {
                     
                     for ( let queryData in value[config] ) {
-                        stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
-                        i = i + 1
+                        if ( queryData === 'publishedFrom' ) {
+                            stringUrl = stringUrl + `year1=${ value[config][queryData] }&`
+                            i = i + 1
+                        } else if ( queryData === 'publishedTo' ) {
+                            stringUrl = stringUrl + `year2=${ value[config][queryData] }&`
+                            i = i + 1
+                        } else {
+                            stringUrl = stringUrl + `${ queryData }=${ value[config][queryData] }&`
+                            i = i + 1
+                        }
                     }
                     
                     state.SearchConfigBooks.url = urlData + stringUrl.substring(0, stringUrl.length - 1)

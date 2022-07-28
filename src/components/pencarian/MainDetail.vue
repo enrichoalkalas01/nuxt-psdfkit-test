@@ -241,17 +241,19 @@
                                                 </div>
                                             </div>
                                             <div class="form-group my-3 row">
-                                                <label class="form-label col-md-3">Tanggal</label>
+                                                <label class="form-label col-md-3">Tahun Terbit</label>
                                                 <div class="col-md-9">
                                                     <div class="row">
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="date" class="form-control date" id="date-from-buku" placeholder="Tanggal Mulai">
+                                                            <!-- <input type="date" class="form-control date" id="date-from-buku" placeholder="Tanggal Mulai"> -->
+                                                            <input type="text" name="date-from-buku" id="date-from-buku" class="form-control" placeholder="Tahun Mulai">
                                                         </div>
                                                         <div class="col-sm-4 text-start text-md-center mb-2">
                                                             Hingga
                                                         </div>
                                                         <div class="col-sm-4  mb-2">
-                                                            <input type="date" class="form-control date" id="date-to-buku" placeholder="Tanggal Akhir">
+                                                            <!-- <input type="date" class="form-control date" id="date-to-buku" placeholder="Tanggal Akhir"> -->
+                                                            <input type="text" name="date-to-buku" id="date-to-buku" class="form-control" placeholder="Tahun Akhir">
                                                         </div>
                                                     </div>
                                                 </div>
