@@ -42,7 +42,9 @@
                                 <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
                             </div>
                             <a href="/dashboard/pesan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
-                                <i class="fa-solid fa-bell"></i>
+                                <i class="fa-solid fa-bell" id="notification-bell">
+                                    <span>{{ notification }}</span>
+                                </i>
                             </a>
                             <a href="/dashboard/daftar-pesanan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
                                 <i class="fas fa-shopping-cart"></i>
@@ -103,6 +105,7 @@
         name: 'MainNav',
         data() {
             return {
+                notification: 0,
                 typeSearch: this.$store.state.Search.TypeSearch,
                 searchKey: this.$store.state.Search.SearchKey,
                 ProfileBox: false,
@@ -144,12 +147,17 @@
         },
 
         async mounted() {
-            if ( this.$store.state.Login.LoginStatus ) this.getSaldo()
+            if ( this.$store.state.Login.LoginStatus ) {
+                this.getSaldo()
+                this.getNotification()
+            }
         },
 
         updated() {
-            console.log(this.$store.state.Headers.ReloadSaldo)
-            this.getSaldo()
+            if ( this.$store.state.Login.LoginStatus ) {
+                this.getSaldo()
+                this.getNotification()
+            }
         },
 
         methods: {
@@ -211,8 +219,26 @@
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 
-                let saldo = await Axios(config)
-                this.saldoUser = saldo.data.credit_balance
+                try {
+                    let saldo = await Axios(config)
+                    this.saldoUser = saldo.data.credit_balance
+                } catch (error) {
+                    console.log(error)
+                }
+            },
+
+            async getNotification() {
+                let config = {
+                    url: `https://data-api-dev.kompas.id/api/Messages?readstatus=0&useronly=true`,
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+
+                try {
+                    let notification = await Axios(config)
+                    this.notification = notification.data.filter(x => x.user.id === this.$store.state.Login.UserData.id).length
+                } catch (error) {
+                    console.log(error)
+                }
             }
         },
     }
@@ -319,6 +345,22 @@
         /* margin-left: 5px; */
         /* margin-top: 5px; */
         font-size: 12px;
+    }
+
+    #notification-bell {
+        position: relative;
+    }
+
+    #notification-bell span {
+        background-color: red;
+        padding: 2.5px;
+        border-radius: 50%;
+        font-size: 8px;
+        color: white;
+        position: absolute;
+        top: -8px;
+        right: -3px;
+        z-index: 99999;
     }
 
     @media screen and ( max-width: 992px ) and ( min-width: 768px ) {
