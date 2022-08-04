@@ -37,10 +37,10 @@
                             </div>
                         </div>
                         <div class="user-box">
-                            <div class="saldo" v-if="this.$store.state.Login.LoginStatus">
+                            <!-- <div class="saldo" v-if="this.$store.state.Login.LoginStatus">
                                 <h6>Saldo</h6>
                                 <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
-                            </div>
+                            </div> -->
                             <a href="/dashboard/pesan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
                                 <i class="fa-solid fa-bell" id="notification-bell">
                                     <span>{{ notification }}</span>
@@ -50,6 +50,27 @@
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
+                            <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
+                                <div class="saldo">
+                                    <div class="dropdown">
+                                        <button class="dropbtn">
+                                            <i class="fa-solid fa-box-archive"></i>
+                                            <!-- <i class="fa-solid fa-user"></i> -->
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <div class="mt-3">
+                                                <h6>Saldo</h6>
+                                                <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
+                                            </div><hr>
+                                            <div class="mb-3">
+                                                <h6>Paket Premium</h6>
+                                                <span>Bebas Artikel : 50</span><br>
+                                                <span>Bebas Foto : 10</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
                                 <div class="user-box">
                                     <!-- <span v-on:click="profileBoxEvent">
@@ -334,7 +355,7 @@
         justify-content: center; */
         text-align: center;
         font-size: 14px;
-        margin-right: 25px;
+        /* margin-right: 25px; */
     }
 
     .user-box .saldo h6 {
