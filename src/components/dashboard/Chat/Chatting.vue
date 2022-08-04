@@ -121,6 +121,7 @@
                     // this.ChatData = response.data
                     this.ChatData = this.getReplayChat(response.data)
                     this.scrollToBottomViewChat()
+                    this.$store.commit('setNotification')
                 }).catch(err => {
                     console.log(err)
                 })

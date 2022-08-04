@@ -156,6 +156,10 @@
                 this.$store.commit('setReloadSaldo', false)
             },
 
+            '$store.state.Headers.Notification': function() {
+                this.getNotification()
+            },
+
             ReloadSaldo: function() {
                 this.getSaldo()
                 this.$store.commit('setReloadSaldo', false)
