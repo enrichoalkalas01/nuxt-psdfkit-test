@@ -103,6 +103,7 @@
         },
         async mounted() {
             this.getChat()
+            this.setRead()
         },
         methods: {
             async getChat() {
@@ -224,6 +225,28 @@
                     })
                 }
                 
+            },
+
+            async setRead() {
+                let configNotification = {
+                    url: `https://data-api-dev.kompas.id/api/Messages?readstatus=0&useronly=true`,
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+                try {
+                    let notification = await Axios(configNotification)
+                    let filterNotification = notification.data.filter(x => x.user.id === this.$store.state.Login.UserData.id && x.adminId !== '')
+                    console.log(filterNotification)
+                    filterNotification.map(async x => {
+                        let configRead = {
+                            url: `https://data-api-dev.kompas.id/api/Messages/${ x.id }/setRead`,
+                            headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                        }
+
+                        await Axios(configRead)
+                    })
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
     }

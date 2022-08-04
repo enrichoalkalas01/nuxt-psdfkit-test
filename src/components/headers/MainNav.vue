@@ -255,7 +255,7 @@
 
                 try {
                     let notification = await Axios(config)
-                    this.notification = notification.data.filter(x => x.user.id === this.$store.state.Login.UserData.id).length
+                    this.notification = notification.data.filter(x => x.user.id === this.$store.state.Login.UserData.id && x.adminId !== '').length
                 } catch (error) {
                     console.log(error)
                 }
