@@ -54,8 +54,7 @@
                                 <div class="saldo">
                                     <div class="dropdown">
                                         <button class="dropbtn">
-                                            <i class="fa-solid fa-box-archive"></i>
-                                            <!-- <i class="fa-solid fa-user"></i> -->
+                                            <i class="fa-solid fa-coins"></i>
                                         </button>
                                         <div class="dropdown-content">
                                             <div class="mt-3">
@@ -63,9 +62,9 @@
                                                 <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
                                             </div><hr>
                                             <div class="mb-3">
-                                                <h6>Paket Premium</h6>
-                                                <span>Bebas Artikel : 50</span><br>
-                                                <span>Bebas Foto : 10</span>
+                                                <!-- <h6>Paket Premium</h6> -->
+                                                <span>Bebas Artikel : 500</span><br>
+                                                <span>Bebas Foto : 100</span>
                                             </div>
                                         </div>
                                     </div>
