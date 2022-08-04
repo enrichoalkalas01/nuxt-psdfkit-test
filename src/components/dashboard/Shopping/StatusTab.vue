@@ -88,8 +88,14 @@
                 }
             },
 
+            getDiffDays(date, otherDate) {
+                return Math.ceil(Math.abs(date - otherDate) / (1000 * 60 * 60 * 24))
+            },
+
             async downloadItem(e) {
                 this.$store.commit('setLoadingScreen', true)
+                let downloadedData = this.ResultData.filter(x => x.id === e.id)
+
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
@@ -101,14 +107,26 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
-                    this.$store.commit('setCloseStatus', true)
-                    setTimeout(() => {
-                        this.$store.commit('setLoadingText', 'loading...')
-                        this.$store.commit('setLoadingImage', 'loading')
-                        this.$store.commit('setLoadingScreen', false)
-                    }, 1000)
+                    
+                    if ( this.getDiffDays(new Date(downloadedData[0].approvedDate), new Date(Date.now())) > 3 ) {
+                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingText', '<p>ups, durasi waktu untuk</p><p>mendownload sudah habis</p>')
+                        this.$store.commit('setCloseStatus', true)
+                        setTimeout(() => {
+                            this.$store.commit('setLoadingText', 'loading...')
+                            this.$store.commit('setLoadingImage', 'loading')
+                            this.$store.commit('setLoadingScreen', false)
+                        }, 2500)
+                    } else {
+                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                        this.$store.commit('setCloseStatus', true)
+                        setTimeout(() => {
+                            this.$store.commit('setLoadingText', 'loading...')
+                            this.$store.commit('setLoadingImage', 'loading')
+                            this.$store.commit('setLoadingScreen', false)
+                        }, 1000)
+                    }
                 }
             }
         }
