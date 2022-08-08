@@ -43,7 +43,7 @@
                             </div> -->
                             <a href="/dashboard/pesan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
                                 <i class="fa-solid fa-bell" id="notification-bell">
-                                    <span>{{ notification }}</span>
+                                    <span v-if="notification > 0">{{ notification }}</span>
                                 </i>
                             </a>
                             <a href="/dashboard/daftar-pesanan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
