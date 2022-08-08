@@ -331,8 +331,9 @@
             },
 
             async pesanFoto() {
-                if ( this.$store.state.Login.UserData.memberType === 2 ) {
+                if ( this.$store.state.Login.UserData.memberType === 1 ) {
                     alert('maaf hanya user member yang bisa memesan foto')
+                    // console.log('maaf hanya user member yang bisa memesan foto')
                 } else {
                     let configPayment = {
                         url: 'https://dev-be.kompasdata.id/api/Orders/photo',
