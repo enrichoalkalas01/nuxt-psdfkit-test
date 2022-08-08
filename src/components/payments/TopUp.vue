@@ -17,13 +17,14 @@
                                     <div class="col-12 pt-2">
                                         <h6>Nama</h6>
                                         <p>
-                                            {{ this.$store.state.Login.UserData.username ? this.$store.state.Login.UserData.username : 'None' }}
+                                            {{ this.$store.state.Login.UserData?.firstName }}
                                         </p>
                                     </div>
                                     <div class="col-12 pt-2">
                                         <h6>Email</h6>
                                         <p>
-                                            {{ this.$store.state.Login.UserData.email ? this.$store.state.Login.UserData.email : 'None' }}
+                                            <!-- {{ this.$store.state.Login.UserData.email ? this.$store.state.Login.UserData.email : 'None' }} -->
+                                            {{ this.$store.state.Login.UserData?.username }}
                                         </p>
                                     </div>
                                     <div class="col-12 pt-2">
@@ -99,7 +100,7 @@
                     },
                     data: JSON.stringify({
                         "amount": Number(document.querySelector("#nominal").value),
-                        "expirationDays": Number(document.querySelector("#nominal").getAttribute("data-expiration-days")),
+                        "expirationDays": Number(document.querySelector("#nominal").options[ document.querySelector("#nominal").selectedIndex ].getAttribute("data-expiration-days")),
                         "paymentMethod": 0,
                         "note": "",
                         // "note": document.querySelector("#catatan-payment").value
