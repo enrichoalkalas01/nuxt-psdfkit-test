@@ -31,7 +31,7 @@
                                     >
                                     <a v-on:click="searchBar" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
                                 </div>
-                                <div class="pl">
+                                <div class="pl" v-if="this.$store.state.Login.LoginStatus">
                                     <a style="font-size: 12px;" href="/pencarian-lanjut">Pencarian lanjut</a>
                                 </div>
                             </div>
@@ -62,9 +62,9 @@
                                                 <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
                                             </div><hr>
                                             <div class="mb-3">
-                                                <!-- <h6>Paket Premium</h6> -->
-                                                <span>Bebas Artikel : 500</span><br>
-                                                <span>Bebas Foto : 100</span>
+                                                <h6>Kuota</h6>
+                                                <span>Artikel : {{ kuotaArtikel }}</span><br>
+                                                <span>Crop Pdf : {{ kuotaPdf }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +130,8 @@
                 searchKey: this.$store.state.Search.SearchKey,
                 ProfileBox: false,
                 saldoUser: 0,
+                kuotaArtikel: 0,
+                kuotaPdf: 0,
                 statusSaldo: this.$store.state.Headers.ReloadSaldo,
             }
         },
@@ -239,13 +241,15 @@
 
             async getSaldo() {
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 
                 try {
                     let saldo = await Axios(config)
-                    this.saldoUser = saldo.data.credit_balance
+                    this.saldoUser = saldo.data.credit.credit_balance
+                    this.kuotaArtikel = saldo.data.packages[1].package_balance
+                    this.kuotaPdf = saldo.data.packages[0].package_balance
                 } catch (error) {
                     console.log(error)
                 }
