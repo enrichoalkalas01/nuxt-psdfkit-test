@@ -59,12 +59,12 @@
                                         <div class="dropdown-content">
                                             <div class="mt-3">
                                                 <h6>Saldo</h6>
-                                                <span>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</span>
+                                                <span>{{ `${ this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') }` }}</span>
                                             </div><hr>
-                                            <div class="mb-3">
+                                            <div class="mb-3" v-if="kuotaArtikel > 0 || kuotaPdf > 0">
                                                 <h6>Kuota</h6>
-                                                <span>Artikel : {{ kuotaArtikel }}</span><br>
-                                                <span>Crop Pdf : {{ kuotaPdf }}</span>
+                                                <span>Artikel 1991-terbaru : {{ kuotaArtikel > 0 ? kuotaArtikel : `-` }}</span><br>
+                                                <span>Crop Pdf 1965-1990 : {{ kuotaPdf > 0 ? kuotaPdf : `-` }}</span>
                                             </div>
                                         </div>
                                     </div>
