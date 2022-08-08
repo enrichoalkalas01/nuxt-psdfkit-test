@@ -21,7 +21,7 @@
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div class="db-price rounded mt-3">
-                                    <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span>
+                                    <!-- <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span> -->
                                     <button v-on:click="FormPesan" class="btn btn-main">
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
                                     </button>
