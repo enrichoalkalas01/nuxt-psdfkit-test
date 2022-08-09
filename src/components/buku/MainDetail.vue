@@ -116,8 +116,16 @@
                                     </div>
                                     <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                         <ol>
-                                            <li>Buku hanya dapat dibaca di Pusat Informasi Kompas (PIK).</li>
-                                            <li>Operasional PIK setiap hari Senin-Jumat pukul 09:00-16:00.</li>
+                                            <li>Layanan di Perpustakaan Pusat Data dan Informasi Kompas bersifat Close Accesss. 
+                                                Artinya hanya karyawan tetap Harian Kompas, dan Karyawan tetap Kompas Gramedia (KG) 
+                                                yang sudah terdaftar menjadi anggota, dapat meminjam atau membawa pulang koleksi buku.</li>
+                                            <li>Koleksi Perpustakaan Pusat Data dan Informasi Kompas tetap dapat diakses oleh 
+                                                karyawan non-tetap KG, karyawan magang, dan pengunjung luar, namun koleksi hanya bisa dibaca di area perpustakaan, 
+                                                tidak bisa dipinjam/ dibawa pulang.</li>
+                                            <li>Akses koleksi e-book hanya bisa dilakukan oleh karyawan tetap Harian Kompas.</li>
+                                            <li>Semua koleksi referensi hanya bisa dibaca di area perpustakaan.</li>
+                                            <li>Cek status ketersediaan buku di katalog  perpustakaan sebelum melakukan kunjungan ke perpustakaan di Pusat Data dan Informasi Kompas.</li>
+                                            <li>Operasional Pusat Data Informasi setiap hari Senin-Jumat pukul 09:00-16:00 WIB.</li>
                                         </ol>
                                     </div>
                                 </div>
