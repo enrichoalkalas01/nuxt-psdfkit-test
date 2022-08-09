@@ -108,7 +108,7 @@
                                             <h5 class="subtitle">Deskripsi</h5>
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="description-box" rows="3"></textarea>
+                                            <textarea class="form-control" id="description-box" rows="3" :value="`saya ingin memesan foto dengan judul : ${ fotoDetail?.title }`"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -289,6 +289,7 @@
         async mounted() {
             this.linkBack = window.location.search
             this.getData()
+            console.log(this.fotoDetail)
         },
 
         methods: {
