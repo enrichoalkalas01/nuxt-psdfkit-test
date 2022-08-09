@@ -60,8 +60,9 @@
                                             <div class="mt-3">
                                                 <h6>Saldo</h6>
                                                 <span>{{ `${ this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') }` }}</span>
-                                            </div><hr>
+                                            </div>
                                             <div class="mb-3" v-if="kuotaArtikel > 0 || kuotaPdf > 0">
+                                                <hr>
                                                 <h6>Kuota</h6>
                                                 <span>Artikel 1991-terbaru : {{ kuotaArtikel > 0 ? kuotaArtikel : `-` }}</span><br>
                                                 <span>Crop Pdf 1965-1990 : {{ kuotaPdf > 0 ? kuotaPdf : `-` }}</span>
