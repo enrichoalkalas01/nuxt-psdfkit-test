@@ -3,24 +3,26 @@
         <div class="banner-slide">
             <Splide :options="SliderConfig">
                 <SplideSlide v-for="banner in BannersData" :key="banner.id">
-                    <div class="panel" :style="`background-image: url('${ banner.image_source }')`">
-                        <div class="wrapper">
-                            <div class="caption py-5 text-center">
-                                <div class="badge">
-                                    {{ banner.type_banner }}
+                    <a :href="banner.url">
+                        <div class="panel" :style="`background-image: url('${ banner.image_source }')`">
+                            <div class="wrapper">
+                                <div class="caption py-5 text-center">
+                                    <div class="badge">
+                                        {{ banner.type_banner }}
+                                    </div>
+                                    <div class="  my-3">
+                                        {{ this.$store.state.Tools.ChangeDateString(banner.date.substring(0, 10)) }}
+                                    </div>
+                                    <h1 class="heading">
+                                        <a :href="banner.url">
+                                        <!-- <a :href="'/artikel-detail/' + banner.id"> -->
+                                            {{ banner.title }}
+                                        </a>
+                                    </h1>
                                 </div>
-                                <div class="  my-3">
-                                    {{ this.$store.state.Tools.ChangeDateString(banner.date.substring(0, 10)) }}
-                                </div>
-                                <h1 class="heading">
-                                    <a :href="banner.url">
-                                    <!-- <a :href="'/artikel-detail/' + banner.id"> -->
-                                        {{ banner.title }}
-                                    </a>
-                                </h1>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </SplideSlide>
             </Splide>
         </div>
@@ -143,5 +145,13 @@
     .button-slider .btn-slider.right {
         right: 7.5%;
         background-image: url('/assets/images/chevron-right.svg')
+    }
+
+    #content-box #splide01 .splide__arrow--next {
+        right: 50px !important;
+    }
+
+    #content-box #splide01 .splide__arrow--prev {
+        left: 50px !important;
     }
 </style>

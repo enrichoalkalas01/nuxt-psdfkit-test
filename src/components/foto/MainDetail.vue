@@ -106,12 +106,13 @@
                                     <div class="col-12">
                                         <div className="mb-1">
                                             <h5 class="subtitle mb-1">Deskripsi</h5>
-                                            <div class="t-n-c-deskripsi">
-                                                <span>* Tolong isi tujuan untuk pemakaian nama produk yang akan digunakan dalam pemesanan foto ini !</span>
-                                            </div>
+                                            <!-- <div class="t-n-c-deskripsi">
+                                                <span>* Sebutkan isi tujuan untuk pemakaian nama produk yang akan digunakan dalam pemesanan foto ini !</span>
+                                            </div> -->
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="description-box" rows="3" placeholder="Contoh : saya ingin memesan untuk di taruh di produk..."></textarea>
+                                            <!-- <textarea class="form-control" id="description-box" rows="3" placeholder="Contoh : saya ingin memesan untuk di taruh di produk..."></textarea> -->
+                                            <textarea class="form-control" id="description-box" rows="3" placeholder="Sebutkan judul buku/nama media tayang dari materi foto yang hendak dibeli!"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -124,7 +125,7 @@
                                             >
                                                 <div class="form-check" v-if="SizeProduct > ukuran.sizeMin">
                                                     <input v-on:change="changeSize" :checked="i === 0 ? true : false" :dataIndex="ukuran.apiId" class="form-check-input" type="radio" name="flexRadioDefault-ukuran" :id="ukuran.name">
-                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maksimum ${ ukuran.sizeMax }` : `minimum ${ ukuran.sizeMin }` }} piksel / maksimum {{ ukuran.dpiMax }} dpi )</label>
+                                                    <label class="form-check-label" :for="ukuran.name">{{ ukuran.text }} ( {{ (ukuran.id != 3) ? `maks ${ ukuran.sizeMax }` : `min ${ ukuran.sizeMin }` }}px / maks {{ ukuran.dpiMax }}dpi )</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -340,7 +341,7 @@
                     // console.log('maaf hanya user member yang bisa memesan foto')
                 } else {
                     if ( document.querySelector("#description-box").value === '' ) {
-                        alert('tolong isi terlebih dahulu deskripsi box yang ada!')
+                        alert('Harap isi kolom deskripsi!!')
                     } else {
                         let configPayment = {
                             url: 'https://dev-be.kompasdata.id/api/Orders/photo',
