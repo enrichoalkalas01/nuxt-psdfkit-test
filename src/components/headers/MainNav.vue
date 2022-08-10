@@ -47,7 +47,9 @@
                                 </i>
                             </a>
                             <a href="/dashboard/daftar-pesanan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
-                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-shopping-cart" id="notification-cart">
+                                    <span v-if="notification > 0">{{ notificationCart }}</span>
+                                </i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
                             <div class="wrapper-loginned" v-if="this.$store.state.Login.LoginStatus">
@@ -134,6 +136,7 @@
                 kuotaArtikel: 0,
                 kuotaPdf: 0,
                 statusSaldo: this.$store.state.Headers.ReloadSaldo,
+                notificationCart: 0,
             }
         },
 
@@ -381,6 +384,22 @@
     }
 
     #notification-bell span {
+        background-color: red;
+        padding: 2.5px;
+        border-radius: 50%;
+        font-size: 8px;
+        color: white;
+        position: absolute;
+        top: -8px;
+        right: -3px;
+        z-index: 99999;
+    }
+
+    #notification-cart {
+        position: relative;
+    }
+
+    #notification-cart span {
         background-color: red;
         padding: 2.5px;
         border-radius: 50%;

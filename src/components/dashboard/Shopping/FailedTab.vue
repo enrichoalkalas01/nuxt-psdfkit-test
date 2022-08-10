@@ -26,6 +26,7 @@
                     :typeConfirmation="order.status"
                     :price="order.value"
                     :qty="order.quantity"
+                    :sizeText="order.orderOptionValue1.caption"
                     :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
                     :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
                 />

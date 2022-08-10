@@ -7,6 +7,7 @@
             <div class="wc-item">
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
+                <p class="date">Size : {{ SizeText }}</p>
                 <p class="date">Tanggal Pemesanan : {{ Tanggal }}</p>
                 <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
                 <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title })">Download</p>
@@ -20,7 +21,7 @@
             <div class="wc-confirmation" v-if="Confirmation">
                 <!-- <span>{{ typeof typeConfirmation }}</span> -->
                 <span :class="TypeConfirmation === 0 ? 'new' : TypeConfirmation === 1 ? 'waiting' : TypeConfirmation === 2 ? 'failed' : 'success' ">
-                    {{ Number(TypeConfirmation) === 0 ? `Diproses` : Number(TypeConfirmation) === 1 ? `Disetujui` : Number(TypeConfirmation) === 2 ? 'Gagal' : 'Selesai' }}
+                    {{ Number(TypeConfirmation) === 0 ? `Baru` : Number(TypeConfirmation) === 1 ? `Disetujui` : Number(TypeConfirmation) === 2 ? 'Ditolak' : 'Selesai' }}
                 </span>
             </div>
             <div class="wc-paytab" v-if="BayarStatus">
@@ -44,7 +45,8 @@
             'qty',
             'delete',
             'imageSource',
-            'orderId'
+            'orderId',
+            'sizeText'
         ],
 
         data() {
@@ -61,6 +63,7 @@
                 deletButton: null,
                 image_source: null,
                 OrderId: null,
+                SizeText: null,
             }
         },
 
@@ -76,6 +79,7 @@
             this.deletButton = this.delete
             this.image_source = this.imageSource
             this.OrderId = this.orderId
+            this.SizeText = this.sizeText
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {

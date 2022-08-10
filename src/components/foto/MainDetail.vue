@@ -104,11 +104,14 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div>
-                                            <h5 class="subtitle">Deskripsi</h5>
+                                        <div className="mb-1">
+                                            <h5 class="subtitle mb-1">Deskripsi</h5>
+                                            <div class="t-n-c-deskripsi">
+                                                <span>* Tolong isi tujuan untuk pemakaian nama produk yang akan digunakan dalam pemesanan foto ini !</span>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="description-box" rows="3" :value="`saya ingin memesan foto dengan judul : ${ fotoDetail?.title }`"></textarea>
+                                            <textarea class="form-control" id="description-box" rows="3" placeholder="Contoh : saya ingin memesan untuk di taruh di produk..."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -336,51 +339,56 @@
                     alert('maaf hanya user member yang bisa memesan foto')
                     // console.log('maaf hanya user member yang bisa memesan foto')
                 } else {
-                    let configPayment = {
-                        url: 'https://dev-be.kompasdata.id/api/Orders/photo',
-                        method: 'POST',
-                        headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                        data: {
-                            "id": this.fotoDetail.reference_id,
-                            "title": this.fotoDetail.title,
-                            "description": document.querySelector("#description-box").value,
-                            "quality": this.SizeHarga,
-                            "quality_description": this.UkuranFoto.filter(x => x.apiId === Number(this.SizeHarga))[0].text,
-                            "usage": this.JenisHarga,
-                            "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
-                            "price": this.TotalPayment,
-                            "date1": this.DateFrom,
-                            "date2": this.DateTo,
-                            "thumbnail": this.fotoDetail.thumbnail,
-                        }
-                    }
-
-                    if ( !this.Aggrement ) {
-                        alert('tolong centang syarat & ketentuannya terebih dahulu..')
-                        // setTimeout(() => {
-                        //     this.$store.commit('setLoadingImage', 'failed');
-                        //     this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');
-                        //     this.$store.commit('setCloseStatus', true);
-                        // }, 500)
+                    if ( document.querySelector("#description-box").value === '' ) {
+                        alert('tolong isi terlebih dahulu deskripsi box yang ada!')
                     } else {
-                        this.$store.commit('setLoadingScreen', true)
-                        this.$store.commit('setLoadingImage', 'loading')
-                        this.$store.commit('setLoadingText', 'loading...')
-                        try {
-                            let PesanData = await Axios(configPayment); console.log(PesanData)
-                            this.$store.commit('setLoadingImage', 'success')
-                            this.$store.commit('setLoadingText', 'Pemesanan Berhasil...')
-                            setTimeout(() => {
-                                window.location.href = "/dashboard/daftar-pesanan"
-                                this.$store.commit('setLoadingScreen', false)
-                            }, 2000)
-                        } catch (error) {
-                            console.log(error)
-                            this.$store.commit('setLoadingImage', 'failed')
-                            this.$store.commit('setLoadingText', 'gagal memesan data...')
-                            setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
+                        let configPayment = {
+                            url: 'https://dev-be.kompasdata.id/api/Orders/photo',
+                            method: 'POST',
+                            headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
+                            data: {
+                                "id": this.fotoDetail.reference_id,
+                                "title": this.fotoDetail.title,
+                                "description": document.querySelector("#description-box").value,
+                                "quality": this.SizeHarga,
+                                "quality_description": this.UkuranFoto.filter(x => x.apiId === Number(this.SizeHarga))[0].text,
+                                "usage": this.JenisHarga,
+                                "usage_description": this.JenisPenggunaan.filter(x => x.apiId === Number(this.JenisHarga))[0].text,
+                                "price": this.TotalPayment,
+                                "date1": this.DateFrom,
+                                "date2": this.DateTo,
+                                "thumbnail": this.fotoDetail.thumbnail,
+                            }
+                        }
+
+                        if ( !this.Aggrement ) {
+                            alert('tolong centang syarat & ketentuannya terebih dahulu..')
+                            // setTimeout(() => {
+                            //     this.$store.commit('setLoadingImage', 'failed');
+                            //     this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');
+                            //     this.$store.commit('setCloseStatus', true);
+                            // }, 500)
+                        } else {
+                            this.$store.commit('setLoadingScreen', true)
+                            this.$store.commit('setLoadingImage', 'loading')
+                            this.$store.commit('setLoadingText', 'loading...')
+                            try {
+                                let PesanData = await Axios(configPayment); console.log(PesanData)
+                                this.$store.commit('setLoadingImage', 'success')
+                                this.$store.commit('setLoadingText', 'Pemesanan Berhasil...')
+                                setTimeout(() => {
+                                    window.location.href = "/dashboard/daftar-pesanan"
+                                    this.$store.commit('setLoadingScreen', false)
+                                }, 2000)
+                            } catch (error) {
+                                console.log(error)
+                                this.$store.commit('setLoadingImage', 'failed')
+                                this.$store.commit('setLoadingText', 'gagal memesan data...')
+                                setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
+                            }
                         }
                     }
+                    
                 }
             },
 
@@ -423,4 +431,12 @@
     #pesan { background-color: #007BD2; }
     .option-inside { padding-left: 10%; }
     .jenis-box .form-check { padding: 0; }
+    .t-n-c-deskripsi {
+        position: relative;
+    }
+    
+    .t-n-c-deskripsi span {
+        color: red;
+        font-size: 13px;
+    }
 </style>
