@@ -4,6 +4,9 @@
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
         <div class="col-12" v-if="infografiksData ? infografiksData.length > 0 : null">
+            <p class="f14 mt-4">
+                Total Search : <span class="f14">{{ total_search }} data</span>
+            </p>
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
@@ -27,9 +30,6 @@
                     </div>
                 </div>
             </div>
-            <p class="f14 mt-4">
-                Total Search : <span class="f14">{{ total_search }} data</span>
-            </p>
         </div>
         <!-- <div class="col-12 mt-3 text-center">
             <a href="#AllTabs04" class="btn btn-line">Lihat Lainnya</a>

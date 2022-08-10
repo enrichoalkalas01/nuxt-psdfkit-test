@@ -32,9 +32,9 @@
                         Arsip
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="ArsipDropdown">
-                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&page=&currentpage=1&orderdirection=desc">Artikel</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&collection=&page=&currentpage=1&orderdirection=desc">Foto</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&collection=&page=&currentpage=1&orderdirection=desc">Infografik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&page=&currentpage=1&orderdirection=">Artikel</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=2&size=10&collection=&page=&currentpage=1&orderdirection=">Foto</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=3&size=10&collection=&page=&currentpage=1&orderdirection=">Infografik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

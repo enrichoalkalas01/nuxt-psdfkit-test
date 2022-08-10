@@ -4,6 +4,9 @@
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
         <div class="col-12" v-if="booksData ? booksData.length > 0 : null">
+            <p class="f14 mt-4">
+                Total Search : <span class="f14">{{ total_search }} data</span>
+            </p>
             <div class="row d-flex justify-content-center">
                 <div
                     v-for="(book, i) in books" :key="i"
@@ -24,9 +27,6 @@
                     </div>
                 </div>
             </div>
-            <p class="f14 mt-4">
-                Total Search : <span class="f14">{{ total_search }} data</span>
-            </p>
         </div>
     </div>
 </template>

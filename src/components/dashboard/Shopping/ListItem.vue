@@ -20,7 +20,7 @@
             <div class="wc-confirmation" v-if="Confirmation">
                 <!-- <span>{{ typeof typeConfirmation }}</span> -->
                 <span :class="TypeConfirmation === 0 ? 'new' : TypeConfirmation === 1 ? 'waiting' : TypeConfirmation === 2 ? 'failed' : 'success' ">
-                    {{ Number(TypeConfirmation) === 0 ? `Baru` : Number(TypeConfirmation) === 1 ? `Disetujui` : Number(TypeConfirmation) === 2 ? 'Gagal' : 'Selesai' }}
+                    {{ Number(TypeConfirmation) === 0 ? `Diproses` : Number(TypeConfirmation) === 1 ? `Disetujui` : Number(TypeConfirmation) === 2 ? 'Gagal' : 'Selesai' }}
                 </span>
             </div>
             <div class="wc-paytab" v-if="BayarStatus">

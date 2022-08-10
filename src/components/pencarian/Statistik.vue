@@ -6,6 +6,9 @@
                     <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
                 </div>
                 <div class="row" v-if="statistiks ? statistiks.length > 0 : null">
+                    <p class="f14 mt-4">
+                        Total Search : <span class="f14">{{ total_search }} data</span>
+                    </p>
                     <div
                         v-for="(statistik, i) in statistiks" :key="i"
                         class="col-12 pt-2 pb-3"
@@ -29,9 +32,6 @@
                     </div>
                 </div>
             </div>
-            <p class="f14 mt-4">
-                Total Search : <span class="f14">{{ total_search }} data</span>
-            </p>
         </div>
     </div>
 </template>

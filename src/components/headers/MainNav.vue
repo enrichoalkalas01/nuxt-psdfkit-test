@@ -16,7 +16,7 @@
                                         <option value="1">Artikel</option>
                                         <option value="2">Foto</option>
                                         <option value="3">Infografik</option>
-                                        <option value="4">Buku</option>
+                                        <option value="4">Perpustakaan</option>
                                         <option value="5">Data</option>
                                     </select>
                                     <input

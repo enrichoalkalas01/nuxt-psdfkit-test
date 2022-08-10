@@ -6,6 +6,9 @@
                 <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
             </div>
             <div class="row box-gallery" v-if="dataFotos ? dataFotos.length > 0 : null">
+                <p class="f14 mt-4">
+                    Total Search : <span class="f14">{{ total_search }} data</span>
+                </p>
                 <div 
                     v-for="(foto, i) in fotos ? fotos.documents : null" :key="i"
                     class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 text-center"
@@ -24,9 +27,6 @@
                 </div>
             </div>
         </div>
-        <p class="f14 mt-4">
-            Total Search : <span class="f14">{{ total_search }} data</span>
-        </p>
     </div>
 </template>
 

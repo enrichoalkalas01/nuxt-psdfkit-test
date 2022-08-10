@@ -16,7 +16,7 @@
                                     <a class="nav-link" id="cari-Tabs03" data-bs-toggle="tab" href="#cariTabs03" aria-controls="cariTabs03" aria-selected="false">Foto</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="cari-Tabs04" data-bs-toggle="tab" href="#cariTabs04" aria-controls="cariTabs04" aria-selected="false">Buku</a>
+                                    <a class="nav-link" id="cari-Tabs04" data-bs-toggle="tab" href="#cariTabs04" aria-controls="cariTabs04" aria-selected="false">Perpustakaan</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="cari-Tabs05" data-bs-toggle="tab" href="#cariTabs05" aria-controls="cariTabs05" aria-selected="false">Survey &amp; Data</a>

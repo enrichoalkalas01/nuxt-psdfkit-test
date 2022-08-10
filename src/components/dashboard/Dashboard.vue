@@ -21,8 +21,8 @@
                     <h4>Prabayar</h4>
                     <div class="box-saldo">
                         <h6>Saldo Poin Anda</h6>
-                        <h3>{{ `Rp. ${ this.$store.state.Tools.PriceFormat(saldoUser, 2, ',', '.') }` }}</h3>
-                        <h6>Berlaku Hingga, 01 April 2100</h6>
+                        <h3>{{ `${ saldoUser ? this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') : '-' }` }}</h3>
+                        <h6>Berlaku Hingga, {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
                     </div>
                 </div>
             </div>
@@ -52,6 +52,7 @@
         data() {
             return { 
                 saldoUser: 0,
+                expDate: null,
                 userFirstName: null,
             }
         },
@@ -72,12 +73,13 @@
             },
             async getSaldo() {
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/creditbalance`, method: 'get',
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 
                 let saldo = await Axios(config)
-                this.saldoUser = saldo.data.credit_balance
+                this.saldoUser = saldo.data.credit.credit_balance
+                this.expDate = saldo.data.credit.expired_date
             }
         }
     }

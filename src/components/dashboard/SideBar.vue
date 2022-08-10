@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a href="/dashboard/daftar-pesanan" :class="ShoppingCart ? 'nav-link text-white active' : 'nav-link text-white'" aria-current="page">
                         <i class="fa-solid fa-clipboard-list icon-text"></i>
-                        <span class="icon-sidebox">Daftar Pesanan</span>
+                        <span class="icon-sidebox">Daftar Pesanan Foto</span>
                     </a>
                 </li>
                 <li class="nav-item">

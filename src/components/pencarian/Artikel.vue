@@ -5,6 +5,9 @@
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
         <div class="col-12" v-if="artikels ? artikels.length > 0 : null">
+            <p class="f14 mt-4">
+                Total Search : <span class="f14">{{ total_search }} data</span>
+            </p>
             <div
                 v-for="artikel in artikels" :key="artikel.id"
                 class="row artikels content borderless my-3"
@@ -22,7 +25,7 @@
                             <i class="fas fa-clock"></i> {{ artikel.publication }}, {{ artikel.published_date ? this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(artikel.published_date.substring(0, 10)) }} &nbsp;
                             <i class="fa-solid fa-images"></i> {{ artikel.photo_count }} &nbsp;
                             <i class="fa-solid fa-chart-line"></i> {{ artikel.infographic_count }} &nbsp;
-                            <i class="fa-solid fa-money-bill-1-wave"></i>&nbsp; Rp.{{ artikel.price ? artikel.price : '0' }} &nbsp;
+                            <i class="fa-solid fa-money-bill-1-wave"></i>&nbsp; {{ artikel.price ? artikel.price : '0' }} &nbsp;
                         </span>
                     </span>
                     <p class="short-text three">
@@ -35,9 +38,6 @@
                     </div>
                 </div>
             </div>
-            <p class="f14 mt-4">
-                Total Search : <span class="f14">{{ total_search }} data</span>
-            </p>
         </div>
     </div>
 </template>

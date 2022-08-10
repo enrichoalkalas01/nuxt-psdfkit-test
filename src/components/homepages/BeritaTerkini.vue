@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 text-center  mb-3">
-                    <h2 class="tag">BERITA TERKINI</h2>
+                    <h2 class="tag">Kompas ID</h2>
                 </div>
                 <div class="col-12">
                     <div v-html="HTMLItems ? HTMLItems : ''" class="row"></div>

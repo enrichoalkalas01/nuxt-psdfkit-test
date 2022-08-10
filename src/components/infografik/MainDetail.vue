@@ -35,6 +35,14 @@
                                             <th>Credit</th>
                                             <td>{{ infografikDetail ? infografikDetail.credit : '' }}</td>
                                         </tr>
+                                        <tr>
+                                            <th>Artikel Terkait</th>
+                                            <td>
+                                                <p v-for="(story,i) in infografikDetail.linked_stories" :key="i">
+                                                    <a :href="`/artikel-detail/${ story.id }`">link artikel</a>
+                                                </p>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

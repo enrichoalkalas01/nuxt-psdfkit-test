@@ -28,7 +28,7 @@
             <a
                 :class="this.$store.state.Search.TypeSearch === '4' ? 'nav-link active' : 'nav-link'"
                 id="All-Tabs05" data-bs-toggle="tab" href="#AllTabs05" aria-controls="AllTabs05" aria-selected="false"
-            >Buku</a>
+            >Perpustakaan</a>
         </li>
         <li v-if="this.$store.state.Search.TotalStatistik > 0" class="nav-item" role="presentation">
             <a
