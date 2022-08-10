@@ -187,13 +187,15 @@
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
-                    console.log(error)
-                    // this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    console.log(error.response)
+                    this.$store.commit('setLoadingText', 'loading..')
                     setTimeout(() => { 
                         this.$store.commit('setLoadingImage', 'failed');
-                        this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
+                        this.$store.commit('setLoadingText', error.response.data.message);
                         this.$store.commit('setCloseStatus', true);
-                        window.location.href = `${ window.location.search != '' ? `/pencarian${ window.location.search }` : '/'}`
+                        setTimeout(() => {
+                            window.location.href = `${ window.location.search != '' ? `/pencarian${ window.location.search }` : '/'}`
+                        }, 2500)
                     }, 500)
                 }
             }
