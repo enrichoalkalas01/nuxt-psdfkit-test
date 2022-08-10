@@ -42,7 +42,14 @@
         ],
         data() {    
             return {
-                SliderConfig: { type: 'loop', updateOnMove: true, focus: 'center' },
+                SliderConfig: {
+                    type: 'loop',
+                    perPage: 1,
+                    autoplay: true,
+                    interval: 5000,
+                    // updateOnMove: true,
+                    focus: 'center'
+                },
                 BannersData: null,
             }
         },
