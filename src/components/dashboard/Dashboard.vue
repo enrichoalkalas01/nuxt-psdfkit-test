@@ -22,7 +22,7 @@
                     <div class="box-saldo">
                         <h6>Saldo Poin Anda</h6>
                         <h3>{{ `${ saldoUser ? this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') : '-' }` }}</h3>
-                        <h6>Berlaku Hingga, {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
+                        <h6>Berlaku Hingga {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
                     </div>
                 </div>
             </div>
