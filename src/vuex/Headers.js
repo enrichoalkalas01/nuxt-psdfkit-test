@@ -6,6 +6,7 @@ const Headers = {
             ReloadSaldo: false,
             BaseUrlApi: `https://dev-be.kompasdata.id/`,
             Notification: false,
+            NotificationCart: false,
         }
     },
 
@@ -16,7 +17,11 @@ const Headers = {
         setNotification(state) {
             state.Notification = true
             setTimeout(() => state.Notification = false, 500)
-        }
+        },
+        setNotificationCart(state) {
+            state.NotificationCart = true
+            setTimeout(() => state.NotificationCart = false, 500)
+        },
     }
 }
 

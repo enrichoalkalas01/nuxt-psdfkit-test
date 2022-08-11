@@ -48,7 +48,7 @@
                             </a>
                             <a href="/dashboard/daftar-pesanan" class="cart d-none d-md-block" v-if="this.$store.state.Login.LoginStatus">
                                 <i class="fas fa-shopping-cart" id="notification-cart">
-                                    <span v-if="notification > 0">{{ notificationCart }}</span>
+                                    <span v-if="notificationCart > 0">{{ notificationCart }}</span>
                                 </i>
                             </a>
                             <span class="divider mr-2  d-none d-md-block" id="line"></span>
@@ -166,6 +166,10 @@
                 this.getNotification()
             },
 
+            '$store.state.Headers.NotificationCart': function() {
+                this.getNotificationCart()
+            },
+
             ReloadSaldo: function() {
                 this.getSaldo()
                 this.$store.commit('setReloadSaldo', false)
@@ -180,6 +184,7 @@
             if ( this.$store.state.Login.LoginStatus ) {
                 this.getSaldo()
                 this.getNotification()
+                this.getNotificationCart()
             }
         },
 
@@ -187,6 +192,7 @@
             if ( this.$store.state.Login.LoginStatus ) {
                 this.getSaldo()
                 this.getNotification()
+                this.getNotificationCart()
             }
         },
 
@@ -268,6 +274,20 @@
                 try {
                     let notification = await Axios(config)
                     this.notification = notification.data.filter(x => x.user.id === this.$store.state.Login.UserData.id && x.adminId !== '').length
+                } catch (error) {
+                    console.log(error)
+                }
+            },
+
+            async getNotificationCart() {
+                let config = {
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCartsCount`,
+                    headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
+                }
+
+                try {
+                    let notificationCart = await Axios(config)
+                    this.notificationCart = notificationCart.data
                 } catch (error) {
                     console.log(error)
                 }
