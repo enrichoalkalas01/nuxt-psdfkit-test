@@ -54,7 +54,7 @@
 
                                 <!-- <i class="fa-solid fa-hand-holding-dollar"></i> -->
                                 <i class="fa-solid fa-money-bill-1-wave"></i>
-                                Rp.{{ artikel.price ? artikel.price : '0' }} 
+                                {{ artikel.price ? artikel.price : '0' }} 
                                 &nbsp;
                             </span>
                         </div>

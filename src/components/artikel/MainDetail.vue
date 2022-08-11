@@ -120,25 +120,24 @@
         data () {
             return {
                 linkBack: null,
-                suggestions: [
-                    { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                    { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                    { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-                ],
+                suggestions: [],
                 SliderConfig: { updateOnMove: true, type: 'loop', focus: 'center', perPage: 2, pagination: false },
                 artikelDetail: null,
                 artikelMessage: null,
+                artikelSuggestions: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
                     url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
                 },
                 HargaBaca: 0,
+                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' }
             }
         },
 
         async mounted() {
             this.linkBack = window.location.search
             this.getData()
+            this.getSuggestion()
             this.$store.commit('setReloadSaldo', true)
         },
 
@@ -180,9 +179,6 @@
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
 
-                    console.log(this.artikelDetail)
-                    console.log(this.artikelMessage);
-
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
                     this.$store.commit('setLoadingScreen', false)
@@ -198,6 +194,29 @@
                         }, 2500)
                     }, 500)
                 }
+            },
+
+            async getSuggestion() {
+                let dataSuggestions = await Axios(this.ConfigApiSuggestion)
+                let suggestionTemp = JSON.parse(dataSuggestions.data.value)
+                this.artikelSuggestions = suggestionTemp.mainpage[3].data.data
+
+                console.log(this.artikelSuggestions)
+
+                for (let i = 0; i < 3; i++) {
+                    let suggestion = {
+                        'id': this.artikelSuggestions[i].document_id,
+                        'images': this.artikelSuggestions[i].image_source,
+                        'title': this.artikelSuggestions[i].title,
+                        'desc': this.artikelSuggestions[i].excerpt, 
+                        'source': `${ this.artikelSuggestions[i].created_source }, ${ this.$store.state.Tools.ChangeDateString(this.artikelSuggestions[i].created_date.substring(0, 10)) }`,
+                    }
+
+                    // console.log(suggestion);
+                    this.suggestions.push(suggestion)
+                }
+
+                console.log(this.suggestions);
             }
         },
     }
