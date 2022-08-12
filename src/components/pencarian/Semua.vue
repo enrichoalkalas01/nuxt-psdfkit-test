@@ -100,9 +100,9 @@
         },
 
         watch: {
-            LoadingScreenStatus(old, newVal) {
-                console.log(old, newVal)
-            }
+            // LoadingScreenStatus(old, newVal) {
+            //     // console.log(old, newVal)
+            // }
         },
         
         async mounted() {

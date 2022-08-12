@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="infografik-search">
         <LoadingScreen />
         <Infografik
             v-bind:dataInfografiks="infografiks ? infografiks.documents : null"
@@ -62,11 +62,11 @@
 
                     // Set Total Data
                     this.$store.commit('setTotalSearchDetail', { type: 'infografik', total: this.infografiks.total })
-                    
+                    this.addScript()
                 } catch (error) {
                     console.log(error.message)
                 }
-            }
+            },
         },
     }
 </script>

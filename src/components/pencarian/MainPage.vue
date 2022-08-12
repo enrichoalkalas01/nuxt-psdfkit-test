@@ -96,17 +96,6 @@
                             <Statistik />
                         </div>
                     </div>
-
-                    <!-- Pagination -->
-                    <div class="pagination">
-                        <VPagination
-                            v-model="page"
-                            :pages="Number(1000)"
-                            :range-size="1"
-                            active-color="#DCEDFF"
-                            @update:modelValue="updatePagination"
-                        />
-                    </div>
                 </div>
             </div>
         </div>
@@ -122,9 +111,6 @@
     import Buku from './MainBook.vue'
     import Statistik from './MainStatistik.vue'
 
-    import VPagination from "@hennge/vue3-pagination"
-    import "@hennge/vue3-pagination/dist/vue3-pagination.css"
-
     export default {
         name: 'MainPage',
         components: {
@@ -136,7 +122,6 @@
             Gallery,
             Buku,
             Statistik,
-            VPagination
         },
         props: { },
         
@@ -207,17 +192,6 @@
 
                 window.location.href = urlString
                 this.$store.commit('setOrderDirection', e.target.value)
-            },
-
-            async updatePagination(currPage) {
-                let queryStringUrl = this.queryStringFunction()
-                let stringUrl = '', i = 0
-                for ( let queryData in queryStringUrl) {
-                    stringUrl = stringUrl + `${ queryData === 'currentpage' ? queryData : queryData }=${ queryData === 'currentpage' ? currPage : queryStringUrl[queryData] }&`
-                    i = i + 1
-                }
-
-                window.location.href = `/pencarian?${ stringUrl.substring(0, stringUrl.length - 1) }`
             },
         },
     }

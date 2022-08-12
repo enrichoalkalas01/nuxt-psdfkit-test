@@ -14,7 +14,7 @@
                     class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 text-center"
                 >
                     <a :href="`/foto-detail/${ foto ? foto.document_id : null }${ linkBack }`" class="content borderless info-ctn">
-                        <img :src="foto ? `${ this.$store.state.Tools.GetUrlFiles + foto.preview }` : null" class="img-square32 rounding mb-1" alt="">
+                        <img :src="foto ? `${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }` : null" class="img-square32 rounding mb-1" alt="">
                         <h2 class="subtitle mb-1">
                             <div class="truncate" v-html="`${ foto.title }`"></div>
                         </h2>

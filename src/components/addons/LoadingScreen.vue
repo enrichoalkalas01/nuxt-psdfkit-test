@@ -49,7 +49,7 @@
         mounted() {
             this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
             this.textMessage = this.$store.state.Tools.LoadingScreenText
-            console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
+            // console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) {
                 body.style.overflow = 'hidden !important'
@@ -62,7 +62,7 @@
         updated() {
             this.statusScreen = this.$store.state.Tools.LoadingScreenStatus
             this.textMessage = this.$store.state.Tools.LoadingScreenText
-            console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
+            // console.log(`Loading Screen Status : ${ this.$store.state.Tools.LoadingScreenStatus }`)
             let body = document.querySelector("body")
             if ( this.statusScreen ) {
                 body.style.overflow = 'hidden !important'

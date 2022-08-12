@@ -1,10 +1,10 @@
 <template>
-    <div class="row line-bot full">
+    <div class="row">
         <LoadingScreen />
         <div class="col-12" v-if="artikels ? artikels.length <= 0 : null">
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
-        <div class="col-12" v-if="artikels ? artikels.length > 0 : null">
+        <div class="col-12 line-bot full" v-if="artikels ? artikels.length > 0 : null">
             <p class="f14 mt-4">
                 Total Search : <span class="f14">{{ total_search }} data</span>
             </p>
@@ -34,7 +34,12 @@
                 </div>
                 <div v-if="artikel.featured_image !== ''" class="col-12 col-sm-12 col-md-3 col-lg-3 images-wrapper">
                     <div class="images-box">
-                        <div class="image" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + artikel.featured_image }')`"></div>
+                        <div
+                            class="image"
+                            v-on:hover="imagesOnHover"
+                            :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + artikel.featured_image }')`"
+                        >
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,8 +82,7 @@
         },
 
         methods: {
-            checkLogin: function(e){
-                
+            checkLogin: function(e) {
                 if (!this.$store.state.Login.LoginStatus) {
                     e.preventDefault();
                     setTimeout(() => { 
