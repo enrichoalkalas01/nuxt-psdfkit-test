@@ -3,12 +3,14 @@
         <div class="content borderless mb-4">
             <img :src="image" class="rounding w-100" alt="">
             <h3 class="subtitle my-2">
-                <a href="#">
+                <a :href="`${ idData }`">
                     {{ title }}
                 </a>
             </h3>
-            <p>
-                {{ desc }}
+            <p >
+                <span class="short-text three">
+                    {{ desc }}
+                </span>
             </p>
             <span class="date-time"> <i class="fas fa-clock"></i> {{ source }} </span>
         </div>
