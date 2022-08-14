@@ -14,6 +14,7 @@
                             <!-- <div v-on:click="onMouseOverImages" class="images-div" :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }')`"></div> -->
                             <div
                                 @mouseover="onMouseOverImages"
+                                @mouseleave="onMouseLeaveImages"
                                 class="images-div"
                                 :id="`images-div-id-${ infografik.document_id }`"
                             >
@@ -49,7 +50,7 @@
 <script>
     export default {
         name: 'Infografik',
-        props: [
+        props: [ 
             'dataInfografiks', 'totalSearch'
         ],
 
@@ -85,23 +86,36 @@
 
         methods: {
             async onMouseOverImages(el) {
-                console.log(el)
-                console.log(el.pageX)
-                // console.log(this.getCursorPos())
+                this.magnify(
+                    el.target.getAttribute('id'),
+                    el.target.clientWidth,
+                    el.target.clientHeight, 3
+                )
             },
 
-            getCursorPos(e) {
-                var a, x = 0, y = 0;
-                e = e || window.event;
-                /*get the x and y positions of the image:*/
-                // a = img.getBoundingClientRect();
-                /*calculate the cursor's x and y coordinates, relative to the image:*/
-                x = e.pageX - a.left;
-                y = e.pageY - a.top;
-                /*consider any page scrolling:*/
-                x = x - window.pageXOffset;
-                y = y - window.pageYOffset;
-                return {x : x, y : y};
+            async onMouseLeaveImages() {
+                let magnifierGlass = document.querySelectorAll(".img-magnifier-glass")
+                if ( magnifierGlass.length > 0 ) magnifierGlass.forEach(el => el.remove())
+            },
+
+            magnify(imgID, wBox, hBox, zoom) {
+                console.log(imgID, zoom)
+                let boxImages = document.getElementById(imgID)
+                let widthBox = wBox, heightBox = hBox
+                console.log(widthBox, heightBox)
+
+                console.log(boxImages)
+
+                let boxPreview = document.createElement('div')
+                boxPreview.style.width = '175px'
+                boxPreview.style.height = '175px'
+                boxPreview.style.position = 'absolute'
+                boxPreview.style.backgroundColor = "#dedede"
+                boxPreview.style.left = wBox + 25 + 'px'
+                boxPreview.style.top = '0px'
+                
+
+                boxImages.insertBefore(boxPreview, document.querySelector(`#${ imgID } img`))
             }
         }
     }
@@ -119,6 +133,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     .images-div img {

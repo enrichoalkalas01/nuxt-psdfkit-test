@@ -5,7 +5,7 @@
             v-bind:dataArtikels="artikels ? artikels.documents : null"
             v-bind:totalSearch="total_search"
         />
-        <div>
+        <div class="pt-2">
             <!-- Pagination -->
             <div class="pagination">
                 <VPagination

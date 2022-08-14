@@ -1,7 +1,7 @@
 <template>
-    <div class="row pt-3 line-bot full">
+    <div class="row pt-3">
         <LoadingScreen />
-        <div class="wrapper-gallery col-12">
+        <div class="wrapper-gallery col-12 pb-2 line-bot full">
             <div class="row" v-if="dataFotos ? dataFotos.length <= 0 : null">
                 <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
             </div>
@@ -27,16 +27,31 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 pt-2">
+            <!-- Pagination -->
+            <div class="pagination">
+                <VPagination
+                    v-model="page"
+                    :pages="Number(total_search > 9000 ? 100 : Math.round((total_search / 50)))"
+                    :range-size="1"
+                    active-color="#DCEDFF"
+                    @update:modelValue="updatePagination"
+                />
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     import Axios from 'axios'
     import LoadingScreen from '../addons/LoadingScreen.vue'
+    import VPagination from "@hennge/vue3-pagination"
+    import "@hennge/vue3-pagination/dist/vue3-pagination.css"
+
     export default {
         name: 'Gallery',
         components: {
-            LoadingScreen
+            LoadingScreen, VPagination
         },
         props: [],
         data() {
@@ -45,6 +60,7 @@
                 dataFotos: [],
                 fotos: null,
                 total_search: 0,
+                page: Number(this.$store.state.Search.CurrentPageKey),
                 configPhotosData: {
                     search: this.$store.state.Search.SearchKey,
                     authors: this.$store.state.Search.AuthorKey,
@@ -93,7 +109,24 @@
                 } catch (error) {
                     console.log(error.message)
                 }
-            }
+            },
+
+            async updatePagination(currPage) {
+                let queryStringUrl = this.queryStringFunction()
+                let stringUrl = '', i = 0
+                for ( let queryData in queryStringUrl) {
+                    stringUrl = stringUrl + `${ queryData === 'currentpage' ? queryData : queryData }=${ queryData === 'currentpage' ? currPage : queryStringUrl[queryData] }&`
+                    i = i + 1
+                }
+
+                window.location.href = `/pencarian?${ stringUrl.substring(0, stringUrl.length - 1) }`
+            },
+
+            queryStringFunction: function() {
+                const urlSearchParams = new URLSearchParams(window.location.search)
+                const params = Object.fromEntries(urlSearchParams.entries())
+                return params
+            },
         },
     }
 </script>
