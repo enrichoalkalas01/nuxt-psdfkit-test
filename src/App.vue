@@ -42,12 +42,17 @@
             },
 
             async runAuth() {
+                let expDate = Math.floor(new Date('Tue Aug 16 2022 03:34:17 GMT+0700 (Western Indonesia Time)').getTime() / 60000)
+                let dateNow = Math.floor(new Date().getTime() / 60000)
+                let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 0
+                console.log(timeOut + ' minute left')
+
                 this.checkAndGetRefreshToken()
-                console.log(this.$store.state.Tools.GetCookies('_km_dtl_exp'))
+
                 setTimeout(() => {
                     this.deleteCookiesData()
                     this.runAuth()
-                }, 600000)
+                }, timeOut * 60000)
             },
 
             async checkAndGetRefreshToken() {
