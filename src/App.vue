@@ -44,7 +44,7 @@
             async runAuth() {
                 console.log('here')
                 this.checkAndGetRefreshToken()
-                
+
                 setTimeout(() => {
                     this.runAuth()
                 }, 600000)
@@ -77,6 +77,32 @@
 
             async getTokenKompas(refreshToken) {
                 console.log(refreshToken)
+                try {
+                    let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
+                    this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
+                    this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
+                    
+                } catch (error) {
+                    console.log(error.message)
+                    console.log('failed to get new access token, reload / refresh the page !')
+                    // this.deleteCookiesData()
+                }
+            },
+
+            async getUserData(accessToken) {
+                console.log(accessToken)
+                try {
+                    let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
+                    newUserData.data.token = accessToken // change new access token
+                    this.$store.commit('setUserData', newUserData.data)
+                    this.$store.commit('setLoginStatus', true)
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(newUserData.data)).toString('base64'), 8) // set status login data
+                    console.log(this.$store.state)
+                } catch (error) {
+                    console.log(error.message)
+                    console.log('failed to get new user data, reload / refresh the page !')
+                }
             },
         }
     }
