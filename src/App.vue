@@ -38,7 +38,14 @@
 
         methods: {
             async autoLoginSSOFixed() {
-                this.checkAndGetRefreshToken()
+                this.runAuth()
+            },
+
+            async runAuth() {
+                console.log('here')
+                setTimeout(() => {
+                    this.runAuth()
+                }, 600000)
             },
 
             async checkAndGetRefreshToken() {
@@ -50,7 +57,7 @@
                         this.deleteCookiesData()
                     } else {
                         console.log('refresh token is detected !')
-                        this.checkAndGetAccessToken(refreshToken.data)
+                        this.getTokenKompas(refreshToken.data)
                     }
                 } catch (error) {
                     console.log(error.message)
@@ -59,49 +66,16 @@
                 }
             },
 
-            async checkAndGetAccessToken(refreshToken) {
-                // refreshToken = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2ODkxMjE5ODcsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.bmLGf8F5KVFBoCnroApL048QPlW4KYSD63WHISxB4WEIKanB5h5FrJDtTjQIkBBOohj3AHMov6Gy-wDiwMPQKc5rcEO2GwKf20w57CihDkl9g1AFGQPnBOYaaIR9f0QFzUohAkZa2E3uUXLVYEbMjXeTsrOYlCJFmHKJYiSH1JY'
-                if ( this.$store.state.Tools.GetCookies("kompas._token") ) {
-                    console.log('token data is detected !')
-                    this.getUserData(this.getUserData(this.$store.state.Tools.GetCookies("kompas._token"))) // get user data with access token
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
-                } else {
-                    console.log('token acccess is not detected!')
-                    try {
-                        let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
-                        this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
-                        this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
-                        
-                    } catch (error) {
-                        console.log(error.message)
-                        console.log('failed to get new access token, reload / refresh the page !')
-                        // this.deleteCookiesData()
-                    }
-                }
-            },
-
-            async getUserData(accessToken) {
-                console.log(accessToken)
-                try {
-                    let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
-                    newUserData.data.token = accessToken // change new access token
-                    this.$store.commit('setUserData', newUserData.data)
-                    this.$store.commit('setLoginStatus', true)
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(newUserData.data)).toString('base64'), 8) // set status login data
-                    console.log(this.$store.state)
-                } catch (error) {
-                    console.log(error.message)
-                    console.log('failed to get new user data, reload / refresh the page !')
-                }
-            },
-
             async deleteCookiesData() {
                 this.$store.commit('setLoginStatus', false)
                 this.$store.state.Tools.deleteCookies('kompas._token') // delete token status if exist
                 this.$store.state.Tools.deleteCookies('_km_dtl_s') // delete cookies status
                 this.$store.state.Tools.deleteCookies('_km_dtl_d') // delete cookies data
-            }
+            },
+
+            async getTokenKompas(refreshToken) {
+                console.log(refreshToken)
+            },
         }
     }
 </script>
