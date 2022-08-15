@@ -46,6 +46,7 @@
                 this.checkAndGetRefreshToken()
 
                 setTimeout(() => {
+                    this.deleteCookiesData()
                     this.runAuth()
                 }, 600000)
             },
