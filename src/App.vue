@@ -33,7 +33,7 @@
         },
 
         async beforeMount() {
-            // this.autoLoginSSOFixed()
+            this.autoLoginSSOFixed()
         },
 
         methods: {
@@ -42,6 +42,7 @@
             },
 
             async runAuth() {
+                console.log(this.$store.state.Tools.GetCookies('_km_dtl_exp'))
                 let expDate = Math.floor(new Date(this.$store.state.Tools.GetCookies('_km_dtl_exp')).getTime() / 60000)
                 let dateNow = Math.floor(new Date().getTime() / 60000)
                 let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 0
