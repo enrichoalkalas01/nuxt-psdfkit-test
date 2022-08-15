@@ -43,6 +43,8 @@
 
             async runAuth() {
                 console.log('here')
+                this.checkAndGetRefreshToken()
+                
                 setTimeout(() => {
                     this.runAuth()
                 }, 600000)
