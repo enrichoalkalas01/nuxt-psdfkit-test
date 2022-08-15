@@ -42,13 +42,14 @@
             },
 
             async runAuth() {
-                console.log(this.$store.state.Tools.GetCookies('_km_dtl_exp'))
-                let expDate = Math.floor(new Date(this.$store.state.Tools.GetCookies('_km_dtl_exp')).getTime() / 60000)
+                let date_exp = this.$store.state.Tools.GetCookies('_km_dtl_exp')
+                console.log(date_exp)
+                let expDate = Math.floor(new Date(date_exp).getTime() / 60000)
                 let dateNow = Math.floor(new Date().getTime() / 60000)
                 let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 0
                 console.log(timeOut + ' minute left')
 
-                this.checkAndGetRefreshToken()
+                if ( !date_exp ) this.checkAndGetRefreshToken()
 
                 setTimeout(() => {
                     this.deleteCookiesData()
