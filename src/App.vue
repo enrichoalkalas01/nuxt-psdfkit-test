@@ -43,7 +43,7 @@
 
             async runAuth() {
                 this.checkAndGetRefreshToken()
-
+                console.log(this.$store.state.Tools.GetCookies('_km_dtl_exp'))
                 setTimeout(() => {
                     this.deleteCookiesData()
                     this.runAuth()
