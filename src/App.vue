@@ -48,11 +48,8 @@
                 let dateNow = Math.floor(new Date().getTime() / 60000)
                 let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 0
                 console.log(timeOut + ' minute left')
-
-                if ( !date_exp ) {
-                    this.deleteCookiesData()
-                    this.checkAndGetRefreshToken()
-                }
+                
+                this.checkAndGetRefreshToken()
 
                 setTimeout(() => {
                     this.runAuth()
