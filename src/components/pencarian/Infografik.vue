@@ -119,6 +119,7 @@
                 createPreview.style.backgroundColor = `#000`
                 createPreview.style.position = 'absolute'
                 createPreview.style.borderRadius = '10px'
+                createPreview.style.backgroundColor = '#dedede'
                 createPreview.style.left = `${ el.target.clientWidth + 25 }px`
                 createPreview.style.top = '0px'
                 createPreview.style.backgroundPosition = 'center'
@@ -142,7 +143,7 @@
                     console.log(`Height Percentage : ${ (y / el.target.clientHeight) * 100 }%`)
                     
                     let preview = document.querySelector(`#${ me.target.getAttribute('id') } .images-preview-infografik`)
-                    preview.style.backgroundPosition = `${ (y / el.target.clientHeight) * 100 }% ${ (x / el.target.clientWidth) * 100 }%`
+                    preview.style.backgroundPosition = `${ (x / el.target.clientWidth) * 100 }% ${ (y / el.target.clientHeight) * 100 }%`
                 })
                 
                 // Get Cursor Position
