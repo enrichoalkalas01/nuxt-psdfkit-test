@@ -3,7 +3,7 @@
         <div class="item-wrapper">
             <div class="wc-item">
                 <h4 class="title">{{ Title }}</h4>
-                <p class="date">{{ Publication }} edisi {{ PublicationDate ? this.$store.state.Tools.ChangeDateString(PublicationDate.substring(0, 10)) : '-' }}</p>
+                <p class="date" v-if="PublicationDate">{{ Publication }} edisi {{ PublicationDate ? this.$store.state.Tools.ChangeDateString(PublicationDate.substring(0, 10)) : '-' }}</p>
             </div>
             <div class="wc-price">
                 <span>{{ Price }}</span>

@@ -23,7 +23,7 @@
                     v-for="(history, i) in ResultData" :key="i"
                     :title="getSliceData(history.detail,'<title>','</title>',7)"
                     :publication="getSliceData(history.detail,'<publication>','</publication>',13)"
-                    :publicationDate="getSliceData(history.detail,'<date>','</date>',6)"
+                    :publicationDate="(history.product.id != 6 ? getSliceData(history.detail,'<date>','</date>',6) : '')"
                     :price="history.value"
                     :type="history.product.name"
                     :tanggal="history.insertDate"
