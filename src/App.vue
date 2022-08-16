@@ -46,7 +46,7 @@
                 console.log(date_exp)
                 let expDate = Math.floor(new Date(date_exp).getTime() / 60000)
                 let dateNow = Math.floor(new Date().getTime() / 60000)
-                let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 0
+                let timeOut = (expDate - dateNow) > 0 ? (expDate - dateNow) : 1
                 console.log(timeOut + ' minute left')
                 
                 this.checkAndGetRefreshToken()
