@@ -40,6 +40,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 mb-3">
+                    <div class="row wrapper">
+                        <div class="col-4">
+                            
+                        </div>
+                        <div class="col-8">
+                            <a href="https://account.kompas.id/manage-account/account-detail/account-security" class="btn btn-second">
+                                Ubah Password
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="row form-informasi">

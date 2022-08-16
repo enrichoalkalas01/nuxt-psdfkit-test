@@ -18,11 +18,28 @@
             </div>
             <div class="row mb-2">
                 <div class="col-12 content">
-                    <h4>Prabayar</h4>
-                    <div class="box-saldo">
-                        <h6>Saldo Poin Anda</h6>
-                        <h3>{{ `${ saldoUser ? this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') : '-' }` }}</h3>
-                        <h6>Berlaku Hingga {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>Prabayar</h4>
+                            <div class="box-saldo">
+                                <h6>Saldo Poin Anda</h6>
+                                <h3>{{ `${ saldoUser ? this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') : '-' }` }}</h3>
+                                <h6>Berlaku Hingga {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
+                            </div>
+                        </div>
+                        <div class="col-6" v-if="kuotaArtikel > 0 || kuotaPdf > 0">
+                            <h4>Info Paket</h4>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6>Artikel 1991-terbaru</h6>
+                                    <h3>{{ kuotaArtikel > 0 ? kuotaArtikel : '-' }}</h3>
+                                </div>
+                                <div class="col-6">
+                                    <h6>Crop Pdf 1965-1990</h6>
+                                    <h3>{{ kuotaPdf > 0 ? kuotaPdf : '-' }}</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,6 +70,8 @@
             return { 
                 saldoUser: 0,
                 expDate: null,
+                kuotaArtikel: 0,
+                kuotaPdf: 0,
                 userFirstName: null,
             }
         },
@@ -80,6 +99,8 @@
                 let saldo = await Axios(config)
                 this.saldoUser = saldo.data.credit.credit_balance
                 this.expDate = saldo.data.credit.expired_date
+                this.kuotaArtikel = saldo.data.packages[1].package_balance
+                this.kuotaPdf = saldo.data.packages[0].package_balance
             }
         }
     }

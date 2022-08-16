@@ -39,7 +39,7 @@
                                             <th>Artikel Terkait</th>
                                             <td>
                                                 <p v-for="(story,i) in infografikDetail.linked_stories" :key="i">
-                                                    <a :href="`/artikel-detail/${ story.id }`">link artikel</a>
+                                                    <a :href="`/artikel-detail/${ story.id }`">{{ story.title }}</a>
                                                 </p>
                                             </td>
                                         </tr>
