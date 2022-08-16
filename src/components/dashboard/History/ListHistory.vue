@@ -3,11 +3,14 @@
         <div class="item-wrapper">
             <div class="wc-item">
                 <h4 class="title">{{ Title }}</h4>
-                <!-- <p class="description">{{ Description }}</p> -->
-                <p class="date">Date : {{ Tanggal }}</p>
+                <p class="date">{{ Publication }} edisi {{ PublicationDate ? this.$store.state.Tools.ChangeDateString(PublicationDate.substring(0, 10)) : '-' }}</p>
             </div>
             <div class="wc-price">
                 <span>{{ Price }}</span>
+            </div>
+            <div class="wc-price">
+                <h5>{{ Type }}</h5>
+                <p>{{ Tanggal }}</p>
             </div>
         </div>
     </div>
@@ -19,8 +22,11 @@
         props: [
             'typeItem',
             'typeConfirmation',
-            'price',
             'title',
+            'publication',
+            'publicationDate',
+            'price',
+            'type',
             'tanggal',
             'description',
             'images',
@@ -37,9 +43,12 @@
                 TypeConfirmation: 0,
                 Thumbnail: null,
                 Title: null,
+                Publication: null,
+                PublicationDate: null,
+                Price: null,
+                Type: null,
                 Description: null,
                 Tanggal: null,
-                Price: null,
                 Quantity: 0,
                 deletButton: null,
                 image_source: null,
@@ -51,18 +60,18 @@
             // Static Data
             this.Thumbnail = this.images
             this.Title = this.title
+            this.Publication = this.publication
+            this.PublicationDate = this.publicationDate
+            this.Price = this.$store.state.Tools.PriceFormat(this.price, 0, '', '.')
+            this.Type = this.type
             this.Description = this.description
             this.Tanggal = this.tanggal.replace("T", ' ')
-            this.Price = 'Rp.' + this.$store.state.Tools.PriceFormat(this.price, 2, ',', '.')
             this.Quantity = 1
             this.TypeConfirmation = this.typeConfirmation
             this.deletButton = this.delete
             this.image_source = this.imageSource
             this.OrderId = this.orderId
         },
-
-        methods: {
-        }
     }
 </script>
 

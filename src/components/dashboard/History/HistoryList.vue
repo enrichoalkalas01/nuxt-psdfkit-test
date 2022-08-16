@@ -21,10 +21,12 @@
             <div class="row" v-if="ResultData != null">
                 <ListHistory
                     v-for="(history, i) in ResultData" :key="i"
-                    :title="history.product.name"
-                    :description="history.detail"
-                    :tanggal="history.insertDate"
+                    :title="getSliceData(history.detail,'<title>','</title>',7)"
+                    :publication="getSliceData(history.detail,'<publication>','</publication>',13)"
+                    :publicationDate="getSliceData(history.detail,'<date>','</date>',6)"
                     :price="history.value"
+                    :type="history.product.name"
+                    :tanggal="history.insertDate"
                 />
             </div>
         </div>
@@ -58,7 +60,7 @@
             async getDataAll(date1, date2) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/Orders?productid=0&startperiode=${ date1 }&endperiode=${ date2 }&sort=false`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/Orders?productid=0&startperiode=${ date1 }&endperiode=${ date2 }&sort=false`,
                     headers: { Authorization: this.Token }
                 }
 
@@ -79,6 +81,14 @@
                     }, 500)
                 }
             },
+            getSliceData(data, firstElement, lastElement, elementLength) {
+                const value = data.slice(
+                    data.indexOf(firstElement) + elementLength,
+                    data.lastIndexOf(lastElement),
+                )
+
+                return value
+            }
         }
     }
 </script>
