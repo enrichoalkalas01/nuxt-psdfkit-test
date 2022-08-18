@@ -233,19 +233,13 @@
     import Suggestion from '../suggestion/Main.vue'
     import LoadingScreen from '../addons/LoadingScreen.vue'
 
-    let dataSuggestions = [
-        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    ]
-
     export default {
         name: 'Foto',
         components: { Suggestion, LoadingScreen },
         data () {
             return {
                 linkBack: null,
-                suggestions: dataSuggestions,
+                suggestions: [],
                 FormPesanClick: false,
                 fotoDetail: null,
                 TotalPayment: 0, SizeProduct: 0,
@@ -257,6 +251,8 @@
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
+                fotoSuggestions: null,
+                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' },
 
                 UkuranFoto: [
                     { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640, dpiMax: 72 },
@@ -293,7 +289,7 @@
         async mounted() {
             this.linkBack = window.location.search
             this.getData()
-            console.log(this.fotoDetail)
+            this.getSuggestion()
         },
 
         methods: {
@@ -412,6 +408,27 @@
                 //     this.$store.commit('setLoadingScreen', true)
                 // }
             },
+
+            async getSuggestion() {
+                let dataSuggestions = await Axios(this.ConfigApiSuggestion)
+                let suggestionTemp = JSON.parse(dataSuggestions.data.value)
+
+                for (let index = 0; index < suggestionTemp.mainpage.length; index++) {
+                    if (suggestionTemp.mainpage[index].name_component === 'foto') {
+                        this.fotoSuggestions = suggestionTemp.mainpage[index].data.data
+                    }
+                }
+
+                for (let i = 0; i < 3; i++) {
+                    let suggestion = {
+                        'id': this.fotoSuggestions[i].document_id,
+                        'images': this.fotoSuggestions[i].image_source,
+                        'title': this.fotoSuggestions[i].title,
+                        'source': `${ this.fotoSuggestions[i].created_source }, ${ this.$store.state.Tools.ChangeDateString(this.fotoSuggestions[i].created_date.substring(0, 10)) }`,
+                    }
+                    this.suggestions.push(suggestion)
+                }
+            }
         },
 
         computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },

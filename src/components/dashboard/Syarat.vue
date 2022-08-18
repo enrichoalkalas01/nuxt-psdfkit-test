@@ -78,9 +78,7 @@
             <li>Pelanggaran terhadap ketentuan ini akan diproses sesuai aturan hukum yang berlaku.</li>
         </ol>
         <h2 class="subtitle">Perubahan Ketentuan</h2>
-        <ol>
-            <li>Ketentuan ini dapat berubah sewaktu-waktu dengan atau tanpa pemberitahuan terlebih dahulu.</li>
-        </ol>
+        <p>Ketentuan ini dapat berubah sewaktu-waktu dengan atau tanpa pemberitahuan terlebih dahulu.</p>
     </div>
 </template>
 

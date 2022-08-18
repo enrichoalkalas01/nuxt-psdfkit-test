@@ -98,12 +98,6 @@
     import FileSaver from 'file-saver'
     import LoadingScreen from '../addons/LoadingScreen.vue'
 
-    let dataSuggestions = [
-        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    ]
-
     export default {
         name: 'Infografik',
         components: {
@@ -112,18 +106,21 @@
         data () {
             return {
                 linkBack: null,
-                suggestions: dataSuggestions,
+                suggestions: [],
                 infografikDetail: [],
                 HargaBaca: 0,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
                     url: `https://dev-be.kompasdata.id/api/graphics/` + this.$route.params.id,
-                }
+                },
+                infografikSuggestions: null,
+                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' },
             }
         },
         async beforeMount() {
             this.linkBack = window.location.search
             this.getData()
+            this.getSuggestion()
         },
 
         methods: {
@@ -239,6 +236,29 @@
 
             async onMouseLeaveImages() {
                 document.querySelectorAll('.images-preview-infografik').forEach(el => el.remove() )
+            },
+
+            async getSuggestion() {
+                let dataSuggestions = await Axios(this.ConfigApiSuggestion)
+                let suggestionTemp = JSON.parse(dataSuggestions.data.value)
+
+
+                for (let index = 0; index < suggestionTemp.mainpage.length; index++) {
+                    if (suggestionTemp.mainpage[index].name_component === 'infografik') {
+                        this.infografikSuggestions = suggestionTemp.mainpage[index].data.data
+                        console.log(this.infografikSuggestions);
+                    }
+                }
+
+                for (let i = 0; i < 3; i++) {
+                    let suggestion = {
+                        'id': this.infografikSuggestions[i].document_id,
+                        'images': this.infografikSuggestions[i].image_source,
+                        'title': this.infografikSuggestions[i].title,
+                        'source': `${ this.infografikSuggestions[i].created_source }, ${ this.$store.state.Tools.ChangeDateString(this.infografikSuggestions[i].created_date.substring(0, 10)) }`,
+                    }
+                    this.suggestions.push(suggestion)
+                }
             }
         }
     }

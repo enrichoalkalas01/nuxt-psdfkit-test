@@ -70,7 +70,7 @@
                     
                 <div class="col-12 col-sm-12 col-md-3">
                     <!-- Banner -->
-                    <Banner />
+                    <!-- <Banner /> -->
 
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />
@@ -82,33 +82,28 @@
 
 <script>
     import Axios from 'axios'
-    import Banner from '../banner/Main.vue'
+    // import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
-    
-
-    let dataSuggestions = [
-        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    ]
 
     export default {
         name: 'MainDetail',
         components: {
-            Banner,
+            // Banner,
             Suggestion,
         },
         data () {
             return {
                 linkBack: null,
-                suggestions: dataSuggestions,
+                suggestions: [],
                 newSummary: null,
                 urlTest: 'https://public.tableau.com/views/SPKC2022/SebaranSampelSPKC2022?:language=en-US&:display_count=n&:origin=viz_share_link',
                 dataDetail: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
                     url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/` + this.$route.params.collection,
-                }
+                },
+                dataSuggestions: null,
+                ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage/data?count=3' },
             }
         },
 
@@ -120,6 +115,7 @@
 
         mounted() {
             this.getData()
+            this.getSuggestion()
         },
 
         methods: {
@@ -177,6 +173,24 @@
                         }
                     `
                     document.body.appendChild(newScript)
+                }
+            },
+
+            async getSuggestion() {
+                let dataSuggestions = await Axios(this.ConfigApiSuggestion)
+                let suggestionTemp = dataSuggestions.data
+
+                console.log(suggestionTemp[0]);
+
+                for (let i = 0; i < suggestionTemp.length; i++) {
+                    let suggestion = {
+                        'id': `/${ suggestionTemp[i].collection }/${ suggestionTemp[i].document_id }`,
+                        'images': this.$store.state.Tools.GetUrlFileAsset + suggestionTemp[i].thumbnail,
+                        'title': suggestionTemp[i].title,
+                        'desc': suggestionTemp[i].description,
+                        'source': `${ suggestionTemp[i].publication }, ${ this.$store.state.Tools.ChangeDateString(suggestionTemp[i].published_date.substring(0, 10)) }`,
+                    }
+                    this.suggestions.push(suggestion)
                 }
             }
         },

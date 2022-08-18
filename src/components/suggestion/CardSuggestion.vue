@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="content borderless mb-4">
-            <img :src="image" class="rounding w-100" alt="">
+            <img :src="image" class="rounding w-100 foto-img" alt="">
             <h3 class="subtitle my-2">
                 <a :href="`${ idData }`">
                     {{ title }}
@@ -12,7 +12,7 @@
                     {{ desc }}
                 </span>
             </p>
-            <span class="date-time"> <i class="fas fa-clock"></i> {{ source }} </span>
+            <span class="date-time" v-if="source"> <i class="fas fa-clock"></i> {{ source }} </span>
         </div>
     </section>
 </template>

@@ -199,24 +199,23 @@
             async getSuggestion() {
                 let dataSuggestions = await Axios(this.ConfigApiSuggestion)
                 let suggestionTemp = JSON.parse(dataSuggestions.data.value)
-                this.artikelSuggestions = suggestionTemp.mainpage[3].data.data
 
-                console.log(this.artikelSuggestions)
+                for (let index = 0; index < suggestionTemp.mainpage.length; index++) {
+                    if (suggestionTemp.mainpage[index].name_component === 'artikel') {
+                        this.artikelSuggestions = suggestionTemp.mainpage[index].data.data
+                    }
+                }
 
                 for (let i = 0; i < 3; i++) {
                     let suggestion = {
                         'id': this.artikelSuggestions[i].document_id,
                         'images': this.artikelSuggestions[i].image_source,
                         'title': this.artikelSuggestions[i].title,
-                        'desc': this.artikelSuggestions[i].excerpt, 
+                        'desc': this.artikelSuggestions[i].excerpt,
                         'source': `${ this.artikelSuggestions[i].created_source }, ${ this.$store.state.Tools.ChangeDateString(this.artikelSuggestions[i].created_date.substring(0, 10)) }`,
                     }
-
-                    // console.log(suggestion);
                     this.suggestions.push(suggestion)
                 }
-
-                console.log(this.suggestions);
             }
         },
     }

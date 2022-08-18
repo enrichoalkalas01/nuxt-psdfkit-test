@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <!-- Banner -->
-                    <Banner />
+                    <!-- <Banner /> -->
                     
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />                  
@@ -148,32 +148,28 @@
 
 <script>
     import Axios from 'axios'
-    import Banner from '../banner/Main.vue'
+    // import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
-
-    let dataSuggestions = [
-        { id: 1, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 2, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-        { id: 3, images: '/assets/images/hasil3.png', title: 'Banjarmasin Berhias Teratai', desc: 'Tidak banyak orang yang tahu kalau flora maskot Kota Banjarmasin adalah bunga teratai.', source: 'Kompas, 13 April 2003'},
-    ]
 
     export default {
         name: 'BukuDetail',
         components: {
-            Banner,
+            // Banner,
             Suggestion
         },
         data () {
             return {
                 linkBack: null,
-                suggestions: dataSuggestions,
+                suggestions: [],
                 bukuDetail: [],
                 ConfigApi: {
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
                     url: `https://dev-be.kompasdata.id/api/books/` + this.$route.params.id,
-                }
+                },
+                bukuSuggestions: null,
+                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' },
             }
         },
         async beforeMount() {
@@ -182,10 +178,30 @@
             try {
                 let dataBuku = await Axios(this.ConfigApi)
                 this.bukuDetail = dataBuku.data
-
-                console.log(this.bukuDetail);
+                this.getSuggestion()
             } catch (error) {
                 console.log(error.message);
+            }
+        },
+        methods: {
+            async getSuggestion() {
+                let dataSuggestions = await Axios(this.ConfigApiSuggestion)
+                let suggestionTemp = JSON.parse(dataSuggestions.data.value)
+
+                for (let index = 0; index < suggestionTemp.mainpage.length; index++) {
+                    if (suggestionTemp.mainpage[index].name_component === 'buku') {
+                        this.bukuSuggestions = suggestionTemp.mainpage[index].data.data[0].data
+                    }
+                }
+
+                for (let i = 0; i < 3; i++) {
+                    let suggestion = {
+                        'id': this.bukuSuggestions[i].document_id,
+                        'images': this.bukuSuggestions[i].image_source,
+                        'title': this.bukuSuggestions[i].title,
+                    }
+                    this.suggestions.push(suggestion)
+                }
             }
         }
     }
