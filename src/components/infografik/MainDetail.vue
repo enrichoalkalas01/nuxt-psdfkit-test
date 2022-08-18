@@ -15,11 +15,10 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            
                             <div
                                 @mouseover="onMouseOverImages"
                                 @mouseleave="onMouseLeaveImages"
-                                class="col-sm-4 my-3"
+                                class="col-sm-4 my-3 images-prevbox"
                                 :id="`images-div-id-${ infografikDetail.document_id }`"
                                 :dataImages="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`"
                                 
@@ -182,9 +181,10 @@
                 // Create Element Preview
                 let createPreview = document.createElement('div')
                 createPreview.setAttribute('id', `${ el.target.getAttribute('id') }-preview`)
+                createPreview.setAttribute('onmouseover', removeEl())
                 createPreview.setAttribute('class', `images-preview-infografik`)
-                createPreview.style.width = `500px`
-                createPreview.style.height = `500px`
+                createPreview.style.width = `350px`
+                createPreview.style.height = `350px`
                 createPreview.style.backgroundColor = `#000`
                 createPreview.style.position = 'absolute'
                 createPreview.style.borderRadius = '10px'
@@ -231,6 +231,10 @@
                     y = y - window.pageYOffset
                     return {x : x, y : y}
                 }
+
+                function removeEl() {
+                    document.querySelectorAll('.images-preview-infografik').forEach(el => el.remove() )
+                }
             },
 
             async onMouseLeaveImages() {
@@ -239,3 +243,9 @@
         }
     }
 </script>
+
+<style>
+    .images-prevbox {
+        cursor: pointer;
+    }
+</style>
