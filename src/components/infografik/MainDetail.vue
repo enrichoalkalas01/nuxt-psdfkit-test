@@ -15,7 +15,16 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            <div class="col-sm-4 my-3">
+                            
+                            <div
+                                @mouseover="onMouseOverImages"
+                                @mouseleave="onMouseLeaveImages"
+                                class="col-sm-4 my-3"
+                                :id="`images-div-id-${ infografikDetail.document_id }`"
+                                :dataImages="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`"
+                                
+                            >
+                            <!-- :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }')`" -->
                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
@@ -161,6 +170,71 @@
                     console.log(error)
                     this.$store.commit('setLoadingText', 'terjadi kesalahan')
                 }
+            },
+
+            async onMouseOverImages(el) {
+                el.preventDefault()
+                // console.log(el.target.getAttribute('dataImages'))
+                // Get Real Elements
+                var boxImages = el.target
+                // var hiddenImages = document.querySelector(`#${ el.target.getAttribute('id') } img`)
+                
+                // Create Element Preview
+                let createPreview = document.createElement('div')
+                createPreview.setAttribute('id', `${ el.target.getAttribute('id') }-preview`)
+                createPreview.setAttribute('class', `images-preview-infografik`)
+                createPreview.style.width = `500px`
+                createPreview.style.height = `500px`
+                createPreview.style.backgroundColor = `#000`
+                createPreview.style.position = 'absolute'
+                createPreview.style.borderRadius = '10px'
+                createPreview.style.backgroundColor = '#dedede'
+                createPreview.style.left = `${ el.target.clientWidth + 25 }px`
+                createPreview.style.top = '0px'
+                createPreview.style.backgroundPosition = 'center'
+                createPreview.style.backgroundRepeat = 'no-repeat'
+                createPreview.style.backgroundSize = '200%'
+                createPreview.style.zIndex = '99'
+                createPreview.style.backgroundImage = `url('${ el.target.getAttribute('dataImages') }')`
+
+                // Append Preview
+                let imagesPreview = document.querySelectorAll(`.images-preview-infografik`)
+                if ( imagesPreview.length <= 0 ) boxImages.append(createPreview)
+                else console.log('images-preview has created!')
+
+                // Insert Preview Listener
+                boxImages.addEventListener('mousemove', (me) => {
+                    let pos = getCursorPos(me)
+                    let x = pos.x, y = pos.y
+
+                    console.log(x, y)
+                    console.log(`Width : ${ el.target.clientWidth }px`)
+                    console.log(`Width Percentage : ${ (x / el.target.clientWidth) * 100 }%`)
+                    console.log(`Height : ${ el.target.clientHeight }px`)
+                    console.log(`Height Percentage : ${ (y / el.target.clientHeight) * 100 }%`)
+                    
+                    let preview = document.querySelector(`#${ me.target.getAttribute('id') } .images-preview-infografik`)
+                    preview.style.backgroundPosition = `${ (x / el.target.clientWidth) * 100 }% ${ (y / el.target.clientHeight) * 100 }%`
+                })
+                
+                // Get Cursor Position
+                function getCursorPos(e) {
+                    var a, x = 0, y = 0
+                    e = e || window.event
+                    /* Get the x and y positions of the image: */
+                    a = boxImages.getBoundingClientRect()
+                    /* Calculate the cursor's x and y coordinates, relative to the image: */
+                    x = e.pageX - a.left
+                    y = e.pageY - a.top
+                    /* Consider any page scrolling: */
+                    x = x - window.pageXOffset
+                    y = y - window.pageYOffset
+                    return {x : x, y : y}
+                }
+            },
+
+            async onMouseLeaveImages() {
+                document.querySelectorAll('.images-preview-infografik').forEach(el => el.remove() )
             }
         }
     }
