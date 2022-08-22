@@ -95,7 +95,7 @@
 <script>
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
-    import FileSaver from 'file-saver'
+    // import FileSaver from 'file-saver'
     import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
@@ -135,11 +135,12 @@
 
                 try {
                     let ResultData = await Axios(config)
-                    FileSaver.saveAs(ResultData.data, `${ this.infografikDetail.title + ResultData.data.type.replace('image/', '.') }`)
-                    this.$store.commit('setLoadingImage', 'success')
-                    this.$store.commit('setLoadingText', 'Pemesanan Success...')
-                    this.$store.commit('setReloadSaldo', true)
-                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
+                    console.log(ResultData)
+                    // FileSaver.saveAs(ResultData.data, `${ this.infografikDetail.title + ResultData.data.type.replace('image/', '.') }`)
+                    // this.$store.commit('setLoadingImage', 'success')
+                    // this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                    // this.$store.commit('setReloadSaldo', true)
+                    // setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingImage', 'failed')
