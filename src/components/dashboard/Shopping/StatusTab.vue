@@ -107,7 +107,7 @@
                     FileSaver.saveAs(download.data, `${ e.title + download.data.type.replace('image/', '.') }`)
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
-                    console.log(error)
+                    console.log(error.response)
                     
                     if ( this.getDiffDays(new Date(downloadedData[0].approvedDate), new Date(Date.now())) > 3 ) {
                         this.$store.commit('setLoadingImage', 'failed')
