@@ -19,7 +19,7 @@
             <div class="row mb-2">
                 <div class="col-12 content">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-sm-12 col-md-5 mb-4">
                             <h4>Prabayar</h4>
                             <div class="box-saldo">
                                 <h6>Saldo Poin Anda</h6>
@@ -27,16 +27,22 @@
                                 <h6>Berlaku Hingga {{ expDate ? this.$store.state.Tools.ChangeDateString(expDate.substring(0, 10)) : '' }}</h6>
                             </div>
                         </div>
-                        <div class="col-6" v-if="kuotaArtikel > 0 || kuotaPdf > 0">
+                        <div class="col-12 col-sm-12 col-md-7" v-if="kuotaArtikel > 0 || kuotaPdf > 0">
                             <h4>Info Paket</h4>
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12 col-sm-6 mb-4">
                                     <h6>Artikel 1991-terbaru</h6>
                                     <h3>{{ kuotaArtikel > 0 ? kuotaArtikel : '-' }}</h3>
+                                    <div class="exp-date">
+                                        <span>Berlaku Hingga : {{ artikelExpDate ? this.$store.state.Tools.ChangeDateString(artikelExpDate.substring(0, 10)) : '' }}</span>
+                                    </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-sm-6">
                                     <h6>Crop Pdf 1965-1990</h6>
                                     <h3>{{ kuotaPdf > 0 ? kuotaPdf : '-' }}</h3>
+                                    <div class="exp-date">
+                                        <span>Berlaku Hingga : {{ pdfExpDate ? this.$store.state.Tools.ChangeDateString(pdfExpDate.substring(0, 10)) : '' }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -71,6 +77,8 @@
                 saldoUser: 0,
                 expDate: null,
                 kuotaArtikel: 0,
+                artikelExpDate: null,
+                pdfExpDate: null,
                 kuotaPdf: 0,
                 userFirstName: null,
             }
@@ -90,6 +98,7 @@
                  let user = await Axios(config)
                  this.userFirstName = user.data.firstName
             },
+            
             async getSaldo() {
                 let config = {
                     url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
@@ -100,8 +109,16 @@
                 this.saldoUser = saldo.data.credit.credit_balance
                 this.expDate = saldo.data.credit.expired_date
                 this.kuotaArtikel = saldo.data.packages[1].package_balance
+                this.artikelExpDate = saldo.data.packages[1].expired_date?.replace("T", ' ')
+                this.pdfExpDate = saldo.data.packages[0].expired_date?.replace("T", ' ')
                 this.kuotaPdf = saldo.data.packages[0].package_balance
             }
         }
     }
 </script>
+
+<style>
+    .exp-date span {
+        font-size: 14px;
+    }
+</style>
