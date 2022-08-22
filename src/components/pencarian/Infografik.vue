@@ -10,7 +10,7 @@
             <div v-for="(infografik, i) in infografiks" :key="i" class="content borderless">
                 <div class="row">
                     <div class="col-sm-4 my-3">
-                        <!-- <a :href="`/infografik-detail/${ infografik.document_id }${ linkBack }`"> -->
+                        <a :href="`/infografik-detail/${ infografik.document_id }${ linkBack }`">
                             <div
                                 class="images-div"
                                 :id="`images-div-id-${ infografik.document_id }`"
@@ -38,7 +38,7 @@
                             <!-- <div class="images-div">
                                 <img v-on:click="onMouseOverImages" :src="`${ this.$store.state.Tools.GetUrlFiles + infografik.thumbnail }`" alt="" class="infografik-image w-100">
                             </div> -->
-                        <!-- </a> -->
+                        </a>
                     </div>
                     <div class="col-sm-8 my-3">
                         <div class="desc">

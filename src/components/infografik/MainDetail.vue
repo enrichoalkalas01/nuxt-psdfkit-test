@@ -70,9 +70,14 @@
                         <button
                             v-on:click="downloadInfografik"
                             class="btn btn-main"
-                            :disabled="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus ? true : false"
+                            :disabled="
+                                this.$store.state.Login.UserData.memberType === 0 ||
+                                ( new Date(infografikDetail?.published_date).getFullYear() < 2011 ) ||
+                                !this.$store.state.Login.LoginStatus ?
+                                true : false"
                         >
-                            Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}
+                            <span v-if="( new Date(infografikDetail?.published_date).getFullYear() < 2011 )">Baca Selengkapnya Rp.0</span>
+                            <span v-if="( new Date(infografikDetail?.published_date).getFullYear() > 2011 )">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}</span>
                         </button>
                     </div>
                 </div>
@@ -159,6 +164,7 @@
                         url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
+                    console.log(this.infografikDetail)
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
