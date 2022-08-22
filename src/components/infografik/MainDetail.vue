@@ -77,8 +77,9 @@
                                 !this.$store.state.Login.LoginStatus ?
                                 true : false"
                         >
-                            <span v-if="( new Date(infografikDetail?.published_date).getFullYear() < 2011 )">Baca Selengkapnya Rp.0</span>
-                            <span v-if="( new Date(infografikDetail?.published_date).getFullYear() > 2011 )">Baca Selengkapnya {{ Number(HargaBaca) != 0 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0' }}</span>
+                            <span>Baca Selengkapnya {{
+                                Number(HargaBaca) != 0 || new Date(infografikDetail?.published_date).getFullYear() > 2011 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0'
+                            }}</span>
                         </button>
                     </div>
                 </div>
@@ -164,6 +165,8 @@
                         url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
+
+                    console.log(this.infografikDetail)
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
