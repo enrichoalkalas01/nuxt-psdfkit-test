@@ -72,13 +72,13 @@
                             class="btn btn-main"
                             :disabled="
                                 this.$store.state.Login.UserData.memberType === 0 ||
-                                ( new Date(infografikDetail?.published_date).getFullYear() < 2011 ) ||
+                                ( new Date(infografikDetail?.published_date).getFullYear() < 2015 ) ||
                                 !infografikDetail?.image_type?.includes('pdf') ||
                                 !this.$store.state.Login.LoginStatus ?
                                 true : false"
                         >
                             <span>Baca Selengkapnya {{
-                                Number(HargaBaca) != 0 || new Date(infografikDetail?.published_date).getFullYear() > 2011 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0'
+                                Number(HargaBaca) != 0 || new Date(infografikDetail?.published_date).getFullYear() >= 2015 ? `Rp. ${ this.$store.state.Tools.PriceFormat(HargaBaca, 2, ',', '.') }` : '0'
                             }}</span>
                         </button>
                     </div>

@@ -34,14 +34,16 @@
                                     <h6>Artikel 1991-terbaru</h6>
                                     <h3>{{ kuotaArtikel > 0 ? kuotaArtikel : '-' }}</h3>
                                     <div class="exp-date">
-                                        <span style="font-weight: 700;">Berlaku Hingga : {{ artikelExpDate ? this.$store.state.Tools.ChangeDateString(artikelExpDate.substring(0, 10)) : '' }}</span>
+                                        <!-- <span style="font-weight: 700;">Berlaku Hingga : {{ artikelExpDate ? this.$store.state.Tools.ChangeDateString(artikelExpDate.substring(0, 10)) : '' }}</span> -->
+                                        <h6>Berlaku Hingga : {{ artikelExpDate ? this.$store.state.Tools.ChangeDateString(artikelExpDate.substring(0, 10)) : '' }}</h6>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <h6>Crop Pdf 1965-1990</h6>
                                     <h3>{{ kuotaPdf > 0 ? kuotaPdf : '-' }}</h3>
                                     <div class="exp-date">
-                                        <span style="font-weight: 700;">Berlaku Hingga : {{ pdfExpDate ? this.$store.state.Tools.ChangeDateString(pdfExpDate.substring(0, 10)) : '' }}</span>
+                                        <!-- <span style="font-weight: 700;">Berlaku Hingga : {{ pdfExpDate ? this.$store.state.Tools.ChangeDateString(pdfExpDate.substring(0, 10)) : '' }}</span> -->
+                                        <h6>Berlaku Hingga : {{ pdfExpDate ? this.$store.state.Tools.ChangeDateString(pdfExpDate.substring(0, 10)) : '' }}</h6>
                                     </div>
                                 </div>
                             </div>
