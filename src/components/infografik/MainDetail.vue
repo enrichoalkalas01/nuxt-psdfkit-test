@@ -73,6 +73,7 @@
                             :disabled="
                                 this.$store.state.Login.UserData.memberType === 0 ||
                                 ( new Date(infografikDetail?.published_date).getFullYear() < 2011 ) ||
+                                !infografikDetail?.image_type?.includes('pdf') ||
                                 !this.$store.state.Login.LoginStatus ?
                                 true : false"
                         >
@@ -100,7 +101,7 @@
 <script>
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
-    // import FileSaver from 'file-saver'
+    import FileSaver from 'file-saver'
     import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
@@ -140,12 +141,11 @@
 
                 try {
                     let ResultData = await Axios(config)
-                    console.log(ResultData)
-                    // FileSaver.saveAs(ResultData.data, `${ this.infografikDetail.title + ResultData.data.type.replace('image/', '.') }`)
-                    // this.$store.commit('setLoadingImage', 'success')
-                    // this.$store.commit('setLoadingText', 'Pemesanan Success...')
-                    // this.$store.commit('setReloadSaldo', true)
-                    // setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
+                    FileSaver.saveAs(ResultData.data, `${ this.infografikDetail.title + ResultData.data.type.replace('image/', '.') }`)
+                    this.$store.commit('setLoadingImage', 'success')
+                    this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                    this.$store.commit('setReloadSaldo', true)
+                    setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingImage', 'failed')
@@ -164,7 +164,6 @@
                         url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
-                    console.log(this.infografikDetail)
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
