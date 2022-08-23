@@ -1,7 +1,21 @@
 <template>
     <section class="row wrapper-cart">
         <LoadingScreen />
-
+        <div class="col-12 top-box" id="cart-option">
+            <div class="row">
+                <div class="col box-tanggal">
+                    <label for="date-start">Tanggal Mulai :</label>
+                    <input v-on:change="dateFromChange" :value="DateFrom" name="date-start" class="form-control" type="date">
+                </div>
+                <div class="col box-tanggal">
+                    <label for="date-start">Tanggal Selesai :</label>
+                    <input v-on:change="dateToChange" :value="DateTo" name="date-start" class="form-control" type="date">
+                </div>
+                <div class="col box-button">
+                    <button v-on:click="searchData" class="form-control btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 order-cart card mb-3">
             <div class="row wrapper-order p-2">
                 <div class="col-12 title">
@@ -84,14 +98,34 @@
             dateToChange(e) { this.DateTo = e.target.value },
             searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async deleteItem(e) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
-
-                let statusDelete = await Axios(config)
-                if ( statusDelete ) location.reload()
-                else console.log(statusDelete)
+                
+                try {
+                    await Axios(config)
+                    this.$store.commit('setLoadingImage', 'success')
+                    this.$store.commit('setLoadingText', '<p>Sukses menghapus data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                        this.getDataAll(this.DateFrom, this.DateTo)
+                    }, 1000)
+                } catch (error) {
+                    console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
+                }
             },
 
             checkedData(e) {
@@ -112,7 +146,7 @@
             async getDataAll(date1, date2) {
                 console.log(date1, date2)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ '2020-06-01' }&endperiode=${ '2020-08-28' }`,
+                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)

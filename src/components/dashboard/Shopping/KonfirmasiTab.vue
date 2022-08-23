@@ -64,17 +64,36 @@
             dateToChange(e) { this.DateTo = e.target.value },
             searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async deleteItem(e) {
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
+                
                 try {
                     await Axios(config)
-                    location.reload()
+                    this.$store.commit('setLoadingImage', 'success')
+                    this.$store.commit('setLoadingText', '<p>Sukses menghapus data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                        this.getDataAll(this.DateFrom, this.DateTo)
+                    }, 1000)
                 } catch (error) {
                     console.log(error)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
                 }
             },
+
             async getDataAll(date1, date2) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {

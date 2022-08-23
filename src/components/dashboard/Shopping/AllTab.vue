@@ -63,7 +63,7 @@
         
         mounted() {
             console.log(this.$store.state.Tools.DateTomorrowString())
-            this.getDataAll(this.DateFrom, this.DateTo)            
+            this.getDataAll(this.DateFrom, this.DateTo)        
         },
 
         methods: {
@@ -79,10 +79,25 @@
                 
                 try {
                     await Axios(config)
-                    location.reload()
+                    this.$store.commit('setLoadingImage', 'success')
+                    this.$store.commit('setLoadingText', '<p>Sukses menghapus data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                        this.getDataAll(this.DateFrom, this.DateTo)
+                    }, 1000)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingScreen', false)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
                 }
             },
 

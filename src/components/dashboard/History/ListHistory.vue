@@ -9,8 +9,8 @@
                 <span>{{ Price }}</span>
             </div>
             <div class="wc-price">
-                <h5>{{ Type }}</h5>
-                <p>{{ Tanggal }}</p>
+                <div class="tambahan-box"><h6>{{ Type }}</h6></div>
+                <div class="tambahan-box"><p>{{ Tanggal }}</p></div>
             </div>
         </div>
     </div>
@@ -75,6 +75,18 @@
     }
 </script>
 
-<style>
+<style scoped>
+    .wp-price {
+        width: 50%;
+    }
 
+    .tambahan-box {
+        width: auto;
+        margin: auto;
+        text-align: center;
+    }
+
+    .tambahan-box p {
+        font-size: 13px;
+    }
 </style>

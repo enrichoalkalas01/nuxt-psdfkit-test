@@ -5,8 +5,8 @@
         </div>
         <div class="col-12" v-if="booksData ? booksData.length > 0 : null">
             <p class="f14 mt-4">
-                Total Search : <span class="f14">{{ total_search }} data</span>
-                <span class="notif-total" v-if="total_search >= 10000"> ( *maks. {{ total_search }} yang ditampilkan )</span>
+                Menemukan : <span class="f14">{{ total_search }} data</span>
+                <span class="notif-total" v-if="total_search >= 10000"> ( *maks. menampilkan  {{ total_search }} data )</span>
             </p>
             <div class="row d-flex justify-content-center">
                 <div
