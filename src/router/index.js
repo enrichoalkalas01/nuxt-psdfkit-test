@@ -19,6 +19,7 @@ import DataDetail from '../components/data/MainDetail.vue'
 import Layanan from '../components/layanan/MainPage.vue'
 import Bantuan from '../components/bantuan/MainPage.vue'
 import FAQ from '../components/bantuan/FAQ.vue'
+import PetaSitus from '../components/bantuan/PetaSitus.vue'
 import Pencarian from '../components/pencarian/MainPage.vue'
 import PencarianLanjut from '../components/pencarian/MainDetail.vue'
 import Test from '../components/test/MainPage.vue'
@@ -71,7 +72,8 @@ const routes = [
 
     // About or Bantuan
     { path: '/bantuan', name: 'bantuan', component: Bantuan },
-    { path: '/FAQ', name: 'FAQ', component: FAQ },
+    { path: '/FAQ', name: 'faq', component: FAQ },
+    { path: '/peta-situs', name: 'peta-situs', component: PetaSitus },
 
     // Pencarian
     { path: '/pencarian', name: 'pencarian', component: Pencarian },

@@ -75,6 +75,7 @@
                             <li><a class="dropdown-item" href="/bantuan#tentang">Tentang</a></li>
                             <li><a class="dropdown-item" href="/bantuan#langganan">Cara Berlangganan</a></li>
                             <li><a class="dropdown-item" href="/FAQ">FAQ</a></li>
+                            <li><a class="dropdown-item" href="/peta-situs">Peta Situs</a></li>
                         </ul>
                     </li>
 
