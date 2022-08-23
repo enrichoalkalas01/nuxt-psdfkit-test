@@ -54,8 +54,8 @@
                     <div class="item-wrapper">
                         <div class="wc-item">
                             <h4 class="title">{{ order.title }}</h4>
-                            <p class="date">Size : {{ order.orderOptionValue1.caption }}</p>
-                            <p class="date">Date : {{ `${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }` }}</p>
+                            <p class="date">Size: {{ order.orderOptionValue1.caption }}</p>
+                            <p class="date">Date: {{ `${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }` }}</p>
                             <p class="delete" v-if="order.status === 1" v-on:click="deleteItem(order.id)">Hapus</p>
                         </div>
                         <div class="wc-qty-done">
