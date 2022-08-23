@@ -6,6 +6,7 @@
         <div class="col-12" v-if="booksData ? booksData.length > 0 : null">
             <p class="f14 mt-4">
                 Total Search : <span class="f14">{{ total_search }} data</span>
+                <span class="notif-total" v-if="total_search >= 10000"> ( *maks. {{ total_search }} yang ditampilkan )</span>
             </p>
             <div class="row d-flex justify-content-center">
                 <div
@@ -68,3 +69,12 @@
         },
     }
 </script>
+
+<style scoped>
+    .buku-card .bc-inner .bc-img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        box-shadow: none;
+    }
+</style>

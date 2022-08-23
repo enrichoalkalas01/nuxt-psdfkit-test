@@ -7,7 +7,8 @@
                 </div>
                 <div class="row" v-if="statistiks ? statistiks.length > 0 : null">
                     <p class="f14 mt-4">
-                        Total Search : <span class="f14">{{ total_search }} data</span>
+                        Total Search : <span class="f14"> {{ total_search }} data</span>
+                        <span class="notif-total" v-if="total_search >= 10000"> ( *maks. {{ total_search }} yang ditampilkan )</span>
                     </p>
                     <div
                         v-for="(statistik, i) in statistiks" :key="i"
@@ -82,5 +83,10 @@
         background-position: center;
         background-size: auto 100%;
         border-radius: 5px;
+    }
+
+    .notif-total {
+        font-size: 12px;
+        color: red;
     }
 </style>

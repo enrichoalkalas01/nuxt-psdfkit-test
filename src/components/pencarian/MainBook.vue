@@ -10,7 +10,7 @@
             <div class="pagination">
                 <VPagination
                     v-model="page"
-                    :pages="Number(total_search > 9000 ? 100 : Math.round((total_search / (configBooksData?.size ? configBooksData?.size : 1))))"
+                    :pages="Number(Math.round((total_search / (configBooksData?.size ? configBooksData?.size : 1))))"
                     :range-size="1"
                     active-color="#DCEDFF"
                     @update:modelValue="updatePagination"
