@@ -8,9 +8,9 @@
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
                 <p class="date">Size : {{ SizeText }}</p>
-                <p class="date">Tanggal Pemesanan : {{ Tanggal }}</p>
+                <p class="date">Tanggal {{ Number(TypeConfirmation) === 0 ? `Pemesanan` : Number(TypeConfirmation) === 1 ? `Pemesanan` : Number(TypeConfirmation) === 2 ? 'Pemesanan' : 'Pembayaran' }} : {{ Tanggal }}</p>
                 <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
-                <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title })">Download</p>
+                <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title, invoice: Invoice })">Download</p>
             </div>
             <div class="wc-qty-done">
                 <span>{{ Quantity }} Qty</span>
@@ -46,7 +46,8 @@
             'delete',
             'imageSource',
             'orderId',
-            'sizeText'
+            'sizeText',
+            'invoice'
         ],
 
         data() {
@@ -64,6 +65,7 @@
                 image_source: null,
                 OrderId: null,
                 SizeText: null,
+                Invoice: null,
             }
         },
 
@@ -80,6 +82,7 @@
             this.image_source = this.imageSource
             this.OrderId = this.orderId
             this.SizeText = this.sizeText
+            this.Invoice = this.invoice
 
             // Dynamic Data
             if ( this.typeItem === 'konfirmasi' ) {

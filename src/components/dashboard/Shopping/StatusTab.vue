@@ -27,8 +27,9 @@
                     :price="order.value"
                     :qty="order.quantity"
                     :orderId="order.id"
+                    :invoice="order.invoice"
                     :sizeText="order.orderOptionValue1.caption"
-                    :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
+                    :tanggal="`${ this.$store.state.Tools.ChangeDateString(order.invoice.insertDate.substring(0, 10)) } ${ order.insertDate.substring(11, 20) }`"
                     :imageSource="`https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/${ order.thumbnail }`"
                     @downloadClick="downloadItem"
                 />
@@ -75,6 +76,7 @@
                 try {
                     let AllData = await Axios(config)
                     this.ResultData = AllData.data.data.filter(x => x.status === 3)
+                    console.log(this.ResultData)
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
