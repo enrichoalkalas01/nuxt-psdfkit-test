@@ -57,12 +57,12 @@
                         <h6>Langkah Selanjutnya</h6>
                         <a href="/dashboard/akun">Lengkapi Data Diri</a>
                         <a href="/">Cari Data</a>
-                        <a href="/dashboard/daftar-pesanan">Data Transaksi Saya</a>
+                        <a href="/dashboard/daftar-transaksi">Data Transaksi Saya</a>
                     </div>
                     <div class="row list box-lainnya">
                         <h6>Langkah Selanjutnya</h6>
-                        <a href="/dashboard/chat">Tanya Jawab</a>
-                        <a href="/dashboard/chat">Hubungi Kami</a>
+                        <a href="/dashboard/pesan">Tanya Jawab</a>
+                        <a href="/dashboard/pesan">Hubungi Kami</a>
                     </div>
                 </div>
             </div>
