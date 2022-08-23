@@ -20,7 +20,7 @@
                                     <li><a href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=0&size=10&collection=&page=&currentpage=1&orderdirection=">Produk</a></li>
                                     <li><a href="/">Berita Terkini</a></li>
                                     <li><a href="/layanan">Layanan Kami</a></li>
-                                    <li><a href="https://www.kompas.id/?status=sukses_login&status_login=login">Daftar Baru</a></li>
+                                    <li><a href="https://account.kompas.id/register?next=https%3A%2F%2Fdata-dev.kompas.id%2F%3Fstatus%3Dsukses_login&status_login=login">Daftar Baru</a></li>
                                 </ul>
                             </div>
                         </div>
