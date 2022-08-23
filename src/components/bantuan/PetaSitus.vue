@@ -56,6 +56,10 @@
                                     <li><a href="/dashboard/daftar-pesanan">Daftar Pesanan Foto</a></li>
                                     <li><a href="/dashboard/daftar-transaksi">Daftar Transaksi</a></li>
                                     <li><a href="/dashboard/topup">Topup Saldo</a></li>
+                                    <li><a href="/dashboard/kupon">Kupon</a></li>
+                                    <li><a href="/dashboard/akun">Akun</a></li>
+                                    <li><a href="/dashboard/pesan">Pesan</a></li>
+                                    <li><a href="/dashboard/syarat">Syarat dan Ketentuan</a></li>
                                 </ul>
                             </div>
                         </div>
