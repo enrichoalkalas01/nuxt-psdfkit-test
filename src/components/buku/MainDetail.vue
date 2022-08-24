@@ -36,10 +36,10 @@
                                         <p>{{ bukuDetail.sinopsis }}</p>
                                         <table class="table db-table table-bordered">
                                             <tbody>
-                                                <!-- <tr>
-                                                    <th scope="row">No. Id </th>
-                                                    <td>w 929:321.15(=581)(594) AZI b</td>
-                                                </tr> -->
+                                                <tr>
+                                                    <th scope="row">No. Panggil</th>
+                                                    <td>{{ bukuDetail.tipekoleksi }} {{ bukuDetail.udc }} {{ bukuDetail.callauthor }} {{ bukuDetail.calltitle }}</td>
+                                                </tr>
                                                 <tr>
                                                     <th scope="row">Judul</th>
                                                     <td>{{ bukuDetail.judul }}</td>
