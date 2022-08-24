@@ -7,8 +7,8 @@
             <div class="wc-item">
                 <h4 class="title">{{ Title }}</h4>
                 <p class="desc">{{ Description }}</p>
-                <p class="date">Size : {{ SizeText }}</p>
-                <p class="date">Tanggal {{ Number(TypeConfirmation) === 0 ? `Pemesanan` : Number(TypeConfirmation) === 1 ? `Pemesanan` : Number(TypeConfirmation) === 2 ? 'Pemesanan' : 'Pembayaran' }} : {{ Tanggal }}</p>
+                <p class="date">Size: {{ SizeText }}</p>
+                <p class="date">Tanggal {{ Number(TypeConfirmation) === 0 ? `Pemesanan`: Number(TypeConfirmation) === 1 ? `Pemesanan`: Number(TypeConfirmation) === 2 ? 'Pemesanan': 'Pembayaran' }}: {{ Tanggal }}</p>
                 <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
                 <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title, invoice: Invoice })">Download</p>
             </div>

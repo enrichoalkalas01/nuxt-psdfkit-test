@@ -7,8 +7,8 @@
             </div>
             <div class="row box-gallery" v-if="dataFotos ? dataFotos.length > 0 : null">
                 <p class="f14 mt-4">
-                    Total Search : <span class="f14">{{ total_search }} data</span>
-                    <span class="notif-total" v-if="total_search >= 10000"> ( *maks. {{ total_search }} yang ditampilkan )</span>
+                    Menemukan : <span class="f14">{{ total_search }} data</span>
+                    <span class="notif-total" v-if="total_search >= 10000"> ( *maks. menampilkan  {{ total_search }} data )</span>
                 </p>
                 <div 
                     v-for="(foto, i) in fotos ? fotos.documents : null" :key="i"
@@ -131,10 +131,3 @@
         },
     }
 </script>
-
-<style>
-    .notif-total {
-        font-size: 12px;
-        color: red;
-    }
-</style>

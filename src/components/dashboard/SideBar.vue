@@ -92,7 +92,7 @@
             if ( window.location.pathname === '/dashboard/pesan' ) this.Chat = !this.chat
             if ( window.location.pathname === '/dashboard/syarat' ) this.Terms = !this.Terms
             if ( window.location.pathname === '/dashboard/daftar-pesanan' ) this.ShoppingCart = !this.ShoppingCart
-            if ( window.location.pathname === '/dashboard/daftar-traksaksi' ) this.HistoryTransaction = !this.HistoryTransaction
+            if ( window.location.pathname === '/dashboard/daftar-transaksi' ) this.HistoryTransaction = !this.HistoryTransaction
         },
 
         methods: {

@@ -103,33 +103,40 @@
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
                 }
+
+                let configMessage = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
+                    headers: { Authorization: this.Token }
+                }
+
+                
                 try {
                     let download = await Axios(config)
-                    console.log(download)
                     FileSaver.saveAs(download.data, `${ e.title + download.data.type.replace('image/', '.') }`)
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
-                    console.log(error.response)
-                    
-                    if ( this.getDiffDays(new Date(downloadedData[0].approvedDate), new Date(Date.now())) > 3 ) {
-                        this.$store.commit('setLoadingImage', 'failed')
-                        this.$store.commit('setLoadingText', '<p>ups, durasi waktu untuk</p><p>mendownload sudah habis</p>')
-                        this.$store.commit('setCloseStatus', true)
-                        setTimeout(() => {
-                            this.$store.commit('setLoadingText', 'loading...')
-                            this.$store.commit('setLoadingImage', 'loading')
-                            this.$store.commit('setLoadingScreen', false)
-                        }, 2500)
-                    } else {
-                        this.$store.commit('setLoadingImage', 'failed')
-                        this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
-                        this.$store.commit('setCloseStatus', true)
-                        setTimeout(() => {
-                            this.$store.commit('setLoadingText', 'loading...')
-                            this.$store.commit('setLoadingImage', 'loading')
-                            this.$store.commit('setLoadingScreen', false)
-                        }, 1000)
-                    }
+                    console.log(error)
+                    Axios(configMessage).catch(err => {
+                        if ( this.getDiffDays(new Date(downloadedData[0].approvedDate), new Date(Date.now())) > 3 ) {
+                            this.$store.commit('setLoadingImage', 'failed')
+                            this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
+                            this.$store.commit('setCloseStatus', true)
+                            setTimeout(() => {
+                                this.$store.commit('setLoadingText', 'loading...')
+                                this.$store.commit('setLoadingImage', 'loading')
+                                this.$store.commit('setLoadingScreen', false)
+                            }, 2500)
+                        } else {
+                            this.$store.commit('setLoadingImage', 'failed')
+                            this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
+                            this.$store.commit('setCloseStatus', true)
+                            setTimeout(() => {
+                                this.$store.commit('setLoadingText', 'loading...')
+                                this.$store.commit('setLoadingImage', 'loading')
+                                this.$store.commit('setLoadingScreen', false)
+                            }, 1000)
+                        }
+                    })
                 }
             }
         }
