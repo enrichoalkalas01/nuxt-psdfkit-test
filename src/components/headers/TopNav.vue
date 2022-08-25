@@ -81,8 +81,9 @@
 
                 </ul>
                 <div class="d-block d-md-none p-3" v-if="!this.$store.state.Login.LoginStatus">
-                    <a href="/login" class="btn btn-line">LOGIN</a>
-                    <a href="/daftar" class="btn btn-second">DAFTAR</a>
+                    <a href="https://account.kompas.id/login?next=https://data-dev.kompas.id/" class="btn btn-second" id="login">MASUK/DAFTAR</a>
+                    <!-- <a href="/login" class="btn btn-line">LOGIN</a>
+                    <a href="/daftar" class="btn btn-second">DAFTAR</a> -->
                 </div>
             </div>
 

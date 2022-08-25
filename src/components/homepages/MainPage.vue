@@ -66,6 +66,9 @@
         },
 
         async mounted() {
+            setTimeout(() => {
+                this.$store.state.Tools.scrollTo(this.$store.state.Tools.GetQueryString())
+            }, 500)
         },
 
         updated() {

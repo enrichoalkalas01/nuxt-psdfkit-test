@@ -110,6 +110,19 @@ const Tools = {
             deleteCookies(name) {
                 document.cookie = name +'=; domain=.kompas.id; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             },
+
+            scrollTo(el = {}) {
+                for ( let i in el ) {
+                    if ( i === 'element_scroll' ) {
+                        var element = document.querySelector(`#${ el[i] }`)
+                        var headerOffset = el?.offsett ? Number(el?.offsett) : 0;
+                        var elementPosition = element.getBoundingClientRect().top;
+                        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                    }
+                }
+            }
         }
     },
 
