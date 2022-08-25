@@ -184,7 +184,7 @@
 
                 for (let i = 0; i < suggestionTemp.length; i++) {
                     let suggestion = {
-                        'id': `/${ suggestionTemp[i].collection }/${ suggestionTemp[i].document_id }`,
+                        'id': `/data-detail/${ suggestionTemp[i].collection }/${ suggestionTemp[i].document_id }`,
                         'images': this.$store.state.Tools.GetUrlFileAsset + suggestionTemp[i].thumbnail,
                         'title': suggestionTemp[i].title,
                         'desc': suggestionTemp[i].description,
