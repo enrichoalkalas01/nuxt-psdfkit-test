@@ -49,9 +49,7 @@
                                             <a v-if="`${ foto.kind }` === 'Foto'" :href="`/foto-detail/` + foto.id">
                                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
                                             </a>
-                                            <a v-if="`${ foto.kind }` === 'Infografis'" :href="`/infografik-detail/` + foto.id">
-                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
-                                            </a>
+                                            <img v-if="`${ foto.kind }` === 'Infografis'" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
                                         </div>
                                     </SplideSlide>
                                 </Splide>
