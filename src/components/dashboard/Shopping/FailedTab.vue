@@ -77,7 +77,7 @@
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`)
                     this.$store.commit('setCloseStatus', true)
                     setTimeout(() => {
                         this.$store.commit('setLoadingText', 'loading...')

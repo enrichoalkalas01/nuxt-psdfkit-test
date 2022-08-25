@@ -20,6 +20,7 @@
             <ListItemVue
                 v-for="(order, i) in ResultData" :key="i"
                 typeItem="konfirmasi"
+                :typeList="'semua'"
                 :title="order.title"
                 :typeConfirmation="order.status"
                 :price="order.value"
@@ -91,7 +92,7 @@
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setLoadingText', `<p>${ error.response.data }</p>`)
                     this.$store.commit('setCloseStatus', true)
                     setTimeout(() => {
                         this.$store.commit('setLoadingText', 'loading...')
@@ -123,6 +124,11 @@
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
                     headers: { Authorization: this.Token }, responseType: 'blob'
                 }
+
+                let configMessage = {
+                    url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
+                    headers: { Authorization: this.Token }
+                }
                 
                 try {
                     let download = await Axios(config)
@@ -130,14 +136,16 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
-                    this.$store.commit('setCloseStatus', true)
-                    setTimeout(() => {
-                        this.$store.commit('setLoadingText', 'loading...')
-                        this.$store.commit('setLoadingImage', 'loading')
-                        this.$store.commit('setLoadingScreen', false)
-                    }, 1000)
+                    Axios(configMessage).catch(err => {
+                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
+                        this.$store.commit('setCloseStatus', true)
+                        setTimeout(() => {
+                            this.$store.commit('setLoadingText', 'loading...')
+                            this.$store.commit('setLoadingImage', 'loading')
+                            this.$store.commit('setLoadingScreen', false)
+                        }, 2500)
+                    })
                 }
             }
         }

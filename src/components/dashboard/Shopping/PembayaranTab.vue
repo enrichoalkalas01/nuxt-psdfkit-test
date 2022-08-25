@@ -118,7 +118,7 @@
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingImage', 'failed')
-                    this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
+                    this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`)
                     this.$store.commit('setCloseStatus', true)
                     setTimeout(() => {
                         this.$store.commit('setLoadingText', 'loading...')
@@ -196,7 +196,7 @@
                         setTimeout(() => { 
                             this.$store.commit('setLoadingScreen', true)
                             this.$store.commit('setLoadingImage', 'failed');
-                            this.$store.commit('setLoadingText', 'Saldo Anda Tidak Cukup..');
+                            this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`);
                             this.$store.commit('setCloseStatus', true);
                             setTimeout(() => this.setDefaultLoadingScreen(), 2000)
                         }, 500)
@@ -221,7 +221,7 @@
                         setTimeout(() => { 
                             this.$store.commit('setLoadingScreen', true)
                             this.$store.commit('setLoadingImage', 'failed');
-                            this.$store.commit('setLoadingText', 'ups, terjadi kesalahan, coba cek saldo anda..');
+                            this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`);
                             this.$store.commit('setCloseStatus', true);
                             setTimeout(() => this.setDefaultLoadingScreen(), 2000)
                         }, 500)
