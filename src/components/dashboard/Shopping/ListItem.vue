@@ -13,7 +13,7 @@
                     Number(TypeConfirmation) === 1 ? `Pemesanan`:
                     Number(TypeConfirmation) === 2 ? 'Pemesanan':
                     TypeList === 'semua' ? 'Pemesanan':
-                    'Pembayaran' }}: {{ Tanggal }} {{ TypeList }}</p>
+                    'Pembayaran' }}: {{ Tanggal }}</p>
                 <p class="delete" v-if="TypeConfirmation === 0 || TypeConfirmation === 1" @click="$emit('deleteClick', OrderId)">Hapus</p>
                 <p class="download" v-if="TypeConfirmation === 3" @click="$emit('downloadClick', { id: OrderId, title: Title, invoice: Invoice })">Download</p>
             </div>
