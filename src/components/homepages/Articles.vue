@@ -1,6 +1,6 @@
 <template>
     <section id="sec-artikel" class="sec-artikel line-bot py-5">
-        <div class="container">
+        <div id="artikel-mp" class="container">
             <div class="row">
                 <div class="col-12 text-center mb-3">
                     <h2 class="tag">artikel</h2>

@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-artikel line-bot py-5">
+    <section id="layanan-mp" class="sec-artikel line-bot py-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12  mb-3 text-center">
