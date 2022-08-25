@@ -68,7 +68,7 @@
             dateToChange(e) { this.DateTo = e.target.value },
             searchData() { this.getDataAll(this.DateFrom, this.DateTo) },
             async getDataAll(date1, date2) {
-                // this.$store.commit('setLoadingScreen', true)
+                this.$store.commit('setLoadingScreen', true)
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCartsFinish?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
@@ -76,18 +76,17 @@
                 try {
                     let AllData = await Axios(config)
                     this.ResultData = AllData.data.data.filter(x => x.status === 3)
-                    console.log(this.ResultData)
-                    // this.$store.commit('setLoadingScreen', false)
+                    this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error.response)
-                    // this.$store.commit('setLoadingImage', 'failed')
-                    // this.$store.commit('setLoadingText', '<p>ups, terjadi kesalahan...</p><p>gagal untuk mendapatkan data</p>')
-                    // this.$store.commit('setCloseStatus', true)
-                    // setTimeout(() => {
-                    //     this.$store.commit('setLoadingText', 'loading...')
-                    //     this.$store.commit('setLoadingImage', 'loading')
-                    //     this.$store.commit('setLoadingScreen', false)
-                    // }, 1000)
+                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingText', `<p>${ error.response.data }</p>`)
+                    this.$store.commit('setCloseStatus', true)
+                    setTimeout(() => {
+                        this.$store.commit('setLoadingText', 'loading...')
+                        this.$store.commit('setLoadingImage', 'loading')
+                        this.$store.commit('setLoadingScreen', false)
+                    }, 1000)
                 }
             },
 
@@ -97,7 +96,6 @@
 
             async downloadItem(e) {
                 this.$store.commit('setLoadingScreen', true)
-                let downloadedData = this.ResultData.filter(x => x.id === e.id)
 
                 let config = {
                     url: `https://dev-be.kompasdata.id/api/Downloads/photo/${ e.id }`,
@@ -117,25 +115,14 @@
                 } catch (error) {
                     console.log(error)
                     Axios(configMessage).catch(err => {
-                        if ( this.getDiffDays(new Date(downloadedData[0].approvedDate), new Date(Date.now())) > 3 ) {
-                            this.$store.commit('setLoadingImage', 'failed')
-                            this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
-                            this.$store.commit('setCloseStatus', true)
-                            setTimeout(() => {
-                                this.$store.commit('setLoadingText', 'loading...')
-                                this.$store.commit('setLoadingImage', 'loading')
-                                this.$store.commit('setLoadingScreen', false)
-                            }, 2500)
-                        } else {
-                            this.$store.commit('setLoadingImage', 'failed')
-                            this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
-                            this.$store.commit('setCloseStatus', true)
-                            setTimeout(() => {
-                                this.$store.commit('setLoadingText', 'loading...')
-                                this.$store.commit('setLoadingImage', 'loading')
-                                this.$store.commit('setLoadingScreen', false)
-                            }, 1000)
-                        }
+                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
+                        this.$store.commit('setCloseStatus', true)
+                        setTimeout(() => {
+                            this.$store.commit('setLoadingText', 'loading...')
+                            this.$store.commit('setLoadingImage', 'loading')
+                            this.$store.commit('setLoadingScreen', false)
+                        }, 2500)
                     })
                 }
             }
