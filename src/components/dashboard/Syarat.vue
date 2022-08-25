@@ -1,5 +1,5 @@
 <template>
-    <div class="container my-3">
+    <div id="syarat-ketentuan" class="container my-3">
         <h1 class="title">SYARAT DAN KETENTUAN</h1>
         <h2 class="subtitle">Definisi</h2>
         <ol>

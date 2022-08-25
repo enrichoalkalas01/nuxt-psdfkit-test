@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark komp-navbar">
+    <nav id="nav-box" class="navbar navbar-expand-md navbar-dark komp-navbar">
         <div class="container pt-md-0">
             <a class="navbar-brand d-block d-md-none me-auto" href="/">
                 <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas Test">

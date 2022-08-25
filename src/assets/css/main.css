@@ -1,3 +1,5 @@
+@import './responsive.css';
+
 :root {
     --text: #828282;
     --title: #4F4F4F;
@@ -1952,3 +1954,9 @@ font-weight: 600; */
 }
 
 @media (min-width: 1200px) {}
+
+@media screen and (max-width: 476px) {
+    #slide .banner-slide .panel .caption .heading a {
+        font-size: 14px;
+    }
+}

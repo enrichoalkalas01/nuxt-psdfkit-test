@@ -32,20 +32,20 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-12 col-md-4">
                             <span>Jenis Pelanggan</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-12 col-md-8">
                             <span>{{ dataUser.memberTypeName ? dataUser.memberTypeName.title : '' }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <a href="https://account.kompas.id/manage-account/account-detail/account-security" class="btn btn-second">
                                 Ubah Password
                             </a>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Nama Depan</span>
                         </div>
                         <div class="col-8">
@@ -70,20 +70,20 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Nama Belakang</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <input id="lastName" class="form-control" type="text" v-model="dataUser.lastName">
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Jenis Kelamin</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="gender" id="gender" class="form-control" v-model="dataUser.gender">
                                 <option v-for="gender in genders" :value="gender.value" :key="gender">
                                     {{ gender.text ? gender.text : '' }}
@@ -94,10 +94,10 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Pekerjaan</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="job" id="job" class="form-control" v-model="userJobId">
                                 <option v-for="job in dataJobs" :value="job.id" :key="job">
                                     {{ job.title ? job.title : '' }}
@@ -108,30 +108,30 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Telepon</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <input id="phoneNumber" class="form-control" type="text" pattern="[0-9]" v-model="dataUser.phoneNumber">
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Alamat</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <textarea id="address" name="address" class="form-control" cols="30" rows="10" v-model="dataUser.address"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Negara</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="country" id="country" class="form-control" v-model="userCountryId" @change="getProvinces(userCountryId); getCities(0); getVillages(0);">
                                 <option v-for="country in dataCountries" :value="country.id" :key="country">
                                     {{ country.name ? country.name : '' }}
@@ -142,10 +142,10 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Provinsi</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="province" id="province" class="form-control" v-model="userProvinceId" @change="getCities(userProvinceId); getVillages(0);">
                                 <option v-for="province in dataProvinces" :value="province.id" :key="province">
                                     {{ province.name ? province.name : '' }}
@@ -156,10 +156,10 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Kabupaten/Kota</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="city" id="city" class="form-control" v-model="userCityId" @change="getVillages(userCityId)">
                                 <option v-for="city in dataCities" :value="city.id" :key="city">
                                     {{ city.fullName ? city.fullName : '' }}
@@ -170,10 +170,10 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Kecamatan</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <select name="village" id="village" class="form-control" v-model="userVillageId">
                                 <option v-for="village in dataVillages" :value="village.id" :key="village">
                                     {{ village.name ? village.name : '' }}
@@ -184,10 +184,10 @@
                 </div>
                 <div class="col-12 mb-3">
                     <div class="row wrapper">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-6 col-md-4">
                             <span>Kode Pos</span>
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-sm-6 col-md-8">
                             <input id="postCode" class="form-control" type="text" v-model="dataUser.postCode">
                         </div>
                     </div>
