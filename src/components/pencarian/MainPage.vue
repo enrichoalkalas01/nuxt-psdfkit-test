@@ -198,7 +198,7 @@
 
     /*
 
-        let url = https://dev-be.kompasdata.id/api/search?search&authors&publication&page&publishedfrom&publishedto&orderdirection&from=1&size=2
+        let url = https://data-api-dev.kompas.id/api/search?search&authors&publication&page&publishedfrom&publishedto&orderdirection&from=1&size=2
 
         - search (kata kunci)
         - authors (penulis)

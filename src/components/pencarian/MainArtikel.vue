@@ -68,7 +68,7 @@
                 try {
                     // Get Data From API
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
-                    // let DataArticles = await Axios("https://dev-be.kompasdata.id/api/search?search=&authors=&publication=&publishedFrom=&publishedTo=&from=1&size=10&orderdirection=desc")
+                    // let DataArticles = await Axios("https://data-api-dev.kompas.id/api/search?search=&authors=&publication=&publishedFrom=&publishedTo=&from=1&size=10&orderdirection=desc")
 
                     // Set Data From API
                     this.artikels = DataArticles.data

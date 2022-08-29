@@ -67,7 +67,7 @@
             async deleteItem(e) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
+                    url: `https://data-api-dev.kompas.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
                 
@@ -98,7 +98,7 @@
             async getDataAll(date1, date2) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 try {

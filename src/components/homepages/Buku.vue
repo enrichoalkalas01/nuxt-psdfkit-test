@@ -104,10 +104,10 @@
         async beforeMount() {
             try {
                 this.bukus = this.dataSet
-                let dataPBK = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/geraipbk')
+                let dataPBK = await Axios('https://data-api-dev.kompas.id/api/Books/mainpage/geraipbk')
                 this.dataBukuPBK = dataPBK.data
                 
-                let dataPerpustakaan = await Axios('https://dev-be.kompasdata.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
+                let dataPerpustakaan = await Axios('https://data-api-dev.kompas.id/api/Books/mainpage/perpus?count=3&range=-1&random=true')
                 this.dataBukuPerpustakaan = dataPerpustakaan.data
             } catch (error) {
                 console.log(error)

@@ -108,7 +108,7 @@
         methods: {
             async getChat() {
                 let configChat = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
                     method: 'get',
                     headers: {
                         'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`
@@ -179,7 +179,7 @@
                 let configSendChat
                 if ( !this.ReadyReplayData ) {
                     configSendChat = {
-                        url: 'https://dev-be.kompasdata.id/api/Messages',
+                        url: 'https://data-api-dev.kompas.id/api/Messages',
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
@@ -195,7 +195,7 @@
                     }
                 } else {
                     configSendChat = {
-                        url: 'https://dev-be.kompasdata.id/api/Messages',
+                        url: 'https://data-api-dev.kompas.id/api/Messages',
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,

@@ -56,7 +56,7 @@
             return {
                 LoadingScreen: true,
                 MainPageData: DefaultDataJSON,
-                ConfigApiMainPage: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' }
+                ConfigApiMainPage: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage' }
             }
         },
 

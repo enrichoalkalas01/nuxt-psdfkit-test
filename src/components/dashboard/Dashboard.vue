@@ -94,7 +94,7 @@
             async getUserFirstName() {
                 let config = {
                     method: 'GET',
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                  let user = await Axios(config)

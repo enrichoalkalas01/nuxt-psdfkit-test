@@ -150,7 +150,7 @@
 
                 let getData = await Axios({
                     method: 'POST',
-                    url: 'https://dev-be.kompasdata.id/api/Users?needvalidation=true',
+                    url: 'https://data-api-dev.kompas.id/api/Users?needvalidation=true',
                     data: JSON.stringify({
                         'firstName' : firstName,
                         'lastName' : lastName,

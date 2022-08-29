@@ -119,7 +119,7 @@
             async getData() {
                 try {
                     // Get Data From API
-                    let TriggerAPI = await Axios('https://dev-be.kompasdata.id/api/BirthDays/GetByMonth/1')
+                    let TriggerAPI = await Axios('https://data-api-dev.kompas.id/api/BirthDays/GetByMonth/1')
                     let DataArticles = await Axios(this.$store.state.Search.SearchConfigArticles)
                     let DataPhotos = await Axios(this.$store.state.Search.SearchConfigPhotos)
                     let DataBooks = await Axios(this.$store.state.Search.SearchConfigBooks)

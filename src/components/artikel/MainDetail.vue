@@ -125,10 +125,10 @@
                 artikelSuggestions: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
-                    url: `https://dev-be.kompasdata.id/api/stories/` + this.$route.params.id,
+                    url: `https://data-api-dev.kompas.id/api/stories/` + this.$route.params.id,
                 },
                 HargaBaca: 0,
-                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' }
+                ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage' }
             }
         },
 
@@ -145,7 +145,7 @@
                 this.$store.commit('setLoadingImage', 'loading')
                 this.$store.commit('setLoadingText', 'loading...')
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
+                    url: `https://data-api-dev.kompas.id/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` }, responseType: 'blob'
                 }
 
@@ -173,7 +173,7 @@
 
                     let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
                     let configPayment = {
-                        url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                        url: `https://data-api-dev.kompas.id/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
 

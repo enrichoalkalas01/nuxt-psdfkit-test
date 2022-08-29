@@ -192,7 +192,7 @@
                 this.ulangTahun = dataUltah.data
                 console.log(this.ulangTahun);
                 
-                let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                let dataTanggalPenting = await Axios(`https://data-api-dev.kompas.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
                 this.tanggalPenting = dataTanggalPenting.data
             } catch (error) {
                 console.log(error)
@@ -229,7 +229,7 @@
             },
 
             async getData(){
-                let dataTanggalPenting = await Axios(`https://dev-be.kompasdata.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                let dataTanggalPenting = await Axios(`https://data-api-dev.kompas.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
                 this.tanggalPenting = dataTanggalPenting.data
             },
 

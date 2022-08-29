@@ -249,10 +249,10 @@
                 DateTo: this.$store.state.Tools.DateNowString(),
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    url: `https://dev-be.kompasdata.id/api/photos/` + this.$route.params.id + `/kompas`,
+                    url: `https://data-api-dev.kompas.id/api/photos/` + this.$route.params.id + `/kompas`,
                 },
                 fotoSuggestions: null,
-                ConfigApiSuggestion: { url: 'https://dev-be.kompasdata.id/api/Configs/mainpage' },
+                ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage' },
 
                 UkuranFoto: [
                     { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640, dpiMax: 72 },
@@ -302,7 +302,7 @@
                 let SizeFoto = this.fotoDetail.file_size
                 let DocumentDate = this.fotoDetail.published_date.replace('Z', '')
                 let configHarga = {
-                    url: `https://dev-be.kompasdata.id/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
+                    url: `https://data-api-dev.kompas.id/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }   
 
@@ -340,7 +340,7 @@
                         alert('Harap isi kolom deskripsi!!')
                     } else {
                         let configPayment = {
-                            url: 'https://dev-be.kompasdata.id/api/Orders/photo',
+                            url: 'https://data-api-dev.kompas.id/api/Orders/photo',
                             method: 'POST',
                             headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                             data: {

@@ -100,7 +100,7 @@
             async deleteItem(e) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/${ e }/setDeleted`,
+                    url: `https://data-api-dev.kompas.id/api/ShoppingCarts/${ e }/setDeleted`,
                     method: 'get', headers: { Authorization: this.Token }
                 }
                 
@@ -146,7 +146,7 @@
             async getDataAll(date1, date2) {
                 console.log(date1, date2)
                 let config = {
-                    url: `https://dev-be.kompasdata.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
+                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiode=${ date1 }&endperiode=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
                 let AllData = await Axios(config)
@@ -160,7 +160,7 @@
 
             async paymentSaldo() {
                 let configPaySaldo = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/pay`,
+                    url: `https://data-api-dev.kompas.id/api/ShoppingCarts/pay`,
                     method: 'POST', headers: { Authorization: this.Token }, data: this.Selected
                 }
                 
@@ -206,7 +206,7 @@
 
             async paymentOther() {
                 let configPaySaldo = {
-                    url: `https://dev-be.kompasdata.id/api/ShoppingCarts/checkout`,
+                    url: `https://data-api-dev.kompas.id/api/ShoppingCarts/checkout`,
                     method: 'POST', headers: { Authorization: this.Token }, data: this.Selected
                 }
 

@@ -27,7 +27,7 @@
                 dataActivation: '',
                 status: '',
                 configAPI: {
-                    url: `https://dev-be.kompasdata.id/api/Users/activate?activationguid=` + this.$route.query.code
+                    url: `https://data-api-dev.kompas.id/api/Users/activate?activationguid=` + this.$route.query.code
                 }
             }
         },

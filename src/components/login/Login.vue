@@ -158,7 +158,7 @@
             async login() {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    method: 'post', url: 'https://dev-be.kompasdata.id/api/Login',
+                    method: 'post', url: 'https://data-api-dev.kompas.id/api/Login',
                     headers: { 'Content-Type': 'application/json' },
                     data: JSON.stringify({
                         'username' : document.querySelector("#username").value,

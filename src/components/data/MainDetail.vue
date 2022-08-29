@@ -100,7 +100,7 @@
                 dataDetail: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
-                    url: `https://dev-be.kompasdata.id/api/data/` + this.$route.params.id + `/` + this.$route.params.collection,
+                    url: `https://data-api-dev.kompas.id/api/data/` + this.$route.params.id + `/` + this.$route.params.collection,
                 },
                 dataSuggestions: null,
                 ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage/data?count=3' },
