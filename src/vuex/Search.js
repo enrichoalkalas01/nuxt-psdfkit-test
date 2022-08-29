@@ -33,7 +33,7 @@ const Search = {
             userTextStatus: null,
 
             SearchConfigPhotosPost: {
-                url: "https://data-api-dev.kompas.id/api/Search/photos",
+                url: "https://data-api.kompas.id/api/Search/photos",
                 headers: { "Content-Type": "application/json", },
                 method: "POST",
                 data: JSON.stringify({
@@ -42,7 +42,7 @@ const Search = {
                 })
             },
             SearchConfigArticlesPost: {
-                url: "https://data-api-dev.kompas.id/api/Search/articles",
+                url: "https://data-api.kompas.id/api/Search/articles",
                 headers: { "Content-Type": "application/json", },
                 method: "POST",
                 data: JSON.stringify({
@@ -51,7 +51,7 @@ const Search = {
                 })
             },
             SearchConfigInfografiksPost: {
-                url: "https://data-api-dev.kompas.id/api/Search/infographics",
+                url: "https://data-api.kompas.id/api/Search/infographics",
                 headers: { "Content-Type": "application/json", },
                 method: "POST",
                 data: JSON.stringify({
@@ -61,31 +61,31 @@ const Search = {
             },
 
             SearchConfigPhotos: {
-                url: "https://data-api-dev.kompas.id/api/iasearch?",
+                url: "https://data-api.kompas.id/api/iasearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
 
             SearchConfigArticles: {
-                url: "https://data-api-dev.kompas.id/api/search?",
+                url: "https://data-api.kompas.id/api/search?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
             
             SearchConfigInfografiks: {
-                url: "https://data-api-dev.kompas.id/api/graphicsearch?",
+                url: "https://data-api.kompas.id/api/graphicsearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
 
             SearchConfigBooks: {
-                url: "https://data-api-dev.kompas.id/api/booksearch?",
+                url: "https://data-api.kompas.id/api/booksearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
 
             SearchConfigStatistiks: {
-                url: "https://data-api-dev.kompas.id/api/datasearch?",
+                url: "https://data-api.kompas.id/api/datasearch?",
                 headers: { "Content-Type": "application/json", },
                 method: "GET",
             },
