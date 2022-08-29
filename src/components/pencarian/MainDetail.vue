@@ -360,7 +360,21 @@
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-artikel").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=1&size=${ size }&collection=${ '' }&currentpage=${ currentpage }&page=${ page }`
+                window.location.href = `/pencarian?query=${ query }&subject=${ '' }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=${ '1' }&size=${ size }&collection=${ '' }&page=${ page }&currentpage=${ currentpage }&orderdirection=${ orderDirection }`
+            },
+
+            searchLanjutFoto: () => {
+                let query = document.querySelector("#query-foto").value
+                let dateFrom = document.querySelector("#date-from-foto").value
+                let dateTo = document.querySelector("#date-to-foto").value
+                // let publication = document.querySelector("#publication-foto").value
+                // let page = document.querySelector("#page-foto").value
+                let author = document.querySelector("#author-foto").value
+                let size = 10
+                let currentpage = 1
+                let orderDirection = document.querySelector("#sort-foto").value
+
+                window.location.href = `/pencarian?query=${ query }&subject=${ '' }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ '' }&typesearch=${ '2' }&size=${ size }&collection=${ '' }&page=${ '' }&currentpage=${ currentpage }&orderdirection=${ orderDirection }`
             },
 
             searchLanjutInfografik: () => {
@@ -376,21 +390,7 @@
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-infografik").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=3&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
-            },
-
-            searchLanjutFoto: () => {
-                let query = document.querySelector("#query-foto").value
-                let dateFrom = document.querySelector("#date-from-foto").value
-                let dateTo = document.querySelector("#date-to-foto").value
-                // let publication = document.querySelector("#publication-foto").value
-                // let page = document.querySelector("#page-foto").value
-                let author = document.querySelector("#author-foto").value
-                let size = 10
-                let currentpage = 1
-                let orderDirection = document.querySelector("#sort-foto").value
-
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ '' }&typesearch=2&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&subject=${ '' }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=${ '3' }&size=${ size }&collection=${ '' }&page=${ '' }&currentpage=${ currentpage }&orderdirection=${ orderDirection }`
             },
 
             searchLanjutBuku: () => {
@@ -406,7 +406,7 @@
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-buku").value
 
-                window.location.href = `/pencarian?query=${ query }&subject=${ subject }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=4&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&subject=${ subject }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ author }&publication=${ publication }&typesearch=${ '4' }&size=${ size }&collection=${ '' }&page=${ '' }&currentpage=${ currentpage }&orderdirection=${ orderDirection }`
             },
 
             searchLanjutData: () => {
@@ -422,7 +422,7 @@
                 let currentpage = 1
                 let orderDirection = document.querySelector("#sort-data").value
 
-                window.location.href = `/pencarian?query=${ query }&orderdirection=${ orderDirection }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=5&size=${ size }&collection=${ '' }&currentpage=${ currentpage }`
+                window.location.href = `/pencarian?query=${ query }&subject=${ '' }&datefrom=${ dateFrom }&dateto=${ dateTo }&author=${ '' }&publication=${ '' }&typesearch=${ '5' }&size=${ size }&collection=${ '' }&page=${ '' }&currentpage=${ currentpage }&orderdirection=${ orderDirection }`
             }
         },
     }

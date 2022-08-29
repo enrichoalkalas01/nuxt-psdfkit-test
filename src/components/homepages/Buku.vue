@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel line-bot py-5">
-        <div class="container">
+        <div class="container" id="buku-mp">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 text-center mb-3">
                     <h2 class="tag">Buku</h2>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&collection=&currentpage=1&orderdirection=desc" class="more-link">Buku Lainnya <i class="fas fa-chevron-right"></i></a>
+                    <a href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=4&size=10&collection=&page=&currentpage=1&orderdirection=desc" class="more-link">Buku Lainnya <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
@@ -116,6 +116,7 @@
 
         mounted() {
             this.bukus = this.dataSet
+            this.getUrl()
         },
 
         updated() {
@@ -144,6 +145,9 @@
             //     TabPane.classList.remove("show"); TabPane.classList.remove("active")
             //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
             // }
+            getUrl(){
+                console.log('MASUK');
+            },
         }
     }
 </script>

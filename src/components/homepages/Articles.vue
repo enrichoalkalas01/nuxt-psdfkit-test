@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="col-12 mt-4 text-center text-md-end">
-                    <a href="pencarian?query=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&currentpage=1&orderdirection=desc" class="more-link">
+                    <a href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=1&size=10&collection=&page=&currentpage=1&orderdirection=desc" class="more-link">
                         Artikel Lainnya <i class="fas fa-chevron-right"></i>
                     </a>
                 </div>
