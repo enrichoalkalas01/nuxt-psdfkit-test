@@ -108,7 +108,7 @@
         methods: {
             async getChat() {
                 let configChat = {
-                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }/Messages`,
                     method: 'get',
                     headers: {
                         'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`
@@ -179,7 +179,7 @@
                 let configSendChat
                 if ( !this.ReadyReplayData ) {
                     configSendChat = {
-                        url: 'https://data-api-dev.kompas.id/api/Messages',
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Messages`,
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
@@ -195,7 +195,7 @@
                     }
                 } else {
                     configSendChat = {
-                        url: 'https://data-api-dev.kompas.id/api/Messages',
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Messages`,
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,
@@ -230,7 +230,7 @@
 
             async setRead() {
                 let configNotification = {
-                    url: `https://data-api-dev.kompas.id/api/Messages?readstatus=0&useronly=true`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Messages?readstatus=0&useronly=true`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 try {
@@ -239,7 +239,7 @@
                     console.log(filterNotification)
                     filterNotification.map(async x => {
                         let configRead = {
-                            url: `https://data-api-dev.kompas.id/api/Messages/${ x.id }/setRead`,
+                            url: `${ this.$store.state.Headers.BaseDevApi }/api/Messages/${ x.id }/setRead`,
                             headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                         }
 

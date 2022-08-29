@@ -118,10 +118,10 @@
                 HargaBaca: 0,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token },
-                    url: `https://data-api-dev.kompas.id/api/graphics/` + this.$route.params.id,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/graphics/` + this.$route.params.id,
                 },
                 infografikSuggestions: null,
-                ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage' },
+                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` },
             }
         },
         async beforeMount() {
@@ -136,7 +136,7 @@
                 this.$store.commit('setLoadingImage', 'loading')
                 this.$store.commit('setLoadingText', 'loading...')
                 let config = {
-                    url: `https://data-api-dev.kompas.id/api/Downloads/graphics/${ this.infografikDetail.reference_id }`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Downloads/graphics/${ this.infografikDetail.reference_id }`,
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` }, responseType: 'blob'
                 }
 
@@ -162,7 +162,7 @@
                     this.infografikDetail = dataInfografik.data
                     let tanggal = this.infografikDetail.creation_date.substring(0, 10)
                     let configPayment = {
-                        url: `https://data-api-dev.kompas.id/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Prices/Product?productid=${ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
 

@@ -166,10 +166,10 @@
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
-                    url: `https://data-api-dev.kompas.id/api/books/` + this.$route.params.id,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/books/` + this.$route.params.id,
                 },
                 bukuSuggestions: null,
-                ConfigApiSuggestion: { url: 'https://data-api-dev.kompas.id/api/Configs/mainpage' },
+                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` },
             }
         },
         async beforeMount() {

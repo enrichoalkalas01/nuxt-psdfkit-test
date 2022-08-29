@@ -92,7 +92,7 @@
         methods: {
             async topup(userdata){
                 let config = {
-                    url: `https://data-api-dev.kompas.id/api/CreditTopups?userid=${ userdata.id }`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/CreditTopups?userid=${ userdata.id }`,
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${ userdata.token }`,

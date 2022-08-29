@@ -240,7 +240,7 @@
                 try {
                     let data = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://data-api-dev.kompas.id/api/Users/${ this.UserData.id }`,
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.UserData.id }`,
                     })
                     this.dataUser = data.data
                     console.log(this.dataUser);
@@ -273,7 +273,7 @@
                 try {
                     let jobs = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: 'https://data-api-dev.kompas.id/api/Jobs',
+                        url: '${ this.$store.state.Headers.BaseDevApi }/api/Jobs',
                     })
     
                     this.dataJobs = jobs.data;
@@ -285,7 +285,7 @@
                 try {
                     let countries = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: 'https://data-api-dev.kompas.id/api/Countries',
+                        url: '${ this.$store.state.Headers.BaseDevApi }/api/Countries',
                     })
 
                     this.dataCountries = countries.data;
@@ -297,7 +297,7 @@
                 try {
                     let provinces = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://data-api-dev.kompas.id/api/Provinces?countryid=${ countryId }`,
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Provinces?countryid=${ countryId }`,
                     })
 
                     this.dataProvinces = provinces.data;
@@ -309,7 +309,7 @@
                 try {
                     let cities = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: `https://data-api-dev.kompas.id/api/Cities?countryid=-1&provinceid=${ provinceId }`,
+                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Cities?countryid=-1&provinceid=${ provinceId }`,
                     })
 
                     this.dataCities = cities.data;
@@ -322,7 +322,7 @@
                     if (cityId != 0) {
                         let villages = await Axios({
                             headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                            url: `https://data-api-dev.kompas.id/api/Cities/${ cityId }`,
+                            url: `${ this.$store.state.Headers.BaseDevApi }/api/Cities/${ cityId }`,
                         })
     
                         this.dataVillages = villages.data.villages;
@@ -335,7 +335,7 @@
             },
             async updateData(){
                 let configAccount = {
-                    url: `https://data-api-dev.kompas.id/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.dataUser.id }/update?modifiedby=${ this.dataUser.id }`,
                     method: 'PUT',
                     headers: {
                         'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }`,

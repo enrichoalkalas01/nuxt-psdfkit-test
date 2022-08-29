@@ -251,7 +251,7 @@
 
             async getSaldo() {
                 let config = {
-                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 
@@ -267,7 +267,7 @@
 
             async getNotification() {
                 let config = {
-                    url: `https://data-api-dev.kompas.id/api/Messages?readstatus=0&useronly=true`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Messages?readstatus=0&useronly=true`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
 
@@ -281,7 +281,7 @@
 
             async getNotificationCart() {
                 let config = {
-                    url: `https://data-api-dev.kompas.id/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCartsCount`,
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCartsCount`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
 

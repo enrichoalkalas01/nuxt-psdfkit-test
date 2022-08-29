@@ -75,10 +75,10 @@
             try {
                 this.statistiks = this.dataSet
 
-                let survey = await Axios('https://data-api-dev.kompas.id/api/Configs/mainpage/data?count=4')
+                let survey = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage/data?count=4`)
                 this.dataSurvey = survey.data
 
-                let statistik = await Axios('https://data-api-dev.kompas.id/api/Configs/mainpage/statistic?count=4')
+                let statistik = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage/statistic?count=4`)
                 this.dataStatistik = statistik.data
             } catch (error) {
                 console.log(error);

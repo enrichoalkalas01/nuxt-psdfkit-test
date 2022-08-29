@@ -53,7 +53,7 @@
                 total_search: 0,
                 config: {
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    url: 'https://data-api-dev.kompas.id/api/iasearch',
+                    url: `${ this.$store.state.Headers.BaseDevApi }/api/iasearch`,
                 }
             }
         },
