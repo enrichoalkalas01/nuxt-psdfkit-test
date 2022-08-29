@@ -116,7 +116,7 @@
 
         mounted() {
             this.bukus = this.dataSet
-            this.getUrl()
+            this.getDataTabs()
         },
 
         updated() {
@@ -145,8 +145,17 @@
             //     TabPane.classList.remove("show"); TabPane.classList.remove("active")
             //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
             // }
-            getUrl(){
-                console.log('MASUK');
+
+            getDataTabs(){
+                if (this.$store.state.Tools.GetQueryString().tabs) {
+                    const tabs = this.$store.state.Tools.GetQueryString().tabs
+
+                    document.getElementById('buku-Tabs01').className = 'nav-link'
+                    document.getElementById(`buku-Tabs${ tabs }`).className = 'nav-link active'
+                    
+                    document.getElementById('bukuTabs01').className = 'tab-pane fade'
+                    document.getElementById(`bukuTabs${ tabs }`).className = 'tab-pane fade show active'
+                }
             },
         }
     }
