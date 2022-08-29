@@ -265,4 +265,6 @@ const Search = {
     }
 }
 
+console.log('from search test update!!!!!!!')
+
 export default Search
