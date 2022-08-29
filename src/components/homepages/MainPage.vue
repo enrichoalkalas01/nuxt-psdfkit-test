@@ -56,7 +56,7 @@
             return {
                 LoadingScreen: true,
                 MainPageData: DefaultDataJSON,
-                ConfigApiMainPage: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` }
+                ConfigApiMainPage: { url: `${ this.$store.state.Headers.BaseUrlApi }/api/Configs/mainpage` }
             }
         },
 

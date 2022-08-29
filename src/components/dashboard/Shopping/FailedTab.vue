@@ -66,7 +66,7 @@
             async getDataAll(date1, date2) {
                 this.$store.commit('setLoadingScreen', true)
                 let config = {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }/ShoppingCarts?startperiod=${ date1 }&endperiod=${ date2 }`,
                     headers: { Authorization: this.Token }
                 }
 

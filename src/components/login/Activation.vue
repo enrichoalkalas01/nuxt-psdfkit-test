@@ -27,7 +27,7 @@
                 dataActivation: '',
                 status: '',
                 configAPI: {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/activate?activationguid=` + this.$route.query.code
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/activate?activationguid=` + this.$route.query.code
                 }
             }
         },

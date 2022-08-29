@@ -166,10 +166,10 @@
                     headers: {
                         Authorization: `Bearer ` + this.$store.state.Login.UserData.token,
                     },
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/books/` + this.$route.params.id,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/books/` + this.$route.params.id,
                 },
                 bukuSuggestions: null,
-                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` },
+                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseUrlApi }/api/Configs/mainpage` },
             }
         },
         async beforeMount() {

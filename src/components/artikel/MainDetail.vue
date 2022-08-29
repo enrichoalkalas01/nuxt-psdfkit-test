@@ -125,10 +125,10 @@
                 artikelSuggestions: null,
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }`, },
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/stories/` + this.$route.params.id,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/stories/` + this.$route.params.id,
                 },
                 HargaBaca: 0,
-                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` }
+                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseUrlApi }/api/Configs/mainpage` }
             }
         },
 
@@ -145,7 +145,7 @@
                 this.$store.commit('setLoadingImage', 'loading')
                 this.$store.commit('setLoadingText', 'loading...')
                 let config = {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Downloads/pdfcrop/${ this.artikelDetail.old_tark_id }`,
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` }, responseType: 'blob'
                 }
 
@@ -173,7 +173,7 @@
 
                     let tanggal = this.artikelDetail.published_pages[0].date.substring(0, this.artikelDetail.published_pages[0].date.length - 1)
                     let configPayment = {
-                        url: `${ this.$store.state.Headers.BaseDevApi }/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
+                        url: `${ this.$store.state.Headers.BaseUrlApi }/api/Prices/Product?productid=${ /*this.artikelDetail.old_tark_id*/ 9 }&opt1=0&opt2=0&opt3=0&docdate=${ tanggal }&size=0&quantity=1`,
                         method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                     }
 

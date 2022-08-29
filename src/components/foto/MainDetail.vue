@@ -249,10 +249,10 @@
                 DateTo: this.$store.state.Tools.DateNowString(),
                 ConfigApi: {
                     headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/photos/` + this.$route.params.id + `/kompas`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/photos/` + this.$route.params.id + `/kompas`,
                 },
                 fotoSuggestions: null,
-                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseDevApi }/api/Configs/mainpage` },
+                ConfigApiSuggestion: { url: `${ this.$store.state.Headers.BaseUrlApi }/api/Configs/mainpage` },
 
                 UkuranFoto: [
                     { id: 1, apiId: 201, ukuran: 'low', text: 'Low', sizeMin: 0, sizeMax: 640, dpiMax: 72 },
@@ -302,7 +302,7 @@
                 let SizeFoto = this.fotoDetail.file_size
                 let DocumentDate = this.fotoDetail.published_date.replace('Z', '')
                 let configHarga = {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Prices/Product?productid=${ 6 }&opt1=${ opt1 }&opt2=${ opt2 }&opt3=0&docdate=${ DocumentDate }&size=${ SizeFoto }&quantity=1`,
                     method: 'GET', headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }   
 
@@ -340,7 +340,7 @@
                         alert('Harap isi kolom deskripsi!!')
                     } else {
                         let configPayment = {
-                            url: `${ this.$store.state.Headers.BaseDevApi }/api/Orders/photo`,
+                            url: `${ this.$store.state.Headers.BaseUrlApi }/api/Orders/photo`,
                             method: 'POST',
                             headers: { Authorization: `Bearer ${ this.$store.state.Login.UserData.token }` },
                             data: {

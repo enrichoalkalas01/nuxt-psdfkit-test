@@ -94,7 +94,7 @@
             async getUserFirstName() {
                 let config = {
                     method: 'GET',
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                  let user = await Axios(config)
@@ -103,7 +103,7 @@
             
             async getSaldo() {
                 let config = {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }/balance`, method: 'get',
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
                 

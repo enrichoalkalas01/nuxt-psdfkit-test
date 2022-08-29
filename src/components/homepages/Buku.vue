@@ -104,10 +104,10 @@
         async beforeMount() {
             try {
                 this.bukus = this.dataSet
-                let dataPBK = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/Books/mainpage/geraipbk`)
+                let dataPBK = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/Books/mainpage/geraipbk`)
                 this.dataBukuPBK = dataPBK.data
                 
-                let dataPerpustakaan = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/Books/mainpage/perpus?count=3&range=-1&random=true`)
+                let dataPerpustakaan = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/Books/mainpage/perpus?count=3&range=-1&random=true`)
                 this.dataBukuPerpustakaan = dataPerpustakaan.data
             } catch (error) {
                 console.log(error)
