@@ -1,16 +1,18 @@
 <template>
     <section>
-        <div class="content borderless mb-2 line-bot2">
-            <img :src="image" class="rounding w-100" alt="">
+        <div class="content borderless mb-4">
+            <img :src="image" class="rounding w-100 foto-img" alt="">
             <h3 class="subtitle my-2">
-                <a href="#">
+                <a :href="`${ idData }`">
                     {{ title }}
                 </a>
             </h3>
-            <p>
-                {{ desc }}
+            <p >
+                <span class="short-text three">
+                    {{ desc }}
+                </span>
             </p>
-            <span class="date-time"> <i class="fas fa-clock"></i> {{ source }} </span>
+            <span class="date-time" v-if="source"> <i class="fas fa-clock"></i> {{ source }} </span>
         </div>
     </section>
 </template>

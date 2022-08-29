@@ -1,130 +1,156 @@
 <template>
-    <section class="sec-artikel line-bot py-5">
+    <section id="sekilas-info-mp" class="sec-artikel line-bot py-5">
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 text-center mb-3">
                     <h2 class="tag">SEKILAS INFO</h2>
                     <h2 class="headtitle py-2">
-                        Informasi seputar tanggal penting, ulang tahun dan agenda Kompas
+                        {{ Agenda ? Agenda.title_section : '' }}
                     </h2>
                 </div>
                 <div class="col-12">
-                    <ul class="nav nav-tabs komp-tabs center" id="myTab3" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="info-Tabs01" data-bs-toggle="tab" href="#infoTabs01" aria-controls="infoTabs01" aria-selected="true">Agenda</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="info-Tabs02" data-bs-toggle="tab" href="#infoTabs02" aria-controls="infoTabs02" aria-selected="false">Ulang Tahun</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="info-Tabs03" data-bs-toggle="tab" href="#infoTabs03" aria-controls="infoTabs03" aria-selected="false">Tanggal Penting</a>
+                    <ul
+                        class="nav nav-tabs komp-tabs center"
+                        id="myTab3"
+                        role="tablist"
+                    >
+                        <li 
+                            v-for="(AgendaData, i) in Agenda.data" :key="i"
+                            class="nav-item" role="presentation"
+                        >
+                            <a
+                                :class="i === 0 ? 'nav-link active' : 'nav-link'"
+                                :id="`info-Tabs0${ i + 1 }`"
+                                data-bs-toggle="tab"
+                                :href="`#infoTabs0${ i + 1 }`"
+                                :aria-controls="`infoTabs0${ i + 1 }`"
+                                :aria-selected="i == 0 ? 'true' : 'false'"
+                            >
+                                {{ AgendaData.type_tab }}
+                            </a>
                         </li>
                     </ul>
                     <div class="tab-content komp-tab-content">
-                        <div class="tab-pane fade show active" id="infoTabs01" role="tabpanel" aria-labelledby="info-Tabs01">
-                            <div class="row my-3">
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info1.png" alt="" class="ctn-img"/>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="infoTabs02" role="tabpanel" aria-labelledby="info-Tabs02">
-                            <div class="row my-3">
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info1.png" alt="" class="ctn-img"/>
-                                        <h2 class="subtitle name">JOKO WIDODO</h2>
-                                        <h2 class="subtitle title">PRESIDEN INDONESIA</h2>
-                                        <p class="periode">Jakarta, 21 Juni 1961</p>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
-                                        <h2 class="subtitle name">BJ HABIBIE</h2>
-                                        <h2 class="subtitle title">PRESIDEN INDONESIA KETIGA</h2>
-                                        <p class="periode">Bandung, 25 Juni 1936</p>
-                                    </a>
-                                </div>
-                                <div class="col-12 col-md-4 my-3 text-center">
-                                    <a href="#" class="content borderless info-ctn">
-                                        <img src="/assets/static/sekilasinfo/info2.png" alt="" class="ctn-img"/>
-                                        <h2 class="subtitle name">BJ HABIBIE</h2>
-                                        <h2 class="subtitle title">PRESIDEN INDONESIA KETIGA</h2>
-                                        <p class="periode">Semarang, 25 Juni 1936</p>
+                        <div
+                            v-for="(AgendaData, i) in Agenda.data" :key="i"
+                            :class="i === 0 ? 'tab-pane fade show active' : 'tab-pane fade'"
+                            :id="`infoTabs0${ i + 1 }`"
+                            role="tabpanel"
+                            :aria-labelledby="`info-Tabs0${ i + 1 }`"
+                        >
+                            <div class="row my-3" v-if="AgendaData.type_tab === 'Agenda'">
+                                <div
+                                    v-for="(Data, i) in AgendaData.data" :key="i"
+                                    class="col-12 col-md-4 my-3 text-center"
+                                >
+                                    <a :href="Data.url" class="content borderless info-ctn">
+                                        <!-- <div class="card"> -->
+                                            <div class="img-box">
+                                                <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
+                                            </div>
+                                            <!-- <img :src="Data.image_source" alt="" class="ctn-img mb-3"/> -->
+                                            <h2 class="subtitle">{{ Data.title }}</h2>
+                                            <p class="periode">
+                                                <span class="date-time"><i class="fas fa-clock"></i> {{ this.$store.state.Tools.ChangeDateString(Data.date.substring(0, 10)) }}</span>
+                                            </p>
+                                        <!-- </div> -->
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="tab-pane fade" id="infoTabs03" role="tabpanel" aria-labelledby="info-Tabs03">
-                            <div class="row my-3" id="tgl-penting">
-                                <div class="col-12 col-lg-12 title-month">
-                                    <h4>Januari</h4>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>3 Januari</label>
-                                        <p>Hari Departemen Agama Republik Indonesia[1]</p>
+
+                            <!-- <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
+                                <div
+                                    v-for="(Data, i) in AgendaData.data" :key="i"
+                                    class="col-12 col-md-4 my-3 text-center"
+                                > -->
+                                    <!-- <div href="#" class="content borderless info-ctn">
+                                        <img :src="Data.image_source" alt="" class="ctn-img"/>
+                                        <div class="img-box">
+                                            <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
+                                        </div>
+                                        <h2 class="subtitle name">{{ Data.title }}</h2>
+                                        <h2 class="subtitle title">{{ Data.excerpt }}</h2>
+                                        <p class="periode">
+                                            <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
+                                        </p>
+                                    </div> -->
+                                    <!-- <div class=" content borderless info-ctn">
+                                        <img :src="Data.image_source" alt="" class="ctn-img">
+                                        <h2 class="subtitle name">{{ Data.title }}</h2>
+                                        <h2 class="subtitle title">{{ Data.excerpt }}</h2>
+                                        <p class="periode">{{ Data.date }}</p>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>5 Januari</label>
-                                        <p>Hari Korps Wanita Angkatan Laut[1]</p>
+                            </div> -->
+
+                            <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
+                                
+                                <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
+                                    
+                                    <div class="content borderless info-ctn">
+                                        <a v-if="Data.url" :href="Data.url"><img :src="Data.picture" alt="" class="ctn-img"></a>
+                                        <img v-else :src="Data.picture" alt="" class="ctn-img">
+
+                                        <a v-if="Data.url" :href="Data.url"><h2 class="subtitle name">{{ Data.name }}</h2></a>
+                                        <h2 v-else class="subtitle name">{{ Data.name }}</h2>
+
+                                        <h2 class="subtitle title">{{ Data.notes }}</h2>
+                                        <p class="periode">{{ Data.birthplace !== '' ? `${ Data.birthplace },` : '' }} {{ this.$store.state.Tools.ChangeDateString(Data.birthdate.substring(0, 10)) }}</p>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>10 Januari</label>
-                                        <p>Hari Gerakan Satu Juta Pohon[1]</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>10 Januari</label>
-                                        <p>Hari Tritura[1]</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>10 Januari</label>
-                                        <p>Hari Lingkungan Hidup Indonesia</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>15 Januari</label>
-                                        <p>Hari Peristiwa Laut dan Samudera atau Hari Dharma Samudera[2]</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>25 Januari</label>
-                                        <p>Hari Gizi Nasional[3]</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>25 Januari</label>
-                                        <p>Hari Kusta Internasional[4][5]</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 col-lg-3 card-date">
-                                    <div class="wrapper-date card w-100 p-2">
-                                        <label>26 Januari</label>
-                                        <p>Hari Kepabeanan Internasional</p>
+                            </div>
+                            
+                            <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
+                                <div class="col-12 wrapper-tgl-p">
+                                    <div class="row">
+                                        <!-- <div class="col-12">
+                                            <i class="fa-solid fa-left"></i> {{ Month }} <i class="fa-solid fa-right"></i>
+                                        </div> -->
+
+                                        <!-- Testing -->
+                                        <table class="table">
+                                            <tbody>
+                                                <!-- <section v-for="(data, i) in tanggalPenting" :key="i" class="">
+                                                    <tr v-for="(event, j) in data.events" :key="j" >
+                                                        <td>{{ IndonesiaMonth[data.month-1] }}</td>
+                                                        <td>{{ data.day }}</td>
+                                                        <td>{{ event.note }}</td>
+                                                    </tr>
+                                                </section> -->
+
+                                                <tr v-for="(data, i) in tanggalPenting" :key="i">
+                                                    <section v-for="(event, j) in data.events" :key="j" >
+                                                        <td><a :href="event.url">{{ data.day }}</a></td>
+                                                        <td><a :href="event.url">{{ IndonesiaMonth[data.month-1] }}</a></td>
+                                                        <td>&nbsp;</td>
+                                                        <td>Pada tahun {{ this.$store.state.Tools.GetYear(event.date) }}, {{ event.note }}</td>
+                                                    </section>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <div class="col-12 col-lg-12 title-month d-flex justify-content-center">
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                    <li class="page-item">
+                                                        <a class="page-link prev" id="month-prev" v-on:click="prevWeek">Sebelumnya</a>
+                                                    </li>
+                                                    <li class="page-item next">
+                                                        <a class="page-link" id="month-next" v-on:click="nextWeek">Selanjutnya</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                            
+                                        </div>
+                                        <!-- <div
+                                            v-for="(DataDay, j) in NewAgendaData" :key="j"
+                                            class="col-12 col-md-4 col-lg-3 card-date"
+                                        >
+                                            <div class="wrapper-date card w-100 p-2">
+                                                <label>{{ DataDay.title }}</label>
+                                                <p>Tanggal : {{ DataDay.day }} {{ IndonesiaMonth[Month] }} {{ YearData }}</p>
+                                            </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -137,10 +163,126 @@
 </template>
 
 <script>
-    export default {};
+    import Axios from 'axios'
+
+    export default {
+        props: [ 'dataSet' ],
+
+        data() {
+            return {
+                Agenda: null,
+                ulangTahun: [],
+                tanggalPenting: [],
+                Month: 0,
+                week: 0,
+                IndonesiaMonth: [
+                    'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+                ],
+                YearData: new Date().getFullYear(),
+            }
+        },
+
+        async beforeMount() {
+            try {
+                const currentMonth = new Date().getMonth();
+                this.Month = currentMonth
+                this.Agenda = this.dataSet
+
+                let dataUltah = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
+                this.ulangTahun = dataUltah.data
+                console.log(this.ulangTahun);
+                
+                let dataTanggalPenting = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                this.tanggalPenting = dataTanggalPenting.data
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        mounted() {
+            this.Agenda = this.dataSet
+        },
+
+        updated() {
+            this.Agenda = this.dataSet
+        },
+
+        methods: {
+            nextMonth() {
+                if ( Number(this.Month) < 11 ) {
+                    this.Month = Number(this.Month) + 1
+                    this.getData()
+                } else {
+                    this.Month = 0
+                    this.getData()
+                }
+            },
+
+            prevMonth() {
+                if ( Number(this.Month) > 0 ) {
+                    this.Month = Number(this.Month) - 1
+                    this.getData()
+                } else {
+                    this.Month = 11
+                    this.getData()
+                }
+            },
+
+            async getData(){
+                let dataTanggalPenting = await Axios(`https://data-api-dev.kompas.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                this.tanggalPenting = dataTanggalPenting.data
+            },
+
+            nextWeek() {
+                if ( Number(this.week) < 52 ) this.week = Number(this.week) + 1
+                else this.week = 0
+                this.getData()
+            },
+
+            prevWeek() {
+                if ( Number(this.week) > -52 ) this.week = Number(this.week) - 1
+                else this.week = 52
+                this.getData()
+            }
+        }
+    };
 </script>
 
 <style>
+    .info-ctn {
+        height: 100%;
+        position: relative;
+    }
+
+    .info-ctn .ctn-img {
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25) !important;
+        aspect-ratio: 16/9;
+    }
+    
+    .img-box {
+        width: 300px;
+        height: 300px;
+        /* background-color: #555; */
+        background-color: #f8f8f8;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .img-box .images {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;
+    }
+
+    .periode {
+        /* text-align: right; */
+        /* position: absolute; */
+        right: 0;
+        bottom: 0;
+    }
+
     #tgl-penting {
         height: 300px;
         overflow-x: hidden;
@@ -193,5 +335,18 @@
     /* Handle on hover */
     #tgl-penting::-webkit-scrollbar-thumb:hover {
         background: #555; 
+    }
+
+    #tgl-penting nav {
+        font-size: 14px;
+    }
+
+    #tgl-penting nav .next,
+    #tgl-penting nav .prev {
+        cursor: pointer;
+    }
+
+    #tgl-penting nav .c-m a {
+        color: #4f4f4f;
     }
 </style>
