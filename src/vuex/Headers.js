@@ -4,8 +4,8 @@ const Headers = {
             SideBarStatus: false,
             Headers: 'Headers here..',
             ReloadSaldo: false,
-            // BaseUrlApi: `https://data-api-dev.kompas.id`,
             BaseUrlApi: `https://data-api.kompas.id`,
+            // BaseUrlApi: `https://data-api-dev.kompas.id`,
             // BaseDevApi: `https://data-api-dev.kompas.id`,
             Notification: false,
             NotificationCart: false,
@@ -26,7 +26,5 @@ const Headers = {
         },
     }
 }
-
-console.log('update headers here !!!')
 
 export default Headers
