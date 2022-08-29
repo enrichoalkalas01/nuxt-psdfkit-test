@@ -96,7 +96,7 @@
 
             async getUserData(accessToken) {
                 try {
-                    let newUserData = await Axios({ url: 'https://data-api-dev.kompas.id/api/Login/user-info', method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
+                    let newUserData = await Axios({ url: `${ this.$state.store.Headers.BaseUrlApi }/api/Login/user-info`, method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
                     newUserData.data.token = accessToken // change new access token
                     this.$store.commit('setUserData', newUserData.data)
                     this.$store.commit('setLoginStatus', true)
