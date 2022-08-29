@@ -42,8 +42,8 @@
                             Buku
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="bukuDropdown">
-                            <li><a class="dropdown-item" href="/?element_scroll=buku-mp&offsett=175&tabs=01">Penerbit Buku Kompas</a></li>
-                            <li><a class="dropdown-item" href="/?element_scroll=buku-mp&offsett=175&tabs=02">Perpustakaan</a></li>
+                            <li><a class="dropdown-item" href="/?element_scroll=buku-mp&offsett=175&tabs=02">Penerbit Buku Kompas</a></li>
+                            <li><a class="dropdown-item" href="/?element_scroll=buku-mp&offsett=175&tabs=03">Perpustakaan</a></li>
                             <!-- <li><a class="dropdown-item" href="/buku#bukuTabs04">Buku Elektronik</a></li> -->
                             <!-- <li><a class="dropdown-item" href="#">Laporan</a></li> -->
                         </ul>
