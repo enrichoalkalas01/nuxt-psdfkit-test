@@ -92,7 +92,7 @@
         methods: {
             async topup(userdata){
                 let config = {
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/CreditTopups?userid=${ userdata.id }`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/CreditTopups?userid=${ userdata.id }`,
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${ userdata.token }`,

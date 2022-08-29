@@ -188,11 +188,11 @@
                 this.Month = currentMonth
                 this.Agenda = this.dataSet
 
-                let dataUltah = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
+                let dataUltah = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
                 this.ulangTahun = dataUltah.data
                 console.log(this.ulangTahun);
                 
-                let dataTanggalPenting = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                let dataTanggalPenting = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
                 this.tanggalPenting = dataTanggalPenting.data
             } catch (error) {
                 console.log(error)

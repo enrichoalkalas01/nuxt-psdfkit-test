@@ -60,7 +60,7 @@
             async getData() {
                 try {
                     // Get Data From API
-                    let DataPhotos = await Axios(`${ this.$store.state.Headers.BaseDevApi }/api/iasearch`)
+                    let DataPhotos = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/iasearch`)
                     // Set Data From API
                     this.fotos = DataPhotos.data
                     this.total_search = this.fotos.total

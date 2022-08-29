@@ -36,7 +36,7 @@
                 var voucherCode = document.querySelector("#voucher_code").value
                 this.$store.commit('setLoadingScreen', true)
                 await Axios({
-                    url: `${ this.$store.state.Headers.BaseDevApi }/api/Vouchers/${ voucherCode }/use?userid=${ userdata.id }`,
+                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/Vouchers/${ voucherCode }/use?userid=${ userdata.id }`,
                     method: 'GET', headers: { 'Authorization': `Bearer ${ userdata.token }`, 'Content-Type': 'application/json' },
                 }).then(response => {
                     if ( response.data === 'sukses' ) {
