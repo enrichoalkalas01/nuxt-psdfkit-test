@@ -46,10 +46,19 @@
                                         v-for="(foto, i) in artikelDetail.images" :key="i"
                                     >
                                         <div class="col-12 col-md-9 text-center">
+                                            <!-- Null -->
+                                            <img v-if="`${ foto.kind }` === ''" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                            
+                                            <!-- Foto -->
                                             <a v-if="`${ foto.kind }` === 'Foto'" :href="`/foto-detail/` + foto.id">
                                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
                                             </a>
-                                            <img v-if="`${ foto.kind }` === 'Infografis'" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+
+                                            <!-- Infografik -->
+                                            <a v-if="`${ foto.kind }` === 'Infografis' && artikelDetail.published_pages[0].date.split('-')[0] >= 2015" :href="`/infografik-detail/` + foto.id">
+                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                            </a>
+                                            <img v-else-if="`${ foto.kind }` === 'Infografis' && artikelDetail.published_pages[0].date.split('-')[0] < 2015" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
                                         </div>
                                     </SplideSlide>
                                 </Splide>
