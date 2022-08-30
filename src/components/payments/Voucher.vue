@@ -47,7 +47,8 @@
                         this.setNormalLoadingScreen()
                     }
                 }).catch(err => {
-                    this.setFailedLoadingScreen(err.response.data.message)
+                    if ( voucherCode === '' ) this.setFailedLoadingScreen('Kode voucher tidak terdeteksi')
+                    else this.setFailedLoadingScreen(err.response.data.message)
                 })
             },
 
