@@ -273,7 +273,7 @@
                 try {
                     let jobs = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: '${ this.$store.state.Headers.BaseUrlApi }/api/Jobs',
+                        url: `${ this.$store.state.Headers.BaseUrlApi }/api/Jobs`,
                     })
     
                     this.dataJobs = jobs.data;
@@ -285,7 +285,7 @@
                 try {
                     let countries = await Axios({
                         headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },
-                        url: '${ this.$store.state.Headers.BaseUrlApi }/api/Countries',
+                        url: `${ this.$store.state.Headers.BaseUrlApi }/api/Countries`,
                     })
 
                     this.dataCountries = countries.data;
