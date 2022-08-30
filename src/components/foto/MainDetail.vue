@@ -26,6 +26,7 @@
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
                                     </button>
                                 </div>
+                                <div class="anchor" id="tab-syarat"></div>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
@@ -196,7 +197,7 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" v-model="Aggrement" id="aggrement">
                                                 <label class="form-check-label" for="aggrement">
-                                                    <i>Saya setuju dengan <a href="#dbTabs02">syarat dan ketentuan</a> yang berlaku.</i>
+                                                    <i>Saya setuju dengan <a href="javascript:void(0)" v-on:click="openSyaratTab">syarat dan ketentuan</a> yang berlaku.</i>
                                                 </label>
                                             </div>
                                         </div>
@@ -428,7 +429,17 @@
                     }
                     this.suggestions.push(suggestion)
                 }
-            }
+            },
+
+            openSyaratTab(){
+                document.getElementById('db-Tabs01').className = 'nav-link'
+                document.getElementById(`db-Tabs02`).className = 'nav-link active'
+                    
+                document.getElementById('dbTabs01').className = 'tab-pane fade'
+                document.getElementById(`dbTabs02`).className = 'tab-pane fade show active'
+
+                document.getElementById('tab-syarat').scrollIntoView();
+            },
         },
 
         computed: { propertyAAndPropertyB() { return `${this.SizeHarga}|${this.JenisHarga}` } },

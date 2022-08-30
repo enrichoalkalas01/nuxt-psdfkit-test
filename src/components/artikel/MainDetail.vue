@@ -153,7 +153,7 @@
                     let Result = await Axios(config)
                     FileSaver.saveAs(Result.data, `${ this.artikelDetail.title }.pdf`)
                     this.$store.commit('setLoadingImage', 'success')
-                    this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                    this.$store.commit('setLoadingText', 'Pembelian berhasil...')
                     this.$store.commit('setReloadSaldo', true)
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
