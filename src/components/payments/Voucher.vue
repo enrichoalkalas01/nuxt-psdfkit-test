@@ -42,7 +42,7 @@
                     if ( response.data === 'sukses' ) {
                         this.$store.commit('setLoadingImage', 'success')
                         this.$store.commit('setLoadingText', 'Sukses melakukan topup voucher')
-                        this.$store.commit('setLoadingText', 'Pemesanan Success...')
+                        this.$store.commit('setLoadingText', 'Pembelian berhasil...')
                         this.$store.commit('setReloadSaldo', true)
                         this.setNormalLoadingScreen()
                     }
