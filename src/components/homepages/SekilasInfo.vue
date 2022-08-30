@@ -190,7 +190,6 @@
 
                 let dataUltah = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/BirthDays/GetByMonth/${ this.Month + 1 }`)
                 this.ulangTahun = dataUltah.data
-                console.log(this.ulangTahun);
                 
                 let dataTanggalPenting = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
                 this.tanggalPenting = dataTanggalPenting.data
@@ -229,7 +228,7 @@
             },
 
             async getData(){
-                let dataTanggalPenting = await Axios(`https://data-api-dev.kompas.id/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
+                let dataTanggalPenting = await Axios(`${ this.$store.state.Headers.BaseUrlApi }/api/ImportantDates/GetByWeek?prevNext=${ this.week }`)
                 this.tanggalPenting = dataTanggalPenting.data
             },
 
