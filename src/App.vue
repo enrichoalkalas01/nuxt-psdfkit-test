@@ -28,7 +28,7 @@
         components: { TopNav, MainNav, Footer, TopBarReflection },
         data() {
             return {
-                configRefreshToken:{ method: 'get', url: `https://data-api-dev.kompas.id/api/Login/kompas-token-refresh`, withCredentials: true },
+                configRefreshToken:{ method: 'get', url: `https://data-api.kompas.id/api/Login/kompas-token-refresh`, withCredentials: true },
             }
         },
 

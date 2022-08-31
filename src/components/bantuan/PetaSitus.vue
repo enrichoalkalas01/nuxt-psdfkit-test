@@ -20,7 +20,7 @@
                                     <li><a href="/?element_scroll=artikel-mp&offsett=175">Produk</a></li>
                                     <li><a href="/?element_scroll=berita-terkini-mp&offsett=125">Berita Terkini</a></li>
                                     <li><a href="/?element_scroll=layanan-mp&offsett=125">Layanan Kami</a></li>
-                                    <li><a href="https://account.kompas.id/register?next=https%3A%2F%2Fdata-dev.kompas.id%2F%3Fstatus%3Dsukses_login&status_login=login">Daftar Baru</a></li>
+                                    <li><a :href="`https://account.kompas.id/register?next=${ this.$store.state.Headers.BaseUrl }%2F%3Fstatus%3Dsukses_login&status_login=login`">Daftar Baru</a></li>
                                 </ul>
                             </div>
                         </div>
