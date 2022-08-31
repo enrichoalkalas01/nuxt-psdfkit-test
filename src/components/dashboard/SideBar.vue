@@ -62,6 +62,12 @@
                         <span class="icon-sidebox">Syarat</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="https://account.kompas.id/logout" :class="Terms ? 'nav-link text-white active' : 'nav-link text-white'">
+                        <i class="fa-solid fa-user icon-text"></i>
+                        <span class="icon-sidebox">Logout</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>

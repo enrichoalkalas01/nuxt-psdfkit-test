@@ -67,7 +67,6 @@ const Tools = {
                     `${ new Date().getDate() < 10 ?  '0' + new Date().getDate() : new Date().getDate() }`
                 ].join("-")
             },
-
             DateYesterday: () => {
                 return [
                     `${ new Date().getFullYear() }`,
@@ -75,12 +74,12 @@ const Tools = {
                     `${ new Date().getDate() < 10 ?  '0' + (new Date().getDate() - 1) : (new Date().getDate() - 1) }`
                 ].join("-")
             },
-
             DateTomorrowString: () => {
+                let nextMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1)
                 return [
                     `${ new Date().getFullYear() }`,
-                    `${ (new Date().getMonth() + 1) < 9 ? '0' + (new Date().getMonth() + 1) : (new Date().getMonth() + 1) }`,
-                    `${ new Date().getDate() < 9 ?  '0' + (new Date().getDate() + 1) : (new Date().getDate() + 1) }`
+                    `${ (nextMonth.getMonth() + 1) <= 9 ? '0' + (nextMonth.getMonth() + 1) : (nextMonth.getMonth() + 1) }`,
+                    `${ '0' + nextMonth.getDate() }`
                 ].join("-")
             },
 
