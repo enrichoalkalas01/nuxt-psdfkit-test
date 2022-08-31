@@ -33,6 +33,7 @@
         },
 
         async beforeMount() {
+            console.log(this.$store.state.Tools.DateTomorrowString())
             this.autoLoginSSOFixed()
         },
 
