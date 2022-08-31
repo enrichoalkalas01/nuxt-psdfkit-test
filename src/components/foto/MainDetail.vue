@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
-                                <div class="db-price rounded mt-3">
+                                <div v-if="fotoDetail ? fotoDetail.copyright.toLowerCase() === 'kompas' : false" class="db-price rounded mt-3">
                                     <!-- <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span> -->
                                     <button v-on:click="FormPesan" class="btn btn-main">
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
@@ -31,7 +31,7 @@
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
                                     </li>
-                                    <li class="nav-item" role="presentation">
+                                    <li v-if="fotoDetail ? fotoDetail.copyright.toLowerCase() === 'kompas' : false" class="nav-item" role="presentation">
                                         <a class="nav-link" id="db-Tabs02" data-bs-toggle="tab" href="#dbTabs02" aria-controls="dbTabs02" aria-selected="false">Ketentuan Penggunaan</a>
                                     </li>
                                 </ul>
@@ -68,7 +68,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
+                                    <div v-if="fotoDetail ? fotoDetail.copyright.toLowerCase() === 'kompas' : false" class="tab-pane fade " id="dbTabs02" role="tabpanel" aria-labelledby="db-Tabs02">
                                         <div class="d-block my-3">
                                             <!-- <h2 class="tag"><em> CARA PENGGUNAAN FOTO</em></h2> -->
                                             <ol>
