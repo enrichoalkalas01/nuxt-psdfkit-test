@@ -110,7 +110,7 @@
                             <div class="wrapper-user" v-if="!this.$store.state.Login.LoginStatus">
                                 <!-- <a href="https://account.kompas.id/login?next=https://data-dev.kompas.id/" class="btn btn-line m-2" id="login">LOGIN</a> -->
                                 <!-- <a href="https://account.kompas.id/login?next=https://data-dev.kompas.id/" class="btn btn-line m-2" id="login">LOGIN/REGISTER</a> -->
-                                <a href="https://account.kompas.id/login?next=https://data-dev.kompas.id/" class="btn btn-second" id="login">MASUK/DAFTAR</a>
+                                <a :href="`https://account.kompas.id/login?next=${ this.$store.state.Headers.BaseUrl }`" class="btn btn-second" id="login">MASUK/DAFTAR</a>
                                 <!-- <a href="/login" class="btn btn-line m-2" id="login">LOGIN</a> -->
                                 <!-- <a href="https://account.kompas.id/register?next=https://data-dev.kompas.id/" class="btn btn-second" id="register">DAFTAR</a> -->
                             </div>

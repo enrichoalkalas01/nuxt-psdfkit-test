@@ -4,6 +4,7 @@ const Headers = {
             SideBarStatus: false,
             Headers: 'Headers here..',
             ReloadSaldo: false,
+            BaseUrl: `https://data.kompas.id`,
             BaseUrlApi: `https://data-api.kompas.id`,
             // BaseUrlApi: `https://data-api-dev.kompas.id`,
             // BaseDevApi: `https://data-api-dev.kompas.id`,
