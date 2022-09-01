@@ -12,15 +12,12 @@
                         <a href="/" class="btn btn-primary">Memulai</a>
                     </div>
                 </div>
-                <div class="col-12">
-
-                </div>
             </div>
             <div class="row mb-2">
                 <div class="col-12 content">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-5 mb-4">
-                            <h4>Prabayar</h4>
+                            <h4>{{ userType }}</h4>
                             <div class="box-saldo">
                                 <h6>Saldo Poin Anda</h6>
                                 <h3>{{ `${ saldoUser ? this.$store.state.Tools.PriceFormat(saldoUser, 0, '', '.') : '-' }` }}</h3>
@@ -83,6 +80,7 @@
                 pdfExpDate: null,
                 kuotaPdf: 0,
                 userFirstName: null,
+                userType: null,
             }
         },
 
@@ -97,8 +95,9 @@
                     url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }`,
                     headers: { 'Authorization': `Bearer ${ this.$store.state.Login.UserData.token }` },
                 }
-                 let user = await Axios(config)
-                 this.userFirstName = user.data.firstName
+                let user = await Axios(config)
+                this.userFirstName = user.data.firstName
+                this.userType = user.data.memberTypeName.title
             },
             
             async getSaldo() {

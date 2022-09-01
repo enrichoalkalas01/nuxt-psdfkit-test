@@ -42,7 +42,7 @@
         components: { ListHistory, LoadingScreen },
         data() {
             return {
-                DateFrom: this.$store.state.Tools.DateYesterday(),
+                DateFrom: this.$store.state.Tools.DateNowString(),
                 DateTo: this.$store.state.Tools.DateTomorrowString(),
                 Token: `Bearer ${ this.$store.state.Login.UserData.token }`,
                 ResultData: [],
