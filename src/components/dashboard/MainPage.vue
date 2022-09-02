@@ -2,20 +2,24 @@
     <section id="dashboard" class="container-fluid">
         <LoadingScreen />
         <div class="row box-dashboard" style="poisition: relative;">
-            <SideBar />
-            <div class="col-9 py-3 box-cd" id="box-cd">
+            <SideBarNew />
+            <!-- <div class="col-9 py-3 box-cd" id="box-cd">
                 <router-view></router-view>
-            </div>
+            </div> -->
+            <section id="content-dashboard">
+                <router-view></router-view>
+            </section>
         </div> 
     </section>
 </template>
 
 <script>
-    import SideBar from './SideBar.vue'
+    // import SideBar from './SideBar.vue'
+    import SideBarNew from './SideBarNew.vue'
     import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
         name: "MainPage",
-        components: { SideBar, LoadingScreen },
+        components: { SideBarNew, LoadingScreen },
         beforeMount() {
             if ( !this.$store.state.Login.LoginStatus ) {
                 this.$store.commit('setLoadingScreen', true)
@@ -31,4 +35,5 @@
     @import './css/dashboard.css';
     @import './Chat/chat.css';
     @import './css/responsive.css';
+    @import './css/sidebar_new.css';
 </style>
