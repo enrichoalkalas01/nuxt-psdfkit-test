@@ -1,5 +1,6 @@
 #dashboard-home {
     padding-top: 2.5%;
+    padding-right: 0;
 }
 
 #footer-box .footer {
@@ -12,6 +13,7 @@
 }
 
 #dashboard .box-dashboard {
+    width: 100%;
     height: 100vh;
 }
 

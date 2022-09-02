@@ -1958,9 +1958,6 @@ font-weight: 600; */
 @media (min-width: 1200px) {}
 
 @media screen and (max-width: 575px) {
-    #sec-payment, #dashboard-account {
-        padding-top: 25% !important;
-    }
 
     #dashboard #dashboard-home .box-images .images {
         width: 50px !important;
