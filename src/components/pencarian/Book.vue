@@ -1,5 +1,5 @@
 <template>
-    <div class="row line-bot full">
+    <div class="row line-bot full mt-3 pb-4">
         <div class="col-12" v-if="booksData ? booksData.length <= 0 : null">
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>

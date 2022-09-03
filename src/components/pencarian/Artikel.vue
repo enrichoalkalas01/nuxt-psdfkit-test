@@ -1,10 +1,10 @@
 <template>
-    <div class="row">
+    <div class="row mt-3 pb-4 line-bot full">
         <LoadingScreen />
         <div class="col-12" v-if="artikels ? artikels.length <= 0 : null">
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
-        <div class="col-12 line-bot full" v-if="artikels ? artikels.length > 0 : null">
+        <div class="col-12" v-if="artikels ? artikels.length > 0 : null">
             <p class="f14 mt-4">
                 Menemukan : <span class="f14">{{ total_search }} data</span>
                 <span class="notif-total" v-if="total_search >= 10000"> ( *maks. menampilkan  {{ total_search }} data )</span>

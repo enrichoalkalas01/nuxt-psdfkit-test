@@ -50,7 +50,12 @@
                     padding: '20%',
                     updateOnMove: true,
                     focus: 'center',
-                    // perPage: 3
+                    breakpoints: {
+                        475: {
+                            padding: '2.5%',
+                            perPage: 1,
+                        },
+                    },
                 },
                 data: 0,
                 infografiks: null,

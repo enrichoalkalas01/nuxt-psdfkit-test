@@ -2081,7 +2081,6 @@ font-weight: 600; */
     }
 
     #chatting .send-chat-box {
-        height: 30% !important;
         overflow-y: auto;
     }
 

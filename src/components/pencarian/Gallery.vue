@@ -1,7 +1,7 @@
 <template>
-    <div class="row pt-3">
+    <div class="row mt-3">
         <LoadingScreen />
-        <div class="wrapper-gallery col-12 pb-2 line-bot full">
+        <div class="wrapper-gallery col-12 pb-4 line-bot full">
             <div class="row" v-if="dataFotos ? dataFotos.length <= 0 : null">
                 <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
             </div>
