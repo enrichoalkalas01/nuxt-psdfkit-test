@@ -2,7 +2,7 @@
     <section class="sec-artikel pt-5">
         <div class="container pt-3">
             <div class="row d-flex justify-content-center pb-5">
-                <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus">
+                <div class="col-12 mb-2" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0 || !this.$store.state.Login.LoginStatus">
                     <div class="row">
                         <div class="status-message">
                             <div>Tipe user : {{ this.$store.state.Search.userStatus }}</div>
@@ -17,7 +17,7 @@
                         <!-- Total Search : <span class="f14">{{ totalSearch }} data</span> -->
                     </p>
                 </div>
-                <div class="col col-md-2 align-items-end d-flex">
+                <div class="col col-md-2 align-items-end d-flex mb-3">
                     <!-- <p class="text-md-right">Pencarian Lanjut</p> -->
                     <select
                         v-on:change="orderDirectionData"
@@ -30,12 +30,12 @@
                         <option value="desc">Terbaru</option>
                     </select>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mb-3">
                     <!-- Mini Menu -->
                     <MiniMenu />
 
                     <!-- Search -->
-                    <div class="tab-content komp-tab-content">
+                    <div class="tab-content komp-tab-content mt-3">
                         <!-- Semua -->
                         <div 
                             :class="this.$store.state.Search.TypeSearch === '0' ? 'tab-pane fade show active' : 'tab-pane fade'"

@@ -15,7 +15,7 @@
                 <div class="col-md-9 my-3">
                     <div class="detail-box">
                         <div class="row">
-                            <div class="col-sm-4 my-3">
+                            <div class="col-sm-4 my-3 images-box">
                                 <img :src="`${ this.$store.state.Tools.GetUrlFile + bukuDetail.cover }`" alt="" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
@@ -206,3 +206,18 @@
         }
     }
 </script>
+
+<style scoped>
+    @media screen and (max-width: 575px) {
+        .images-box {
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .images-box img {
+            width: 40%;
+        }
+    }
+</style>

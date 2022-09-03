@@ -1,5 +1,5 @@
 <template>
-    <div class="row line-bot full  mt-3">
+    <div class="row line-bot full mt-3 pb-4">
         <div class="col-12">
             <div class="content borderless">
                 <div class="row" v-if="statistiks ? statistiks.length <= 0 : null">

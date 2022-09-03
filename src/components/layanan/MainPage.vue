@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
-        <div class="container">
+        <div class="container pt-4">
             <div class="row">
                 <div class="col-12">
                     <h2 class="title line-bot full">Jasa & Layanan</h2>
