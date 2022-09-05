@@ -12,6 +12,7 @@
                         'col-12 user-chat right-user'
                     "
                     :id="`chatId-${ chat.mainChat.id }`"
+                    :dataParentId="chat.parentId"
                 >  
                     <!-- Replay Chat -->
                     <div
@@ -20,6 +21,7 @@
                         :key="j"
                         :id="`replayedId-${ replay.id }`"
                         :class="replay.adminId != '' ? 'wb-replay right' : 'wb-replay left'"
+                        :dataParentId="replay.parentId"
                     >
                         <div class="wb-chat-box">
                             <div class="wb-image" v-if="replay.adminId !== ''">
@@ -204,7 +206,7 @@
                         data: JSON.stringify({
                             "userId": this.$store.state.Login.UserData.id,
                             "adminId": "",
-                            "parentID": this.ReadyReplayData.mainChat.id,
+                            "parentID": this.ReadyReplayData.mainChat.parentId,
                             "title": document.querySelector("#title-chat").value,
                             "message": document.querySelector("#message-chat").value
                         })
