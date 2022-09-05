@@ -76,13 +76,13 @@
             </div>
         </div>
         <div class="col-12 send-chat-box">
-            <div class="wrapper-replay-chat" id="ready-replay">
+            <div class="wrapper-replay-chat text-center mb-3" id="ready-replay">
                 <!-- <span>Re From : <span>sadlaskdnalskdn</span></span> -->
             </div>
 
             <div class="wrapper-scb">
                 <button class="form-control mb-2" v-if="this.ReadyReplayData" v-on:click="removeReplayedData">Clear Replay Data</button>
-                <input placeholder="title message..." type="text" name="title-chat" id="title-chat" class="form-control mb-2">
+                <input placeholder="title message..." type="text" name="title-chat" id="title-chat" class="form-control mb-2" :value="TitleChat">
                 <textarea name="message-chat" id="message-chat" class="form-control mb-2" placeholder="Ketik untuk mengirim pesan..."></textarea>
                 <button class="form-control" v-on:click="sendChat">
                     <span>Send Pesan</span>
@@ -100,6 +100,7 @@
         data() {
             return {
                 ChatData: [],
+                TitleChat: '',
                 ReadyReplayData: null,
             }
         },
@@ -161,6 +162,7 @@
                 let chatData = this.ChatData.filter(x => x.mainChat.id === Number(params))[0]
                 replayedData.innerHTML = `<span>Balas Untuk : ${ chatData.mainChat.title }</span>`
                 this.ReadyReplayData = chatData
+                this.TitleChat = chatData.mainChat.title
                 this.goToChatBox()
             },
 
