@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarMain">
                 <div class="search-box d-block d-md-none py-2">
                     <div class="input-group">
-                        <select class="form-select" id="type-search" :value="typeSearch"> 
+                        <select class="form-select" id="type-search-mobile" :value="typeSearch"> 
                             <option value="0">Semua</option>
                             <option value="1">Artikel</option>
                             <option value="2">Foto</option>
@@ -31,7 +31,7 @@
                         </select>
                         <input
                             v-on:keyup.enter="searchBar"
-                            id="input-search"
+                            id="input-search-mobile"
                             type="text"
                             class="form-control"
                             placeholder="Masukkan teks"
@@ -135,8 +135,8 @@
             sideBarActive() { this.$store.commit('setStatusSideBar') },
             searchBar: function() {
                 let urlDetection = window.location.pathname
-                let SearchInput = document.querySelector("#input-search").value
-                let SelectSearch = document.querySelector("#type-search").value
+                let SearchInput = document.querySelector("#input-search-mobile").value
+                let SelectSearch = document.querySelector("#type-search-mobile").value
                 let searchPassing = {
                     searchKey: SearchInput,
                     typesearch: Number(SelectSearch)
