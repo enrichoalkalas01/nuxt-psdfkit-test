@@ -94,7 +94,7 @@ const Tools = {
                 return null;
             },
 
-            createCookieMinute(name, value, minutes) {
+            createCookieMinute(name, value, minutes, domain = ".kompas.id") {
                 let expires, date
                 if (minutes) {
                     date = new Date();
@@ -103,11 +103,11 @@ const Tools = {
                 } else {
                     expires = "";
                 }
-                document.cookie = name+"="+value+expires+"; domain=.kompas.id; path=/;secure";
+                document.cookie = name+"="+value+expires+`; domain=${ domain }; path=/;secure`;
             },
 
-            deleteCookies(name) {
-                document.cookie = name +'=; domain=.kompas.id; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            deleteCookies(name, domain = ".kompas.id") {
+                document.cookie = name +`=; domain=${ domain }; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
             },
 
             scrollTo(el = {}) {

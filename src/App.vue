@@ -28,12 +28,12 @@
         components: { TopNav, MainNav, Footer, TopBarReflection },
         data() {
             return {
-                configRefreshToken:{ method: 'get', url: `https://data-api.kompas.id/api/Login/kompas-token-refresh`, withCredentials: true },
+                configRefreshToken:{ method: 'get', url: `${ this.$store.state.Headers.BaseUrlApi }/api/Login/kompas-token-refresh`, withCredentials: true },
             }
         },
 
         async beforeMount() {
-            this.autoLoginSSOFixed()
+            // this.autoLoginSSOFixed()
         },
 
         methods: {
@@ -94,15 +94,23 @@
                 }
             },
 
-            async getUserData(accessToken) {
+            async getUserData(accessToken = '', refreshToken = '') {
                 try {
                     let newUserData = await Axios({ url: `${ this.$store.state.Headers.BaseUrlApi }/api/Login/user-info`, method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
-                    newUserData.data.token = accessToken // change new access token
+                    let new_passing_data = {}, new_token_passing = {}
+                    for( let i in newUserData.data ) {
+                        if ( i !== 'token' && i !== 'refreshToken' ) new_passing_data[i] = dataUser[i]
+                        if ( i === 'token' ) new_token_passing[i] = accessToken
+                    }
+
+                    // newUserData.data.token = accessToken // change new access token
+
                     this.$store.commit('setUserData', newUserData.data)
                     this.$store.commit('setLoginStatus', true)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_exp', new Date( new Date().getTime() + 10 * 60000 ), 10)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(newUserData.data)).toString('base64'), 8) // set status login data
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(new_passing_data)).toString('base64'), 8) // set status login data
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', new_token_passing, 10) // set token data
                     console.log(this.$store.state)
                 } catch (error) {
                     console.log(error.message)

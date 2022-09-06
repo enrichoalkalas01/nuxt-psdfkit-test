@@ -30,7 +30,15 @@
 
     export default {
         name: 'Voucher',
-        components: { LoadingScreen },
+        components: { LoadingScreen, },
+        data() { return {
+            UserData: null,
+        }},
+
+        mounted() {
+            this.getUserData()
+        },
+
         methods: {
             async insertKupon(userdata) {
                 var voucherCode = document.querySelector("#voucher_code").value
@@ -66,6 +74,15 @@
                     this.$store.commit('setLoadingText', 'loading...')
                     this.$store.commit('setCloseStatus', false)
                 }, 2000)
+            },
+
+            async getUserData() {
+                try {
+                    let data = await Axios({ headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }`, })                    
+                    this.UserData = data.data
+                } catch(err) {
+                    console.log(err)
+                }
             }
         }
     }
