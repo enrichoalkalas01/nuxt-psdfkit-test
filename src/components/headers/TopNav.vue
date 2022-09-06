@@ -40,9 +40,12 @@
                             :value="searchKey"
                         >
                         <a v-on:click="searchBar" class="btn btn-main px-3" id="btn-cari"><i class="fas fa-search"></i></a>
+                        <div class="pencarian-lanjut-mobile" >
+                            <a style="font-size: 12px;" href="/pencarian-lanjut">Pencarian lanjut</a>
+                        </div>
                     </div>
                 </div>
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mt-3">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="ArsipDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Arsip
@@ -261,6 +264,13 @@
 
         .search-box .input-group {
             width: 100% !important;
+        }
+
+        .search-box .input-group .pencarian-lanjut-mobile {
+            position: absolute;
+            display: block;
+            bottom: -25px;
+            right: 0;
         }
     }
 </style>

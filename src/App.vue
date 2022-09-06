@@ -23,18 +23,14 @@ import MainNav from "./components/headers/MainNav.vue";
 import Footer from "./components/headers/Footer.vue";
 import Axios from "axios";
 
-export default {
-  name: "App",
-  components: { TopNav, MainNav, Footer, TopBarReflection },
-  data() {
-    return {
-      configRefreshToken: {
-        method: "get",
-        url: `https://data-api.kompas.id/api/Login/kompas-token-refresh`,
-        withCredentials: true,
-      },
-    };
-  },
+    export default {
+        name: 'App',
+        components: { TopNav, MainNav, Footer, TopBarReflection },
+        data() {
+            return {
+                configRefreshToken:{ method: 'get', url: `${ this.$store.state.Headers.BaseUrlApi }/api/Login/kompas-token-refresh`, withCredentials: true },
+            }
+        },
 
   async beforeMount() {
     this.autoLoginSSOFixed();
@@ -85,57 +81,30 @@ export default {
       this.$store.state.Tools.deleteCookies("_km_dtl_d"); // delete cookies data
     },
 
-    async getTokenKompas(refreshToken) {
-      try {
-        let newAccessToken = await Axios({
-          url: "https://api.kompas.id/account/api/v1/tokens/refresh",
-          method: "post",
-          data: JSON.stringify({ refreshToken: refreshToken }),
-        });
-        this.getUserData(newAccessToken.data.data.accessToken); // get user data with access token
-        this.$store.state.Tools.createCookieMinute(
-          "kompas._token",
-          newAccessToken.data.data.accessToken,
-          10
-        );
-      } catch (error) {
-        console.log(error.message);
-        console.log(
-          "failed to get new access token, reload / refresh the page !"
-        );
-        // this.deleteCookiesData()
-      }
-    },
+            async getUserData(accessToken = '', refreshToken = '') {
+                try {
+                    let newUserData = await Axios({ url: `${ this.$store.state.Headers.BaseUrlApi }/api/Login/user-info`, method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
+                    let new_passing_data = {}, new_token_passing = {}
+                    for( let i in newUserData.data ) {
+                        if ( i !== 'token' && i !== 'refreshToken' ) new_passing_data[i] = dataUser[i]
+                        if ( i === 'token' ) new_token_passing[i] = accessToken
+                    }
 
-    async getUserData(accessToken) {
-      try {
-        let newUserData = await Axios({
-          url: `${this.$store.state.Headers.BaseUrlApi}/api/Login/user-info`,
-          method: "get",
-          headers: { Authorization: `Bearer ${accessToken}` },
-        });
-        newUserData.data.token = accessToken; // change new access token
-        this.$store.commit("setUserData", newUserData.data);
-        this.$store.commit("setLoginStatus", true);
-        this.$store.state.Tools.createCookieMinute(
-          "_km_dtl_exp",
-          new Date(new Date().getTime() + 10 * 60000),
-          10
-        );
-        this.$store.state.Tools.createCookieMinute("_km_dtl_s", true, 10); // set status login true
-        this.$store.state.Tools.createCookieMinute(
-          "_km_dtl_d",
-          Buffer.from(JSON.stringify(newUserData.data)).toString("base64"),
-          8
-        ); // set status login data
-        console.log(this.$store.state);
-      } catch (error) {
-        console.log(error.message);
-        console.log("failed to get new user data, reload / refresh the page !");
-      }
-    },
-  },
-};
+                    // newUserData.data.token = accessToken // change new access token
+                    this.$store.commit('setUserData', newUserData.data)
+                    this.$store.commit('setLoginStatus', true)
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_exp', new Date( new Date().getTime() + 10 * 60000 ), 10)
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(new_passing_data)).toString('base64'), 8) // set status login data
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_tk', new_token_passing, 10) // set token data
+                    console.log(this.$store.state)
+                } catch (error) {
+                    console.log(error.message)
+                    console.log('failed to get new user data, reload / refresh the page !')
+                }
+            },
+        }
+    }
 </script>
 
 <style>

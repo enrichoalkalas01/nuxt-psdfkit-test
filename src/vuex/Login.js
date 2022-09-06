@@ -51,61 +51,65 @@ const GetLoginStatusData = () => {
     else return JSON.parse(decryptData(DataUser))
 }
 
-// const AuthData = {
-//     adit: {
-//         "id": 9143,
-//         "firstName": "enricho",
-//         "lastName": "alkalas",
-//         "username": "enrichoalkalas.kompas@gmail.com",
-//         "memberType": 2,
-//         "trialExpiration": "2022-07-06T07:57:11",
-//         "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTIxNzM1ODAsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYwODA5Nzg2LCJpYXQiOjE2NjA4MDg4ODYsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.kjt-gZ5jPEDfytr9RSJeP7osl9VgsunfGfq68SJHsOXdJHAa01MfqQuTIwRHxk1l95Edyb0HeC_yyhN8kNYJRq0onJ9S0_Rd3V1Nr8DWY8_VD1smurIwHosXHFd2IUe8FELn_gjsOCtl37ZowXhJAYwhmxIjCP6bcUpIO14Bnps",
-//         "refreshToken": ""
-//     },
+const AuthData = {
+    adit: {
+        "id": 9143,
+        "firstName": "enricho",
+        "lastName": "alkalas",
+        "username": "enrichoalkalas.kompas@gmail.com",
+        "memberType": 2,
+        "trialExpiration": "2022-07-06T07:57:11",
+        "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTIxNzM1ODAsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYwODA5Nzg2LCJpYXQiOjE2NjA4MDg4ODYsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.kjt-gZ5jPEDfytr9RSJeP7osl9VgsunfGfq68SJHsOXdJHAa01MfqQuTIwRHxk1l95Edyb0HeC_yyhN8kNYJRq0onJ9S0_Rd3V1Nr8DWY8_VD1smurIwHosXHFd2IUe8FELn_gjsOCtl37ZowXhJAYwhmxIjCP6bcUpIO14Bnps",
+        "refreshToken": ""
+    },
 
-//     amanda: {
-//         "id": 9143,
-//         "firstName": "enricho",
-//         "lastName": "alkalas",
-//         "username": "enrichoalkalas.kompas@gmail.com",
-//         "memberType": 2,
-//         "trialExpiration": "2022-07-06T07:57:11",
-//         "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTIxNzM1ODAsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYwODA5Nzg2LCJpYXQiOjE2NjA4MDg4ODYsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.kjt-gZ5jPEDfytr9RSJeP7osl9VgsunfGfq68SJHsOXdJHAa01MfqQuTIwRHxk1l95Edyb0HeC_yyhN8kNYJRq0onJ9S0_Rd3V1Nr8DWY8_VD1smurIwHosXHFd2IUe8FELn_gjsOCtl37ZowXhJAYwhmxIjCP6bcUpIO14Bnps",
-//         "refreshToken": ""
-//     },
+    amanda: {
+        
+    },
     
-//     enricho: {
-//         old: {
-//             "id": 9143,
-//             "firstName": "enricho",
-//             "lastName": "alkalas",
-//             "username": "enrichoalkalas.kompas@gmail.com",
-//             "memberType": 2,
-//             "trialExpiration": "2022-07-06T07:57:11",
-//             "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTIzNDYxMjcsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYxMTUwMzI1LCJpYXQiOjE2NjExNDk0MjUsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.OrpOdwOyiCwRGmiECcZL9maEaonj1pRBe8pi1HGezUgO5YX0u27UFym2Fk3jXhR6CZNDnHlYSIrS7P1nuOwgnl6gsqprD_B3deUupYYtYaR8xB0ZoQI03PsUSskUku4dHaI7j1XfiDjcSRClsJPouGCuhR1Wm9mbDimod_9BU8k",
-//             "refreshToken": ""
-//         },
+    enricho: {
+        old: {
+            "id": 9143, // rizkana id
+            "firstName": "enricho",
+            "lastName": "alkalas",
+            "username": "enrichoalkalas.kompas@gmail.com",
+            "memberType": 2,
+            "trialExpiration": "2022-07-06T07:57:11",
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTM0NjU4MTUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYyMDE2MDQyLCJpYXQiOjE2NjIwMTUxNDIsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.uQMA5IlMR58ea8zjm15vI7844hSQNwNS5-nHBRi9EfcRlBbm3qVxf68Cxfn6eERfGyrrI9MNaTthBzwU8wsknaArsj52mv_MmuJYKNTL9Un3j6GQUipL-xsUG8KkhVNHQmumWTBJQ38_TY9O44hhzk9vDrg7a41ExkXigWzJZ7U",
+            "refreshToken": ""
+        },
 
-//         new: {
-//             "id": 9204,
-//             "firstName": "",
-//             "lastName": "",
-//             "username": "febriantif1@gmail.com",
-//             "memberType": 0,
-//             "trialExpiration": "2022-08-09T06:33:25",
-//             "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZmVicmlhbnRpZjFAZ21haWwuY29tIiwiaWQiOiI2ZTY2ZTc3NC0wNTk2LTQxZjMtOWJlMC03NzgwMjBkYzZmZDgiLCJydCI6MTY5MjM0NTg5NCwic2NvcGUiOlsicmVhZC1hcnRpY2xlIiwicmVhZC1wcm9maWxlIl19LCJleHAiOjE2NjA4MTA4MTUsImlhdCI6MTY2MDgwOTkxNSwiaXNzIjoiaHR0cHM6Ly93d3cua29tcGFzLmlkIn0.k6gxB_oXZMetYwRJ5J2k8Hu_yzobgWOLp6Supdd3T5iczDaCE2WpBSElec--llaWyjjfAQe1gTVmyDefIagq11YvOGoBAI143b8810grVgZRa4l1KjgiSq-t4s6VhNslPY5D_GP63nfGvo0WQnEFPp9vGOHm8eK0HxowbVvSr8k",
-//             "refreshToken": ""
-//         }
-//     },
-// }
+        oldNew: {
+            "id": 9860,
+            "firstName": "enricho",
+            "lastName": "kompas",
+            "username": "enrichoalkalas.kompas@gmail.com",
+            "memberType": 0,
+            "trialExpiration": "2022-09-01T16:24:07",
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTM0NjU4MTUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYyNDUwNjM3LCJpYXQiOjE2NjI0NDk3MzcsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.IfLbi_2omTpwDyt6NtcAB-BqcDQWUXMPZe6Q8LomHiIWqasfOVjoO3JFkAPQsJqcMD_fh7TfBDs36axMgJl3f8SFPs8LD4yWx8-fptBW-0pB_laxtcTP3nN74CzolVnX-Bc-WFA9vEREEtJe5QaqT-bLtWn1Pnd-Wa40zIPs9LQ",
+            "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2OTM0NjU4MTUsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.zurCJxq3xrplRzuOJ1n2o_vOIhyC3GtWXlf3jq1yUizBhdJQplkPWOROG8O5Il1g61weHzJhsnlAXmgUwozxujL3BUziP1vZ3h18Uw_4m-VV22q_64sLZFqI2ocO123r1ylniybwu_lrr0JR9fYc1w9lokxzkfsMO4NGo0uu6so"
+        },
+
+        new: {
+            "id": 9204,
+            "firstName": "",
+            "lastName": "",
+            "username": "febriantif1@gmail.com",
+            "memberType": 0,
+            "trialExpiration": "2022-08-09T06:33:25",
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTM0NjU4MTUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYyNDUyNDQ4LCJpYXQiOjE2NjI0NTE1NDgsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.jTyLCSnYmZrrSAEHYNxHR31tzopno2LOVIN25QxWUiILKjlOMSLyoqTEwt3sBnDBnIB2NHDZ50wRCVxl46oOLjGcWt2ymND7zhgRhgee3OmK6R4YTN6ETmtMaqWkeIWITNfB8NhBdDpUf1rxQUhUCm0AsbJ2CoCZixn7efjltSo",
+            "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2OTM0NjU4MTUsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.zurCJxq3xrplRzuOJ1n2o_vOIhyC3GtWXlf3jq1yUizBhdJQplkPWOROG8O5Il1g61weHzJhsnlAXmgUwozxujL3BUziP1vZ3h18Uw_4m-VV22q_64sLZFqI2ocO123r1ylniybwu_lrr0JR9fYc1w9lokxzkfsMO4NGo0uu6so"
+        }
+    },
+}
 
 const Login = {
     state () {
         return {
-            LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
-            UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
-            // LoginStatus: true,
-            // UserData: AuthData.enricho.old,
+            // LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
+            // UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
+            LoginStatus: true,
+            UserData: AuthData.enricho.oldNew,
             TokenData: GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
             RefreshToken: null,
             MutationUsed: 0,
