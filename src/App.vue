@@ -33,7 +33,7 @@
         },
 
         async beforeMount() {
-            // this.autoLoginSSOFixed()
+            this.autoLoginSSOFixed()
         },
 
         methods: {
@@ -104,13 +104,12 @@
                     }
 
                     // newUserData.data.token = accessToken // change new access token
-
                     this.$store.commit('setUserData', newUserData.data)
                     this.$store.commit('setLoginStatus', true)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_exp', new Date( new Date().getTime() + 10 * 60000 ), 10)
                     this.$store.state.Tools.createCookieMinute('_km_dtl_s', true, 10) // set status login true
                     this.$store.state.Tools.createCookieMinute('_km_dtl_d', Buffer.from(JSON.stringify(new_passing_data)).toString('base64'), 8) // set status login data
-                    this.$store.state.Tools.createCookieMinute('_km_dtl_s', new_token_passing, 10) // set token data
+                    this.$store.state.Tools.createCookieMinute('_km_dtl_tk', new_token_passing, 10) // set token data
                     console.log(this.$store.state)
                 } catch (error) {
                     console.log(error.message)
