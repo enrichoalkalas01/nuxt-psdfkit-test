@@ -9,6 +9,4 @@ module.exports = {
     disableHostCheck: true,
     // host: 'test.kompas.id'
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : '/'
-
 }
