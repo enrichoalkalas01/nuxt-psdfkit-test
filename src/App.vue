@@ -103,7 +103,12 @@
                     method: "get", headers: { Authorization: `Bearer ${accessToken}` },
                 });
 
-                console.log(newUserData.data)
+                let new_data_pass = {}
+                for ( let i in newUserData.data ) {
+                    if ( i !== 'token' && i !== 'refreshToken' ) new_data_pass[i] = newUserData.data[i]
+                }
+
+                console.log(new_data_pass)
                 
                 newUserData.data.token = accessToken; // change new access token
                 this.$store.commit("setUserData", newUserData.data);
