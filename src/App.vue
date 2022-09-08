@@ -83,11 +83,12 @@
         },
 
         async getUserData(accessToken = '', refreshToken = '') {
+            console.log(refreshToken)
             try {
                 let newUserData = await Axios({ url: `${ this.$store.state.Headers.BaseUrlApi }/api/Login/user-info`, method: 'get', headers: { 'Authorization': `Bearer ${ accessToken }` } })
                 let new_passing_data = {}, new_token_passing = {}
                 for( let i in newUserData.data ) {
-                    if ( i !== 'token' && i !== 'refreshToken' ) new_passing_data[i] = dataUser[i]
+                    if ( i !== 'token' && i !== 'refreshToken' ) new_passing_data[i] = newUserData.data[i]
                     if ( i === 'token' ) new_token_passing[i] = accessToken
                 }
 
