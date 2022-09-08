@@ -105,6 +105,19 @@ const GetLoginStatusData = () => {
 //     },
 // }
 
+let userData = {
+    "id": GetLoginStatusData(),
+    "firstName": GetLoginStatusData(),
+    "lastName": GetLoginStatusData(),
+    "username": GetLoginStatusData(),
+    "memberType": GetLoginStatusData(),
+    "trialExpiration": GetLoginStatusData(),
+    "token": GetLoginStatusData(),
+    "refreshToken": ""
+}
+
+console.log(userData)
+
 const Login = {
     state () {
         return {
