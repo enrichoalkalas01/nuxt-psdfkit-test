@@ -48,7 +48,7 @@ const decryptData = (value = '') => {
 const GetLoginStatusData = () => {
     let DataUser = ( GetCookies('_km_dtl_d') !== undefined || GetCookies('_km_dtl_d') !== null ) ? GetCookies('_km_dtl_d') : null
     let DataPassing = JSON.parse(decryptData(DataUser))
-    DataPassing['token'] = GetCookies("kompas._token")
+    // DataPassing['token'] = GetCookies("kompas._token")
     if ( !DataUser ) return false
     else return DataPassing
 }
