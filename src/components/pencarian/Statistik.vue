@@ -26,7 +26,7 @@
                                 <p class="short-text two" v-html="`${ statistik.description }`"></p>
                                 <span class="date-time">
                                     <i class="fas fa-clock"></i>
-                                    {{ statistik.publication }}, {{ statistik.published_date ? this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
+                                    {{ statistik.credit }}, {{ statistik.published_date ? this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) : this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
                                 </span>
                             </div>
                         </div>

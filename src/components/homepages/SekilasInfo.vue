@@ -88,8 +88,12 @@
                                 <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
                                     
                                     <div class="content borderless info-ctn">
-                                        <a v-if="Data.url" :href="Data.url"><img :src="Data.picture" alt="" class="ctn-img"></a>
-                                        <img v-else :src="Data.picture" alt="" class="ctn-img">
+                                        <div class="img-box">
+                                            <a v-if="Data.url" :href="Data.url">
+                                                <div class="images" :style="`background-image: url('${ Data.picture }')`"></div>
+                                            </a>
+                                            <div v-else class="images" :style="`background-image: url('${ Data.picture }')`"></div>
+                                        </div>
 
                                         <a v-if="Data.url" :href="Data.url"><h2 class="subtitle name">{{ Data.name }}</h2></a>
                                         <h2 v-else class="subtitle name">{{ Data.name }}</h2>
@@ -120,10 +124,12 @@
 
                                                 <tr v-for="(data, i) in tanggalPenting" :key="i">
                                                     <section v-for="(event, j) in data.events" :key="j" >
-                                                        <td><a :href="event.url">{{ data.day }}</a></td>
-                                                        <td><a :href="event.url">{{ IndonesiaMonth[data.month-1] }}</a></td>
+                                                        <td>
+                                                            <a v-if="event.url" :href="event.url">{{ data.day }} {{ IndonesiaMonth[data.month-1] }}</a>
+                                                            <p v-else style="margin-bottom: 0px;">{{ data.day }} {{ IndonesiaMonth[data.month-1] }}</p>
+                                                        </td>
                                                         <td>&nbsp;</td>
-                                                        <td>Pada tahun {{ this.$store.state.Tools.GetYear(event.date) }}, {{ event.note }}</td>
+                                                        <td>{{ event.note }}</td>
                                                     </section>
                                                 </tr>
                                             </tbody>
