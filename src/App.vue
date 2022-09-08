@@ -59,7 +59,6 @@
         async checkAndGetRefreshToken() {
             try {
                 let refreshToken = await Axios(this.configRefreshToken);
-                console.log(refreshToken.data)
                 if (refreshToken.status === 204 || refreshToken.data === "") {
                     // if refresh token is not detected, delete all cookies status & data
                     console.log("refresh token is not detected !");
@@ -78,7 +77,6 @@
         async getTokenKompas(refreshToken) {
             try {
                 let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
-                console.log(newAccessToken)
                 this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
                 this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
                 
@@ -107,8 +105,6 @@
                 for ( let i in newUserData.data ) {
                     if ( i !== 'token' && i !== 'refreshToken' ) new_data_pass[i] = newUserData.data[i]
                 }
-
-                console.log(new_data_pass)
                 
                 newUserData.data.token = accessToken; // change new access token
                 this.$store.commit("setUserData", newUserData.data);
