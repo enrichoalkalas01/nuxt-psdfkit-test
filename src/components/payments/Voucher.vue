@@ -54,7 +54,7 @@
                         this.setNormalLoadingScreen()
                     } else {
                         this.$store.commit('setLoadingImage', 'success')
-                        this.$store.commit('setLoadingText', response.data)
+                        this.$store.commit('setLoadingText', response.data.message)
                         this.$store.commit('setReloadSaldo', true)
                         this.setNormalLoadingScreen()
                     }
