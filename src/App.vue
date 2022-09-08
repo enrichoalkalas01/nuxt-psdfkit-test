@@ -60,18 +60,31 @@
             try {
                 let refreshToken = await Axios(this.configRefreshToken);
                 console.log(refreshToken.data)
-                // if (refreshToken.status === 204 || refreshToken.data === "") {
-                //     // if refresh token is not detected, delete all cookies status & data
-                //     console.log("refresh token is not detected !");
-                //     this.deleteCookiesData();
-                // } else {
-                //     console.log("refresh token is detected !");
-                //     this.getTokenKompas(refreshToken.data);
-                // }
+                if (refreshToken.status === 204 || refreshToken.data === "") {
+                    // if refresh token is not detected, delete all cookies status & data
+                    console.log("refresh token is not detected !");
+                    this.deleteCookiesData();
+                } else {
+                    console.log("refresh token is detected !");
+                    this.getTokenKompas(refreshToken.data);
+                }
             } catch (error) {
                 console.log(error.message);
                 console.log("failed to get refresh token, reload / refresh the page !");
                 // this.deleteCookiesData();
+            }
+        },
+
+        async getTokenKompas(refreshToken) {
+            try {
+                let newAccessToken = await Axios({ url: 'https://api.kompas.id/account/api/v1/tokens/refresh', method: 'post', data: JSON.stringify({ refreshToken: refreshToken }) })
+                this.getUserData(newAccessToken.data.data.accessToken) // get user data with access token
+                this.$store.state.Tools.createCookieMinute('kompas._token', newAccessToken.data.data.accessToken, 10)
+                
+            } catch (error) {
+                console.log(error.message)
+                console.log('failed to get new access token, reload / refresh the page !')
+                // this.deleteCookiesData()
             }
         },
 
@@ -81,6 +94,7 @@
             this.$store.state.Tools.deleteCookies("_km_dtl_s"); // delete cookies status
             this.$store.state.Tools.deleteCookies("_km_dtl_d"); // delete cookies data
         },
+        
 
         async getUserData(accessToken = '', refreshToken = '') {
             console.log(refreshToken)
