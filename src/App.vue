@@ -33,7 +33,6 @@
         },
 
         async beforeMount() {
-            console.log('test here')
             this.autoLoginSSOFixed();
         },
 

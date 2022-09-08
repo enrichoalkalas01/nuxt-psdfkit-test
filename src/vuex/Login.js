@@ -106,10 +106,10 @@ const AuthData = {
 const Login = {
     state () {
         return {
-            // LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
-            // UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
-            LoginStatus: true,
-            UserData: AuthData.enricho.oldNew,
+            LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
+            UserData: GetLoginStatusData() ? GetLoginStatusData() : false,
+            // LoginStatus: true,
+            // UserData: AuthData.enricho.oldNew,
             TokenData: GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
             RefreshToken: null,
             MutationUsed: 0,
