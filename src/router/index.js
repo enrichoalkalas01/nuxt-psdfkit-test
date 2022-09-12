@@ -2,9 +2,9 @@ import { createWebHistory, createRouter } from "vue-router"
 import Notification from '../components/login/Notification.vue'
 import Activation from '../components/login/Activation.vue'
 // import MainPage from '../components/homepages/MainPage.vue'
-import ArtikelDetail from '../components/artikel/MainDetail.vue'
-import FotoDetail from '../components/foto/MainDetail.vue'
-import InfografikDetail from '../components/infografik/MainDetail.vue'
+// import ArtikelDetail from '../components/artikel/MainDetail.vue'
+// import FotoDetail from '../components/foto/MainDetail.vue'
+// import InfografikDetail from '../components/infografik/MainDetail.vue'
 import Buku from '../components/buku/MainPage.vue'
 import BukuDetail from '../components/buku/MainDetail.vue'
 import Data from '../components/data/MainPage.vue'
@@ -36,13 +36,13 @@ const routes = [
     { path: '/', name: 'homepages', component: import(/* webpackChunkName: "lazy-view-[request]" */ `../components/homepages/MainPage.vue`) },
 
     // Artikel
-    { path: '/artikel-detail/:id', name: 'artikel-detail', component: ArtikelDetail },
+    { path: '/artikel-detail/:id', name: 'artikel-detail', component: import(/* webpackChunkName: "lazy-view-[request]" */ `../components/artikel/MainDetail.vue`) },
 
     // Foto
-    { path: '/foto-detail/:id', name: 'foto-detail', component: FotoDetail },
+    { path: '/foto-detail/:id', name: 'foto-detail', component: import(/* webpackChunkName: "lazy-view-[request]" */ `../components/foto/MainDetail.vue`) },
 
     // Infografik
-    { path: '/infografik-detail/:id', name: 'infografik-detail', component: InfografikDetail },
+    { path: '/infografik-detail/:id', name: 'infografik-detail', component: import(/* webpackChunkName: "lazy-view-[request]" */ `../components/infografik/MainDetail.vue`) },
     
     // Buku
     { path: '/buku', name: 'buku', component: Buku },
