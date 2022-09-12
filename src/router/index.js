@@ -1,14 +1,7 @@
-// import Vue from 'vue'
 import { createWebHistory, createRouter } from "vue-router"
-// import Store from '../vuex/Store'
-// import Login from '../components/login/Login.vue'
-// import LoginSSO from '../components/login/LoginSSO.vue'
-import Logout from '../components/login/Logout.vue'
-import Register from '../components/login/Register.vue'
 import Notification from '../components/login/Notification.vue'
 import Activation from '../components/login/Activation.vue'
-import MainPage from '../components/homepages/MainPage.vue'
-// import Arsip from '../components/arsip/MainPage.vue'
+// import MainPage from '../components/homepages/MainPage.vue'
 import ArtikelDetail from '../components/artikel/MainDetail.vue'
 import FotoDetail from '../components/foto/MainDetail.vue'
 import InfografikDetail from '../components/infografik/MainDetail.vue'
@@ -36,19 +29,11 @@ import Account from '../components/dashboard/Account.vue'
 import History from '../components/dashboard/History/MainPage.vue'
 
 const routes = [
-    // Login & Register
-    // { path: '/login', name: 'login', component: Login },
-    // { path: '/login-sso',  name: 'login-sso', component: LoginSSO },
-    { path: '/logout', name: 'logout', component: Logout },
-    { path: '/daftar', name: 'daftar', component: Register },
     { path: '/notification-activation', name: 'notification', component: Notification },
     { path: '/user/activation', name: 'activation', component: Activation },
 
     // Homepages
-    { path: '/', name: 'homepages', component: MainPage },
-
-    // Arsip
-    // { path: '/arsip', name: 'arsip', component: Arsip },
+    { path: '/', name: 'homepages', component: import(/* webpackChunkName: "lazy-view-[request]" */ `../components/homepages/MainPage.vue`) },
 
     // Artikel
     { path: '/artikel-detail/:id', name: 'artikel-detail', component: ArtikelDetail },
@@ -99,7 +84,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    // Store,
+    mode: "history",
     history: createWebHistory(),
     routes,
 })
