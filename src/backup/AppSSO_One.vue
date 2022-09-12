@@ -111,3 +111,31 @@
     body { overflow-x: hidden; }
     #content-box { padding-top: 10%; }
 </style>
+
+async getUserData(accessToken) {
+    try {
+      let newUserData = await Axios({
+        url: `${this.$store.state.Headers.BaseUrlApi}/api/Login/user-info`,
+        method: "get",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      newUserData.data.token = accessToken; // change new access token
+      this.$store.commit("setUserData", newUserData.data);
+      this.$store.commit("setLoginStatus", true);
+      this.$store.state.Tools.createCookieMinute(
+        "_km_dtl_exp",
+        new Date(new Date().getTime() + 10 * 60000),
+        10
+      );
+      this.$store.state.Tools.createCookieMinute("_km_dtl_s", true, 10); // set status login true
+      this.$store.state.Tools.createCookieMinute(
+        "_km_dtl_d",
+        Buffer.from(JSON.stringify(newUserData.data)).toString("base64"),
+        8
+      ); // set status login data
+      console.log(this.$store.state);
+    } catch (error) {
+      console.log(error.message);
+      console.log("failed to get new user data, reload / refresh the page !");
+    }
+  },
