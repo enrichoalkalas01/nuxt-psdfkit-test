@@ -1,6 +1,6 @@
 <template>
     <div>
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <Books
             v-bind:dataBooks="books ? books.documents : null"
             v-bind:totalSearch="total_search"
@@ -23,7 +23,7 @@
 <script>
     import Axios from 'axios'
     import Books from './Book.vue'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
     import VPagination from "@hennge/vue3-pagination"
     import "@hennge/vue3-pagination/dist/vue3-pagination.css"
 
@@ -33,7 +33,7 @@
         // Components
         components: {
             Books,
-            LoadingScreen,
+            // LoadingScreen,
             VPagination
         },
 

@@ -15,7 +15,7 @@
                 </h3>
                 <span class="date-time">
                     <i class="fas fa-clock"></i>
-                    {{ statistik.credit }}, {{ this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
+                    LITBANG KOMPAS, {{ this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
                 </span>
             </div>
         </div>
@@ -37,7 +37,7 @@
                             </h3>
                             <span class="date-time">
                                 <i class="fas fa-clock"></i>
-                                {{ statistik.credit }}, {{ this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
+                                LITBANG KOMPAS, {{ this.$store.state.Tools.ChangeDateString(statistik.published_date.substring(0, 10)) }}
                             </span>
                         </div>
                     </div>

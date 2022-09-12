@@ -1,6 +1,6 @@
 <template>
     <div id="sec-payment" class="container mainp-content">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="row box-content">
             <div class="col-12 content">
                 <ul class="nav nav-tabs komp-tabs" id="myTab" role="tablist">
@@ -25,12 +25,12 @@
 </template>
 
 <script>
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
     import Axios from 'axios'
 
     export default {
         name: 'Voucher',
-        components: { LoadingScreen, },
+        // components: { LoadingScreen, },
         data() { return {
             UserData: null,
         }},

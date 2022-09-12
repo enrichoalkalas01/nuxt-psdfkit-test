@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel   my-5">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="container">
             <div class="row  g-0 d-flex align-items-center">
                 <div class="col-12 col-md-6">
@@ -126,11 +126,11 @@
 
 <script>
     import Axios from 'axios'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Register',
-        components: { LoadingScreen },
+        // components: { LoadingScreen },
         mounted() {
             if (this.$store.state.Login.LoginStatus) {
                 window.location.href = '/'

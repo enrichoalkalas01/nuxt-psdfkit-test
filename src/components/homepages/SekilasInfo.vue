@@ -84,9 +84,7 @@
                             </div> -->
 
                             <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
-                                
                                 <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
-                                    
                                     <div class="content borderless info-ctn">
                                         <div class="img-box">
                                             <a v-if="Data.url" :href="Data.url">
@@ -107,21 +105,8 @@
                             <div id="tgl-penting" class="row my-3" v-if="AgendaData.type_tab === 'Tanggal Penting'">
                                 <div class="col-12 wrapper-tgl-p">
                                     <div class="row">
-                                        <!-- <div class="col-12">
-                                            <i class="fa-solid fa-left"></i> {{ Month }} <i class="fa-solid fa-right"></i>
-                                        </div> -->
-
-                                        <!-- Testing -->
                                         <table class="table">
                                             <tbody>
-                                                <!-- <section v-for="(data, i) in tanggalPenting" :key="i" class="">
-                                                    <tr v-for="(event, j) in data.events" :key="j" >
-                                                        <td>{{ IndonesiaMonth[data.month-1] }}</td>
-                                                        <td>{{ data.day }}</td>
-                                                        <td>{{ event.note }}</td>
-                                                    </tr>
-                                                </section> -->
-
                                                 <tr v-for="(data, i) in tanggalPenting" :key="i">
                                                     <section v-for="(event, j) in data.events" :key="j" >
                                                         <td>
