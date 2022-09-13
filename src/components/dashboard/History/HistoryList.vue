@@ -1,6 +1,6 @@
 <template>
     <section class="row wrapper-cart">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="col-12">
             <div class="col-12 top-box" id="cart-option">
                 <div class="row">
@@ -34,13 +34,13 @@
 </template>
 
 <script>
-    // import LoadingScreen from '../../addons/LoadingScreen.vue'
+    import LoadingScreen from '../../addons/LoadingScreen.vue'
     import ListHistory from './ListHistory.vue'
     import Axios from 'axios'
     export default {
         name: 'History',
         components: { ListHistory, 
-            // LoadingScreen 
+            LoadingScreen 
         },
         data() {
             return {

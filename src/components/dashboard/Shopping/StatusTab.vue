@@ -1,6 +1,6 @@
 <template>
     <section class="row wrapper-cart">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="col-12">
             <div class="col-12 top-box" id="cart-option">
                 <div class="row">
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-    // import LoadingScreen from '../../addons/LoadingScreen.vue'
+    import LoadingScreen from '../../addons/LoadingScreen.vue'
     import Axios from 'axios'
     import ListItemVue from './ListItem.vue'
     import FileSaver from 'file-saver'
@@ -48,7 +48,7 @@
         name: 'StatusTab',
         components: {
             ListItemVue,
-            // LoadingScreen,
+            LoadingScreen,
         },
         data() {
             return {

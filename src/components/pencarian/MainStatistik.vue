@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <Statistik
             v-bind:dataStatistiks="statistiks ? statistiks.documents : null"
             v-bind:totalSearch="total_search"
@@ -23,7 +23,7 @@
 <script>
     import Axios from 'axios'
     import Statistik from './Statistik.vue'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     import VPagination from "@hennge/vue3-pagination"
     import "@hennge/vue3-pagination/dist/vue3-pagination.css"
 
@@ -31,7 +31,7 @@
         name: 'MainStatistik',
         components: {
             Statistik,
-            // LoadingScreen,
+            LoadingScreen,
             VPagination
         },
         data() {
