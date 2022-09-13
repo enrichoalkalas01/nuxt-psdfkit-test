@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel   my-5">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 text-center">
@@ -96,12 +96,12 @@
 </template>
 
 <script>
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     import Axios from 'axios'
 
     export default {
         name: 'Login',
-        // components: { LoadingScreen },
+        components: { LoadingScreen },
         data() { return { username: '', password: '', }},
         beforeMount() { window.location.href = '/' },
         mounted() {

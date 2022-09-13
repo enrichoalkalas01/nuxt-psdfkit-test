@@ -1,6 +1,6 @@
 <template>
     <section id="dashboard" class="container-fluid">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="row box-dashboard" style="poisition: relative;">
             <SideBarNew />
             <!-- <div class="col-9 py-3 box-cd" id="box-cd">
@@ -16,11 +16,11 @@
 <script>
     // import SideBar from './SideBar.vue'
     import SideBarNew from './SideBarNew.vue'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
         name: "MainPage",
         components: { SideBarNew, 
-            // LoadingScreen 
+            LoadingScreen 
         },
         beforeMount() {
             if ( !this.$store.state.Login.LoginStatus ) {

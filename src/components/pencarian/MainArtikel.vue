@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <Artikel
             v-bind:dataArtikels="artikels ? artikels.documents : null"
             v-bind:totalSearch="total_search"
@@ -23,14 +23,14 @@
 <script>
     import Axios from 'axios'
     import Artikel from './Artikel.vue'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     import VPagination from "@hennge/vue3-pagination"
     import "@hennge/vue3-pagination/dist/vue3-pagination.css"
 
     export default {
         name: 'MainArtikel',
         components: {
-            // LoadingScreen,
+            LoadingScreen,
             Artikel, VPagination,
         },
         data() {

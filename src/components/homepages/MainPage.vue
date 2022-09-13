@@ -1,6 +1,6 @@
 <template>
     <section>
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div
             class="wrapper-main-page"
             v-for="(mainpage, i) in MainPageData.mainpage"
@@ -35,11 +35,11 @@
     import BeritaTerkini from './BeritaTerkini.vue'
     
     // Addons
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
         name: 'MainPage',
         components: {
-            // LoadingScreen,
+            LoadingScreen,
             Banner,
             Pengumuman,
             SekilasInfo,

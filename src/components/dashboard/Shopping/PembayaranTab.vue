@@ -1,6 +1,6 @@
 <template>
     <section class="row wrapper-cart">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="col-12 top-box" id="cart-option">
             <div class="row">
                 <div class="col box-tanggal">
@@ -72,11 +72,11 @@
 </template>
 
 <script>
-    // import LoadingScreen from '../../addons/LoadingScreen.vue'
+    import LoadingScreen from '../../addons/LoadingScreen.vue'
     import Axios from 'axios'
     export default {
         name: 'PembayaranTab',
-        // components: { LoadingScreen },
+        components: { LoadingScreen },
         data() {
             return {
                 Selected: [],
