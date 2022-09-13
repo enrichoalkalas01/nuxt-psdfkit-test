@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12" id="notif-search" v-if="this.$store.state.Login.UserData.memberType === 0">
@@ -119,12 +119,12 @@
     import '@splidejs/splide/dist/css/themes/splide-default.min.css'
     import FileSaver from 'file-saver'
     import Suggestion from '../suggestion/Main.vue'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Artikel',
         components: { Splide, SplideSlide, Suggestion, 
-            LoadingScreen 
+            // LoadingScreen 
         },
         data () {
             return {

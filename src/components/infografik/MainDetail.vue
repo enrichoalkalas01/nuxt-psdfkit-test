@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
@@ -103,13 +103,13 @@
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
     import FileSaver from 'file-saver'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Infografik',
         components: {
             Suggestion, 
-            LoadingScreen
+            // LoadingScreen
         },
         data () {
             return {

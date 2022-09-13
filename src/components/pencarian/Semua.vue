@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <!-- <div class="col-12 col-md-9"> -->
         <div class="col-12 col-md-12">
             <!-- Foto -->
@@ -64,12 +64,12 @@
     // import Banner from '../banner/Main.vue'
     // import Suggestion from '../suggestion/Main.vue'
 
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Semua',
         components: {
-            LoadingScreen,
+            // LoadingScreen,
             Foto,
             Artikel,
             Infografik,

@@ -3,11 +3,11 @@
         <div class="wrapper-lc">
             <div class="box-data">
                 <div class="close-button" v-if="this.$store.state.Tools.CloseButtonStatus" v-on:click="CloseButton">x</div>
-                <!-- <div class="box-image">
+                <div class="box-image">
                     <div class="image" v-if="this.$store.state.Tools.LoadingImage" :style="`background-image: url('${ ImageLoading }')`"></div>
                     <div class="image" v-if="this.$store.state.Tools.LoadingFailed" :style="`background-image: url('${ ImageFailed }')`"></div>
                     <div class="image" v-if="this.$store.state.Tools.LoadingSuccess" :style="`background-image: url('${ ImageSuccess }')`"></div>
-                </div> -->
+                </div>
                 <div class="box-message">
                     <!-- <span>{{ textMessage }}</span> -->
                     <div v-html="textMessage"></div>
