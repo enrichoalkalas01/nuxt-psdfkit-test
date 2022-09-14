@@ -16,6 +16,8 @@ const Tools = {
             LoadingImage: true,
             LoadingSuccess: false,
             LoadingFailed: false,
+            LoadingSorry: false,
+            LoadingWarning: false,
             CloseButtonStatus: false,
             LoadingScreenText: 'Loading....',
             GetUrlFiles: 'https://kgcontent-bucket01-public.s3.ap-southeast-1.amazonaws.com/',
@@ -130,9 +132,45 @@ const Tools = {
         setLoadingText(state, value) { state.LoadingScreenText = value },
         setCloseStatus(state, value) { state.CloseButtonStatus = value },
         setLoadingImage(state, value) {
-            if ( value === 'loading' ) { state.LoadingImage = true; state.LoadingFailed = false; state.LoadingSuccess = false; }
-            if ( value === 'failed' ) { state.LoadingImage = false; state.LoadingFailed = true; state.LoadingSuccess = false; }
-            if ( value === 'success' ) { state.LoadingImage = false; state.LoadingFailed = false; state.LoadingSuccess = true; }
+            if ( value === 'loading' ) {
+                state.LoadingImage = true;
+                state.LoadingFailed = false;
+                state.LoadingSuccess = false;
+                state.LoadingWarning = false;
+                state.LoadingSorry = false;
+            }
+
+            if ( value === 'failed' ) {
+                state.LoadingImage = false;
+                state.LoadingFailed = true;
+                state.LoadingSuccess = false;
+                state.LoadingWarning = false;
+                state.LoadingSorry = false;
+            }
+
+            if ( value === 'success' ) {
+                state.LoadingImage = false;
+                state.LoadingFailed = false;
+                state.LoadingSuccess = true;
+                state.LoadingWarning = false;
+                state.LoadingSorry = false;
+            }
+
+            if ( value === 'sorry' ) {
+                state.LoadingImage = false;
+                state.LoadingFailed = false;
+                state.LoadingSuccess = false;
+                state.LoadingWarning = false;
+                state.LoadingSorry = true;
+            }
+
+            if ( value === 'warning' ) {
+                state.LoadingImage = false;
+                state.LoadingFailed = false;
+                state.LoadingSuccess = false;
+                state.LoadingWarning = true;
+                state.LoadingSorry = false;
+            }
         },        
     }
 }

@@ -7,6 +7,8 @@
                     <div class="image" v-if="this.$store.state.Tools.LoadingImage" :style="`background-image: url('${ ImageLoading }')`"></div>
                     <div class="image" v-if="this.$store.state.Tools.LoadingFailed" :style="`background-image: url('${ ImageFailed }')`"></div>
                     <div class="image" v-if="this.$store.state.Tools.LoadingSuccess" :style="`background-image: url('${ ImageSuccess }')`"></div>
+                    <div class="image" v-if="this.$store.state.Tools.LoadingSorry" :style="`background-image: url('${ ImageSorry }')`"></div>
+                    <div class="image" v-if="this.$store.state.Tools.LoadingWarning" :style="`background-image: url('${ ImageWarning }')`"></div>
                 </div>
                 <div class="box-message">
                     <!-- <span>{{ textMessage }}</span> -->
@@ -21,6 +23,8 @@
     import LoadingImage from '../../assets/images/loading-screen-one.gif'
     import FailedImage from '../../assets/images/failed-icon.png'
     import SuccessImage from '../../assets/images/success-icon.png'
+    import WarningImage from '../../assets/images/icon-warning-1.jpeg'
+    import SorryImage from '../../assets/images/icon-warning-2.jpeg'
 
     export default {
         name: "LoadingScreen",
@@ -31,7 +35,9 @@
                 textMessage: this.$store.state.Tools.LoadingScreenText,
                 ImageLoading: LoadingImage,
                 ImageFailed: FailedImage,
-                ImageSuccess: SuccessImage
+                ImageSuccess: SuccessImage,
+                ImageWarning: WarningImage,
+                ImageSorry: SorryImage
             }
         },
 
