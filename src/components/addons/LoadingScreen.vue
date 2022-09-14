@@ -23,8 +23,8 @@
     import LoadingImage from '../../assets/images/loading-screen-one.gif'
     import FailedImage from '../../assets/images/failed-icon.png'
     import SuccessImage from '../../assets/images/success-icon.png'
-    import WarningImage from '../../assets/images/icon-warning-1.jpeg'
-    import SorryImage from '../../assets/images/icon-warning-2.jpeg'
+    import WarningImage from '../../assets/images/alert-icon.png'
+    import SorryImage from '../../assets/images/sorry-icon.png'
 
     export default {
         name: "LoadingScreen",

@@ -65,7 +65,7 @@
             },
 
             async setFailedLoadingScreen(textScreen) {
-                this.$store.commit('setLoadingImage', 'failed')
+                this.$store.commit('setLoadingImage', 'warning')
                 this.$store.commit('setLoadingText', textScreen)
                 this.$store.commit('setCloseStatus', true)
                 this.setNormalLoadingScreen()
