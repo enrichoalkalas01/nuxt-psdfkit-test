@@ -1,11 +1,11 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const webpack = require('webpack')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const webpack = require('webpack')
 
 module.exports = {
   configureWebpack: {
-    plugins: [
-      new BundleAnalyzerPlugin(),
-    ],
+    // plugins: [
+    //   new BundleAnalyzerPlugin(),
+    // ],
 
     optimization: {
       splitChunks: {
