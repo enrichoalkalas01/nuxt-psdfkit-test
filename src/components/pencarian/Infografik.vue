@@ -56,6 +56,9 @@
                     </div>
                 </div>
             </div>
+            <div v-if="currentTabs === 'all'" class="mt-3 d-flex justify-content-center">
+                <a href="javascript:void(0)" class="btn btn-second">Infografik lainnya</a>
+            </div>
         </div>
         <!-- <div class="col-12 mt-3 text-center">
             <a href="#AllTabs04" class="btn btn-line">Lihat Lainnya</a>
@@ -66,13 +69,14 @@
 <script>
     export default {
         name: 'Infografik',
-        props: [ 'dataInfografiks', 'totalSearch' ],
+        props: [ 'dataInfografiks', 'totalSearch', 'tabs' ],
         data (){
             return{
                 linkBack: null,
                 infografiks: this.dataInfografiks,
                 infografiksData: [],
                 total_search: 0,
+                currentTabs: null,
             }
         },
 
@@ -81,6 +85,7 @@
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
         
         async mounted() {
@@ -88,12 +93,14 @@
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async updated() {
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
     }
 </script>

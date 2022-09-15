@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-3">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="wrapper-gallery col-12 pb-4 line-bot full">
             <div class="row" v-if="dataFotos ? dataFotos.length <= 0 : null">
                 <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
@@ -45,14 +45,14 @@
 
 <script>
     import Axios from 'axios'
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
     import VPagination from "@hennge/vue3-pagination"
     import "@hennge/vue3-pagination/dist/vue3-pagination.css"
 
     export default {
         name: 'Gallery',
         components: {
-            LoadingScreen, 
+            // LoadingScreen, 
             VPagination
         },
         props: [],

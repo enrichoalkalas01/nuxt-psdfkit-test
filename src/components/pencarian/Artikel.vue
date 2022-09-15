@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-3 pb-4 line-bot full">
-        <LoadingScreen />
+        <!-- <LoadingScreen /> -->
         <div class="col-12" v-if="artikels ? artikels.length <= 0 : null">
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
@@ -44,24 +44,28 @@
                     </div>
                 </div>
             </div>
+            <div v-if="currentTabs === 'all'" class="mt-3 d-flex justify-content-center">
+                <a href="javascript:void(0)" class="btn btn-second">Artikel lainnya</a>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import LoadingScreen from '../addons/LoadingScreen.vue'
+    // import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Artikel',
-        components: { LoadingScreen },
+        // components: { LoadingScreen },
         props: [
-            'dataArtikels', 'totalSearch'
+            'dataArtikels', 'totalSearch', 'tabs'
         ],
         data (){
             return{
                 linkBack: null,
                 artikels: [],
                 total_search: 0,
+                currentTabs: null
             }
         },
         
@@ -69,17 +73,20 @@
             this.linkBack = window.location.search
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async mounted() {
             this.linkBack = window.location.search
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async updated() {
             this.artikels = this.dataArtikels
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         methods: {

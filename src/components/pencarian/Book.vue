@@ -27,6 +27,9 @@
                         </div>
                     </div>
                 </div>
+                <div v-if="currentTabs === 'all'" class="d-flex justify-content-center">
+                    <a href="javascript:void(0)" class="btn btn-second">Buku lainnya</a>
+                </div>
             </div>
         </div>
     </div>
@@ -37,7 +40,7 @@
     export default {
         name: 'Book',
         props: [
-            'dataBooks', 'totalSearch'
+            'dataBooks', 'totalSearch', 'tabs'
         ],
         data (){
             return{
@@ -45,6 +48,7 @@
                 books: this.dataBooks,
                 booksData: [],
                 total_search: 0,
+                currentTabs: null,
             }
         },
 
@@ -53,6 +57,7 @@
             this.books = this.dataBooks
             this.booksData = this.dataBooks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async mounted() {
@@ -60,12 +65,14 @@
             this.books = this.dataBooks
             this.booksData = this.dataBooks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async updated() {
             this.books = this.dataBooks
             this.booksData = this.dataBooks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
     }
 </script>

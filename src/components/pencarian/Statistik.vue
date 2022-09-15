@@ -31,6 +31,9 @@
                             </div>
                         </div>
                     </div>
+                    <div v-if="currentTabs === 'all'" class="mt-3 d-flex justify-content-center">
+                        <a href="javascript:void(0)" class="btn btn-second">Data lainnya</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,13 +44,14 @@
     export default {
         name: 'Statistik',
         props: [
-            'dataStatistiks', 'totalSearch'
+            'dataStatistiks', 'totalSearch', 'tabs'
         ],
         data (){
             return{
                 linkBack: null,
                 statistiks: [],
                 total_search: 0,
+                currentTabs: null,
             }
         },
 
@@ -55,17 +59,20 @@
             this.linkBack = window.location.search
             this.statistiks = this.dataStatistiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
         
         async mounted() {
             this.linkBack = window.location.search
             this.statistiks = this.dataStatistiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async updated() {
             this.statistiks = this.dataStatistiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
     }
 </script>
