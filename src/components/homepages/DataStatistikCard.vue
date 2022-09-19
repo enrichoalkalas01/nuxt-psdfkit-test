@@ -6,7 +6,7 @@
         >
             <div class="content borderless">
                 <a v-if="statistik.thumbnail" :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">
-                    <img :src="this.$store.state.Tools.GetUrlFileAsset + statistik.thumbnail" alt="" class="foto-img">
+                    <img :src="this.$store.state.Tools.GetUrlFileAsset + statistik.thumbnail" :alt="statistik.title" class="foto-img">
                 </a>
                 <h3 class="title my-3">
                     <a :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">
@@ -27,7 +27,7 @@
                 >
                     <div class="content full-height borderless kolom2 bot-line mb-3">
                         <a v-if="statistik.thumbnail" :href="`/data-detail/${ statistik.collection }/${ statistik.document_id }`">
-                            <img :src="this.$store.state.Tools.GetUrlFileAsset + statistik.thumbnail" alt="" class="foto-img">
+                            <img :src="this.$store.state.Tools.GetUrlFileAsset + statistik.thumbnail" :alt="statistik.title" class="foto-img">
                         </a>
                         <div class="desc">
                             <h3 class="title">

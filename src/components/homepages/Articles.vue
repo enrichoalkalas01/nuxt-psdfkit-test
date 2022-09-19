@@ -24,6 +24,7 @@
                                 :style="
                                     artikel.image_source !== '' ? `background-image: url('${ artikel.image_source }')` : ''
                                 "
+                                :alt="artikel.title"
                             ></div>
                         </div>
                         <div :class="

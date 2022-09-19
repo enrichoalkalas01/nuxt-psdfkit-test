@@ -1,6 +1,6 @@
 <template>
     <div class="bc-inner">
-        <img :src="image" alt="" class="bc-img">
+        <img :src="image" :alt="title" class="bc-img">
         <h3 class="subtitle short-text three" v-html="`${ title }`"></h3>
         <div class="text-start">
             <p class="short-text four">{{ desc }}</p>

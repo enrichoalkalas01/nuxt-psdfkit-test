@@ -10,7 +10,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="col-12 col-md-12 col-lg-4 my-2">
                             <a href="/layanan#riset" class="layanan-card">
-                                <img src="/assets/images/Search.png" class="icon" alt="">
+                                <img src="/assets/images/Search.png" class="icon" alt="Jasa riset kompas data">
                                 <h3 class="subtitle">Jasa Riset</h3>
                                 <p>
                                     KompasData menawarkan berbagai layanan riset untuk Anda, termasuk analisis mendalam dan komprehensif, 
@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-12 col-md-12 col-lg-4 my-2">
                             <a href="/layanan#konten" class="layanan-card">
-                                <img src="/assets/images/Chart.png" class="icon" alt="">
+                                <img src="/assets/images/Chart.png" class="icon" alt="konten kreatif kompas data">
                                 <h3 class="subtitle">Konten Kreatif</h3>
                                 <p>
                                     Dengan pengalaman bekerja dengan data, fakta, dan analisis, Litbang Kompas memiliki keunggulan menyajikan kembali informasi dalam bentuk yang lebih mudah dipahami 
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-12 col-md-12 col-lg-4 my-2">
                             <a href="/layanan#penerbit" class="layanan-card">
-                                <img src="/assets/images/Paper.png" class="icon" alt="">
+                                <img src="/assets/images/Paper.png" class="icon" alt="penerbitan buku kompas data">
                                 <h3 class="subtitle">Penerbitan Buku</h3>
                                 <p>
                                     KompasData meliputi Penerbit Buku Kompas yang menawarkan layanan penerbitan buku. 

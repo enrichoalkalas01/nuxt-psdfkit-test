@@ -1,10 +1,9 @@
 <template>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-3 text-center">
         <a :href="idFoto" class=" content borderless info-ctn">
-            <img :src="image" alt="" class="ctn-img">
+            <img :src="image" :alt="title" class="ctn-img">
             <h2 class="subtitle name foto w-100">
                 <div class="truncate" v-html="title"></div>
-                <!-- {{ title }} -->
             </h2>
             <span class="date-time">
                 <i class="fas fa-clock"></i>
@@ -37,7 +36,6 @@
         beforeMount() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate
@@ -45,7 +43,6 @@
         mounted() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate
@@ -53,7 +50,6 @@
         updated() {
             this.idFoto = '/foto-detail/' + this.dataId
             this.image = this.dataImage
-            // this.title = this.$store.state.Tools.truncateString(this.dataTitle, 35)
             this.title = this.dataTitle
             this.created_source = this.dataSource
             this.created_date = this.dataDate

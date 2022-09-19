@@ -2,6 +2,10 @@
 // const webpack = require('webpack')
 
 module.exports = {
+  transpileDependencies: [
+    'vue-meta',
+  ],
+
   configureWebpack: {
     // plugins: [
     //   new BundleAnalyzerPlugin(),
@@ -9,8 +13,8 @@ module.exports = {
 
     optimization: {
       splitChunks: {
-        minSize: 1000,
-        maxSize: 75000,
+        minSize: 100,
+        maxSize: 7500,
       }
     }
   },
