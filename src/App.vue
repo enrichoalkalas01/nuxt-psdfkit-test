@@ -43,7 +43,6 @@
 
         async runAuth() {
             let date_exp = this.$store.state.Tools.GetCookies("_km_dtl_exp");
-            console.log(date_exp);
             let expDate = Math.floor(new Date(date_exp).getTime() / 60000);
             let dateNow = Math.floor(new Date().getTime() / 60000);
             let timeOut = expDate - dateNow > 0 ? expDate - dateNow : 1;
@@ -117,7 +116,6 @@
                 this.$store.state.Tools.createCookieMinute(
                     "_km_dtl_d", Buffer.from(JSON.stringify(new_data_pass)).toString("base64"), 8
                 ); // set status login data
-                console.log(this.$store.state);
             } catch (error) {
                 console.log(error.message);
                 console.log("failed to get new user data, reload / refresh the page !");
