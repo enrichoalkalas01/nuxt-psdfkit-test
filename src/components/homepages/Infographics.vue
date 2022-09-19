@@ -16,7 +16,7 @@
                     <div class="item">
                         <div class="item-inner">
                             <a :href="'infografik-detail/' + infografik.document_id">
-                                <img :src="infografik.image_source" alt="">
+                                <img :src="infografik.image_source" :alt="infografik.title">
                                 <div class="caption">
                                     <h3 class="subtitle">{{ infografik.title }}</h3>
                                     <span class="date-time"> <i class="fas fa-clock"></i> {{ infografik.created_source }}, {{ this.$store.state.Tools.ChangeDateString(infografik.created_date.substring(0, 10)) }}</span>

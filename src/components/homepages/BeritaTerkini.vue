@@ -7,28 +7,6 @@
                 </div>
                 <div class="col-12">
                     <div v-html="HTMLItems ? HTMLItems : ''" class="row"></div>
-                        <!-- <div v-for="berita in beritas.data" :key="berita.id" class="col-12 col-md-6 my-3">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="desc pt-3">
-                                            <h3 class="subtitle"><a :href="'/artikel-detail/' + berita.document_id">{{ berita.title }}</a></h3>
-                                            <p>{{ berita.text_update }}</p>
-                                            <a :href="'/artikel-detail/' + berita.document_id" class="more-btn">Baca Sekarang</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <a :href="'/artikel-detail/' + berita.document_id">
-                                            <img :src="berita.image_source" alt="" class="w-100">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <p class="short-text three">{{ berita.excerpt }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -52,7 +30,6 @@
         },
         mounted() {
             this.beritas = this.dataSet
-            console.log(this.$store.state.Tools.ChangeDateString('2020-12-12'))
             this.getData()
         },
         updated() {
@@ -78,7 +55,7 @@
 
                                             <div class="col-sm-6">
                                                 <a target="__blank"  href="${ el.querySelector("link").innerHTML }">
-                                                    <img src="${ el.querySelector("enclosure").getAttribute('url') }" alt="" class="w-100">
+                                                    <img src="${ el.querySelector("enclosure").getAttribute('url') }" alt="${ el.querySelector("title").innerHTML }" class="w-100">
                                                 </a>
                                             </div>
                                             <div class="col-sm-6">

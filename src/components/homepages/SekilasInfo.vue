@@ -44,53 +44,25 @@
                                     class="col-12 col-md-4 my-3 text-center"
                                 >
                                     <a :href="Data.url" class="content borderless info-ctn">
-                                        <!-- <div class="card"> -->
-                                            <div class="img-box">
-                                                <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
-                                            </div>
-                                            <!-- <img :src="Data.image_source" alt="" class="ctn-img mb-3"/> -->
-                                            <h2 class="subtitle">{{ Data.title }}</h2>
-                                            <p class="periode">
-                                                <span class="date-time"><i class="fas fa-clock"></i> {{ this.$store.state.Tools.ChangeDateString(Data.date.substring(0, 10)) }}</span>
-                                            </p>
-                                        <!-- </div> -->
+                                        <div class="img-box">
+                                            <div class="images" :style="`background-image: url('${ Data.image_source }')`" :alt="Data.title"></div>
+                                        </div>
+                                        <h2 class="subtitle">{{ Data.title }}</h2>
+                                        <p class="periode">
+                                            <span class="date-time"><i class="fas fa-clock"></i> {{ this.$store.state.Tools.ChangeDateString(Data.date.substring(0, 10)) }}</span>
+                                        </p>
                                     </a>
                                 </div>
                             </div>
-
-                            <!-- <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
-                                <div
-                                    v-for="(Data, i) in AgendaData.data" :key="i"
-                                    class="col-12 col-md-4 my-3 text-center"
-                                > -->
-                                    <!-- <div href="#" class="content borderless info-ctn">
-                                        <img :src="Data.image_source" alt="" class="ctn-img"/>
-                                        <div class="img-box">
-                                            <div class="images" :style="`background-image: url('${ Data.image_source }')`"></div>
-                                        </div>
-                                        <h2 class="subtitle name">{{ Data.title }}</h2>
-                                        <h2 class="subtitle title">{{ Data.excerpt }}</h2>
-                                        <p class="periode">
-                                            <span class="date-time"><i class="fas fa-clock"></i> {{ Data.date }}</span>
-                                        </p>
-                                    </div> -->
-                                    <!-- <div class=" content borderless info-ctn">
-                                        <img :src="Data.image_source" alt="" class="ctn-img">
-                                        <h2 class="subtitle name">{{ Data.title }}</h2>
-                                        <h2 class="subtitle title">{{ Data.excerpt }}</h2>
-                                        <p class="periode">{{ Data.date }}</p>
-                                    </div>
-                                </div>
-                            </div> -->
 
                             <div class="row my-3" v-if="AgendaData.type_tab === 'Ulang Tahun'">
                                 <div v-for="(Data, i) in ulangTahun" :key="i" class="col-12 col-md-4 my-3 text-center">
                                     <div class="content borderless info-ctn">
                                         <div class="img-box">
                                             <a v-if="Data.url" :href="Data.url">
-                                                <div class="images" :style="`background-image: url('${ Data.picture }')`"></div>
+                                                <div class="images" :style="`background-image: url('${ Data.picture }')`" :alt="Data.title"></div>
                                             </a>
-                                            <div v-else class="images" :style="`background-image: url('${ Data.picture }')`"></div>
+                                            <div v-else class="images" :style="`background-image: url('${ Data.picture }')`" :alt="Data.title"></div>
                                         </div>
 
                                         <a v-if="Data.url" :href="Data.url"><h2 class="subtitle name">{{ Data.name }}</h2></a>

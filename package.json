@@ -11,6 +11,7 @@
     "@amcharts/amcharts5": "^5.2.9",
     "@hennge/vue3-pagination": "^1.0.17",
     "@splidejs/vue-splide": "^0.5.18",
+    "add": "^2.0.6",
     "axios": "^0.24.0",
     "chart.js": "^3.8.0",
     "core-js": "^3.6.5",
@@ -20,9 +21,11 @@
     "vue": "^3.0.0",
     "vue-chartjs": "^4.1.1",
     "vue-google-oauth2": "^1.5.8",
+    "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.0.12",
     "vue3-google-oauth2": "^1.0.6",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

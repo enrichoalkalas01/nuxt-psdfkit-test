@@ -1,6 +1,5 @@
 <template>
     <section>
-        <!-- <LoadingScreen /> -->
         <div
             class="wrapper-main-page"
             v-for="(mainpage, i) in MainPageData.mainpage"
@@ -8,21 +7,16 @@
         >
             <component 
                 :is="setDynamicComponent(mainpage.name_component)"
-                v-bind:dataSet="setDynamicData({
-                    name: mainpage.name_component,
-                    data: mainpage.data
-                })"
+                v-bind:dataSet="setDynamicData({ name: mainpage.name_component, data: mainpage.data })"
             />
         </div>
     </section>
 </template>
 
 <script>
-    // Library
+    import { useMeta } from 'vue-meta'
     import DefaultDataJSON from './DefaultData.json'
     import Axios from 'axios'
-
-    // Components
     import Banner from './Banner.vue'
     import Pengumuman from './Pengumuman.vue'
     import SekilasInfo from './SekilasInfo.vue'
@@ -34,12 +28,22 @@
     import LayananKami from './LayananKami.vue'
     import BeritaTerkini from './BeritaTerkini.vue'
     
-    // Addons
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
     export default {
-        name: 'MainPage',
+        setup () {
+            useMeta({
+                title: 'Kompasdata',
+                htmlAttrs: { lang: 'en', amp: true },
+                description: 'kompas data',
+                meta: [
+                    { property: 'og:locale', content: 'id_ID' },
+                    { property: 'og:type', content: 'article' },
+                    { property: 'og:title', content: 'Tempat pencarian data terbaru mengenai indonesia' },
+                    { property: 'og:url', content: 'https://data.kompas.id/' },
+                    { property: 'og:site_name', content: 'Kompasdata' },
+                ]
+            })
+        },
         components: {
-            // LoadingScreen,
             Banner,
             Pengumuman,
             SekilasInfo,

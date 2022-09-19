@@ -4,7 +4,7 @@
             <Splide :options="SliderConfig">
                 <SplideSlide v-for="banner in BannersData" :key="banner.id">
                     <a :href="banner.url">
-                        <div class="panel" :style="`background-image: url('${ banner.image_source }')`">
+                        <div class="panel" :style="`background-image: url('${ banner.image_source }')`" :alt="banner.title">
                             <div class="wrapper">
                                 <div class="caption py-5 text-center">
                                     <div class="badge">
