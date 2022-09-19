@@ -56,6 +56,9 @@
                     </div>
                 </div>
             </div>
+            <div v-if="currentTabs === 'all'" class="mt-3 d-flex justify-content-center">
+                <a v-on:click="changeScreen" class="btn btn-second">Infografik lainnya</a>
+            </div>
         </div>
         <!-- <div class="col-12 mt-3 text-center">
             <a href="#AllTabs04" class="btn btn-line">Lihat Lainnya</a>
@@ -66,13 +69,14 @@
 <script>
     export default {
         name: 'Infografik',
-        props: [ 'dataInfografiks', 'totalSearch' ],
+        props: [ 'dataInfografiks', 'totalSearch', 'tabs' ],
         data (){
             return{
                 linkBack: null,
                 infografiks: this.dataInfografiks,
                 infografiksData: [],
                 total_search: 0,
+                currentTabs: null,
             }
         },
 
@@ -81,6 +85,7 @@
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
         
         async mounted() {
@@ -88,13 +93,36 @@
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
 
         async updated() {
             this.infografiks = this.dataInfografiks
             this.infografiksData = this.dataInfografiks
             this.total_search = this.totalSearch
+            this.currentTabs = this.tabs
         },
+
+        methods: {
+            changeScreen() {
+                let tabsName = "Tabs04"
+                let menu = document.querySelectorAll(".nav-tabs-search")
+                let box = document.querySelectorAll(".komp-tab-content .tab-pane")
+                let tabsMenu = document.querySelector(`#All-${ tabsName }`)
+                let tabsBox = document.querySelector(`#All${ tabsName }`)
+
+                menu.forEach(el => { el.classList.remove('active'); el.classList.remove('show'); })
+                box.forEach(el => { el.classList.remove('active'); el.classList.remove('show'); })
+                tabsMenu.classList.add('active')
+                tabsMenu.classList.add('show')
+                tabsBox.classList.add('active')
+                tabsBox.classList.add('show')
+
+                setTimeout(() => {
+                    this.$store.state.Tools.scrollTo({ element_scroll: `All${ tabsName }`, offsett: 250 })
+                }, 50)
+            },
+        }
     }
 </script>
 

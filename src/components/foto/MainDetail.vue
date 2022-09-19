@@ -362,7 +362,7 @@
                         }
 
                         if ( !this.Aggrement ) {
-                            alert('tolong centang syarat & ketentuannya terebih dahulu..')
+                            alert('tolong centang syarat & ketentuannya terlebih dahulu..')
                             // setTimeout(() => {
                             //     this.$store.commit('setLoadingImage', 'failed');
                             //     this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');

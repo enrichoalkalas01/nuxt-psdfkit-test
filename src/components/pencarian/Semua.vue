@@ -8,6 +8,7 @@
                 <Foto
                     v-bind:dataFotos="fotos"
                     v-bind:totalSearch="total_search_foto"
+                    v-bind:tabs="`all`"
                 />
             </div>
             
@@ -16,6 +17,7 @@
                 <Artikel
                     v-bind:dataArtikels="artikels"
                     v-bind:totalSearch="total_search_artikel"
+                    v-bind:tabs="`all`"
                 />
             </div>
 
@@ -24,6 +26,7 @@
                 <Buku
                     v-bind:dataBooks="books ? books : null"
                     v-bind:totalSearch="total_search_books"
+                    v-bind:tabs="`all`"
                 />
             </div>
 
@@ -32,6 +35,7 @@
                 <Infografik
                     v-bind:dataInfografiks="infografiks"
                     v-bind:totalSearch="total_search_infografik"
+                    v-bind:tabs="`all`"
                 />
             </div>
             
@@ -40,6 +44,7 @@
                 <Stastistik
                     v-bind:dataStatistiks="statistiks ? statistiks : null"
                     v-bind:totalSearch="total_search_statistiks"
+                    v-bind:tabs="`all`"
                 />
             </div>
             
