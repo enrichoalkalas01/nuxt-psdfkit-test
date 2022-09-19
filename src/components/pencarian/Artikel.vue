@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div v-if="currentTabs === 'all'" class="mt-3 d-flex justify-content-center">
-                <a href="javascript:void(0)" class="btn btn-second">Artikel lainnya</a>
+                <a v-on:click="changeScreen" class="btn btn-second">Artikel lainnya</a>
             </div>
         </div>
     </div>
@@ -90,6 +90,25 @@
         },
 
         methods: {
+            changeScreen() {
+                let tabsName = "Tabs02"
+                let menu = document.querySelectorAll(".nav-tabs-search")
+                let box = document.querySelectorAll(".komp-tab-content .tab-pane")
+                let tabsMenu = document.querySelector(`#All-${ tabsName }`)
+                let tabsBox = document.querySelector(`#All${ tabsName }`)
+
+                menu.forEach(el => { el.classList.remove('active'); el.classList.remove('show'); })
+                box.forEach(el => { el.classList.remove('active'); el.classList.remove('show'); })
+                tabsMenu.classList.add('active')
+                tabsMenu.classList.add('show')
+                tabsBox.classList.add('active')
+                tabsBox.classList.add('show')
+
+                setTimeout(() => {
+                    this.$store.state.Tools.scrollTo({ element_scroll: `All${ tabsName }`, offsett: 250 })
+                }, 50)
+            },
+
             checkLogin: function(e) {
                 if (!this.$store.state.Login.LoginStatus) {
                     e.preventDefault();

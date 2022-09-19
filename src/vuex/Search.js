@@ -261,7 +261,9 @@ const Search = {
         },
 
         userSetStatusText(state, value) { state.userTextStatus = value },
-        userSetStatusSearch(state, value) { state.userStatus = value }
+        userSetStatusSearch(state, value) { state.userStatus = value },
+
+        setTabSearchActive(state, value) { state.TypeSearch = value }
     }
 }
 
