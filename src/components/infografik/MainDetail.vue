@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
@@ -103,13 +103,13 @@
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
     import FileSaver from 'file-saver'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Infografik',
         components: {
             Suggestion, 
-            // LoadingScreen
+            LoadingScreen
         },
         data () {
             return {
@@ -157,7 +157,7 @@
             },
 
             async getData() {
-                this.$store.commit('setLoadingScreen', true)
+                this.$store.commit('setLoadingScreen', false)
                 try {
                     let dataInfografik = await Axios(this.ConfigApi)
                     this.infografikDetail = dataInfografik.data
@@ -171,10 +171,10 @@
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
-                    this.$store.commit('setLoadingScreen', false)
+                    // this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    // this.$store.commit('setLoadingText', 'terjadi kesalahan')
                 }
             },
 

@@ -188,7 +188,7 @@
                         'images': this.$store.state.Tools.GetUrlFileAsset + suggestionTemp[i].thumbnail,
                         'title': suggestionTemp[i].title,
                         'desc': suggestionTemp[i].description,
-                        'source': `${ suggestionTemp[i].publication }, ${ this.$store.state.Tools.ChangeDateString(suggestionTemp[i].published_date.substring(0, 10)) }`,
+                        'source': `LITBANG KOMPAS, ${ this.$store.state.Tools.ChangeDateString(suggestionTemp[i].published_date.substring(0, 10)) }`,
                     }
                     this.suggestions.push(suggestion)
                 }
