@@ -36,6 +36,7 @@
         },
 
         async beforeMount() {
+            console.log('test')
             this.autoLoginSSOFixed();
         },
 
