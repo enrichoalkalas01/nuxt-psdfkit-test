@@ -105,16 +105,16 @@ const GetLoginStatusData = () => {
 //     },
 // }
 
-// let userData = {
-//     "id": GetLoginStatusData() ? GetLoginStatusData().id : false,
-//     "firstName": GetLoginStatusData() ? GetLoginStatusData().firstName : false,
-//     "lastName": GetLoginStatusData() ? GetLoginStatusData().lastName : false,
-//     "username": GetLoginStatusData() ? GetLoginStatusData().username : false,
-//     "memberType": GetLoginStatusData() ? GetLoginStatusData().trialExpiration : false,
-//     "trialExpiration": GetLoginStatusData() ? GetLoginStatusData().id : false,
-//     "token": GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
-//     "refreshToken": ""
-// }
+let userData = {
+    "id": GetLoginStatusData() ? GetLoginStatusData().id : false,
+    "firstName": GetLoginStatusData() ? GetLoginStatusData().firstName : false,
+    "lastName": GetLoginStatusData() ? GetLoginStatusData().lastName : false,
+    "username": GetLoginStatusData() ? GetLoginStatusData().username : false,
+    "memberType": GetLoginStatusData() ? GetLoginStatusData().trialExpiration : false,
+    "trialExpiration": GetLoginStatusData() ? GetLoginStatusData().id : false,
+    "token": GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
+    "refreshToken": ""
+}
 
 const Login = {
     state () {
