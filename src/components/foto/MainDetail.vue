@@ -16,12 +16,11 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-12 col-6 col-md-6 col-lg-4 my-3">
-                                <img :src="`${ fotoDetail ? this.$store.state.Tools.GetUrlFiles + fotoDetail.preview : '' }`" alt="" class="db-img">
+                                <img :src="`${ fotoDetail ? this.$store.state.Tools.GetUrlFiles + fotoDetail.preview : '' }`" :alt="fotoDetail?.title" class="db-img">
                             </div>
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
                                 <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
                                 <div v-if="fotoDetail ? fotoDetail.copyright.toLowerCase() === 'kompas' : false" class="db-price rounded mt-3">
-                                    <!-- <span class="price-tag">mulai dari Rp. {{ this.$store.state.Tools.PriceFormat(MulaiHarga, 2, ',', '.') }}</span> -->
                                     <button v-on:click="FormPesan" class="btn btn-main">
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
                                     </button>
@@ -217,7 +216,7 @@
                     <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
-                            <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
+                            <img src="resources/images/ads2.png" class="w-100 rounding" alt="Pusat Informasi & Data Kompas">
                         </a>
                     </div>
 
@@ -337,7 +336,6 @@
             async pesanFoto() {
                 if ( this.$store.state.Login.UserData.memberType === 1 ) {
                     alert('maaf hanya user member yang bisa memesan foto')
-                    // console.log('maaf hanya user member yang bisa memesan foto')
                 } else {
                     if ( document.querySelector("#description-box").value === '' ) {
                         alert('Harap isi kolom deskripsi!!')
@@ -363,11 +361,6 @@
 
                         if ( !this.Aggrement ) {
                             alert('tolong centang syarat & ketentuannya terlebih dahulu..')
-                            // setTimeout(() => {
-                            //     this.$store.commit('setLoadingImage', 'failed');
-                            //     this.$store.commit('setLoadingText', 'tolong centang syarat & ketentuannya terebih dahulu..');
-                            //     this.$store.commit('setCloseStatus', true);
-                            // }, 500)
                         } else {
                             this.$store.commit('setLoadingScreen', true)
                             this.$store.commit('setLoadingImage', 'loading')
@@ -402,14 +395,6 @@
                     left: 0,
                     behavior: 'smooth',
                 });
-
-                // if ( this.$store.state.Login.LoginStatus ) this.FormPesanClick = !this.FormPesanClick
-                // else {
-                //     this.$store.commit('setLoadingImage', 'failed')
-                //     this.$store.commit('setCloseStatus', true)
-                //     this.$store.commit('setLoadingText',`<p>ups, anda belum login</p><a class="login" href="/login">Login</a>`)
-                //     this.$store.commit('setLoadingScreen', true)
-                // }
             },
 
             async getSuggestion() {

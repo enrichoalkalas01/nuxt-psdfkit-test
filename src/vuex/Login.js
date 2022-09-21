@@ -105,26 +105,35 @@ const GetLoginStatusData = () => {
 //     },
 // }
 
-let userData = {
-    "id": GetLoginStatusData() ? GetLoginStatusData().id : false,
-    "firstName": GetLoginStatusData() ? GetLoginStatusData().firstName : false,
-    "lastName": GetLoginStatusData() ? GetLoginStatusData().lastName : false,
-    "username": GetLoginStatusData() ? GetLoginStatusData().username : false,
-    "memberType": GetLoginStatusData() ? GetLoginStatusData().trialExpiration : false,
-    "trialExpiration": GetLoginStatusData() ? GetLoginStatusData().id : false,
-    "token": GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
-    "refreshToken": ""
-}
+// let userData = {
+//     "id": GetLoginStatusData() ? GetLoginStatusData().id : false,
+//     "firstName": GetLoginStatusData() ? GetLoginStatusData().firstName : false,
+//     "lastName": GetLoginStatusData() ? GetLoginStatusData().lastName : false,
+//     "username": GetLoginStatusData() ? GetLoginStatusData().username : false,
+//     "memberType": GetLoginStatusData() ? GetLoginStatusData().trialExpiration : false,
+//     "trialExpiration": GetLoginStatusData() ? GetLoginStatusData().id : false,
+//     "token": GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
+//     "refreshToken": ""
+// }
 
 const Login = {
     state () {
         return {
-            LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
-            UserData: GetLoginStatusData() ? userData : false,
+            // LoginStatus: GetCookies("_km_dtl_s") !== null ? true : false,
+            // UserData: GetLoginStatusData() ? userData : false,
             TokenData: GetCookies("kompas._token") ? GetCookies("kompas._token") : null,
             RefreshToken: null,
-            // LoginStatus: true,
-            // UserData: AuthData.enricho.oldNew,
+            LoginStatus: true,
+            UserData: {
+                "id": 9860,
+                "firstName": "enricho",
+                "lastName": "kompas",
+                "username": "enrichoalkalas.kompas@gmail.com",
+                "memberType": 0,
+                "trialExpiration": "2022-09-01T16:24:07",
+                "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZW5yaWNob2Fsa2FsYXMua29tcGFzQGdtYWlsLmNvbSIsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4IiwicnQiOjE2OTM2MjU1NDUsInNjb3BlIjpbInJlYWQtYXJ0aWNsZSIsInJlYWQtcHJvZmlsZSJdfSwiZXhwIjoxNjYzNjU0MjE1LCJpYXQiOjE2NjM2NTMzMTUsImlzcyI6Imh0dHBzOi8vd3d3LmtvbXBhcy5pZCJ9.FZt8kn7vbNyltphDuuAah1CjPZ5WsVb7WK0IWgf-qj-UAyAzqeYyMQn2gLKGRzxJbKiolvhQ6CDbpp0PS_hFfZbmHo3dEps_yK1bjmH8x-DEj58Ozf6qNiW-5OP-15lGKZjfUAflYllKYkN9ly7R5VKTyFjydbZSQkwAqKC7Jog",
+                "refreshToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVucmljaG9hbGthbGFzLmtvbXBhc0BnbWFpbC5jb20iLCJleHAiOjE2OTM0NjU4MTUsImlkIjoiOGYzMDRjYTQtZTdmYS00OGI3LWJhYjAtYjVmZGM0NGQ0Nzk4Iiwic3ViIjoxfQ.zurCJxq3xrplRzuOJ1n2o_vOIhyC3GtWXlf3jq1yUizBhdJQplkPWOROG8O5Il1g61weHzJhsnlAXmgUwozxujL3BUziP1vZ3h18Uw_4m-VV22q_64sLZFqI2ocO123r1ylniybwu_lrr0JR9fYc1w9lokxzkfsMO4NGo0uu6so"
+            },
         }
     },
 

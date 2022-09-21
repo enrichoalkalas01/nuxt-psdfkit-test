@@ -23,10 +23,10 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-2 my-3">
-                                <img :src="`${  artikelDetail ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" alt="" class="db-img">
+                                <img :src="`${  artikelDetail ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" :alt="artikelDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h3>
+                                <h1 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h1>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail ? artikelDetail.rubrics : '' }}</p>
                                     <p>{{ artikelDetail ? artikelDetail.published_pages[0].publication : '' }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail ? artikelDetail.published_pages[0].date.substring(0, 10) : '2020-12-12') }}</p>
@@ -47,18 +47,18 @@
                                     >
                                         <div class="col-12 col-md-9 text-center">
                                             <!-- Null -->
-                                            <img v-if="`${ foto.kind }` === ''" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                            <img v-if="`${ foto.kind }` === ''" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" :alt="artikelDetail?.title">
                                             
                                             <!-- Foto -->
                                             <a v-if="`${ foto.kind }` === 'Foto'" :href="`/foto-detail/` + foto.id">
-                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" :alt="artikelDetail?.title">
                                             </a>
 
                                             <!-- Infografik -->
                                             <a v-if="`${ foto.kind }` === 'Infografis' && artikelDetail.published_pages[0].date.split('-')[0] >= 2015" :href="`/infografik-detail/` + foto.id">
-                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" :alt="artikelDetail?.title">
                                             </a>
-                                            <img v-else-if="`${ foto.kind }` === 'Infografis' && artikelDetail.published_pages[0].date.split('-')[0] < 2015" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" alt="">
+                                            <img v-else-if="`${ foto.kind }` === 'Infografis' && artikelDetail.published_pages[0].date.split('-')[0] < 2015" :src="`${ this.$store.state.Tools.GetUrlFiles + foto.thumbnail }`" class="img-square32 rounding content borderless info-ctn" :alt="artikelDetail?.title">
                                         </div>
                                     </SplideSlide>
                                 </Splide>
@@ -101,7 +101,7 @@
                     <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
-                            <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
+                            <img src="resources/images/ads2.png" class="w-100 rounding" :alt="artikelDetail?.title">
                         </a>
                     </div>
 
@@ -123,9 +123,7 @@
 
     export default {
         name: 'Artikel',
-        components: { Splide, SplideSlide, Suggestion, 
-            LoadingScreen 
-        },
+        components: { Splide, SplideSlide, Suggestion, LoadingScreen },
         data () {
             return {
                 linkBack: null,
@@ -143,7 +141,7 @@
             }
         },
 
-        async mounted() {
+        async beforeMount() {
             this.linkBack = window.location.search
             this.getData()
             this.getSuggestion()

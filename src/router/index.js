@@ -1,32 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router"
 import Notification from '../components/login/Notification.vue'
 import Activation from '../components/login/Activation.vue'
-// import MainPage from '../components/homepages/MainPage.vue'
-// import ArtikelDetail from '../components/artikel/MainDetail.vue'
-// import FotoDetail from '../components/foto/MainDetail.vue'
-// import InfografikDetail from '../components/infografik/MainDetail.vue'
-// import Buku from '../components/buku/MainPage.vue'
-// import BukuDetail from '../components/buku/MainDetail.vue'
-// import Data from '../components/data/MainPage.vue'
-// import DataDetail from '../components/data/MainDetail.vue'
-// import Layanan from '../components/layanan/MainPage.vue'
-// import Bantuan from '../components/bantuan/MainPage.vue'
-// import FAQ from '../components/bantuan/FAQ.vue'
-// import PetaSitus from '../components/bantuan/PetaSitus.vue'
-// import Pencarian from '../components/pencarian/MainPage.vue'
-// import PencarianLanjut from '../components/pencarian/MainDetail.vue'
-// import Test from '../components/test/MainPage.vue'
-
-// Dashboard
-// import Dashboard from '../components/dashboard/MainPage'
-// import HomepageDashboard from '../components/dashboard/Dashboard.vue'
-// import TopUp from '../components/payments/TopUp.vue'
-// import Voucher from '../components/payments/Voucher.vue'
-// import ShoppingCart from '../components/dashboard/Shopping/ShoppingCart.vue'
-// import Chatting from '../components/dashboard/Chat/Chatting.vue'
-// import Syarat from '../components/dashboard/Syarat.vue'
-// import Account from '../components/dashboard/Account.vue'
-// import History from '../components/dashboard/History/MainPage.vue'
 
 const routes = [
     { path: '/notification-activation', name: 'notification', component: Notification },

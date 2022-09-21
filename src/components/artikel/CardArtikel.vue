@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-4 my-3">
                 <a :href="idArtikel">
-                    <img :src="image" alt="" class="artikel-image w-100">
+                    <img :src="image" :alt="title" class="artikel-image w-100">
                 </a>
             </div>
             <div class="col-sm-8 my-3">

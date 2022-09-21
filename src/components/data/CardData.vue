@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-6 my-3">
                 <a :href="idData">
-                    <img :src="image" alt="" class="w-100">
+                    <img :src="image" :alt="title" class="w-100">
                 </a>
             </div>
             <div class="col-sm-6 my-3">

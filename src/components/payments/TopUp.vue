@@ -23,7 +23,6 @@
                                     <div class="col-12 pt-2">
                                         <h6>Email</h6>
                                         <p>
-                                            <!-- {{ this.$store.state.Login.UserData.email ? this.$store.state.Login.UserData.email : 'None' }} -->
                                             {{ this.$store.state.Login.UserData?.username }}
                                         </p>
                                     </div>
@@ -36,47 +35,12 @@
                                             <option data-expiration-days="60" value="500000">500.000 poin (Rp 500.000)</option>
                                             <option data-expiration-days="60" value="1000000">1.000.000 poin (Rp 1.000.000)</option>
                                         </select>
-                                        <!-- <p>*Pembayaran melalui transfer akan dikonfirmasi admin pada jam kerja (Senin-Sabtu pukul 09:00-16:00)</p> -->
                                     </div>
-                                    <!-- <div class="col-12 pt-2">
-                                        <h6>Catatan Pembayaran</h6>
-                                        <textarea name="catatan-payment" id="catatan-payment" class="form-control" cols="30" rows="10"></textarea>
-                                    </div> -->
                                     <div class="col-12 pt-4">
                                         <button class="form-control btn-primary" v-on:click="topup(this.$store.state.Login.UserData)">Bayar</button>
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                                <div class="col-12">
-                                    <h6>Pilih Metode Pembayaran</h6>
-                                    <select class="form-control pik-filterby-transaction-list" id="pik-payment-list2">
-                                        <option data-code="transfer" name="frmPayment" value="2">Transfer</option>
-                                        <option data-code="clickpay" name="frmPayment" value="8">Mandiri Clickpay</option>
-                                        <option data-code="visamaster" name="frmPayment" value="10">CreditCard (VISA/Master)</option>
-                                        <option data-code="ecash" name="frmPayment" value="11">Mandiri E-Cash</option>
-                                        <option data-code="atmbca" name="frmPayment" value="12">ATM BCA</option>
-                                        <option data-code="bcaklikpay" name="frmPayment" value="14">BCA KlikPay</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <div class="row pik-payment-step-detail-title-row pik-dashboard-payment-list" id="transfer" style="display: block;">
-                                        <div class="row">
-                                            <div class="pik-dashboard-payment-logo-container">
-                                                <img class="pik-dashboard-payment-logo-thumbnail" src="/assets/images/payments/bank-transfer.png">
-                                                </div>
-                                        </div>
-                                        <div class="row"><span class="pik-payment-step-detail-title">Transfer ke</span></div>
-                                        <div class="row">
-                                            <div class="row pik-payment-step-detail-title-row">
-                                                <span class="pik-payment-step-detail-description">
-                                                    012 300 7104 a/n PT. Kompas Media Nusantara <br>BCA Cab. Gajah Mada Jl. Gajah Mada No.112 Jakarta Pusat
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -103,7 +67,6 @@
                         "expirationDays": Number(document.querySelector("#nominal").options[ document.querySelector("#nominal").selectedIndex ].getAttribute("data-expiration-days")),
                         "paymentMethod": 0,
                         "note": "",
-                        // "note": document.querySelector("#catatan-payment").value
                     })
                 }
                 
@@ -120,10 +83,6 @@
                     this.$store.commit('setCloseStatus', true)
                 }
             },
-
-            // replaceAll: (str, find, replace) => {
-            //     return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
-            // }
         }
     }
 

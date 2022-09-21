@@ -6,7 +6,7 @@
                 <div class="col-12 py-3">
                     <div class="nb-inner">
                         <a class="navbar-brand" href="/">
-                            <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas">
+                            <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi & Data Kompas">
                         </a>
                         <div class="med-box d-none d-md-block">
                             <div class="search-box">

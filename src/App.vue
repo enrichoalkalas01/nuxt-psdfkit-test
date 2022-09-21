@@ -36,7 +36,7 @@
         },
 
         async beforeMount() {
-            this.autoLoginSSOFixed();
+            // this.autoLoginSSOFixed();
         },
 
         methods: {

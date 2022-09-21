@@ -32,7 +32,7 @@
         setup () {
             useMeta({
                 title: 'Kompasdata',
-                htmlAttrs: { lang: 'en', amp: true },
+                htmlAttrs: { lang: 'id', amp: true },
                 description: 'kompas data',
                 meta: [
                     { property: 'og:locale', content: 'id_ID' },
@@ -43,6 +43,7 @@
                 ]
             })
         },
+
         components: {
             Banner,
             Pengumuman,

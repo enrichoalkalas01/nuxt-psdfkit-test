@@ -13,12 +13,11 @@
                                     <div class="  my-3">
                                         {{ this.$store.state.Tools.ChangeDateString(banner.date.substring(0, 10)) }}
                                     </div>
-                                    <h1 class="heading">
+                                    <h2 class="heading">
                                         <a :href="banner.url">
-                                        <!-- <a :href="'/artikel-detail/' + banner.id"> -->
                                             {{ banner.title }}
                                         </a>
-                                    </h1>
+                                    </h2>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +48,6 @@
                     perPage: 1,
                     autoplay: true,
                     interval: 5000,
-                    // updateOnMove: true,
                     focus: 'center'
                 },
                 BannersData: null,
@@ -117,10 +115,6 @@
     #slide .banner-slide .panel .caption .heading a {
         color: inherit;
     }
-
-    /* .button-slider {
-        position: relative;
-    } */
 
     .button-slider .btn-slider {
         width: 35px;

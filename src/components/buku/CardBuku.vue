@@ -1,6 +1,6 @@
 <template>
     <a :href="idData" class="bc-inner">
-        <img :src="image" alt="" class="bc-img">
+        <img :src="image" :alt="title" class="bc-img">
         <h3 class="subtitle short-text three">
             {{ title }}
         </h3>

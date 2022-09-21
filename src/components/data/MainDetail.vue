@@ -15,19 +15,11 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3">
-                                <img :src="dataDetail ? dataDetail.thumbnail : ''" alt="" class="db-img">
+                                <img :src="dataDetail ? dataDetail.thumbnail : ''" :alt="dataDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <!-- <h3 class="subtitle txt-main">Penderita Penyakit Demam Berdarah</h3> -->
                                 <div class="d-block">
                                     <p class="fw-bold">{{ dataDetail ? dataDetail.dataset_title : '' }}</p>
-                                    <!-- <p>KOMPAS edisi Jumat 20 Agustus 2021</p> -->
-                                    <!-- <p>Halaman: 1</p>
-                                    <p>Penulis: JOL</p>
-                                    <div class="db-price rounded">
-                                        <span class="price-tag">mulai dari Rp. 300.000</span>
-                                        <a href="pesan-data.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Data</a>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -49,8 +41,6 @@
                                     <div id="tableau_url" style="display: none;" :tableauUrl="dataDetail ? dataDetail.url_infographic : null">{{ dataDetail ? dataDetail.url_infographic : null  }}</div>
                                     <div id="tablue-data" class="mb-2">
                                         <div id="tableauViz"></div>
-                                        <!-- <button class="mt-2 btn btn-main active tableau-btn" id="button-open-tableau" onclick="initializeViz()">Tampilkan Infografik Data</button>
-                                        <button class="mt-2 btn btn-main tableau-btn" id="button-close-tableau" onclick="closeViz()">Tutup Infografik Data</button> -->
                                     </div>
                                     <div id="chartdiv"></div>
                                     <p>{{ dataDetail ? dataDetail.credit ? `Sumber : ${ dataDetail.credit }` : '' : '' }}</p>
@@ -69,9 +59,6 @@
                 </div>
                     
                 <div class="col-12 col-sm-12 col-md-3">
-                    <!-- Banner -->
-                    <!-- <Banner /> -->
-
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />
                 </div>
@@ -82,13 +69,11 @@
 
 <script>
     import Axios from 'axios'
-    // import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
     export default {
         name: 'MainDetail',
         components: {
-            // Banner,
             Suggestion,
         },
         data () {
@@ -188,7 +173,7 @@
                         'images': this.$store.state.Tools.GetUrlFileAsset + suggestionTemp[i].thumbnail,
                         'title': suggestionTemp[i].title,
                         'desc': suggestionTemp[i].description,
-                        'source': `${ suggestionTemp[i].publication }, ${ this.$store.state.Tools.ChangeDateString(suggestionTemp[i].published_date.substring(0, 10)) }`,
+                        'source': `LITBANG KOMPAS, ${ this.$store.state.Tools.ChangeDateString(suggestionTemp[i].published_date.substring(0, 10)) }`,
                     }
                     this.suggestions.push(suggestion)
                 }

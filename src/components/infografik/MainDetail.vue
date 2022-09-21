@@ -1,6 +1,6 @@
 <template>
     <section class="sec-artikel my-5">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
@@ -23,8 +23,7 @@
                                 :dataImages="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`"
                                 
                             >
-                            <!-- :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }')`" -->
-                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" :alt="infografikDetail.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
@@ -87,7 +86,7 @@
                     <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
-                            <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
+                            <img src="resources/images/ads2.png" class="w-100 rounding" :alt="infografikDetail.title">
                         </a>
                     </div>
 
@@ -103,13 +102,13 @@
     import Axios from 'axios'
     import Suggestion from '../suggestion/Main.vue'
     import FileSaver from 'file-saver'
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Infografik',
         components: {
             Suggestion, 
-            // LoadingScreen
+            LoadingScreen
         },
         data () {
             return {
@@ -157,7 +156,7 @@
             },
 
             async getData() {
-                this.$store.commit('setLoadingScreen', true)
+                this.$store.commit('setLoadingScreen', false)
                 try {
                     let dataInfografik = await Axios(this.ConfigApi)
                     this.infografikDetail = dataInfografik.data
@@ -171,10 +170,10 @@
 
                     let hargaBaca = await Axios(configPayment)
                     if ( hargaBaca ) this.HargaBaca = hargaBaca.data.value
-                    this.$store.commit('setLoadingScreen', false)
+                    // this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingText', 'terjadi kesalahan')
+                    // this.$store.commit('setLoadingText', 'terjadi kesalahan')
                 }
             },
 

@@ -138,14 +138,6 @@
         },
 
         methods: {
-            // Changes Tab Data
-            // ClickedTab(e) {
-            //     let ElementTabs = document.querySelector(`#komp-tab-content #${ e.target.getAttribute("id") }`)
-            //     let TabPane = document.querySelector("#komp-tab-content .tab-pane.show.active")
-            //     TabPane.classList.remove("show"); TabPane.classList.remove("active")
-            //     ElementTabs.classList.add("show"); ElementTabs.classList.add("active")
-            // }
-
             getDataTabs(){
                 if (this.$store.state.Tools.GetQueryString().tabs) {
                     const tabs = this.$store.state.Tools.GetQueryString().tabs

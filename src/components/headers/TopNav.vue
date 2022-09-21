@@ -3,7 +3,7 @@
         <div class="container">
             <div class="box-top-nav">
                 <a class="navbar-brand d-block d-md-none" href="/">
-                    <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi Kompas Test">
+                    <img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi & Data Kompas">
                 </a>
                 <div class="box-menu-nav">
                     <a href="/dashboard" class="icon-cart mx-3 d-block d-md-none" style="margin-right: 0 !important;">

@@ -16,13 +16,10 @@
                     <div class="detail-box">
                         <div class="row">
                             <div class="col-sm-4 my-3 images-box">
-                                <img :src="`${ this.$store.state.Tools.GetUrlFile + bukuDetail.cover }`" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFile + bukuDetail.cover }`" :alt="bukuDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ bukuDetail.judul }}</h3>
-                                <!-- <div class="db-price rounded">
-                                    <a href="pesan-buku.html" class="btn btn-main"><i class="fas fa-shopping-cart"></i> Pesan Buku</a>
-                                </div> -->
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>
@@ -135,9 +132,6 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
-                    <!-- Banner -->
-                    <!-- <Banner /> -->
-                    
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />                  
                 </div>
@@ -148,13 +142,11 @@
 
 <script>
     import Axios from 'axios'
-    // import Banner from '../banner/Main.vue'
     import Suggestion from '../suggestion/Main.vue'
 
     export default {
         name: 'BukuDetail',
         components: {
-            // Banner,
             Suggestion
         },
         data () {
