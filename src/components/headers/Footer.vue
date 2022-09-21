@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <a href="/"><img src="/assets/images/logo-kompasdata.png" alt=""></a>
+                    <a href="/"><img src="/assets/images/logo-kompasdata.png" alt="Pusat Informasi & Data Kompas"></a>
                 </div>
                 <div class="col-12 col-md-6 my-3">
                     <ul class="foot-list">

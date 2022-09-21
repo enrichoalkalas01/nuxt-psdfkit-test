@@ -15,7 +15,6 @@
                                     </div>
                                     <h2 class="heading">
                                         <a :href="banner.url">
-                                        <!-- <a :href="'/artikel-detail/' + banner.id"> -->
                                             {{ banner.title }}
                                         </a>
                                     </h2>
@@ -49,7 +48,6 @@
                     perPage: 1,
                     autoplay: true,
                     interval: 5000,
-                    // updateOnMove: true,
                     focus: 'center'
                 },
                 BannersData: null,
@@ -117,10 +115,6 @@
     #slide .banner-slide .panel .caption .heading a {
         color: inherit;
     }
-
-    /* .button-slider {
-        position: relative;
-    } */
 
     .button-slider .btn-slider {
         width: 35px;

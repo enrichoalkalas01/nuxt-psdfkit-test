@@ -15,7 +15,7 @@
                         </div>
                         <div class="desc text-center">
                             <div class="icon">
-                                <img src="/assets/images/icon-doc.svg" alt="">
+                                <img src="/assets/images/icon-doc.svg" alt="Pusat Informasi & Data Kompas">
                             </div>
                             <b>Daftar</b>
                             <ol class="list-num text-start">
@@ -32,7 +32,7 @@
                             Step<span>02</span>
                         </div>
                         <div class="desc text-center">
-                            <div class="icon"><img src="/assets/images/icon-wallet.svg" alt=""></div>
+                            <div class="icon"><img src="/assets/images/icon-wallet.svg" alt="Pusat Informasi & Data Kompas"></div>
                             <b>Akses Produk</b>
                             <ol class="list-num text-start">
                                 <li>Tambahkan saldo poin melalui payment getaway yang tersedia</li>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="desc text-center">
                             <div class="icon">
-                                <img src="/assets/images/icon-cari-doc.svg" alt="">
+                                <img src="/assets/images/icon-cari-doc.svg" alt="Pusat Informasi & Data Kompas">
                             </div>
                             <b>Temukan Data</b>
                             <p class="text-start">Gunakan fasilitas mesin pencari yang mampu memberikan hasil pencarian sesuai harapan Anda.</p>

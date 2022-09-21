@@ -8,7 +8,6 @@
                     </div>
                 </div>
                 <div class="col-sm-8 col-md-9 my-3">
-
                     <p>
                         Unit Pengembangan Data dan Informasi menyediakan jasa konten kreatif berbasis riset dan kekayaan arsip Kompas berupa company profile, video profile, infografis, tutur visual, arsip tematis, buku digital, dan customize product. 
                         Didukung oleh tenaga kreatif dan peneliti berpengalaman di Harian Kompas, Jasa Paket Informasi Kompas menjadi solusi efektif bagi individu maupun lembaga dalam mewujudkan tujuan komunikasinya di tengah banjir informasi.
@@ -24,11 +23,6 @@
                         <li>Partai-partai politik</li>
                         <li>Tokoh-tokoh</li>
                     </ul>
-                    <!-- <div class="content">
-                        <h6>Portfolio</h6>
-                        <br>
-                        <br>
-                    </div> -->
                 </div>
             </div>
     </section>

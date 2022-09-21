@@ -6,7 +6,7 @@
                     <div class="content shadow my-3">
                         <div class="p-3">
                             <a href="/" class="logo-big mb-3">
-                                <img src="@/assets/images/logo-kompasdata-big.png" alt="">
+                                <img src="@/assets/images/logo-kompasdata-big.png" alt="activation-kompas-data">
                             </a>
                             <p>{{ status }}</p>
                         </div>

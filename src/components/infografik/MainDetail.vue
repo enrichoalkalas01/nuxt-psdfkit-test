@@ -23,8 +23,7 @@
                                 :dataImages="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`"
                                 
                             >
-                            <!-- :style="`background-image: url('${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }')`" -->
-                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" alt="" class="db-img">
+                                <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" :alt="infografikDetail.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
                                 <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
@@ -87,7 +86,7 @@
                     <!-- Banner -->
                     <div class="banner my-3">
                         <a href="#">
-                            <img src="resources/images/ads2.png" class="w-100 rounding" alt="">
+                            <img src="resources/images/ads2.png" class="w-100 rounding" :alt="infografikDetail.title">
                         </a>
                     </div>
 

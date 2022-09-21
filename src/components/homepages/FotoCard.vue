@@ -58,17 +58,6 @@
 </script>
 
 <style>
-    /* .name {
-        word-wrap: break-word;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        line-height: 1.2em; 
-        -webkit-line-clamp: 2;
-        max-height: 2.4em;
-    } */
-
     .truncate {
         width: 100%;
         white-space: nowrap;

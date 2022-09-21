@@ -9,7 +9,6 @@
                     </div>
                 </div>
                 <div class="col-sm-8 col-md-9 my-3">
-
                     <p>
                         Litbang Kompas dikenal sebagai pelopor jajak pendapat publik sejak era 80-an, dengan berbagai topik artikel jajak pendapat mingguan, analisis data, hingga kajian khusus di Harian Kompas. Kajian Riset Strategis Litbang Kompas adalah rumah bagi aneka Jasa Riset, dengan berbagai metode riset dan perangkat analisis yang diampu para peneliti mumpuni dari berbagai disiplin ilmu. 
                         Di sini kami membahas berbagai isu yang mempengaruhi kinerja para pemangku kepentingan dari berbagai kementerian, lembaga, dan swasta untuk pengembangan kebijakan yang semakin baik.    
@@ -45,11 +44,6 @@
                         <li>Blibli</li>
                         <li>Dan lain lain</li>
                     </ul>
-                    <!-- <div class="content">
-                        <h6>Portfolio</h6>
-                        <br>
-                        <br>
-                    </div> -->
                 </div>
             </div>
         </div>

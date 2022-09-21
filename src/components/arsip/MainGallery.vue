@@ -7,7 +7,7 @@
                     class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 text-center"
                 >
                     <a :href="`/foto-detail/${ foto ? foto.document_id : null }`">
-                        <img :src="foto ? `${ this.$store.state.Tools.GetUrlFiles + foto.preview }` : null" class="img-square32 rounding" alt="">
+                        <img :src="foto ? `${ this.$store.state.Tools.GetUrlFiles + foto.preview }` : null" class="img-square32 rounding" :alt="foto?.title">
                     </a>
                 </div>
             </div>
@@ -51,11 +51,7 @@
 
             this.getData()
         },
-
-        async updated() {
-            // this.fotos !== null ? this.getData() : false
-        },
-
+        
         methods: {
             async getData() {
                 try {

@@ -115,7 +115,6 @@
 
 <script>
     import Axios from 'axios'
-    // import { useMeta } from 'vue-meta'
     import { Splide, SplideSlide } from '@splidejs/vue-splide'
     import '@splidejs/splide/dist/css/themes/splide-default.min.css'
     import FileSaver from 'file-saver'
@@ -124,10 +123,7 @@
 
     export default {
         name: 'Artikel',
-        components: { Splide, SplideSlide, Suggestion, 
-            LoadingScreen 
-        },
-        
+        components: { Splide, SplideSlide, Suggestion, LoadingScreen },
         data () {
             return {
                 linkBack: null,
