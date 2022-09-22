@@ -26,7 +26,7 @@
                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" :alt="infografikDetail.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
+                                <h2 class="subtitle txt-main">{{ infografikDetail.title }}</h2>
                                 <p>{{ infografikDetail.published_caption }}</p>
                                 <table class="table db-table table-bordered">
                                     <tbody>

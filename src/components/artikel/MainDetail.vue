@@ -26,7 +26,7 @@
                                 <img :src="`${  artikelDetail ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" :alt="artikelDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h1 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h1>
+                                <h2 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h2>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail ? artikelDetail.rubrics : '' }}</p>
                                     <p>{{ artikelDetail ? artikelDetail.published_pages[0].publication : '' }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail ? artikelDetail.published_pages[0].date.substring(0, 10) : '2020-12-12') }}</p>

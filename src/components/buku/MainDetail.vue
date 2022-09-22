@@ -19,7 +19,7 @@
                                 <img :src="`${ this.$store.state.Tools.GetUrlFile + bukuDetail.cover }`" :alt="bukuDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">{{ bukuDetail.judul }}</h3>
+                                <h2 class="subtitle txt-main">{{ bukuDetail.judul }}</h2>
                                 <ul class="nav nav-tabs komp-tabs my-3" id="myTabDetails" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="db-Tabs01" data-bs-toggle="tab" href="#dbTabs01" aria-controls="dbTabs01" aria-selected="true"> Caption</a>

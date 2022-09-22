@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-4 col-md-3 my-3">
                 <div class="box-title text-center">
-                    <h3 class="subtitle">Tentang Kami</h3>
+                    <h2 class="subtitle">Tentang Kami</h2>
                 </div>
             </div>
             <div class="col-sm-8 col-md-9 my-3">

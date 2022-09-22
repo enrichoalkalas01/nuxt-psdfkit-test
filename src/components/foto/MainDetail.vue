@@ -19,7 +19,7 @@
                                 <img :src="`${ fotoDetail ? this.$store.state.Tools.GetUrlFiles + fotoDetail.preview : '' }`" :alt="fotoDetail?.title" class="db-img">
                             </div>
                             <div class="col-12 col-6 col-md-6 col-lg-8 my-3">
-                                <h3 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h3>
+                                <h2 class="subtitle txt-main">{{ fotoDetail ? fotoDetail.title : null }}</h2>
                                 <div v-if="fotoDetail ? fotoDetail.copyright.toLowerCase() === 'kompas' : false" class="db-price rounded mt-3">
                                     <button v-on:click="FormPesan" class="btn btn-main">
                                         <i class="fas fa-shopping-cart"></i> <span>Cek Harga Foto</span>
