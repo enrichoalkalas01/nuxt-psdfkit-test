@@ -117,7 +117,7 @@
                     }, 1000)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`)
                     this.$store.commit('setCloseStatus', true)
                     setTimeout(() => {
@@ -195,7 +195,7 @@
                         console.log(error)
                         setTimeout(() => { 
                             this.$store.commit('setLoadingScreen', true)
-                            this.$store.commit('setLoadingImage', 'failed');
+                            this.$store.commit('setLoadingImage', 'warning');
                             this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`);
                             this.$store.commit('setCloseStatus', true);
                             setTimeout(() => this.setDefaultLoadingScreen(), 2000)
@@ -220,7 +220,7 @@
                         console.log(error)
                         setTimeout(() => { 
                             this.$store.commit('setLoadingScreen', true)
-                            this.$store.commit('setLoadingImage', 'failed');
+                            this.$store.commit('setLoadingImage', 'warning');
                             this.$store.commit('setLoadingText', `<p>${ error.response.data.message }</p>`);
                             this.$store.commit('setCloseStatus', true);
                             setTimeout(() => this.setDefaultLoadingScreen(), 2000)
@@ -232,7 +232,7 @@
             async setFailedLoadingScreen() {
                 setTimeout(() => { 
                     this.$store.commit('setLoadingScreen', true)
-                    this.$store.commit('setLoadingImage', 'failed');
+                    this.$store.commit('setLoadingImage', 'warning');
                     this.$store.commit('setLoadingText', 'Mohon pilih produk terlebih dahulu...');
                     this.$store.commit('setCloseStatus', true);
 

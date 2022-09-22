@@ -167,7 +167,7 @@
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', 'gagal memesan data...')
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
                 }
@@ -193,7 +193,7 @@
                     console.log(error.response)
                     this.$store.commit('setLoadingText', 'loading..')
                     setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingImage', 'warning');
                         this.$store.commit('setLoadingText', error.response.data.message);
                         this.$store.commit('setCloseStatus', true);
                         setTimeout(() => {

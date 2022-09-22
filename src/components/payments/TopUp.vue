@@ -78,7 +78,7 @@
                 } catch (error) {
                     console.log(error)
                     this.$store.commit('setLoadingScreen', true)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', 'Mohon lengkapi data diri anda pada menu “akun” terlebih dahulu.')
                     this.$store.commit('setCloseStatus', true)
                 }

@@ -46,8 +46,7 @@
                                                     <select name="publication" id="publication-artikel" class="form-control">
                                                         <option value="">Seluruh Media</option>
                                                         <option value="KOMPAS">Kompas</option>
-                                                        <option value="kompascetak">Kompas</option>
-                                                        <option value="kompassiang">Kompas Siang</option>
+                                                        <option value="KOMPAS SIANG">Kompas Siang</option>
                                                     </select>
                                                 </div>
                                             </div>

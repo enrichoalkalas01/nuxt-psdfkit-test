@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-3 pb-4 line-bot full">
-        <!-- <LoadingScreen /> -->
+        <LoadingScreen />
         <div class="col-12" v-if="artikels ? artikels.length <= 0 : null">
             <span>Data pencarian sudah melebihi batas maksimal page. Silahkan cari data dengan kata kunci yang lebih spesifik...</span>
         </div>
@@ -52,11 +52,11 @@
 </template>
 
 <script>
-    // import LoadingScreen from '../addons/LoadingScreen.vue'
+    import LoadingScreen from '../addons/LoadingScreen.vue'
 
     export default {
         name: 'Artikel',
-        // components: { LoadingScreen },
+        components: { LoadingScreen },
         props: [
             'dataArtikels', 'totalSearch', 'tabs'
         ],
@@ -114,7 +114,7 @@
                     e.preventDefault();
                     setTimeout(() => { 
                         this.$store.commit('setLoadingScreen', true)
-                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingImage', 'warning');
                         this.$store.commit('setLoadingText', 'Anda belum login, silahkan login terlebih dahulu');
                         this.$store.commit('setCloseStatus', true);
                     }, 500)

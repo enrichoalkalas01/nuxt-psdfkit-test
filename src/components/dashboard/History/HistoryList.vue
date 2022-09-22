@@ -72,7 +72,7 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed');
+                    this.$store.commit('setLoadingImage', 'warning');
                     this.$store.commit('setLoadingText', 'ups, terjadi kesalahan...');
                     this.$store.commit('setCloseStatus', true);
                     setTimeout(() => { 
