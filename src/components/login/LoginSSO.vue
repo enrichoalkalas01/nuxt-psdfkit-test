@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Waiting for login..</h1>
+        <h2>Waiting for login..</h2>
         <button v-on:click="testUserData">Test User Profile</button>
     </div>
 </template>

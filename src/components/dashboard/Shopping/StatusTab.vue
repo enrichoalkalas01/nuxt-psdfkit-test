@@ -79,7 +79,7 @@
                     this.$store.commit('setLoadingScreen', false)
                 } catch (error) {
                     console.log(error.response)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', `<p>${ error.response.data }</p>`)
                     this.$store.commit('setCloseStatus', true)
                     setTimeout(() => {
@@ -115,7 +115,7 @@
                 } catch (error) {
                     console.log(error)
                     Axios(configMessage).catch(err => {
-                        this.$store.commit('setLoadingImage', 'failed')
+                        this.$store.commit('setLoadingImage', 'warning')
                         this.$store.commit('setLoadingText', `<p>${ err.response.data.message }</p>`)
                         this.$store.commit('setCloseStatus', true)
                         setTimeout(() => {

@@ -169,14 +169,14 @@
                 } else if (getData.response.data.message === "Username or Email exist"){
                     // alert(getData.response.data.message)
                     setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingImage', 'warning');
                         this.$store.commit('setLoadingText', getData.response.data.message);
                         this.$store.commit('setCloseStatus', true);
                     }, 500)
                 } else {
                     // alert("Something went wrong!")
                     setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingImage', 'warning');
                         this.$store.commit('setLoadingText', 'Something went wrong!');
                         this.$store.commit('setCloseStatus', true);
                     }, 500)

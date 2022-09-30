@@ -70,8 +70,8 @@
                         Data
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="dataDropdown">
-                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=kompas_polling&page=&currentpage=1&orderdirection=desc">Survei Kompas</a></li>
-                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=kompas_statistic&page=&currentpage=1&orderdirection=desc">Statistik</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=pol,sur&page=&currentpage=1&orderdirection=desc">Survei Kompas</a></li>
+                            <li><a class="dropdown-item" href="/pencarian?query=&subject=&datefrom=&dateto=&author=&publication=&typesearch=5&size=10&collection=sta&page=&currentpage=1&orderdirection=desc">Statistik</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

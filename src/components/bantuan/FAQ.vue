@@ -1,5 +1,5 @@
 <template>
-    <div class="sec-artikel my-3">
+    <div class="sec-artikel my-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-sm-4 col-md-3 my-3">
                             <div class="box-title text-center">
-                                <h3 class="subtitle">KompasData</h3>
+                                <h2 class="subtitle">KompasData</h2>
                             </div>
                         </div>
                         <div class="col-sm-8 col-md-9 my-3">

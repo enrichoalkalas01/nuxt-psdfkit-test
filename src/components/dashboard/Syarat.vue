@@ -1,6 +1,6 @@
 <template>
     <div id="syarat-ketentuan" class="container my-3">
-        <h1 class="title">SYARAT DAN KETENTUAN</h1>
+        <h2 class="title">SYARAT DAN KETENTUAN</h2>
         <h2 class="subtitle">Definisi</h2>
         <ol>
             <li>“Kami” berarti PT Media Kompas Nusantara, dalam hal ini diwakili oleh Pusat Data dan Informasi Kompas, suatu perusahaan yang didirikan berdasarkan hukum Negara Republik Indonesia yang menyelenggarakan Portal KompasData.</li>

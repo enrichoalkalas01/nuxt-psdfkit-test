@@ -26,7 +26,7 @@
                                 <img :src="`${ this.$store.state.Tools.GetUrlFiles + infografikDetail.thumbnail }`" :alt="infografikDetail.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h3 class="subtitle txt-main">{{ infografikDetail.title }}</h3>
+                                <h2 class="subtitle txt-main">{{ infografikDetail.title }}</h2>
                                 <p>{{ infografikDetail.published_caption }}</p>
                                 <table class="table db-table table-bordered">
                                     <tbody>
@@ -84,11 +84,11 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <!-- Banner -->
-                    <div class="banner my-3">
+                    <!-- <div class="banner my-3">
                         <a href="#">
                             <img src="resources/images/ads2.png" class="w-100 rounding" :alt="infografikDetail.title">
                         </a>
-                    </div>
+                    </div> -->
 
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />
@@ -149,7 +149,7 @@
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', 'gagal memesan data...')
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
                 }

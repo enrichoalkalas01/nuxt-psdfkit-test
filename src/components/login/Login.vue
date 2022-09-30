@@ -107,7 +107,7 @@
         mounted() {
             if (this.$store.state.Login.LoginStatus) {
                 this.$store.commit('setLoadingScreen', true)
-                this.$store.commit('setLoadingImage', 'failed');
+                this.$store.commit('setLoadingImage', 'warning');
                 this.$store.commit('setLoadingText', 'ups, anda sudah login...');
                 setTimeout(() => { window.location.href = '/' }, 1000)
             }
@@ -180,7 +180,7 @@
                     }, 750) 
                 } catch (error) {
                     console.log(error)
-                    setTimeout(() => { this.$store.commit('setLoadingImage', 'failed'); this.$store.commit('setLoadingText', 'username/password is not match'); this.$store.commit('setCloseStatus', true); }, 500) 
+                    setTimeout(() => { this.$store.commit('setLoadingImage', 'warning'); this.$store.commit('setLoadingText', 'username/password is not match'); this.$store.commit('setCloseStatus', true); }, 500) 
                 }
             },
 

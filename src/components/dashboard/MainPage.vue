@@ -25,7 +25,7 @@
         beforeMount() {
             if ( !this.$store.state.Login.LoginStatus ) {
                 this.$store.commit('setLoadingScreen', true)
-                this.$store.commit('setLoadingImage', 'failed');
+                this.$store.commit('setLoadingImage', 'warning');
                 this.$store.commit('setLoadingText', 'ups, anda belum login...');
                 setTimeout(() => { window.location.href = '/' }, 1000)
             }

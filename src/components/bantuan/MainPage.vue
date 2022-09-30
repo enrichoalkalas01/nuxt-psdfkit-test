@@ -1,5 +1,5 @@
 <template>
-    <section class="sec-artikel my-3">
+    <section class="sec-artikel my-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">

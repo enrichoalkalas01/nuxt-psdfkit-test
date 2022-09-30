@@ -53,36 +53,74 @@
     import Axios from 'axios'
     export default {
         name: 'TopUp',
+        data(){
+            return {
+                userFirstName: null,
+                userLastName: null,
+                userPhoneNumber: null,
+                userJob: null,
+            }
+        },
+        async beforeMount() {
+            this.getUserData()
+        },
         methods: {
-            async topup(userdata){
-                let config = {
-                    url: `${ this.$store.state.Headers.BaseUrlApi }/api/CreditTopups?userid=${ userdata.id }`,
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${ userdata.token }`,
-                        'Content-Type': 'application/json'
-                    },
-                    data: JSON.stringify({
-                        "amount": Number(document.querySelector("#nominal").value),
-                        "expirationDays": Number(document.querySelector("#nominal").options[ document.querySelector("#nominal").selectedIndex ].getAttribute("data-expiration-days")),
-                        "paymentMethod": 0,
-                        "note": "",
-                    })
-                }
-                
-                try {
-                    let Payment = await Axios(config)
-                    console.log(Payment)
-                    window.open(Payment.data.data.url)
-                    window.close()
-                } catch (error) {
-                    console.log(error)
+            async topup(userdata){  
+                if (this.userFirstName != '' && this.userLastName != '' && this.userPhoneNumber != '' && this.userJob != '') {
+                    let config = {
+                        url: `${ this.$store.state.Headers.BaseUrlApi }/api/CreditTopups?userid=${ userdata.id }`,
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${ userdata.token }`,
+                            'Content-Type': 'application/json'
+                        },
+                        data: JSON.stringify({
+                            "amount": Number(document.querySelector("#nominal").value),
+                            "expirationDays": Number(document.querySelector("#nominal").options[ document.querySelector("#nominal").selectedIndex ].getAttribute("data-expiration-days")),
+                            "paymentMethod": 0,
+                            "note": "",
+                        })
+                    }
+                    
+                    try {
+                        let Payment = await Axios(config)
+                        console.log(Payment)
+                        window.open(Payment.data.data.url)
+                        window.close()
+                    } catch (error) {
+                        console.log(error)
+                        this.$store.commit('setLoadingScreen', true)
+                        this.$store.commit('setLoadingImage', 'warning')
+                        this.$store.commit('setLoadingText', 'Mohon lengkapi data diri anda pada menu “akun” terlebih dahulu.')
+                        this.$store.commit('setCloseStatus', true)
+                    }
+                    
+                } else {
                     this.$store.commit('setLoadingScreen', true)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', 'Mohon lengkapi data diri anda pada menu “akun” terlebih dahulu.')
                     this.$store.commit('setCloseStatus', true)
                 }
+
             },
+
+            async getUserData() {
+                try {
+                    let data = await Axios({ headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }`, })                    
+                    console.log(data.data.phoneNumber);
+                    this.userFirstName = data.data.firstName
+                    this.userLastName = data.data.lastName
+                    this.userPhoneNumber = data.data.phoneNumber
+                    this.userJob = data.data.job.title
+
+                    // console.log(this.userFirstName);
+                    // console.log(this.userLastName);
+                    // console.log(this.userPhoneNumber);
+                    // console.log(this.userJob);
+                } catch(err) {
+                    console.log(err)
+                }
+            }
         }
     }
 

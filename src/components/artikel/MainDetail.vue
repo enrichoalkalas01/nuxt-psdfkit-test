@@ -26,7 +26,7 @@
                                 <img :src="`${  artikelDetail ? this.$store.state.Tools.GetUrlFiles + artikelDetail.published_pages[0].preview : '' }`" :alt="artikelDetail?.title" class="db-img">
                             </div>
                             <div class="col-sm-8 my-3">
-                                <h1 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h1>
+                                <h2 class="title txt-main">{{ artikelDetail ? artikelDetail.title : '' }}</h2>
                                 <div class="d-block">
                                     <p class="fw-bold">{{ artikelDetail ? artikelDetail.rubrics : '' }}</p>
                                     <p>{{ artikelDetail ? artikelDetail.published_pages[0].publication : '' }} edisi {{ this.$store.state.Tools.ChangeDateString(artikelDetail ? artikelDetail.published_pages[0].date.substring(0, 10) : '2020-12-12') }}</p>
@@ -99,11 +99,11 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <!-- Banner -->
-                    <div class="banner my-3">
+                    <!-- <div class="banner my-3">
                         <a href="#">
                             <img src="resources/images/ads2.png" class="w-100 rounding" :alt="artikelDetail?.title">
                         </a>
-                    </div>
+                    </div> -->
 
                     <!-- Suggestion -->
                     <Suggestion v-bind:dataSuggestions="suggestions" />
@@ -167,7 +167,7 @@
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 1000)
                 } catch (error) {
                     console.log(error)
-                    this.$store.commit('setLoadingImage', 'failed')
+                    this.$store.commit('setLoadingImage', 'warning')
                     this.$store.commit('setLoadingText', 'gagal memesan data...')
                     setTimeout(() => { this.$store.commit('setLoadingScreen', false) }, 2000)
                 }
@@ -193,7 +193,7 @@
                     console.log(error.response)
                     this.$store.commit('setLoadingText', 'loading..')
                     setTimeout(() => { 
-                        this.$store.commit('setLoadingImage', 'failed');
+                        this.$store.commit('setLoadingImage', 'warning');
                         this.$store.commit('setLoadingText', error.response.data.message);
                         this.$store.commit('setCloseStatus', true);
                         setTimeout(() => {
