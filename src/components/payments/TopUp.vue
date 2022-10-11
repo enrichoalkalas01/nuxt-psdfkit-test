@@ -66,7 +66,7 @@
         },
         methods: {
             async topup(userdata){  
-                if (this.userFirstName != '' && this.userLastName != '' && this.userPhoneNumber != '' && this.userJob != '') {
+                if (this.userFirstName != '' && this.userLastName != '' && this.userPhoneNumber != '' && this.userJob != 0) {
                     let config = {
                         url: `${ this.$store.state.Headers.BaseUrlApi }/api/CreditTopups?userid=${ userdata.id }`,
                         method: 'POST',
@@ -107,11 +107,10 @@
             async getUserData() {
                 try {
                     let data = await Axios({ headers: { Authorization: `Bearer ` + this.$store.state.Login.UserData.token, },url: `${ this.$store.state.Headers.BaseUrlApi }/api/Users/${ this.$store.state.Login.UserData.id }`, })                    
-                    console.log(data.data.phoneNumber);
                     this.userFirstName = data.data.firstName
                     this.userLastName = data.data.lastName
                     this.userPhoneNumber = data.data.phoneNumber
-                    this.userJob = data.data.job.title
+                    this.userJob = data.data.job.id
 
                     // console.log(this.userFirstName);
                     // console.log(this.userLastName);

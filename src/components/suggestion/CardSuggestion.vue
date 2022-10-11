@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="content borderless mb-4">
-            <img :src="image" class="rounding w-100 foto-img" :alt="title">
+            <img v-if="image" :src="image" class="rounding w-100 foto-img" :alt="title">
             <h3 class="subtitle my-2">
                 <a :href="`${ idData }`">
                     {{ title }}
