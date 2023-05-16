@@ -30,6 +30,7 @@
             async loadPSPDFKit() {
                 import("pspdfkit").then(PSPDFKit => {
                     this.PSPDFKit = PSPDFKit
+                    console.log(this.PSPDFKit)
                     this.PSPDFKit.unload(".pdf-container")
                     this.PSPDFKit.load({
                         document: this.pdfFile,

@@ -1,64 +1,23 @@
-# FROM node:18.16.0
-# WORKDIR /app
-# COPY package.json .
+# Use the official Node.js 14 image as the base
+FROM node:18.15.0
 
-# RUN npm install
-# # COPY . .
-# RUN npm run build
-# # EXPOSE 8080/tcp
-# CMD [ "npm", "start"  ]
+# Set the working directory inside the container
+WORKDIR /app
 
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
 
-# FROM node:18.16.0
-
-# WORKDIR /app
-
-# # COPY . .
-# COPY package.json .
-
-# RUN npm install
-
-# RUN npm run build
-
-# ENV HOST 0.0.0.0
-# EXPOSE 3000
-
-# CMD [ "npm", "run", "start" ]
-
-
-# FROM node:18.16.0-alpine
-
-# WORKDIR /app
-
-# # COPY . .
-# COPY package.json .
-
-# RUN npm install
-# RUN npm run build
-
-# ENV NUXT_HOST=0.0.0.0
-# ENV NUXT_PORT=3000
-
-# EXPOSE 3000 
-
-# # ENTRYPOINT ["node", ".output/server/index.mjs"]
-
-
-
-
-FROM node:18.16.0
-
-# WORKDIR /app
-
-# COPY . .
-COPY package.json .
-
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application files to the container
+COPY . .
+
+# Build the Nuxt.js application
 RUN npm run build
 
-ENV HOST 0.0.0.0
+# Expose the port that Nuxt.js will run on
 EXPOSE 3000
 
+# Start the Nuxt.js application
 CMD [ "npm", "run", "start" ]
-# ENTRYPOINT ["node", ".output/server/index.mjs"]

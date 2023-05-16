@@ -16,7 +16,8 @@
 
         data() {
             return {
-                pdfFile: "/poss-upi-press-python-dasar.pdf",
+                // pdfFile: "/poss-upi-press-python-dasar.pdf",
+                pdfFile: "https://apps.kmn.kompas.com/ep/KMN_PustakaMVC/Master/Download?jenisFolder=collections&fileID=45063&oriFileName=45063.pdf&fileLenght=12234202&fileContentType=application%2Fpdf&usract=DownloadEbook",
             }
         },
 
