@@ -1,19 +1,23 @@
-FROM node:12-alpine3.13
+# Use the official Node.js 14 image as the base
+FROM node:18.15.0
+
+# Set the working directory inside the container
 WORKDIR /app
-COPY package.json .
-RUN apk add --no-cache \
-    autoconf \
-    automake \
-    bash \
-    g++ \
-    libc6-compat \
-    libjpeg-turbo-dev \
-    libpng-dev \
-    make \
-    nasm
-# RUN npm install -g pm2
-RUN yarn
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files to the container
 COPY . .
-RUN yarn run build
-EXPOSE 8080/tcp
-CMD [ "yarn", "run", "serve" ]
+
+# Build the Nuxt.js application
+RUN npm run build
+
+# Expose the port that Nuxt.js will run on
+EXPOSE 3000
+
+# Start the Nuxt.js application
+CMD [ "npm", "run", "start" ]
