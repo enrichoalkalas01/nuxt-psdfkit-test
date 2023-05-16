@@ -1,6 +1,6 @@
-FROM node:12-alpine3.13
+FROM node:18-alpine
 WORKDIR /app
-COPY package.json .
+COPY package*.json ./
 RUN apk add --no-cache \
     autoconf \
     automake \
@@ -11,9 +11,10 @@ RUN apk add --no-cache \
     libpng-dev \
     make \
     nasm
+
+RUN npm install    
 # RUN npm install -g pm2
-RUN yarn
 COPY . .
-RUN yarn run build
-EXPOSE 8080/tcp
-CMD [ "yarn", "run", "serve" ]
+RUN npm run build
+# EXPOSE 8080/tcp
+CMD [ "npm", "run", "start" ]
